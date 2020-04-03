@@ -9,7 +9,7 @@ document.addEventListener("DOMContentLoaded", function(){
     console.log(items);
 
     for( var i in items){
-      const article_fragment = document.getElementById('article');
+      const article_fragment = document.getElementById('articleItem');
       const article_instance = document.importNode(article_fragment.content, true);
       // Add relevant content to the template
       article_instance.querySelector('.title').innerHTML = items[i].title;
@@ -72,9 +72,7 @@ document.addEventListener("DOMContentLoaded", function(){
     });
 
 
-
-
-    document.getElementById("clear").onclick = function(){
+    document.getElementById("clearStorage").onclick = function(){
       var r = confirm("Are you sure you want to delete all citations?!");
       if (r == true) {
         chrome.storage.local.clear()
@@ -84,6 +82,7 @@ document.addEventListener("DOMContentLoaded", function(){
 
   });
 });
+
 
 function displayquotes(url){
   document.getElementById('rightpanel').innerHTML = "";
@@ -95,7 +94,8 @@ function displayquotes(url){
     const instance = document.importNode(fragment.content, true);
     // Add relevant content to the template
     instance.querySelector('.quote').innerHTML = item.text;
-    instance.querySelector('.date').innerHTML = item.date;
+    instance.querySelector('.linkback').src = item.url;
+    instance.querySelector('.date').innerHTML += ' '+ item.date;
     if(item.comment){
      instance.querySelector('.comment').innerHTML = item.comment;
     }else{
@@ -113,8 +113,8 @@ function displayquotes(url){
     $(".article[data-id='"+url+"']").addClass( "selected" );
 
   });
-
 };
+
 
 const copyToClipboard = str => {
   const el = document.createElement('textarea');
