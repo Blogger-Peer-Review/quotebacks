@@ -35,7 +35,7 @@ document.addEventListener("DOMContentLoaded", function(){
 
     });
     
-    $('#rightpanel').on('click',".copy", function() {
+    $('#rightpanel').on('click',"#copy", function() {
       console.log("copying?");
       var quote = $(this).closest('.quoteblock').find('.quote').text();
       copyToClipboard(quote);
@@ -46,7 +46,7 @@ document.addEventListener("DOMContentLoaded", function(){
       }, 1000);
     });
 
-    $('#rightpanel').on('click',".getlink", function() {
+    $('#rightpanel').on('click',"#getlink", function() {
       
       var title = $(".selected").find(".title").text();
       var url = $(".selected").find(".url").text();
