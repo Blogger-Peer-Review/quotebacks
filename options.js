@@ -57,6 +57,7 @@ document.addEventListener("DOMContentLoaded", function(){
   });
 });
 
+
 function displayquotes(url){
   document.getElementById('rightpanel').innerHTML = "";
 
@@ -86,8 +87,8 @@ function displayquotes(url){
     $(".article[data-id='"+url+"']").addClass( "selected" );
 
   });
-
 };
+
 
 const copyToClipboard = str => {
   const el = document.createElement('textarea');
