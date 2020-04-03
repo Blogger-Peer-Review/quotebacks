@@ -1,0 +1,18 @@
+<embed>
+	<div class="portal-container" style="	border:1px solid #C2DFE3; border-radius:8px; margin-bottom:25px;">
+
+	    <div class="portal-head" style="border-bottom: 1px solid #C2DFE3; padding:12.5px">
+
+	        <div class="portal-backlink" style="display:flex; flex-direction:row; justify-content:space-between; align-items:center;">
+
+	            <div class="portal-title" style="font-size: 14px;	color: #9DB8BF;">From <span class="portal-text-title" style="font-weight:700; color: #C2DFE3">{{ include.title }}</span></div>
+
+	            <a href="{{ include.link }}" class="portal-arrow" style="font-size: 14px; color: #9DB8BF;">Go to text<span class="right-arrow">→</span></a>
+	        </div>        
+	    </div>
+
+	    <div id="portal-parent" class="portal-parent" style="position:relative; width:100%; box-sizing: border-box;">
+	    	<div id="portal-content" style="width: 100%; padding: 12.5px 12.5px; color: #253237"><!-- CONTENT GETS INJECTED HERE --></div>
+	    </div>    
+	</div>
+</embed>
