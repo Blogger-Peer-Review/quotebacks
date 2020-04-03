@@ -1,0 +1,41 @@
+{
+  "name": "Tom & Toby Experimental Citation Tool",
+  "description": "Citations Magic",
+  "version": "1.0",
+  "manifest_version": 2,
+  "permissions": [
+    "storage",
+    "activeTab",
+    "tabs",
+    "unlimitedStorage"
+  ],
+  "icons": {
+    "16": "/images/favicon.png"
+  },
+  "browser_action": {
+    "default_title": "Options"
+  },
+  "options_page": "options.html",
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"],
+      "css": ["styles.css"]
+    }
+  ],
+  "background": {
+    "scripts": ["background.js"],
+    "persistent": false
+  },
+  "web_accessible_resources": ["options.html"],
+  "commands": {
+    "toggle-feature": {
+      "suggested_key": {
+        "default": "Ctrl+Shift+Y",
+        "mac": "MacCtrl+Shift+Y"
+       },
+      "description": "Send a 'toggle-feature' event to the extension"
+    }
+  }
+}
+
