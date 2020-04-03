@@ -46,6 +46,32 @@ document.addEventListener("DOMContentLoaded", function(){
       }, 1000);
     });
 
+    $('#rightpanel').on('click',".getlink", function() {
+      
+      var title = $(".selected").find(".title").text();
+      var url = $(".selected").find(".url").text();
+      var quote = $(this).closest('.quoteblock').find('.quote').text();
+
+      const embed_fragment = document.getElementById('embed');
+      const embed = document.importNode(embed_fragment.content, true);
+      // Add relevant content to the template
+      embed.querySelector('.portal-text-title').innerHTML = title;
+      embed.querySelector('.portal-arrow').setAttribute("href", url);
+      embed.querySelector('#portal-content').innerHTML = quote;
+    
+      let div=document.createElement("div");
+      div.appendChild(embed);
+
+      copyToClipboard(div.innerHTML);
+
+      var el = $(this);
+      el.css('border', '1px solid red');
+      setTimeout(function() {
+        el.css('border', 'none');
+      }, 1000);
+    });
+
+
     document.getElementById("clearStorage").onclick = function(){
       var r = confirm("Are you sure you want to delete all citations?!");
       if (r == true) {
