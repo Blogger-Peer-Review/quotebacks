@@ -94,7 +94,7 @@ function displayquotes(url){
     const instance = document.importNode(fragment.content, true);
     // Add relevant content to the template
     instance.querySelector('.quote').innerHTML = item.text;
-    instance.querySelector('.linkback').src = item.url;
+    instance.querySelector('.linkback a').href = url;
     instance.querySelector('.date').innerHTML += ' '+ item.date;
     if(item.comment){
      instance.querySelector('.comment').innerHTML = item.comment;
