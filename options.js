@@ -15,12 +15,10 @@ document.addEventListener("DOMContentLoaded", function(){
       // Add relevant content to the template
       article_instance.querySelector('.title').innerHTML = items[i].title;
       article_instance.querySelector('.author').innerHTML = items[i].author;
-      article_instance.querySelector('.url').innerHTML = items[i].url;
-      // .... .url.replace(/^(?:https?:\/\/)?(?:www\.)?/, '') 
       // this will truncate the URL but also it means we need a different way of populating the right panel
 
       article_instance.querySelector('.article').setAttribute("data-id",items[i].url);
-
+      article_instance.querySelector('.url').innerHTML = items[i].url.replace(/^(?:https?:\/\/)?(?:www\.)?/, '') ;
       // Append the instance ot the DOM
       document.getElementById('leftnav').appendChild(article_instance);
     }
@@ -34,7 +32,7 @@ document.addEventListener("DOMContentLoaded", function(){
     }
       
     $( ".article" ).click(function() {
-      var url = $(this).find('.url').text();
+      var url = $(this).attr('data-id');
       displayquotes(url);
 
     });
