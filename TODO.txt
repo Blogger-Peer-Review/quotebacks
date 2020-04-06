@@ -11,7 +11,9 @@ Copy/paste:
 Comment editing:
 - resolve line breaks issue being stripped?
 - saving... saved interaction
+    - Think this will fix? https://stackoverflow.com/a/37055590/497743
 
 Make delete work for quotes
 
 Change date to timestamp
+- Done but not exposed anywhere. We order last in first up tho...
