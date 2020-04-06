@@ -93,6 +93,7 @@ function displayquotes(url){
   alldata[url].quotes.forEach(item => {
     // Create an instance of the template content
     const instance = document.importNode(fragment.content, true);
+    
     // Add relevant content to the template
     instance.querySelector('.quote').innerHTML = item.text;
     instance.querySelector('.linkback a').href = url;

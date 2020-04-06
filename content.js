@@ -104,8 +104,27 @@ document.addEventListener('keydown', function(event) {
 function getSelectionText() {
     var text = "";
     if (window.getSelection) {
-    text = window.getSelection().toString();
-    } else if (document.selection && document.selection.type != "Control") {
+    
+      // from here: https://gist.github.com/gleuch/2475825
+      // selection range
+      var range = window.getSelection().getRangeAt(0);
+
+      // plain text of selected range (if you want it w/o html)
+      var text = window.getSelection();
+          
+      // document fragment with html for selection
+      var fragment = range.cloneContents();
+
+      // make new element, insert document fragment, then get innerHTML!
+      var div = document.createElement('div');
+      div.appendChild( fragment.cloneNode(true) );
+
+      // your document fragment to a string (w/ html)! (yay!)
+      var text = div.innerHTML;
+      console.log(text);
+
+
+    } else if (document.selection && document.selection.type != "Control") { // think this is for IE?
     text = document.selection.createRange().text;
     }
     return text;
