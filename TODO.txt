@@ -1,9 +1,14 @@
 
+Tom Adds:
+---------
 
 Add search using fuse.js
-Copy HTML not just text
+
+Copy HTML not just text (rich format?)
+- https://stackoverflow.com/questions/23934656/javascript-copy-rich-text-contents-to-clipboard
+
 Edit comments on options page
-Make delete work
+Make delete work for quotes
 
 Change date to timestamp
 saving... saved interaction
