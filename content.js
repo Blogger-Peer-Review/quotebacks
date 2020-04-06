@@ -166,10 +166,8 @@ var AutoSave = (function(){
 
 	function save(object){
         console.log("running save");
-		var editor = getEditor(); 
+		    var editor = getEditor(); 
             if (editor) {
-            
-                //localStorage.setItem("AUTOSAVE_" + document.location, editor.value )
 
             var page = document.location.href;
 
