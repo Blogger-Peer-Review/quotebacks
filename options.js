@@ -72,7 +72,6 @@ document.addEventListener("DOMContentLoaded", function(){
       }, 1000);
     });
 
-
     document.getElementById("clearStorage").onclick = function(){
       var r = confirm("Are you sure you want to delete all citations?!");
       if (r == true) {
@@ -81,6 +80,24 @@ document.addEventListener("DOMContentLoaded", function(){
       } 
     };
 
+    // on focus comment box -> trigger autosave
+    $( "#rightpanel" ).on("focus" , ".comment", function() {
+      
+      var url = $(".selected").attr("data-id");
+      var object = alldata[url];
+      console.log($(this).text());
+      if($(this).text() == "Add comment"){
+        $(this).text("");
+      };
+      var el = $(this);
+      AutoSave.start(object, el , $(this).index(".comment"),url);
+    });
+
+    // on focusout comment box -> stop autosave
+    $( "#rightpanel" ).on("focusout" , ".comment", function() {
+      AutoSave.stop();
+    });    
+
   });
 });
 
@@ -88,16 +105,27 @@ document.addEventListener("DOMContentLoaded", function(){
 function displayquotes(url){
   document.getElementById('rightpanel').innerHTML = "";
 
+  window.location.hash = url;
+
   const fragment = document.getElementById('quote');
     
   alldata[url].quotes.forEach(item => {
     // Create an instance of the template content
     const instance = document.importNode(fragment.content, true);
-    
+
     // Add relevant content to the template
     instance.querySelector('.quote').innerHTML = item.text;
     instance.querySelector('.linkback a').href = url;
-    instance.querySelector('.date').innerHTML += ' '+ item.date;
+
+    var date = new Date(item.date);
+    console.log(date); // date is a timestamp but we only display formatted
+    var dd = String(date.getDate()).padStart(2, '0');
+    var mm = String(date.getMonth() + 1).padStart(2, '0'); //January is 0!
+    var yyyy = date.getFullYear();
+    
+    date = mm + '/' + dd + '/' + yyyy;
+    instance.querySelector('.date').innerHTML += date;
+
     if(item.comment){
      instance.querySelector('.comment').innerHTML = item.comment;
     }else{
@@ -114,6 +142,7 @@ function displayquotes(url){
 
     $(".article[data-id='"+url+"']").addClass( "selected" );
 
+
   });
 };
 
@@ -128,3 +157,54 @@ const copyToClipboard = str => {
 };
 
 
+var AutoSave = (function(){
+
+  var timer = null;
+
+function save(object, el, index, url){
+            console.log("running save");
+            console.log(el);
+            alldata[url]["quotes"][index]["comment"] = el.text();
+            chrome.storage.local.set(alldata, function() { 
+            console.log("autosaved");
+          });
+          
+      };
+
+function restore(){ //don't think I actually need this restore function...?
+      var page = document.location.href;
+      var saved = "";
+      chrome.storage.local.get([page], function(result) {
+          saved = result[page]["quotes"][0]["comment"];
+      });
+
+  var editor = getEditor();
+  if (saved && editor){
+    editor.value = saved; 
+  }
+}
+
+return { 
+
+  start: function(object, el, index, url){
+
+    if (timer != null){
+      clearInterval(timer);
+      timer = null;
+    }
+    timer = setInterval(function(){
+              save(object, el, index, url)
+          }, 1000);
+  },
+
+  stop: function(){
+
+    if (timer){ 
+      clearInterval(timer);
+      timer = null;
+    }
+
+  }
+}
+
+}());

@@ -143,12 +143,9 @@ function getMeta(metaName) {
   };
 
 function getDate(){
-  var today = new Date();
-  var dd = String(today.getDate()).padStart(2, '0');
-  var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
-  var yyyy = today.getFullYear();
   
-  today = mm + '/' + dd + '/' + yyyy;
+  var today = Number(new Date());
+
   return today;
 };
 
@@ -166,10 +163,8 @@ var AutoSave = (function(){
 
 	function save(object){
         console.log("running save");
-		var editor = getEditor(); 
+		    var editor = getEditor(); 
             if (editor) {
-            
-                //localStorage.setItem("AUTOSAVE_" + document.location, editor.value )
 
             var page = document.location.href;
 
