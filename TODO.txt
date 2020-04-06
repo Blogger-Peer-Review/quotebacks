@@ -12,7 +12,6 @@ Comment editing:
 - resolve line breaks issue being stripped?
 - saving... saved interaction
 
-Edit comments on options page
 Make delete work for quotes
 
 Change date to timestamp

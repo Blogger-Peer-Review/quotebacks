@@ -115,7 +115,16 @@ function displayquotes(url){
     // Add relevant content to the template
     instance.querySelector('.quote').innerHTML = item.text;
     instance.querySelector('.linkback a').href = url;
-    instance.querySelector('.date').innerHTML += ' '+ item.date;
+
+    var date = new Date(item.date);
+    console.log(date); // date is a timestamp but we only display formatted
+    var dd = String(date.getDate()).padStart(2, '0');
+    var mm = String(date.getMonth() + 1).padStart(2, '0'); //January is 0!
+    var yyyy = date.getFullYear();
+    
+    date = mm + '/' + dd + '/' + yyyy;
+    instance.querySelector('.date').innerHTML += date;
+
     if(item.comment){
      instance.querySelector('.comment').innerHTML = item.comment;
     }else{
