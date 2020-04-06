@@ -81,10 +81,13 @@ document.addEventListener("DOMContentLoaded", function(){
 
     // on focus comment box -> trigger autosave
     $( "#rightpanel" ).on("focus" , ".comment", function() {
-      console.log($(this).index(".comment"));
+      
       var url = $(".selected").attr("data-id");
       var object = alldata[url];
-      console.log(object);
+      console.log($(this).text());
+      if($(this).text() == "Add comment"){
+        $(this).text("");
+      };
       var el = $(this);
       AutoSave.start(object, el , $(this).index(".comment"),url);
     });
