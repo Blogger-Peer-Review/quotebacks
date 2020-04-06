@@ -8,8 +8,11 @@ Copy/paste:
 - Edit relative links in selection to absolute...
 - Fix copy/embed links to grab rich text not text
 
+Comment editing:
+- resolve line breaks issue being stripped?
+- saving... saved interaction
+
 Edit comments on options page
 Make delete work for quotes
 
 Change date to timestamp
-saving... saved interaction

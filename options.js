@@ -104,6 +104,8 @@ document.addEventListener("DOMContentLoaded", function(){
 function displayquotes(url){
   document.getElementById('rightpanel').innerHTML = "";
 
+  window.location.hash = url;
+
   const fragment = document.getElementById('quote');
     
   alldata[url].quotes.forEach(item => {
