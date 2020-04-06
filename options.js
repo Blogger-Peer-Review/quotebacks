@@ -9,14 +9,16 @@ document.addEventListener("DOMContentLoaded", function(){
     console.log(items);
 
     for( var i in items){
+
       const article_fragment = document.getElementById('articleItem');
       const article_instance = document.importNode(article_fragment.content, true);
       // Add relevant content to the template
       article_instance.querySelector('.title').innerHTML = items[i].title;
       article_instance.querySelector('.author').innerHTML = items[i].author;
-      article_instance.querySelector('.url').innerHTML = items[i].url;
-      article_instance.querySelector('.article').setAttribute("data-id",items[i].url);
+      // this will truncate the URL but also it means we need a different way of populating the right panel
 
+      article_instance.querySelector('.article').setAttribute("data-id",items[i].url);
+      article_instance.querySelector('.url').innerHTML = items[i].url.replace(/^(?:https?:\/\/)?(?:www\.)?/, '') ;
       // Append the instance ot the DOM
       document.getElementById('leftnav').appendChild(article_instance);
     }
@@ -30,7 +32,7 @@ document.addEventListener("DOMContentLoaded", function(){
     }
       
     $( ".article" ).click(function() {
-      var url = $(this).find('.url').text();
+      var url = $(this).attr('data-id');
       displayquotes(url);
 
     });
@@ -94,7 +96,7 @@ function displayquotes(url){
     const instance = document.importNode(fragment.content, true);
     // Add relevant content to the template
     instance.querySelector('.quote').innerHTML = item.text;
-    instance.querySelector('.linkback a').href = url;
+    instance.querySelector('.linkback a').href = item.url;
     instance.querySelector('.date').innerHTML += ' '+ item.date;
     if(item.comment){
      instance.querySelector('.comment').innerHTML = item.comment;
