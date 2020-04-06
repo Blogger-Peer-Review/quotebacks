@@ -4,3 +4,6 @@ Add search using fuse.js
 Copy HTML not just text
 Edit comments on options page
 Make delete work
+
+Change date to timestamp
+saving... saved interaction
