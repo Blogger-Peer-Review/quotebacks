@@ -13,11 +13,14 @@ document.addEventListener("DOMContentLoaded", function(){
       const article_fragment = document.getElementById('articleItem');
       const article_instance = document.importNode(article_fragment.content, true);
       // Add relevant content to the template
+
+      var domain = extractHostname(items[i].url);
       article_instance.querySelector('.title').innerHTML = items[i].title;
       article_instance.querySelector('.author').innerHTML = items[i].author;
 
+      article_instance.querySelector('.url').innerHTML = "<img src='https://s2.googleusercontent.com/s2/favicons?domain_url=" +domain+"'/>" +domain;
       article_instance.querySelector('.article').setAttribute("data-id",items[i].url);
-      article_instance.querySelector('.url').innerHTML = items[i].url.replace(/^(?:https?:\/\/)?(?:www\.)?/, '') ;
+
       // Append the instance ot the DOM
       document.getElementById('leftnav').appendChild(article_instance);
     }
@@ -155,6 +158,20 @@ const copyToClipboard = str => {
   document.execCommand('copy');
   document.body.removeChild(el);
 };
+
+function extractHostname(url) {
+  var hostname;
+  //find & remove protocol (http, ftp, etc.) and get hostname
+
+  if (url.indexOf("//") > -1) {
+      hostname = url.split('/')[2];
+  }
+  else {
+      hostname = url.split('/')[0];
+  }
+  return hostname 
+};
+
 
 
 var AutoSave = (function(){
