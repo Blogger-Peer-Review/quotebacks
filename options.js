@@ -9,6 +9,7 @@ document.addEventListener("DOMContentLoaded", function(){
     console.log(items);
 
     for( var i in items){
+
       const article_fragment = document.getElementById('articleItem');
       const article_instance = document.importNode(article_fragment.content, true);
       // Add relevant content to the template
@@ -16,6 +17,7 @@ document.addEventListener("DOMContentLoaded", function(){
       var domain = extractHostname(items[i].url);
       article_instance.querySelector('.title').innerHTML = items[i].title;
       article_instance.querySelector('.author').innerHTML = items[i].author;
+
       article_instance.querySelector('.url').innerHTML = "<img src='https://s2.googleusercontent.com/s2/favicons?domain_url=" +domain+"'/>" +domain;
       article_instance.querySelector('.article').setAttribute("data-id",items[i].url);
 
@@ -32,7 +34,7 @@ document.addEventListener("DOMContentLoaded", function(){
     }
       
     $( ".article" ).click(function() {
-      var url = $(this).find('.url').text();
+      var url = $(this).attr('data-id');
       displayquotes(url);
 
     });
@@ -51,7 +53,7 @@ document.addEventListener("DOMContentLoaded", function(){
     $('#rightpanel').on('click',"#getlink", function() {
       
       var title = $(".selected").find(".title").text();
-      var url = $(".selected").find(".url").text();
+      var url = $(".selected").attr("data-id");
       var quote = $(this).closest('.quoteblock').find('.quote').text();
 
       const embed_fragment = document.getElementById('embed');

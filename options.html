@@ -3,7 +3,6 @@
 <head>
     
 <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,300;1,400;1,600;1,700;1,800&display=swap" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600&display=swap" rel="stylesheet">
 <script src="jquery-1.10.2.min.js" type="text/javascript"></script>
 
 <link rel="stylesheet" href="styles/options.css" type="text/css">
@@ -37,7 +36,7 @@
 
     <div class="meta">
       <div class="date">Created</div>
-      <div class="linkback"><a href="">View Original</a></div>
+      <div class="linkback"><a target="_blank" href="">View Original</a></div>
     </div>
 
     <div class="quote-container">
@@ -58,24 +57,24 @@
 
 <template id="embed">
   <embed>
-    <div class="portal-container" style="	border:1px solid #C2DFE3; border-radius:8px; margin-bottom:25px;">
+    <div class="portal-container" style="border:1px solid #C2DFE3; border-radius:8px; margin-bottom:25px; max-width: 800px; font-family: system-ui, sans-serif;">
   
         <div class="portal-head" style="border-bottom: 1px solid #C2DFE3; padding:12.5px">
   
             <div class="portal-backlink" style="display:flex; flex-direction:row; justify-content:space-between; align-items:center;">
   
-                <div class="portal-title" style="font-size: 14px;	color: #9DB8BF;">From <span class="portal-text-title" style="font-weight:700; color: #C2DFE3"></span></div>
+                <div class="portal-title" style="font-size: 14px; color: #9DB8BF; max-width: 80%; white-space: nowrap; overflow:hidden; text-overflow: ellipsis;">From <span class="portal-text-title" style="font-weight:700; color: #5C6D73"></span></div>
   
-                <a href="" class="portal-arrow" style="font-size: 14px; color: #9DB8BF;">Go to text<span class="right-arrow">→</span></a>
+                <a href="" class="portal-arrow" style="font-size: 14px; color: #9DB8BF;">Go to text<span class="right-arrow"> &#8594;</span></a>
             </div>        
         </div>
   
         <div id="portal-parent" class="portal-parent" style="position:relative; width:100%; box-sizing: border-box;">
-          <div id="portal-content" style="width: 100%; padding: 12.5px 12.5px; color: #253237"><!-- CONTENT GETS INJECTED HERE --></div>
+          <link href="https://fonts.googleapis.com/css2?family=PT+Serif&display=swap" rel="stylesheet">
+          <div id="portal-content" style="width: 100%; box-sizing:border-box; padding: 12.5px 12.5px; color: #253237; font-family: 'PT Serif', serif;"><!-- CONTENT GETS INJECTED HERE --></div>
         </div>    
     </div>
   </embed>
-
 </template>
 
 
