@@ -4,11 +4,14 @@ Tom Adds:
 
 Add search using fuse.js
 
-Copy HTML not just text (rich format?)
-- https://stackoverflow.com/questions/23934656/javascript-copy-rich-text-contents-to-clipboard
+Copy/paste:
+- Edit relative links in selection to absolute...
+- Fix copy/embed links to grab rich text not text
 
-Edit comments on options page
+Comment editing:
+- resolve line breaks issue being stripped?
+- saving... saved interaction
+
 Make delete work for quotes
 
 Change date to timestamp
-saving... saved interaction
