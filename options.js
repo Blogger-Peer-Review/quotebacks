@@ -89,6 +89,7 @@ document.addEventListener("DOMContentLoaded", function(){
       if($(this).text() == "Add comment"){
         $(this).text("");
       };
+      $(this).css("color","#464A4D")
       var el = $(this);
       AutoSave.start(object, el , $(this).index(".comment"),url);
     });
@@ -128,6 +129,7 @@ function displayquotes(url){
 
     if(item.comment){
      instance.querySelector('.comment').innerHTML = item.comment;
+     instance.querySelector('.comment').style.color = "#464A4D";
     }else{
       instance.querySelector('.comment').innerHTML = "Add comment";
     };
@@ -157,26 +159,26 @@ const copyToClipboard = str => {
 };
 
 
-var AutoSave = (function(){
 
+// AUTOSAVE FUNCTION
+var AutoSave = (function(){
   var timer = null;
 
-function save(object, el, index, url){
-            console.log("running save");
-            console.log(el);
-            alldata[url]["quotes"][index]["comment"] = el.text();
-            chrome.storage.local.set(alldata, function() { 
-            console.log("autosaved");
-          });
-          
-      };
+  function save(object, el, index, url){
+    console.log("running save");
+    console.log(el);
+    alldata[url]["quotes"][index]["comment"] = el.text();
+    chrome.storage.local.set(alldata, function(){ 
+      console.log("autosaved");
+    });          
+  };
 
 function restore(){ //don't think I actually need this restore function...?
-      var page = document.location.href;
-      var saved = "";
-      chrome.storage.local.get([page], function(result) {
-          saved = result[page]["quotes"][0]["comment"];
-      });
+  var page = document.location.href;
+  var saved = "";
+  chrome.storage.local.get([page], function(result) {
+      saved = result[page]["quotes"][0]["comment"];
+  });
 
   var editor = getEditor();
   if (saved && editor){
