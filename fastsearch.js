@@ -173,15 +173,16 @@ function executeSearch(term) {
   } else { // build our html 
    
     for (var i in results.slice(0,5)){
-      var itemtitle = "<a href='/options.html#"+results[i].item.url+"'>"+results[i].item.title;
-      var domain = "<div><img src='https://s2.googleusercontent.com/s2/favicons?domain_url="+extractHostname(results[i].item.url)+"'/>"+extractHostname(results[i].item.url)+"</div>";
-      var quotes = "";
+
       for(var j in results[i].item.quotes){
-        var quotes = quotes + "<span>"+results[i].item.quotes[j].text+"</span>";
+        var itemtitle = "<a href='/options.html#"+results[i].item.url+"'>"+results[i].item.title;
+        var domain = "<div><img src='https://s2.googleusercontent.com/s2/favicons?domain_url="+extractHostname(results[i].item.url)+"'/>"+extractHostname(results[i].item.url)+"</div>";  
+        var quotes = "<span>"+results[i].item.quotes[j].text.substring(1,100)+"</span>";
+        searchitems = searchitems + "<li>"+itemtitle+domain+quotes+"</a></li>"
         
       }
       console.log(quotes);
-      searchitems = searchitems + "<li>"+itemtitle+domain+quotes+"</a></li>"
+      
     }
    
     resultsAvailable = true;
