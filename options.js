@@ -1,14 +1,17 @@
 var alldata;
 var allKeys;
+var alljson = [];
 
 document.addEventListener("DOMContentLoaded", function(){
   chrome.storage.local.get(null, function(items) {
     allKeys = Object.keys(items);
     alldata = items;
 
-    console.log(items);
+    console.log(alldata);
 
     for( var i in items){
+
+      alljson.push(items[i]);
 
       const article_fragment = document.getElementById('articleItem');
       const article_instance = document.importNode(article_fragment.content, true);
@@ -25,6 +28,9 @@ document.addEventListener("DOMContentLoaded", function(){
       document.getElementById('leftnav').appendChild(article_instance);
     }
 
+    alljson = JSON.stringify(alljson);
+    alljson = JSON.parse(alljson);
+
     var pagehash = $(location).attr('hash').replace("#","");
 
     if($(location).attr('hash')){
@@ -32,6 +38,10 @@ document.addEventListener("DOMContentLoaded", function(){
     }else{
       displayquotes(allKeys[0]);
     }
+
+    window.addEventListener('hashchange', function() {
+      displayquotes($(location).attr('hash').replace("#",""))
+    }, false);
       
     $( ".article" ).click(function() {
       var url = $(this).attr('data-id');
@@ -92,6 +102,7 @@ document.addEventListener("DOMContentLoaded", function(){
       if($(this).text() == "Add comment"){
         $(this).text("");
       };
+      $(this).css("color","#464A4D")
       var el = $(this);
       AutoSave.start(object, el , $(this).index(".comment"),url);
     });
@@ -131,6 +142,7 @@ function displayquotes(url){
 
     if(item.comment){
      instance.querySelector('.comment').innerHTML = item.comment;
+     instance.querySelector('.comment').style.color = "#464A4D";
     }else{
       instance.querySelector('.comment').innerHTML = "Add comment";
     };
@@ -174,26 +186,26 @@ function extractHostname(url) {
 
 
 
-var AutoSave = (function(){
 
+// AUTOSAVE FUNCTION
+var AutoSave = (function(){
   var timer = null;
 
-function save(object, el, index, url){
-            console.log("running save");
-            console.log(el);
-            alldata[url]["quotes"][index]["comment"] = el.text();
-            chrome.storage.local.set(alldata, function() { 
-            console.log("autosaved");
-          });
-          
-      };
+  function save(object, el, index, url){
+    console.log("running save");
+    console.log(el);
+    alldata[url]["quotes"][index]["comment"] = el.text();
+    chrome.storage.local.set(alldata, function(){ 
+      console.log("autosaved");
+    });          
+  };
 
 function restore(){ //don't think I actually need this restore function...?
-      var page = document.location.href;
-      var saved = "";
-      chrome.storage.local.get([page], function(result) {
-          saved = result[page]["quotes"][0]["comment"];
-      });
+  var page = document.location.href;
+  var saved = "";
+  chrome.storage.local.get([page], function(result) {
+      saved = result[page]["quotes"][0]["comment"];
+  });
 
   var editor = getEditor();
   if (saved && editor){
