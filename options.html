@@ -6,12 +6,20 @@
 <script src="jquery-1.10.2.min.js" type="text/javascript"></script>
 
 <link rel="stylesheet" href="styles/options.css" type="text/css">
+<link rel="stylesheet" href="styles/search.css" type="text/css">
 </head>
 
 <body>
 
 
 <div id="nav">
+  <div id="searchbar">
+      <div id="fastSearch">
+          <input id="searchInput" tabindex="0" placeholder="Search">
+          <ul id="searchResults">
+          </ul>
+        </div>
+  </div>
 </div>
 
 <div id="appcontainer">
@@ -83,8 +91,20 @@
 
 </template>
 
+<template id="searchitem">
+    <div class="searchitem">
+      <div class="title"></div>
+    </div>
+  </template>
 
-  </body>
+  
 
 <script src="options.js"></script>
+
+
+<script src="fuse.js"></script> <!-- download and copy over fuse.js file from fusejs.io -->
+<script src="fastsearch.js"></script>
+
+</body>
+
 </html>

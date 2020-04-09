@@ -1,14 +1,17 @@
 var alldata;
 var allKeys;
+var alljson = [];
 
 document.addEventListener("DOMContentLoaded", function(){
   chrome.storage.local.get(null, function(items) {
     allKeys = Object.keys(items);
     alldata = items;
 
-    console.log(items);
+    console.log(alldata);
 
     for( var i in items){
+
+      alljson.push(items[i]);
 
       const article_fragment = document.getElementById('articleItem');
       const article_instance = document.importNode(article_fragment.content, true);
@@ -25,6 +28,9 @@ document.addEventListener("DOMContentLoaded", function(){
       document.getElementById('leftnav').appendChild(article_instance);
     }
 
+    alljson = JSON.stringify(alljson);
+    alljson = JSON.parse(alljson);
+
     var pagehash = $(location).attr('hash').replace("#","");
 
     if($(location).attr('hash')){
@@ -32,6 +38,10 @@ document.addEventListener("DOMContentLoaded", function(){
     }else{
       displayquotes(allKeys[0]);
     }
+
+    window.addEventListener('hashchange', function() {
+      displayquotes($(location).attr('hash').replace("#",""))
+    }, false);
       
     $( ".article" ).click(function() {
       var url = $(this).attr('data-id');
