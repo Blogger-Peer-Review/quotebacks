@@ -143,6 +143,7 @@ function executeSearch(term) {
 
   document.getElementById("searchResults").innerHTML = searchitems;
   if (results.length > 0) {
+    document.getElementById("searchResults").style.display = "inline-block";
     first = list.firstChild.firstElementChild; // first result container — used for checking against keyboard up/down location
     last = list.lastChild.firstElementChild; // last result container — used for checking against keyboard up/down location
   }

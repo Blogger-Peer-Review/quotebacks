@@ -34,47 +34,6 @@ body{
 
 }
 
-#fastSearch { 
-  position: absolute;
-  left:0px;
-  display: inline-block;
-  width: 300px;
-  z-index:5;
-  border-radius: 4px;
-}      
-
-#fastSearch input { 
-  padding: 13px;
-  width: 100%;
-  height: 14px;
-  font-size: 14px;
-  color: #aaa;
-  background: #ECEEEF;
-  border: none;
-  outline: none;
-  text-align: left;
-  display: inline-block;
-}
-
-#searchResults{
-  position:absolute;
-  margin:0px;
-  padding:0px;
-}
-
-#searchResults li { 
-  list-style: none; 
-  margin-left: 0em;
-  background: #ECEEEF; 
-  border-bottom: 1px dotted #000;
-}
-  #searchResults li .title { font-size: 1.1em; margin-bottom: 10px; display: inline-block;}
-
-#searchResults { visibility: inherit; display: inline-block; width: 516px; }
-#searchResults a { color:white; text-decoration: none !important; padding: 10px; display: inline-block; }
-#searchResults a:hover, a:focus { outline: 0; background-color: #666; color: #fff; }
-
-
 #appcontainer{
   position:fixed;
   top:50px;
