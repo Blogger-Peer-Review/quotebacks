@@ -17,3 +17,8 @@ Make delete work for quotes
 
 Change date to timestamp
 - Done but not exposed anywhere. We order last in first up tho...
+
+Popup styling
+- Unset working pretty well
+- Don't append the popup to the getselection div. Causes issues with overflow (e.g. ribbonfarm)
+- Insted grab x,y coords of selection and attach popup to body
