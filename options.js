@@ -51,7 +51,7 @@ document.addEventListener("DOMContentLoaded", function(){
     
     $('#rightpanel').on('click',"#copy", function() {
       console.log("copying?");
-      var quote = $(this).closest('.quoteblock').find('.quote').text();
+      var quote = $(this).closest('.quoteblock').find('.portal-content').text();
       copyToClipboard(quote);
       var el = $(this);
       el.css('border', '1px solid red');
@@ -64,7 +64,7 @@ document.addEventListener("DOMContentLoaded", function(){
       
       var title = $(".selected").find(".title").text();
       var url = $(".selected").attr("data-id");
-      var quote = $(this).closest('.quoteblock').find('.quote').text();
+      var quote = $(this).closest('.quoteblock').find('.portal-content').text();
 
       const embed_fragment = document.getElementById('embed');
       const embed = document.importNode(embed_fragment.content, true);
@@ -131,8 +131,11 @@ function displayquotes(url){
     const instance = document.importNode(fragment.content, true);
 
     // Add relevant content to the template
-    instance.querySelector('.quote').innerHTML = item.text;
+    instance.querySelector('.portal-content').innerHTML = item.text;
     instance.querySelector('.linkback a').href = url;
+    instance.querySelector('.portal-arrow').href = url;
+    instance.querySelector('.portal-text-title').innerHTML = item.title;
+    instance.querySelector('.portal-author').innerHTML = item.author;
 
     var date = new Date(item.date);
     console.log(date); // date is a timestamp but we only display formatted
