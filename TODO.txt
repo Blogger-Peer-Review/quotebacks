@@ -2,8 +2,6 @@
 Tom Adds:
 ---------
 
-Add search using fuse.js
-
 Copy/paste:
 - Edit relative links in selection to absolute...
 - Fix copy/embed links to filter rich text only for links (and other elements?) currently grabbing full HTML. Needs cleaning.
@@ -20,5 +18,4 @@ Change date to timestamp
 
 Popup styling
 - Unset working pretty well
-- Don't append the popup to the getselection div. Causes issues with overflow (e.g. ribbonfarm)
 - Insted grab x,y coords of selection and attach popup to body
