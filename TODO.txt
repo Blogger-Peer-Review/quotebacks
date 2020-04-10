@@ -19,3 +19,23 @@ Change date to timestamp
 Popup styling
 - Unset working pretty well
 - Insted grab x,y coords of selection and attach popup to body
+
+
+
+Toby Adds:
+----------
+
+UTF-8
+- Add UTF-8 to quote.css
+- Make sure quote.css deploys to the same now url every time
+
+Embed style
+- change quote block to be the typical embed style
+
+Popup style
+- update popup style and populate
+
+Fix embed logic
+- in options.html
+- and in the embed
+
