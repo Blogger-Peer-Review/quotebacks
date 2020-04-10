@@ -122,6 +122,9 @@ function displayquotes(url){
   window.location.hash = url;
 
   const fragment = document.getElementById('quote');
+
+  var offset = $(".article[data-id='"+url+"']").offset();
+  $("#leftnav").scrollTop(offset.top);
     
   alldata[url].quotes.forEach(item => {
     // Create an instance of the template content
