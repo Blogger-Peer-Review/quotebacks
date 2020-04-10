@@ -71,7 +71,7 @@ document.addEventListener("DOMContentLoaded", function(){
       // Add relevant content to the template
       embed.querySelector('.portal-text-title').innerHTML = title;
       embed.querySelector('.portal-arrow').setAttribute("href", url);
-      embed.querySelector('#portal-content').innerHTML = quote;
+      embed.querySelector('.portal-content').innerHTML = quote;
     
       let div=document.createElement("div");
       div.appendChild(embed);
