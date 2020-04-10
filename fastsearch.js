@@ -7,6 +7,50 @@ var last = list.lastChild; // last child of search list
 var maininput = document.getElementById('searchInput'); // input box for search
 var resultsAvailable = false; // Did we get any search results?
 
+// on click on input
+document.getElementById("searchInput").onclick = function(){
+  if(firstRun) {
+    loadSearch(); // loads our json data and builds fuse.js search index
+    firstRun = false; // let's never do this again
+  }
+
+  // Toggle visibility of search box
+  if (!searchVisible) {
+    document.getElementById("fastSearch").style.visibility = "visible"; // show search box
+    document.getElementById("searchResults").style.visibility = "visible";
+    document.getElementById("searchInput").focus(); // put focus in input box so you can just start typing
+    searchVisible = true; // search visible
+  }
+  else {
+
+  }
+};
+
+// if search loses focus hide search bar
+document.getElementById("fastSearch").addEventListener('focusout', (event) => {
+  if (document.getElementById("fastSearch").contains(event.relatedTarget)) {
+    // don't react to this
+    return;
+}
+  console.log("focusing out");
+  document.getElementById("searchInput").value = "";
+  document.getElementById("searchResults").style.visibility = "hidden";
+  searchVisible = false; // search not visible
+
+});
+
+// if hash changes hide search
+window.addEventListener('hashchange', function() {
+  document.getElementById("searchInput").value = "";
+  document.getElementById("searchResults").style.visibility = "hidden";
+  searchVisible = false; // search not visible
+}, false);
+
+
+
+
+
+
 // ==========================================
 // The main keyboard event listener running the show
 //
@@ -24,6 +68,7 @@ document.addEventListener('keydown', function(event) {
       // Toggle visibility of search box
       if (!searchVisible) {
         document.getElementById("fastSearch").style.visibility = "visible"; // show search box
+        document.getElementById("searchResults").style.visibility = "visible";
         document.getElementById("searchInput").focus(); // put focus in input box so you can just start typing
         searchVisible = true; // search visible
       }
@@ -37,7 +82,8 @@ document.addEventListener('keydown', function(event) {
   // Allow ESC (27) to close search box
   if (event.keyCode == 27) {
     if (searchVisible) {
-      document.getElementById("fastSearch").style.visibility = "hidden";
+      document.getElementById("searchInput").value = "";
+      document.getElementById("searchResults").style.visibility = "hidden";
       document.activeElement.blur();
       searchVisible = false;
     }
@@ -127,15 +173,16 @@ function executeSearch(term) {
   } else { // build our html 
    
     for (var i in results.slice(0,5)){
-      var itemtitle = "<a href='/options.html#"+results[i].item.url+"'>"+results[i].item.title;
-      var domain = "<div><img src='https://s2.googleusercontent.com/s2/favicons?domain_url="+extractHostname(results[i].item.url)+"'/>"+extractHostname(results[i].item.url)+"</div>";
-      var quotes = "";
+
       for(var j in results[i].item.quotes){
-        var quotes = quotes + "<span>"+results[i].item.quotes[j].text+"</span>";
+        var itemtitle = "<a href='/options.html#"+results[i].item.url+"'>"+results[i].item.title;
+        var domain = "<div><img src='https://s2.googleusercontent.com/s2/favicons?domain_url="+extractHostname(results[i].item.url)+"'/>"+extractHostname(results[i].item.url)+"</div>";  
+        var quotes = "<span>"+results[i].item.quotes[j].text.substring(1,100)+"</span>";
+        searchitems = searchitems + "<li>"+itemtitle+domain+quotes+"</a></li>"
         
       }
       console.log(quotes);
-      searchitems = searchitems + "<li>"+itemtitle+domain+quotes+"</a></li>"
+      
     }
    
     resultsAvailable = true;

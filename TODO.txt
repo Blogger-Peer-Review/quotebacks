@@ -6,7 +6,7 @@ Add search using fuse.js
 
 Copy/paste:
 - Edit relative links in selection to absolute...
-- Fix copy/embed links to grab rich text not text
+- Fix copy/embed links to filter rich text only for links (and other elements?) currently grabbing full HTML. Needs cleaning.
 
 Comment editing:
 - resolve line breaks issue being stripped?
