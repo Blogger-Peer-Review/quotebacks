@@ -45,7 +45,7 @@ document.addEventListener('keydown', function(event) {
             document.getElementsByTagName('body')[0].insertAdjacentHTML( 'afterbegin', `
             <div class='tomtobypopup' id='tomtobyid'><div><div class='tomtobytext'>${text.substring(1,50)}</div>
             <textarea rows='4'></textarea><div class='tomtobysaved'>Saved</div>
-            <div class='tomtobybutton'><a href=""${browser_page}#${page}">See Quotes</div></div></div>`);
+            <div class='tomtobybutton'><a href=${browser_page}#${page}">See Quotes</div></div></div>`);
             
             // boundary.top from here if we wanna position relative to the text selection
             // https://stackoverflow.com/questions/4106109/selected-text-and-xy-coordinates
