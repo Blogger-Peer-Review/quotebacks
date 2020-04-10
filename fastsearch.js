@@ -175,13 +175,17 @@ function executeSearch(term) {
     for (var i in results.slice(0,5)){
 
       for(var j in results[i].item.quotes){
-        var itemtitle = "<a href='/options.html#"+results[i].item.url+"'>"+results[i].item.title;
-        var domain = "<div><img src='https://s2.googleusercontent.com/s2/favicons?domain_url="+extractHostname(results[i].item.url)+"'/>"+extractHostname(results[i].item.url)+"</div>";  
-        var quotes = "<span>"+results[i].item.quotes[j].text.substring(1,100)+"</span>";
-        searchitems = searchitems + "<li>"+itemtitle+domain+quotes+"</a></li>"
+        var searchresult = `<li><a href='/options.html#${results[i].item.url}'>${results[i].item.title}
+        <div>
+        <img src='https://s2.googleusercontent.com/s2/favicons?domain_url=${extractHostname(results[i].item.url)}'/>
+        ${extractHostname(results[i].item.url)}
+        </div>
+        <span>${results[i].item.quotes[j].text.substring(1,100)}</span>
+        </a></li>`;
+
+        searchitems = searchitems + searchresult;
         
       }
-      console.log(quotes);
       
     }
    

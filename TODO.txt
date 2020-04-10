@@ -2,8 +2,6 @@
 Tom Adds:
 ---------
 
-Add search using fuse.js
-
 Copy/paste:
 - Edit relative links in selection to absolute...
 - Fix copy/embed links to filter rich text only for links (and other elements?) currently grabbing full HTML. Needs cleaning.
@@ -17,3 +15,7 @@ Make delete work for quotes
 
 Change date to timestamp
 - Done but not exposed anywhere. We order last in first up tho...
+
+Popup styling
+- Unset working pretty well
+- Insted grab x,y coords of selection and attach popup to body
