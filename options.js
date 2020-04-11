@@ -134,8 +134,8 @@ function displayquotes(url){
     instance.querySelector('.portal-content').innerHTML = item.text;
     instance.querySelector('.linkback a').href = url;
     instance.querySelector('.portal-arrow').href = url;
-    instance.querySelector('.portal-text-title').innerHTML = item.title;
-    instance.querySelector('.portal-author').innerHTML = item.author;
+    instance.querySelector('.portal-text-title').innerHTML = alldata[url].title;
+    instance.querySelector('.portal-author').innerHTML = alldata[url].title;
 
     var date = new Date(item.date);
     console.log(date); // date is a timestamp but we only display formatted
