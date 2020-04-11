@@ -17,5 +17,4 @@ Change date to timestamp
 - Done but not exposed anywhere. We order last in first up tho...
 
 Popup styling
-- Unset working pretty well
-- Insted grab x,y coords of selection and attach popup to body
+- Update new style w/ actions
