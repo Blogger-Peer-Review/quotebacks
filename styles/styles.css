@@ -173,9 +173,10 @@ body {
   #appcontainer #leftnav {
     border-right: 1px solid #BDBCBC;
     height: 100vh;
+    min-width: 350px;
     overflow-y: scroll; }
   #appcontainer #rightpanel {
-    padding: 25px 75px 50px 50px;
+    padding: 25px 75px 50px 3vw;
     background: white;
     width: 100%;
     height: 100vh;
@@ -191,23 +192,23 @@ body {
     max-width: 700px; }
   .quote-container .quote-controls {
     margin-left: 10px;
-    position: relative; }
-    .quote-container .quote-controls #delete {
-      color: red;
-      position: absolute;
-      bottom: 0px;
-      left: 0px; }
-    .quote-container .quote-controls #getlink {
-      color: #395FE5;
+    position: relative;
+    opacity: 1; }
+    .quote-container .quote-controls .control-button {
       margin-bottom: 6px; }
+    .quote-container .quote-controls #delete {
+      color: red; }
+    .quote-container .quote-controls #getlink {
+      color: #395FE5; }
+
+.reveal {
+  display: block;
+  opacity: 1; }
 
 .control-button {
-  background: linear-gradient(180deg, #FFFFFF 0%, #FCFCFC 14.58%, #FCFCFC 82.29%, #F6F6F6 100%);
-  border: 0.5px solid #D5D5D5;
-  box-sizing: border-box;
-  border-radius: 4px;
-  width: 130px;
-  height: 36px;
+  border: none;
+  width: auto;
+  height: 24px;
   font-size: 14px;
   font-weight: 500;
   font-family: inherit;
@@ -219,8 +220,7 @@ body {
   transition: all 0.2s ease; }
   .control-button:hover {
     cursor: pointer;
-    background: linear-gradient(180deg, #FCFCFC 0%, #F2F7FA 14.58%, #F2F7FA 82.29%, #EBF0F2 100%);
-    border: 0.5px solid #C2DFE3; }
+    opacity: .5; }
 
 .comment {
   max-width: 600px;
@@ -265,7 +265,10 @@ body {
     background-color: #F1F3F4; }
   .article .title {
     font-weight: 600;
-    margin-bottom: 8px; }
+    margin-bottom: 8px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis; }
   .article .author {
     font-weight: 600;
     color: #808080;

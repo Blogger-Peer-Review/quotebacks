@@ -19,7 +19,7 @@ document.addEventListener("DOMContentLoaded", function(){
 
       var domain = extractHostname(items[i].url);
       article_instance.querySelector('.title').innerHTML = items[i].title;
-      article_instance.querySelector('.author').innerHTML = items[i].author;
+      // article_instance.querySelector('.author').innerHTML = items[i].author;
 
       article_instance.querySelector('.url').innerHTML = "<img src='https://s2.googleusercontent.com/s2/favicons?domain_url=" +domain+"'/>" +domain;
       article_instance.querySelector('.article').setAttribute("data-id",items[i].url);
@@ -167,6 +167,7 @@ function displayquotes(url){
   });
 };
 
+// COPY TO CLIPBOARD
 
 const copyToClipboard = str => {
   const el = document.createElement('textarea');
@@ -190,6 +191,16 @@ function extractHostname(url) {
   return hostname 
 };
 
+
+
+// HOVER TO SHOW CONTROLS
+
+$(".quote-container").on('mouseenter', function(event){
+    console.log('i hovered');
+    $( this ).find('.quote-controls').show();
+}).on('mouseleave',function(){
+    $( this ).find('.quote-controls').hide();
+});
 
 
 

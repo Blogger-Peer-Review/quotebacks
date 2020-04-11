@@ -97,12 +97,12 @@ body{
   #leftnav{
     border-right: 1px solid #BDBCBC;
     height:100vh;
-    // width:450px;
+    min-width:350px;
     overflow-y:scroll;
   }
 
   #rightpanel{
-    padding: 25px 75px 50px 50px;
+    padding: 25px 75px 50px 3vw;
     background:white;
     width:100%;
     height:100vh;
@@ -126,29 +126,29 @@ body{
   .quote-controls{
     margin-left:10px;
     position:relative;
-
+    // display:none;
+    opacity:1;
+    .control-button{
+      margin-bottom:6px;
+    }
     #delete{
       color:red;
-      position:absolute;
-      bottom: 0px;
-      left:0px;
     }
     #getlink{
       color: #395FE5;
-      margin-bottom:6px;
     }
   }
 }
 
-.reveal{}
+.reveal{
+  display:block;
+  opacity: 1;
+}
 
 .control-button{
-  background: linear-gradient(180deg, #FFFFFF 0%, #FCFCFC 14.58%, #FCFCFC 82.29%, #F6F6F6 100%);
-  border: 0.5px solid #D5D5D5;
-  box-sizing: border-box;
-  border-radius: 4px;
-  width:130px;  
-  height:36px;
+  border:none;
+  width:auto;  
+  height:24px;
   font-size:14px;
   font-weight:500;
   font-family:inherit;
@@ -156,8 +156,7 @@ body{
   @include transition(all .20s ease);
   &:hover{
     cursor: pointer;
-    background: linear-gradient(180deg, #FCFCFC 0%, #F2F7FA 14.58%, #F2F7FA 82.29%, #EBF0F2 100%);
-    border: 0.5px solid #C2DFE3;
+    opacity:.5;
   }
 }
 
@@ -212,6 +211,9 @@ body{
   .title{
     font-weight:600;
     margin-bottom:8px;
+    white-space: nowrap; 
+    overflow: hidden; 
+    text-overflow: ellipsis;    
   }
   .author{
     font-weight:600;
