@@ -97,7 +97,7 @@ body{
   #leftnav{
     border-right: 1px solid #BDBCBC;
     height:100vh;
-    width:450px;
+    // width:450px;
     overflow-y:scroll;
   }
 
@@ -119,17 +119,8 @@ body{
 .quote-container{
   display:flex;
   flex-direction:row;
-
-  .quote{
-    background: #ECEEEF;
-    border-radius: 8px;
-    padding:12px;
-    font-size:16px;
-    color: #464A4D;
-    line-height:150%;
-    font-weight:400;
-    width:600px;
-    min-height: 128px;
+  .portal-container{
+    max-width:700px;
   }
 
   .quote-controls{
@@ -148,6 +139,8 @@ body{
     }
   }
 }
+
+.reveal{}
 
 .control-button{
   background: linear-gradient(180deg, #FFFFFF 0%, #FCFCFC 14.58%, #FCFCFC 82.29%, #F6F6F6 100%);
