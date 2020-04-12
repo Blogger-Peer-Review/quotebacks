@@ -192,7 +192,8 @@ body {
   .quote-container .portal-container {
     max-width: 700px; }
   .quote-container .quote-controls {
-    margin-left: 10px;
+    flex-direction: column;
+    margin-left: 5px;
     position: relative;
     display: none;
     opacity: 1;
@@ -210,7 +211,9 @@ body {
 
 .control-button {
   border: none;
+  text-align: left;
   width: auto;
+  min-width: 85px;
   height: 24px;
   font-size: 14px;
   font-weight: 500;
