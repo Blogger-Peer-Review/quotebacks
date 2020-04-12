@@ -25,7 +25,7 @@ document.addEventListener("DOMContentLoaded", function(){
       article_instance.querySelector('.article').setAttribute("data-id",items[i].url);
 
       // Append the instance ot the DOM
-      document.getElementById('leftnav').appendChild(article_instance);
+      document.getElementById('article-scrollContainer').appendChild(article_instance);
     }
 
     alljson = JSON.stringify(alljson);
@@ -117,14 +117,14 @@ document.addEventListener("DOMContentLoaded", function(){
 
 
 function displayquotes(url){
-  document.getElementById('rightpanel').innerHTML = "";
+  document.getElementById('panel-scrollContainer').innerHTML = "";
 
   window.location.hash = url;
 
   const fragment = document.getElementById('quote');
 
   var offset = $(".article[data-id='"+url+"']").offset();
-  $("#leftnav").scrollTop(offset.top);
+  $("#article-scrollContainer").scrollTop(offset.top);
     
   alldata[url].quotes.forEach(item => {
     // Create an instance of the template content
@@ -155,7 +155,7 @@ function displayquotes(url){
 
     
     // Append the instance ot the DOM
-    document.getElementById('rightpanel').appendChild(instance);
+    document.getElementById('panel-scrollContainer').appendChild(instance);
 
     $( ".article" ).each(function() {
       $( this ).removeClass( "selected" );
@@ -197,7 +197,7 @@ function extractHostname(url) {
 
 $(document).on('mouseenter mouseleave', '.quoteblock', function(e) {
     if (e.type == "mouseenter"){
-      console.log('hovering');
+
       $(this).find('.quote-controls').show().css({"opacity":"1"}).addClass('showcontrols');
     }else{
       $(this).find('.quote-controls').hide().css("opacity","0").removeClass('showcontrols');
@@ -218,40 +218,67 @@ var AutoSave = (function(){
     });          
   };
 
-function restore(){ //don't think I actually need this restore function...?
-  var page = document.location.href;
-  var saved = "";
-  chrome.storage.local.get([page], function(result) {
-      saved = result[page]["quotes"][0]["comment"];
-  });
+  function restore(){ //don't think I actually need this restore function...?
+    var page = document.location.href;
+    var saved = "";
+    chrome.storage.local.get([page], function(result) {
+        saved = result[page]["quotes"][0]["comment"];
+    });
 
-  var editor = getEditor();
-  if (saved && editor){
-    editor.value = saved; 
-  }
-}
-
-return { 
-
-  start: function(object, el, index, url){
-
-    if (timer != null){
-      clearInterval(timer);
-      timer = null;
+    var editor = getEditor();
+    if (saved && editor){
+      editor.value = saved; 
     }
-    timer = setInterval(function(){
-              save(object, el, index, url)
-          }, 1000);
-  },
-
-  stop: function(){
-
-    if (timer){ 
-      clearInterval(timer);
-      timer = null;
-    }
-
   }
-}
 
+  return { 
+
+    start: function(object, el, index, url){
+
+      if (timer != null){
+        clearInterval(timer);
+        timer = null;
+      }
+      timer = setInterval(function(){
+                save(object, el, index, url)
+            }, 1000);
+    },
+
+    stop: function(){
+
+      if (timer){ 
+        clearInterval(timer);
+        timer = null;
+      }
+
+    }
+  }
 }());
+
+
+document.addEventListener("DOMContentLoaded", function(){
+  $(".comment").resizable();
+});
+
+// $("#leftnav").resizable({
+//     // only use the eastern handle
+//     handles: 'e',
+//     // restrict the width range
+//     minWidth: 120,
+//     maxWidth: 450,
+//     // resize handler updates the content panel width
+//     resize: function(event, ui){
+//         var currentWidth = ui.size.width;
+
+//         // this accounts for padding in the panels + 
+//         // borders, you could calculate this using jQuery
+//         var padding = 12; 
+
+//         // this accounts for some lag in the ui.size value, if you take this away 
+//         // you'll get some instable behaviour
+//         $(this).width(currentWidth);
+
+//         // set the content panel width
+//         $("#rightpanel").width(containerWidth - currentWidth - padding);            
+//     }
+// });

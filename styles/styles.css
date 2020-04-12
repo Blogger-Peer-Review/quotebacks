@@ -182,6 +182,9 @@ body {
     height: 100vh;
     overflow: scroll; }
 
+#article-scrollContainer, #panel-scrollContainer {
+  padding-bottom: 70px; }
+
 .quoteblock {
   margin-bottom: 25px;
   z-index: 9999; }
