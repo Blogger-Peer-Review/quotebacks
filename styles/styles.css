@@ -183,7 +183,8 @@ body {
     overflow: scroll; }
 
 .quoteblock {
-  margin-bottom: 25px; }
+  margin-bottom: 25px;
+  z-index: 9999; }
 
 .quote-container {
   display: flex;
@@ -193,17 +194,19 @@ body {
   .quote-container .quote-controls {
     margin-left: 10px;
     position: relative;
-    opacity: 1; }
+    display: none;
+    opacity: 1;
+    -webkit-transition: all 0.2s ease;
+    -moz-transition: all 0.2s ease;
+    -ms-transition: all 0.2s ease;
+    -o-transition: all 0.2s ease;
+    transition: all 0.2s ease; }
     .quote-container .quote-controls .control-button {
       margin-bottom: 6px; }
     .quote-container .quote-controls #delete {
       color: red; }
     .quote-container .quote-controls #getlink {
       color: #395FE5; }
-
-.reveal {
-  display: block;
-  opacity: 1; }
 
 .control-button {
   border: none;
@@ -221,6 +224,9 @@ body {
   .control-button:hover {
     cursor: pointer;
     opacity: .5; }
+
+.showcontrols {
+  transform: translateX(10px); }
 
 .comment {
   max-width: 600px;

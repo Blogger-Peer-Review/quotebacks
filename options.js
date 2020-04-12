@@ -195,13 +195,14 @@ function extractHostname(url) {
 
 // HOVER TO SHOW CONTROLS
 
-$(".quote-container").on('mouseenter', function(event){
-    console.log('i hovered');
-    $( this ).find('.quote-controls').show();
-}).on('mouseleave',function(){
-    $( this ).find('.quote-controls').hide();
+$(document).on('mouseenter mouseleave', '.quoteblock', function(e) {
+    if (e.type == "mouseenter"){
+      console.log('hovering');
+      $(this).find('.quote-controls').show().css({"opacity":"1"}).addClass('showcontrols');
+    }else{
+      $(this).find('.quote-controls').hide().css("opacity","0").removeClass('showcontrols');
+    }
 });
-
 
 
 // AUTOSAVE FUNCTION

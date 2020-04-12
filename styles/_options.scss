@@ -114,6 +114,7 @@ body{
 
 .quoteblock{
   margin-bottom: 25px;  
+  z-index:9999;
 }
 
 .quote-container{
@@ -126,8 +127,9 @@ body{
   .quote-controls{
     margin-left:10px;
     position:relative;
-    // display:none;
+    display:none;
     opacity:1;
+    @include transition(all .20s ease);
     .control-button{
       margin-bottom:6px;
     }
@@ -140,10 +142,6 @@ body{
   }
 }
 
-.reveal{
-  display:block;
-  opacity: 1;
-}
 
 .control-button{
   border:none;
@@ -160,6 +158,9 @@ body{
   }
 }
 
+.showcontrols{
+  transform: translateX(10px);
+}
 
 .comment{
   max-width:600px;
@@ -171,7 +172,6 @@ body{
   border-radius: 10px;
   margin-top:-15px;
   @include transition(all .10s ease);
-
 }
 
 .comment:focus{
