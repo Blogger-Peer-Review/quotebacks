@@ -124,7 +124,8 @@ function getSelectionText() {
       var range = window.getSelection().getRangeAt(0);
 
       // plain text of selected range (if you want it w/o html)
-      var text = window.getSelection();
+      var plaintext = window.getSelection();
+      console.log(plaintext);
           
       // document fragment with html for selection
       var fragment = range.cloneContents();

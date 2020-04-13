@@ -34,13 +34,20 @@ document.addEventListener("DOMContentLoaded", function(){
     var pagehash = $(location).attr('hash').replace("#","");
 
     if($(location).attr('hash')){
-      displayquotes(pagehash);
+      if(allKeys.includes(pagehash)){ // error handling for some mishandled hash value
+        displayquotes(pagehash)
+    }else{
+      displayquotes(allKeys[0]);
+    };
     }else{
       displayquotes(allKeys[0]);
     }
 
     window.addEventListener('hashchange', function() {
-      displayquotes($(location).attr('hash').replace("#",""))
+      var hashval = $(location).attr('hash').replace("#","");
+      if(allKeys.includes(hashval)){ // check hash is a valid entry in data
+        displayquotes(hashval)
+      };
     }, false);
       
     $( ".article" ).click(function() {
@@ -84,6 +91,36 @@ document.addEventListener("DOMContentLoaded", function(){
         el.css('border', 'none');
       }, 1000);
     });
+
+
+    $('#rightpanel').on('click',"#delete", function() {
+      
+      var r = confirm("Are you sure you want to delete this quote?");
+      if (r == true) {
+        
+        var url = $(".selected").attr("data-id");
+        var quoteblock = $(this).closest('.quoteblock');
+        var index = $(".quoteblock").index(quoteblock);
+        var quotes = alldata[url]["quotes"];
+        var removed = quotes.splice(index,1);
+        alldata[url]["quotes"] = quotes;
+        if(quotes.length == 0){ //if no quotes left then delete whole item from alldata
+          chrome.storage.local.remove(url, function (){
+            console.log("deleted "+url);
+            displayquotes(url);
+          });
+        }else{
+        chrome.storage.local.set(alldata, function(){ 
+          console.log("saving data");
+          displayquotes(url);
+        }); 
+      }
+        
+
+
+      } else {
+      } 
+    });    
 
     document.getElementById("clearStorage").onclick = function(){
       var r = confirm("Are you sure you want to delete all citations?!");
