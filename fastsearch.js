@@ -73,7 +73,7 @@ document.addEventListener('keydown', function(event) {
         searchVisible = true; // search visible
       }
       else {
-        document.getElementById("fastSearch").style.visibility = "hidden"; // hide search box
+        
         document.activeElement.blur(); // remove focus from search box 
         searchVisible = false; // search not visible
       }
