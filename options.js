@@ -19,13 +19,13 @@ document.addEventListener("DOMContentLoaded", function(){
 
       var domain = extractHostname(items[i].url);
       article_instance.querySelector('.title').innerHTML = items[i].title;
-      article_instance.querySelector('.author').innerHTML = items[i].author;
+      // article_instance.querySelector('.author').innerHTML = items[i].author;
 
       article_instance.querySelector('.url').innerHTML = "<img src='https://s2.googleusercontent.com/s2/favicons?domain_url=" +domain+"'/>" +domain;
       article_instance.querySelector('.article').setAttribute("data-id",items[i].url);
 
       // Append the instance ot the DOM
-      document.getElementById('leftnav').appendChild(article_instance);
+      document.getElementById('article-scrollContainer').appendChild(article_instance);
     }
 
     alljson = JSON.stringify(alljson);
@@ -34,13 +34,20 @@ document.addEventListener("DOMContentLoaded", function(){
     var pagehash = $(location).attr('hash').replace("#","");
 
     if($(location).attr('hash')){
-      displayquotes(pagehash);
+      if(allKeys.includes(pagehash)){ // error handling for some mishandled hash value
+        displayquotes(pagehash)
+    }else{
+      displayquotes(allKeys[0]);
+    };
     }else{
       displayquotes(allKeys[0]);
     }
 
     window.addEventListener('hashchange', function() {
-      displayquotes($(location).attr('hash').replace("#",""))
+      var hashval = $(location).attr('hash').replace("#","");
+      if(allKeys.includes(hashval)){ // check hash is a valid entry in data
+        displayquotes(hashval)
+      };
     }, false);
       
     $( ".article" ).click(function() {
@@ -51,7 +58,7 @@ document.addEventListener("DOMContentLoaded", function(){
     
     $('#rightpanel').on('click',"#copy", function() {
       console.log("copying?");
-      var quote = $(this).closest('.quoteblock').find('.quote').text();
+      var quote = $(this).closest('.quoteblock').find('.portal-content').text();
       copyToClipboard(quote);
       var el = $(this);
       el.css('border', '1px solid red');
@@ -64,14 +71,14 @@ document.addEventListener("DOMContentLoaded", function(){
       
       var title = $(".selected").find(".title").text();
       var url = $(".selected").attr("data-id");
-      var quote = $(this).closest('.quoteblock').find('.quote').text();
+      var quote = $(this).closest('.quoteblock').find('.portal-content').text();
 
       const embed_fragment = document.getElementById('embed');
       const embed = document.importNode(embed_fragment.content, true);
       // Add relevant content to the template
       embed.querySelector('.portal-text-title').innerHTML = title;
       embed.querySelector('.portal-arrow').setAttribute("href", url);
-      embed.querySelector('#portal-content').innerHTML = quote;
+      embed.querySelector('.portal-content').innerHTML = quote;
     
       let div=document.createElement("div");
       div.appendChild(embed);
@@ -84,6 +91,36 @@ document.addEventListener("DOMContentLoaded", function(){
         el.css('border', 'none');
       }, 1000);
     });
+
+
+    $('#rightpanel').on('click',"#delete", function() {
+      
+      var r = confirm("Are you sure you want to delete this quote?");
+      if (r == true) {
+        
+        var url = $(".selected").attr("data-id");
+        var quoteblock = $(this).closest('.quoteblock');
+        var index = $(".quoteblock").index(quoteblock);
+        var quotes = alldata[url]["quotes"];
+        var removed = quotes.splice(index,1);
+        alldata[url]["quotes"] = quotes;
+        if(quotes.length == 0){ //if no quotes left then delete whole item from alldata
+          chrome.storage.local.remove(url, function (){
+            console.log("deleted "+url);
+            displayquotes(url);
+          });
+        }else{
+        chrome.storage.local.set(alldata, function(){ 
+          console.log("saving data");
+          displayquotes(url);
+        }); 
+      }
+        
+
+
+      } else {
+      } 
+    });    
 
     document.getElementById("clearStorage").onclick = function(){
       var r = confirm("Are you sure you want to delete all citations?!");
@@ -117,19 +154,25 @@ document.addEventListener("DOMContentLoaded", function(){
 
 
 function displayquotes(url){
-  document.getElementById('rightpanel').innerHTML = "";
+  document.getElementById('panel-scrollContainer').innerHTML = "";
 
   window.location.hash = url;
 
   const fragment = document.getElementById('quote');
+
+  var offset = $(".article[data-id='"+url+"']").offset();
+  $("#article-scrollContainer").scrollTop(offset.top);
     
   alldata[url].quotes.forEach(item => {
     // Create an instance of the template content
     const instance = document.importNode(fragment.content, true);
 
     // Add relevant content to the template
-    instance.querySelector('.quote').innerHTML = item.text;
+    instance.querySelector('.portal-content').innerHTML = item.text;
     instance.querySelector('.linkback a').href = url;
+    instance.querySelector('.portal-arrow').href = url;
+    instance.querySelector('.portal-text-title').innerHTML = alldata[url].title;
+    instance.querySelector('.portal-author').innerHTML = alldata[url].author;
 
     var date = new Date(item.date);
     console.log(date); // date is a timestamp but we only display formatted
@@ -149,7 +192,7 @@ function displayquotes(url){
 
     
     // Append the instance ot the DOM
-    document.getElementById('rightpanel').appendChild(instance);
+    document.getElementById('panel-scrollContainer').appendChild(instance);
 
     $( ".article" ).each(function() {
       $( this ).removeClass( "selected" );
@@ -161,6 +204,7 @@ function displayquotes(url){
   });
 };
 
+// COPY TO CLIPBOARD
 
 const copyToClipboard = str => {
   const el = document.createElement('textarea');
@@ -186,6 +230,17 @@ function extractHostname(url) {
 
 
 
+// HOVER TO SHOW CONTROLS
+
+$(document).on('mouseenter mouseleave', '.quoteblock', function(e) {
+    if (e.type == "mouseenter"){
+
+      $(this).find('.quote-controls').show().css({"opacity":"1"}).addClass('showcontrols');
+    }else{
+      $(this).find('.quote-controls').hide().css("opacity","0").removeClass('showcontrols');
+    }
+});
+
 
 // AUTOSAVE FUNCTION
 var AutoSave = (function(){
@@ -200,40 +255,67 @@ var AutoSave = (function(){
     });          
   };
 
-function restore(){ //don't think I actually need this restore function...?
-  var page = document.location.href;
-  var saved = "";
-  chrome.storage.local.get([page], function(result) {
-      saved = result[page]["quotes"][0]["comment"];
-  });
+  function restore(){ //don't think I actually need this restore function...?
+    var page = document.location.href;
+    var saved = "";
+    chrome.storage.local.get([page], function(result) {
+        saved = result[page]["quotes"][0]["comment"];
+    });
 
-  var editor = getEditor();
-  if (saved && editor){
-    editor.value = saved; 
-  }
-}
-
-return { 
-
-  start: function(object, el, index, url){
-
-    if (timer != null){
-      clearInterval(timer);
-      timer = null;
+    var editor = getEditor();
+    if (saved && editor){
+      editor.value = saved; 
     }
-    timer = setInterval(function(){
-              save(object, el, index, url)
-          }, 1000);
-  },
-
-  stop: function(){
-
-    if (timer){ 
-      clearInterval(timer);
-      timer = null;
-    }
-
   }
-}
 
+  return { 
+
+    start: function(object, el, index, url){
+
+      if (timer != null){
+        clearInterval(timer);
+        timer = null;
+      }
+      timer = setInterval(function(){
+                save(object, el, index, url)
+            }, 1000);
+    },
+
+    stop: function(){
+
+      if (timer){ 
+        clearInterval(timer);
+        timer = null;
+      }
+
+    }
+  }
 }());
+
+
+document.addEventListener("DOMContentLoaded", function(){
+  $(".comment").resizable();
+});
+
+// $("#leftnav").resizable({
+//     // only use the eastern handle
+//     handles: 'e',
+//     // restrict the width range
+//     minWidth: 120,
+//     maxWidth: 450,
+//     // resize handler updates the content panel width
+//     resize: function(event, ui){
+//         var currentWidth = ui.size.width;
+
+//         // this accounts for padding in the panels + 
+//         // borders, you could calculate this using jQuery
+//         var padding = 12; 
+
+//         // this accounts for some lag in the ui.size value, if you take this away 
+//         // you'll get some instable behaviour
+//         $(this).width(currentWidth);
+
+//         // set the content panel width
+//         $("#rightpanel").width(containerWidth - currentWidth - padding);            
+//     }
+// });

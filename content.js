@@ -39,8 +39,22 @@ document.addEventListener('keydown', function(event) {
 
             var browser_page = chrome.runtime.getURL("options.html");
 
-            window.getSelection().anchorNode.parentNode.insertAdjacentHTML( 'afterbegin', "<div class='tomtobypopup' id='tomtobyid'><div><div class='tomtobytext'>"+text.substring(1,50)+"</div><textarea rows='4'></textarea><div class='tomtobysaved'>Saved</div><div class='tomtobybutton'><a href='"+browser_page+"#"+page+"'>See Quotes</div></div></div>" );
+            //old code for putting the popup inline - fails on overflow hidden on parent for e.g.
+            //window.getSelection().anchorNode.parentNode.insertAdjacentHTML( 'afterbegin', "<div class='tomtobypopup' id='tomtobyid'><div><div class='tomtobytext'>"+text.substring(1,50)+"</div><textarea rows='4'></textarea><div class='tomtobysaved'>Saved</div><div class='tomtobybutton'><a href='"+browser_page+"#"+page+"'>See Quotes</div></div></div>" );
+                        
+            document.getElementsByTagName('body')[0].insertAdjacentHTML( 'afterbegin', `
+            <div class='tomtobypopup' id='tomtobyid'><div><div class='tomtobytext'>${text.substring(1,50)}</div>
+            <textarea rows='4'></textarea><div class='tomtobysaved'>Saved</div>
+            <div class='tomtobybutton'><a href="${browser_page}#${page}">See Quotes</div></div></div>`);
             
+            // boundary.top from here if we wanna position relative to the text selection
+            // https://stackoverflow.com/questions/4106109/selected-text-and-xy-coordinates
+            /*
+            var txt = window.getSelection(),
+            range = txt.getRangeAt(0),
+            boundary = range.getBoundingClientRect();
+            */
+
             var time = 0;
             var textfocus = false;
             var ishover = false;
@@ -110,7 +124,8 @@ function getSelectionText() {
       var range = window.getSelection().getRangeAt(0);
 
       // plain text of selected range (if you want it w/o html)
-      var text = window.getSelection();
+      var plaintext = window.getSelection();
+      console.log(plaintext);
           
       // document fragment with html for selection
       var fragment = range.cloneContents();

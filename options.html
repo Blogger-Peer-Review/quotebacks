@@ -1,21 +1,17 @@
 <!DOCTYPE html>
 <html>
 <head>
-    
-<link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,300;1,400;1,600;1,700;1,800&display=swap" rel="stylesheet">
-<script src="jquery-1.10.2.min.js" type="text/javascript"></script>
+  <script src="jquery-3.5.0.min.js" type="text/javascript"></script>
+  <link rel="stylesheet" href="styles/styles.css" type="text/css">
 
-<link rel="stylesheet" href="styles/options.css" type="text/css">
-<link rel="stylesheet" href="styles/search.css" type="text/css">
 </head>
 
 <body>
 
-
 <div id="nav">
   <div id="searchbar">
       <div id="fastSearch">
-          <input id="searchInput" tabindex="0" placeholder="Search">
+          <input id="searchInput" tabindex="0" placeholder="Search" autocomplete="off">
           <ul id="searchResults">
           </ul>
         </div>
@@ -23,8 +19,12 @@
 </div>
 
 <div id="appcontainer">
-  <div id="leftnav"></div>
-  <div id="rightpanel"></div>  
+  <div id="leftnav">
+    <div id="article-scrollContainer"></div>
+  </div>
+  <div id="rightpanel">
+    <div id="panel-scrollContainer"></div>
+  </div>  
 </div>
 
 
@@ -34,7 +34,7 @@
 <template id="articleItem">
   <div class="article">
     <div class="title"></div>
-    <div class="author"></div>
+    <!-- <div class="author"></div> -->
     <div class="url"></div>
   </div>
 </template>
@@ -48,8 +48,27 @@
     </div>
 
     <div class="quote-container">
-      
-      <div class="quote"></div>
+
+      <div class="portal-container">
+          <div class="portal-head">            
+            <div class="portal-metadata">
+              <div class="portal-title">
+                <div class="portal-author"></div>
+                <div class="title-wrapper">
+                  in <span class="portal-text-title"></span>
+                </div>
+              </div>              
+            </div>
+            <div class="portal-backlink"><a target="_blank" href="" class="portal-arrow">Go to text <span class="right-arrow">&#8594;</span></a></div>
+          </div>
+
+          <div id="portal-parent" class="portal-parent">
+            <div class="portal-content">
+            </div>       
+          </div>    
+      </div>
+
+
 
       <div class="quote-controls">
           <button id="getlink" class="control-button"><> Embed</button>        
@@ -62,8 +81,9 @@
 </div>
 </template>
 
+
 <template id="embed">
-  <link rel="stylesheet" href="styles/quote.css" type="text/css">
+  <link rel="stylesheet" href="https://files-lovat-six.now.sh/quote.css" type="text/css">
   <div class="portal-container">
 
       <div class="portal-head">
@@ -79,11 +99,11 @@
         
         </div>
         
-        <div class="portal-backlink"><a target="_blank" href="{{ include.link }}" class="portal-arrow">Go to text <span class="right-arrow">&#8594;</span></a></div>
+        <div class="portal-backlink"><a target="_blank" href="" class="portal-arrow">Go to text <span class="right-arrow">&#8594;</span></a></div>
 
       </div>
 
-      <div id="portal-parent-{{include.anchor}}" class="portal-parent">
+      <div id="portal-parent" class="portal-parent">
         <div class="portal-content">
         </div>       
       </div>    
@@ -93,17 +113,15 @@
 
 <template id="searchitem">
     <div class="searchitem">
-      <div class="title"></div>
+    <div class="title"></div>
     </div>
-  </template>
+</template>
 
-  
 
 <script src="options.js"></script>
-
-
 <script src="fuse.js"></script> <!-- download and copy over fuse.js file from fusejs.io -->
 <script src="fastsearch.js"></script>
+<script src="jquery-resizable.js"></script>
 
 </body>
 

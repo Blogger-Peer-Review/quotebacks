@@ -2,11 +2,9 @@
 Tom Adds:
 ---------
 
-Add search using fuse.js
-
 Copy/paste:
 - Edit relative links in selection to absolute...
-- Fix copy/embed links to grab rich text not text
+- Fix copy/embed links to filter rich text only for links (and other elements?) currently grabbing full HTML. Needs cleaning.
 
 Comment editing:
 - resolve line breaks issue being stripped?
@@ -17,3 +15,27 @@ Make delete work for quotes
 
 Change date to timestamp
 - Done but not exposed anywhere. We order last in first up tho...
+
+Popup styling
+- Unset working pretty well
+- Insted grab x,y coords of selection and attach popup to body
+
+
+
+Toby Adds:
+----------
+
+UTF-8
+- Add UTF-8 to quote.css
+- Make sure quote.css deploys to the same now url every time
+
+Embed style
+- change quote block to be the typical embed style
+
+Popup style
+- update popup style and populate
+
+Fix embed logic
+- in options.html
+- and in the embed
+
