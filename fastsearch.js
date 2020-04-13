@@ -57,7 +57,7 @@ window.addEventListener('hashchange', function() {
 document.addEventListener('keydown', function(event) {
 
   // CMD-/ to show / hide Search
-  if (event.metaKey && event.which === 191) {
+  if ((event.metaKey && event.which === 191) || (event.metaKey && event.which === 75)) {
       // Load json search index if first time invoking search
       // Means we don't load json unless searches are going to happen; keep user payload small unless needed
       if(firstRun) {
