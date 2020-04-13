@@ -125,7 +125,6 @@ function getSelectionText() {
 
       // plain text of selected range (if you want it w/o html)
       var plaintext = window.getSelection();
-      console.log(plaintext);
           
       // document fragment with html for selection
       var fragment = range.cloneContents();
@@ -142,7 +141,7 @@ function getSelectionText() {
     } else if (document.selection && document.selection.type != "Control") { // think this is for IE?
     text = document.selection.createRange().text;
     }
-    return text;
+    return plaintext.toString();
 };
 
 function getMeta(metaName) {
