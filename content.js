@@ -5,7 +5,13 @@ document.addEventListener('keydown', function(event) {
     var object = {};
 
     var text = getSelectionText();  
-    var page = document.location.href;    
+    
+    var links = document.getElementsByTagName("link");
+    if (getCanonical()){
+      var page = getCanonical();    
+    }else{
+      var page = document.location.href;      
+    };
 
     chrome.storage.local.get([page], function(result) {
 
@@ -13,7 +19,12 @@ document.addEventListener('keydown', function(event) {
         // page_object["date"] = getDate(); needs to get attached to each quote item
         page_object["url"] = page;
         page_object["title"] = document.title;
-        page_object["author"] = getMeta("author");
+        
+        if(getMeta("author")){
+          page_object["author"] = getMeta("author");  
+        }else{
+        page_object["author"] = getMeta("twitter:site");
+        }
 
         var quotes = [];
         var quote = {};
@@ -146,15 +157,27 @@ function getSelectionText() {
 
 function getMeta(metaName) {
     const metas = document.getElementsByTagName('meta');
-  
+
     for (let i = 0; i < metas.length; i++) {
       if (metas[i].getAttribute('name') === metaName) {
         return metas[i].getAttribute('content');
       }
     }
+
   
     return '';
   };
+
+function getCanonical() {
+  var canonical = "";
+  var links = document.getElementsByTagName("link");
+  for (var i = 0; i < links.length; i ++) {
+      if (links[i].getAttribute("rel") === "canonical") {
+          canonical = links[i].getAttribute("href")
+      }
+  }
+  return canonical;
+  };  
 
 function getDate(){
   
