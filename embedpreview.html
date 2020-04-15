@@ -6,8 +6,8 @@
       <input class="citation-input" id="author-field" name="Author"></input>
     </form>
     <form>
-      <label class="citation-input-label" for="Site">Site</label>
-      <input class="citation-input" id="site-field" name="Site"></input>
+      <label class="citation-input-label" for="Title">Title</label>
+      <input class="citation-input" id="title-field" name="Title"></input>
     </form>       
   </div>
 
@@ -45,11 +45,14 @@
 
   <div class="thickdivider"></div>
   
-  <div class="comment">
-    <form>
-      <label for="Comment">Comments</label>
-      <input id="site-field" name="Site" placeholder="+ Add Comment"></input>
-    </form>
+  <div class="citation-bottom">
+    <div class="comment">
+      <form>
+        <input class="citation-input" id="comment-field" placeholder="+ Add Comment"></input>
+      </form>
+    </div>
+    <div><button id="getlink" class="control-button"><> Embed</button></div>
+    <div><button id="save-button">Save & Close</button></div>
   </div>
 
 </div>

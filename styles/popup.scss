@@ -27,12 +27,13 @@ input{
 }
 
 #citation-capture{
+    font-family: -apple-system, system-ui, "Open Sans", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol";
     overflow: hidden !important;
     width: 600px;
     height: auto;
     position: fixed !important;
-    top: 0px !important;
-    right: 0px !important;
+    top: 10px !important;
+    right: 10px !important;
     overflow-x: hidden;
     overflow-y: auto;
     max-height: calc(100% - 50px);
@@ -44,17 +45,31 @@ input{
 .citation-meta{
   display:flex;
   flex-direction:row;
+  justify-content: space-between;
+  align-items:center;
+  flex: 0 0 100%;
+  form{ 
+    &:first-child{
+      margin-right:10px;
+    }
+  }
 }
 
 .citation-input{
+  width: 280px;
   display:block;
   padding:11px;
+  height:37px;
+  font-size:12px;
   box-shadow:none;
   -webkit-appearance: none;
-  color:#b6b6b6;
+  color:#464A4D;
   background: #ECEEEF;
   box-sizing: border-box;
-  border-radius: 10px;
+  border-radius: 4px;
+  &#comment-field{
+    border-radius: 10px;
+  }
   @include transition(all .10s ease);
 }
 .citation-input:focus{
@@ -66,52 +81,53 @@ input{
 .citation-input-label{
   display:block;
   font-size:12px;
+  margin-bottom:2px;
 }
 
-.tomtobypopup{
-    position:relative;
-    font-family:Arial, Helvetica, sans-serif;
-    font-size:14px;
-    z-index:20;
+.control-button{
+  border:none;
+  text-align: left;
+  width:auto;  
+  min-width:85px;
+  height:24px;
+  font-size:14px;
+  font-weight:500;
+  font-family:inherit;
+  display:block;
+  @include transition(all .20s ease);
+  &:hover{
+    cursor: pointer;
+    opacity:.5;
+  }
+  &#getlink{
+    color: #395FE5;
+    height:37px;
+  }  
 }
 
-.tomtobypopup > div{
-    position: absolute;
-    right: -350px;
-    height: 250px;
-    width: 300px;
-    padding: 15px;
-    background: #FFFFFF;
-    border: 1px solid #000000;
-    box-sizing: border-box;
-    box-shadow: 0px 4px 25px rgba(0, 0, 0, 0.25);
+.citation-bottom{
+  height:50px;
+  display:flex;
+  flex-direction:row;
+  justify-content: space-between;
+  align-items:start;
+  flex: 0 0 100%;  
+  margin-top:-13px;
+  div{
+    display:inline-block;
+  }
 }
+#save-button{
+  -webkit-appearance: none;
+  // height:37px;
+  width: 130px;
+  display:block;
+  padding:11px;
+  font-size:14px;
+  box-shadow:none;
+  background: #F2F7FA;
+  border: 0.5px solid #D5D5D5;
+  box-sizing: border-box;
+  border-radius: 4px;
 
-.tomtobypopup textarea{
-    width:100%;
-    border-radius:4px;
-    margin-top:10px;
-}
-
-.tomtobytext{
-    border-bottom:1px solid black;
-    overflow:hidden;
-    height:100px;
-}
-
-.tomtobybutton, .tomtobysaved{
-    width:100px;;
-    text-align:center;
-    margin-top:20px;
-    float:left;
-
-}
-
-.tomtobybutton{
-    background: #7572FF;border-radius: 4px;
-}
-
-.tomtobybutton a{
-    color:white;
-    text-decoration:none;
 }
