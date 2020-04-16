@@ -20,7 +20,7 @@
     {
       "matches": ["<all_urls>"],
       "js": ["content.js"],
-      "css": ["styles.css"]
+      "css": ["styles.css", "/styles/popup.css", "/styles/quote.css"]
     }
   ],
   "background": {

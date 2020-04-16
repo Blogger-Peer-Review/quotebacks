@@ -17,6 +17,14 @@ $bluegray-text-med: #5C6D73;
 $bluegray-text-dark: #253237;
 
 .portal-container{
+	all:revert
+}
+
+.portal-container *{
+	all:revert
+}
+
+.portal-container{
 	font-family: -apple-system, system-ui, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol";
 	text-rendering: optimizeLegibility;
 	border: 1px solid #C2DFE3;
@@ -65,9 +73,15 @@ $bluegray-text-dark: #253237;
 			height:42px;
 			// delet following
 			margin: 12px 0px;
+			position:relative;
 			img{
 				max-width:24px;
-				height:auto;
+				position: absolute;
+				margin: auto;
+				top: 0;
+				left: 0;
+				right: 0;
+				bottom: 0;
 			}
 		}
 
