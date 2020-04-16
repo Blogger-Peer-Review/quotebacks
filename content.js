@@ -52,7 +52,7 @@ document.addEventListener('keydown', function(event) {
                         
             document.getElementsByTagName('body')[0].insertAdjacentHTML( 'afterbegin', `
             <div class='tomtobypopup' id='tomtobyid'><div><div class='tomtobytext'>${text.substring(1,50)}</div>
-            <textarea rows='4'></textarea><div class='tomtobysaved'>Saved</div>
+            <textarea rows='4'></textarea><div id='tomtobysaved'></div>
             <div class='tomtobybutton'><a href="${browser_page}#${page}">See Quotes</div></div></div>`);
             
             // boundary.top from here if we wanna position relative to the text selection
@@ -86,7 +86,7 @@ document.addEventListener('keydown', function(event) {
 
                 if(!ishover && !textfocus) {
                   time++;
-                  if(time > 5){
+                  if(time > 500){
                     var paras = document.getElementsByClassName('tomtobypopup');
                     while(paras[0]) {
                         paras[0].parentNode.removeChild(paras[0]); // remove all popups
@@ -189,7 +189,7 @@ var AutoSave = (function(){
     var timer = null;
     
 	function getEditor(){
-		var elems = document.querySelector(".tomtobypopup textarea")
+		var elems = document.querySelector(".tomtobypopup textarea");
 		if (!elems)
 			return null;
 		return elems;
@@ -205,6 +205,9 @@ var AutoSave = (function(){
             object[page]["quotes"][0]["comment"] = editor.value;
             chrome.storage.local.set(object, function() { 
                 console.log("autosaved");
+                if(document.querySelector("#tomtobysaved").innerText == "Saving..."){
+                  document.querySelector("#tomtobysaved").innerHTML = "<span id='tomtobysavedgreen'>Saved</span>";
+              };
             });
             }
         };
@@ -228,6 +231,10 @@ var AutoSave = (function(){
 
             var editor = getEditor(); 
             console.log(editor);
+                 
+          editor.addEventListener("keydown", function( event ) {   
+              document.querySelector("#tomtobysaved").innerText = "Saving...";
+          });            
 
 			if (editor.value.length <= 0)
 				restore();

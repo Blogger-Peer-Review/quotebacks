@@ -1,4 +1,4 @@
-.tomtobybutton, .tomtobybutton a, .tomtobypopup > div, .tomtobypopup , .tomtobysaved , .tomtobytext{
+.tomtobybutton, .tomtobybutton a, .tomtobypopup > div, .tomtobypopup , .tomtobysaved , .tomtobytext, #tomtobysaved{
     all:unset;
 }
 
@@ -50,4 +50,13 @@
 .tomtobybutton a{
     color:white;
     text-decoration:none;
+}
+
+#tomtobysaved{
+color: #9DB8BF;
+font-size:9px;
+}
+
+#tomtobysavedgreen{
+    color: #27BB3F;
 }
