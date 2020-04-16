@@ -86,7 +86,7 @@ document.addEventListener('keydown', function(event) {
 
                 if(!ishover && !textfocus) {
                   time++;
-                  if(time > 500){
+                  if(time > 5){
                     var paras = document.getElementsByClassName('tomtobypopup');
                     while(paras[0]) {
                         paras[0].parentNode.removeChild(paras[0]); // remove all popups
