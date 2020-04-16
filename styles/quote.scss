@@ -31,62 +31,6 @@ $bluegray-text-dark: #253237;
 		border: 1px solid $bluegray-text-light;
 	}
 	
-	.portal-head{
-		border-bottom: 1px solid $bluegray-bg-med;
-		display:flex;
-		flex-flow:row nowrap;
-		justify-content: space-between;
-		align-items: stretch;
-		@include transition(all .20s ease);	
-
-		.portal-metadata{
-			padding: 15px;
-			min-width:0px;
-		}
-
-		.portal-author{
-			font-size:14px;
-			color: black;
-			font-weight:600;
-			margin-bottom:4px;
-		}		
-		.portal-title{
-			font-size: 14px;
-			color: $bluegray-text-light;
-			max-width: 100%;
-
-			.title-wrapper{
-				white-space: nowrap; 
-				overflow: hidden; 
-				text-overflow: ellipsis;
-				.portal-text-title{
-					font-weight:600;
-					color: $bluegray-text-med;
-				}							
-			}					
-		}
-		.portal-backlink{
-			display:flex;
-			flex-shrink:1;
-			align-items:center;
-			min-width:80px;
-			padding: 0px 15px;
-			border-left: 1px solid $bluegray-bg-med;
-			.portal-arrow{
-				font-size: 14px;
-				color: $bluegray-text-light;
-				text-decoration:none;
-				@include transition(opacity .10s ease);
-				&:hover{
-					opacity:.5;
-				}
-			}
-		}
-	}
-
-	.portal-iframe{
-		overflow:hidden;
-	}
 	.portal-parent{
 		overflow:hidden;
 		position: relative;
@@ -104,4 +48,73 @@ $bluegray-text-dark: #253237;
  			line-height:140%; 
 		}
 	}
+
+	.portal-head{
+		border-top: 1px solid $bluegray-bg-med;
+		display:flex;
+		flex-flow:row nowrap;
+		justify-content: start;
+		align-items: stretch;
+		padding-left:15px;
+		@include transition(all .20s ease);	
+
+		.portal-avatar{
+			border-radius:100%;
+			border: 1px solid #C2DFE3;
+			width:42px;
+			height:42px;
+			// delet following
+			margin: 12px 0px;
+			img{
+				max-width:24px;
+				height:auto;
+			}
+		}
+
+		.portal-metadata{
+			min-width:0px;
+			display:flex;
+			flex-shrink:1;
+			align-items:center;			
+			margin-left:10px;
+		}
+
+		.portal-author{
+			font-size:14px;
+			color: black;
+			font-weight:600;
+			margin-bottom:2px;
+		}		
+		.portal-title{
+			font-size: 14px;
+			color: $bluegray-text-light;
+			max-width: 100%;
+
+			.title-wrapper{
+				white-space: nowrap; 
+				overflow: hidden; 
+				text-overflow: ellipsis;
+				font-weight:600;
+				color: $bluegray-text-med;					
+			}					
+		}
+		.portal-backlink{
+			margin-left: auto;
+			display:flex;
+			flex-shrink:1;
+			align-items:center;
+			min-width:80px;
+			padding: 0px 15px;
+			border-left: 1px solid $bluegray-bg-med;
+			.portal-arrow{
+				font-size: 14px;
+				color: $bluegray-text-light;
+				text-decoration:none;
+				@include transition(opacity .10s ease);
+				&:hover{
+					opacity:.5;
+				}
+			}
+		}
+	}	
 }
