@@ -51,9 +51,60 @@ document.addEventListener('keydown', function(event) {
             var browser_page = chrome.runtime.getURL("options.html");
                         
             document.getElementsByTagName('body')[0].insertAdjacentHTML( 'afterbegin', `
-            <div class='tomtobypopup' id='tomtobyid'><div><div class='tomtobytext'>${text.substring(1,50)}</div>
-            <textarea rows='4'></textarea><div class='tomtobysaved'>Saved</div>
-            <div class='tomtobybutton'><a href="${browser_page}#${page}">See Quotes</div></div></div>`);
+<div class="citation-capture" id="citation-capture">
+<div class="citation-meta">
+<form>
+<label class="citation-input-label" for="Author">Author</label>
+<input class="citation-input" id="author-field" name="Author" value="${page_object["author"]}"></input>
+</form>
+<form>
+<label class="citation-input-label" for="Title">Title</label>
+<input class="citation-input" id="title-field" name="Title" value="${page_object["title"]}"></input>
+</form>       
+</div>
+
+<div class="thickdivider"></div>
+
+
+
+<div class="portal-container">
+
+<div id="portal-parent" class="portal-parent">
+<div class="portal-content">${text.substring(0,50)}
+</div>       
+</div> 
+
+<div class="portal-head">
+
+<div class="portal-avatar"><img src="https://s2.googleusercontent.com/s2/favicons?domain_url=${location.hostname}&sz=64"/></div>
+
+<div class="portal-metadata">
+<div class="portal-title">
+<div class="portal-author">Author Text</div>
+<div class="title-wrapper">${page_object["title"]}</div>
+</div> 
+</div>
+
+<div class="portal-backlink"><a target="_blank" href="${page_object["url"]}" class="portal-arrow">Go to text <span class="right-arrow">&#8594;</span></a></div>
+
+</div>       
+</div>
+
+<div class="thickdivider"></div>
+
+<div class="citation-bottom">
+<div class="comment">
+<form>
+<input class="citation-input" id="comment-field" placeholder="+ Add Comment"></input>
+</form>
+<div class="citation-saving"></div>
+</div>
+<div><button id="getlink" class="control-button"><> Embed</button></div>
+<div><button id="save-button">Save & Close</button></div>
+</div>
+
+</div>
+`);
             
             // boundary.top from here if we wanna position relative to the text selection
             // https://stackoverflow.com/questions/4106109/selected-text-and-xy-coordinates
@@ -70,7 +121,7 @@ document.addEventListener('keydown', function(event) {
             txtAreaListenFocus();
             txtAreaListenBlur();
 
-            let popup = document.querySelector(".tomtobypopup");
+            let popup = document.querySelector(".citation-capture");
   
             popup.addEventListener("mouseover", function( event ) {   
                 ishover = true;
@@ -87,7 +138,7 @@ document.addEventListener('keydown', function(event) {
                 if(!ishover && !textfocus) {
                   time++;
                   if(time > 5){
-                    var paras = document.getElementsByClassName('tomtobypopup');
+                    var paras = document.getElementsByClassName('citation-capture');
                     while(paras[0]) {
                         paras[0].parentNode.removeChild(paras[0]); // remove all popups
                     };         
@@ -100,14 +151,14 @@ document.addEventListener('keydown', function(event) {
               }, 1000);
 
               function txtAreaListenFocus(){
-                var txtArea = document.querySelector('.tomtobypopup textarea');
+                var txtArea = document.querySelector('#comment-field');
                 txtArea.addEventListener('focus', function(event) {
                    textfocus = true;
                 }.bind(this));
               };
 
               function txtAreaListenBlur(){
-                var txtArea = document.querySelector('.tomtobypopup textarea');
+                var txtArea = document.querySelector('#comment-field');
                 txtArea.addEventListener('blur', function(event) {
                   textfocus = false;
                 }.bind(this));
@@ -189,7 +240,7 @@ var AutoSave = (function(){
     var timer = null;
     
 	function getEditor(){
-		var elems = document.querySelector(".tomtobypopup textarea")
+		var elems = document.querySelector("#comment-field");
 		if (!elems)
 			return null;
 		return elems;
@@ -205,6 +256,9 @@ var AutoSave = (function(){
             object[page]["quotes"][0]["comment"] = editor.value;
             chrome.storage.local.set(object, function() { 
                 console.log("autosaved");
+                if(document.querySelector(".citation-saving").innerText == "Saving..."){
+                  document.querySelector(".citation-saving").innerHTML = "<span id='tomtobysavedgreen'>Saved</span>";
+              };
             });
             }
         };
@@ -228,6 +282,10 @@ var AutoSave = (function(){
 
             var editor = getEditor(); 
             console.log(editor);
+                 
+          editor.addEventListener("keydown", function( event ) {   
+              document.querySelector(".citation-saving").innerText = "Saving...";
+          });            
 
 			if (editor.value.length <= 0)
 				restore();

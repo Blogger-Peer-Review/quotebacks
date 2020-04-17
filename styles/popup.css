@@ -1,16 +1,18 @@
 #citation-capture {
-  all: revert; }
+  all: revert;
+}
 
 #citation-capture * {
-  all: revert; }
+  all: revert;
+}
 
 input {
   border: none;
   background-image: none;
   background-color: transparent;
   -webkit-box-shadow: none;
-  -moz-box-shadow: none;
-  box-shadow: none; }
+  box-shadow: none;
+}
 
 #citation-capture {
   font-family: -apple-system, system-ui, "Open Sans", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol";
@@ -25,16 +27,33 @@ input {
   max-height: calc(100% - 50px);
   border: 5px solid #e7e7e5 !important;
   border-radius: 0.25em;
-  padding: 24px; }
+  padding: 24px;
+  z-index: 2147483;
+  background-color: white;
+}
 
 .citation-meta {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-  flex: 0 0 100%; }
-  .citation-meta form:first-child {
-    margin-right: 10px; }
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 100%;
+          flex: 0 0 100%;
+}
+
+.citation-meta form:first-child {
+  margin-right: 10px;
+}
 
 .citation-input {
   width: 280px;
@@ -42,28 +61,33 @@ input {
   padding: 11px;
   height: 37px;
   font-size: 12px;
-  box-shadow: none;
+  -webkit-box-shadow: none;
+          box-shadow: none;
   -webkit-appearance: none;
   color: #464A4D;
   background: #ECEEEF;
-  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
   border-radius: 4px;
   -webkit-transition: all 0.1s ease;
-  -moz-transition: all 0.1s ease;
-  -ms-transition: all 0.1s ease;
-  -o-transition: all 0.1s ease;
-  transition: all 0.1s ease; }
-  .citation-input#comment-field {
-    border-radius: 10px; }
+  transition: all 0.1s ease;
+}
+
+.citation-input#comment-field {
+  border-radius: 10px;
+}
 
 .citation-input:focus {
   outline: none;
-  box-shadow: inset 0px 0px 0px 1px #9DB8BF; }
+  -webkit-box-shadow: inset 0px 0px 0px 1px #9DB8BF;
+          box-shadow: inset 0px 0px 0px 1px #9DB8BF;
+}
 
 .citation-input-label {
   display: block;
   font-size: 12px;
-  margin-bottom: 2px; }
+  margin-bottom: 2px;
+}
 
 .control-button {
   border: none;
@@ -76,27 +100,43 @@ input {
   font-family: inherit;
   display: block;
   -webkit-transition: all 0.2s ease;
-  -moz-transition: all 0.2s ease;
-  -ms-transition: all 0.2s ease;
-  -o-transition: all 0.2s ease;
-  transition: all 0.2s ease; }
-  .control-button:hover {
-    cursor: pointer;
-    opacity: .5; }
-  .control-button#getlink {
-    color: #395FE5;
-    height: 37px; }
+  transition: all 0.2s ease;
+}
+
+.control-button:hover {
+  cursor: pointer;
+  opacity: .5;
+}
+
+.control-button#getlink {
+  color: #395FE5;
+  height: 37px;
+}
 
 .citation-bottom {
   height: 50px;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: start;
-  flex: 0 0 100%;
-  margin-top: -13px; }
-  .citation-bottom div {
-    display: inline-block; }
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: start;
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 100%;
+          flex: 0 0 100%;
+  margin-top: -13px;
+}
+
+.citation-bottom div {
+  display: inline-block;
+}
 
 #save-button {
   -webkit-appearance: none;
@@ -104,10 +144,12 @@ input {
   display: block;
   padding: 11px;
   font-size: 14px;
-  box-shadow: none;
+  -webkit-box-shadow: none;
+          box-shadow: none;
   background: #F2F7FA;
   border: 0.5px solid #D5D5D5;
-  box-sizing: border-box;
-  border-radius: 4px; }
-
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  border-radius: 4px;
+}
 /*# sourceMappingURL=popup.css.map */
