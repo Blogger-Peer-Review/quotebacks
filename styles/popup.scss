@@ -9,15 +9,7 @@
 }
 
 
-#citation-capture{
-    all:revert;
-}
-
-#citation-capture *{
-    all:revert;
-}
-
-input{
+input,button{
   border:none;
   background-image:none;
   background-color:transparent;
@@ -26,7 +18,7 @@ input{
   box-shadow: none;
 }
 
-#citation-capture{
+#citation-capture-519256{
     font-family: -apple-system, system-ui, "Open Sans", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol";
     overflow: hidden !important;
     width: 600px;
@@ -44,12 +36,13 @@ input{
     background-color:white;
 }
 
-.citation-meta{
+.citation-meta-519256{
   display:flex;
   flex-direction:row;
   justify-content: space-between;
   align-items:center;
   flex: 0 0 100%;
+  margin-bottom: 10px;
   form{ 
     &:first-child{
       margin-right:10px;
@@ -57,7 +50,7 @@ input{
   }
 }
 
-.citation-input{
+.citation-input-519256{
   width: 280px;
   display:block;
   padding:11px;
@@ -69,24 +62,24 @@ input{
   background: #ECEEEF;
   box-sizing: border-box;
   border-radius: 4px;
-  &#comment-field{
+  &#comment-field-519256{
     border-radius: 10px;
   }
   @include transition(all .10s ease);
 }
-.citation-input:focus{
+.citation-input-519256:focus{
   outline:none;
   // border: 1px solid #9DB8BF;
   box-shadow: inset 0px 0px 0px 1px #9DB8BF;
 }
 
-.citation-input-label{
+.citation-input-label-519256{
   display:block;
   font-size:12px;
   margin-bottom:2px;
 }
 
-.control-button{
+.control-button-519256{
   border:none;
   text-align: left;
   width:auto;  
@@ -101,13 +94,13 @@ input{
     cursor: pointer;
     opacity:.5;
   }
-  &#getlink{
+  &#getlink-519256{
     color: #395FE5;
     height:37px;
   }  
 }
 
-.citation-bottom{
+.citation-bottom-519256{
   height:50px;
   display:flex;
   flex-direction:row;
@@ -119,7 +112,7 @@ input{
     display:inline-block;
   }
 }
-#save-button{
+#save-button-519256{
   -webkit-appearance: none;
   // height:37px;
   width: 130px;
@@ -133,3 +126,12 @@ input{
   border-radius: 4px;
 
 }
+
+
+// .citation-capture-519256{
+//     all:revert;
+// }
+
+// .citation-capture-519256 > *{
+//     all:revert;
+// }

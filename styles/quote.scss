@@ -1,5 +1,4 @@
-@charset "UTF-8";
-
+// @charset "UTF-8";
 @mixin transition($args...) {
   -webkit-transition: $args;
   -moz-transition: $args;
@@ -16,15 +15,15 @@ $bluegray-text-med: #5C6D73;
 
 $bluegray-text-dark: #253237;
 
-.portal-container{
+.portal-container-519256{
 	all:revert
 }
 
-.portal-container *{
+.portal-container-519256 *{
 	all:revert
 }
 
-.portal-container{
+.portal-container-519256{
 	font-family: -apple-system, system-ui, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol";
 	text-rendering: optimizeLegibility;
 	border: 1px solid #C2DFE3;
@@ -39,25 +38,26 @@ $bluegray-text-dark: #253237;
 		border: 1px solid $bluegray-text-light;
 	}
 	
-	.portal-parent{
+	.portal-parent-519256{
 		overflow:hidden;
 		position: relative;
 		width:100%;
 		box-sizing: border-box;
 			
-		.portal-parent-text{
+		.portal-parent-text-519256{
 			padding: 15px;
 			color: $bluegray-text-med;			
 			z-index: 40;
 		}
-		.portal-content{
+		.portal-content-519256{
+			font-family: -apple-system, system-ui, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol";
  			padding: 15px; 
  			color: #464A4D;
  			line-height:140%; 
 		}
 	}
 
-	.portal-head{
+	.portal-head-519256{
 		border-top: 1px solid $bluegray-bg-med;
 		display:flex;
 		flex-flow:row nowrap;
@@ -66,7 +66,7 @@ $bluegray-text-dark: #253237;
 		padding-left:15px;
 		@include transition(all .20s ease);	
 
-		.portal-avatar{
+		.portal-avatar-519256{
 			border-radius:100%;
 			border: 1px solid #C2DFE3;
 			width:42px;
@@ -85,7 +85,7 @@ $bluegray-text-dark: #253237;
 			}
 		}
 
-		.portal-metadata{
+		.portal-metadata-519256{
 			min-width:0px;
 			display:flex;
 			flex-shrink:1;
@@ -93,18 +93,18 @@ $bluegray-text-dark: #253237;
 			margin-left:10px;
 		}
 
-		.portal-author{
+		.portal-author-519256{
 			font-size:14px;
 			color: black;
 			font-weight:600;
 			margin-bottom:2px;
 		}		
-		.portal-title{
+		.portal-title-519256{
 			font-size: 14px;
 			color: $bluegray-text-light;
 			max-width: 100%;
 
-			.title-wrapper{
+			.title-wrapper-519256{
 				white-space: nowrap; 
 				overflow: hidden; 
 				text-overflow: ellipsis;
@@ -112,7 +112,7 @@ $bluegray-text-dark: #253237;
 				color: $bluegray-text-med;					
 			}					
 		}
-		.portal-backlink{
+		.portal-backlink-519256{
 			margin-left: auto;
 			display:flex;
 			flex-shrink:1;
@@ -120,7 +120,7 @@ $bluegray-text-dark: #253237;
 			min-width:80px;
 			padding: 0px 15px;
 			border-left: 1px solid $bluegray-bg-med;
-			.portal-arrow{
+			.portal-arrow-519256{
 				font-size: 14px;
 				color: $bluegray-text-light;
 				text-decoration:none;
