@@ -1,14 +1,10 @@
-#citation-51925 {
+.portal-container-519256 {
   all: revert; }
 
-#citation-51925 * {
+.portal-container-519256 * {
   all: revert; }
 
-#citation-51925 .portal-container {
-  all: revert; }
-#citation-51925 .portal-container * {
-  all: revert; }
-#citation-51925 .portal-container {
+.portal-container-519256 {
   font-family: -apple-system, system-ui, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol";
   text-rendering: optimizeLegibility;
   border: 1px solid #C2DFE3;
@@ -20,24 +16,25 @@
   -ms-transition: all 0.2s ease;
   -o-transition: all 0.2s ease;
   transition: all 0.2s ease; }
-  #citation-51925 .portal-container:hover {
+  .portal-container-519256:hover {
     transform: translateY(-3px);
     box-shadow: 0px 6px 20px 0px rgba(0, 0, 0, 0.15);
     border: 1px solid #9DB8BF; }
-  #citation-51925 .portal-container .portal-parent {
+  .portal-container-519256 .portal-parent-519256 {
     overflow: hidden;
     position: relative;
     width: 100%;
     box-sizing: border-box; }
-    #citation-51925 .portal-container .portal-parent .portal-parent-text {
+    .portal-container-519256 .portal-parent-519256 .portal-parent-text-519256 {
       padding: 15px;
       color: #5C6D73;
       z-index: 40; }
-    #citation-51925 .portal-container .portal-parent .portal-content {
+    .portal-container-519256 .portal-parent-519256 .portal-content-519256 {
+      font-family: -apple-system, system-ui, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol";
       padding: 15px;
       color: #464A4D;
       line-height: 140%; }
-  #citation-51925 .portal-container .portal-head {
+  .portal-container-519256 .portal-head-519256 {
     border-top: 1px solid #C2DFE3;
     display: flex;
     flex-flow: row nowrap;
@@ -49,14 +46,14 @@
     -ms-transition: all 0.2s ease;
     -o-transition: all 0.2s ease;
     transition: all 0.2s ease; }
-    #citation-51925 .portal-container .portal-head .portal-avatar {
+    .portal-container-519256 .portal-head-519256 .portal-avatar-519256 {
       border-radius: 100%;
       border: 1px solid #C2DFE3;
       width: 42px;
       height: 42px;
       margin: 12px 0px;
       position: relative; }
-      #citation-51925 .portal-container .portal-head .portal-avatar img {
+      .portal-container-519256 .portal-head-519256 .portal-avatar-519256 img {
         max-width: 24px;
         position: absolute;
         margin: auto;
@@ -64,28 +61,28 @@
         left: 0;
         right: 0;
         bottom: 0; }
-    #citation-51925 .portal-container .portal-head .portal-metadata {
+    .portal-container-519256 .portal-head-519256 .portal-metadata-519256 {
       min-width: 0px;
       display: flex;
       flex-shrink: 1;
       align-items: center;
       margin-left: 10px; }
-    #citation-51925 .portal-container .portal-head .portal-author {
+    .portal-container-519256 .portal-head-519256 .portal-author-519256 {
       font-size: 14px;
       color: black;
       font-weight: 600;
       margin-bottom: 2px; }
-    #citation-51925 .portal-container .portal-head .portal-title {
+    .portal-container-519256 .portal-head-519256 .portal-title-519256 {
       font-size: 14px;
       color: #9DB8BF;
       max-width: 100%; }
-      #citation-51925 .portal-container .portal-head .portal-title .title-wrapper {
+      .portal-container-519256 .portal-head-519256 .portal-title-519256 .title-wrapper-519256 {
         white-space: nowrap;
         overflow: hidden;
         text-overflow: ellipsis;
         font-weight: 600;
         color: #5C6D73; }
-    #citation-51925 .portal-container .portal-head .portal-backlink {
+    .portal-container-519256 .portal-head-519256 .portal-backlink-519256 {
       margin-left: auto;
       display: flex;
       flex-shrink: 1;
@@ -93,7 +90,7 @@
       min-width: 80px;
       padding: 0px 15px;
       border-left: 1px solid #C2DFE3; }
-      #citation-51925 .portal-container .portal-head .portal-backlink .portal-arrow {
+      .portal-container-519256 .portal-head-519256 .portal-backlink-519256 .portal-arrow-519256 {
         font-size: 14px;
         color: #9DB8BF;
         text-decoration: none;
@@ -102,16 +99,18 @@
         -ms-transition: opacity 0.1s ease;
         -o-transition: opacity 0.1s ease;
         transition: opacity 0.1s ease; }
-        #citation-51925 .portal-container .portal-head .portal-backlink .portal-arrow:hover {
+        .portal-container-519256 .portal-head-519256 .portal-backlink-519256 .portal-arrow-519256:hover {
           opacity: .5; }
-#citation-51925 input {
+
+input, button {
   border: none;
   background-image: none;
   background-color: transparent;
   -webkit-box-shadow: none;
   -moz-box-shadow: none;
   box-shadow: none; }
-#citation-51925 #citation-capture {
+
+#citation-capture-519256 {
   font-family: -apple-system, system-ui, "Open Sans", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol";
   overflow: hidden !important;
   width: 600px;
@@ -127,16 +126,18 @@
   padding: 24px;
   z-index: 2147483;
   background-color: white; }
-#citation-51925 .citation-meta {
+
+.citation-meta-519256 {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
   flex: 0 0 100%;
-  margin-bottom: 20px; }
-  #citation-51925 .citation-meta form:first-child {
+  margin-bottom: 10px; }
+  .citation-meta-519256 form:first-child {
     margin-right: 10px; }
-#citation-51925 .citation-input {
+
+.citation-input-519256 {
   width: 280px;
   display: block;
   padding: 11px;
@@ -153,16 +154,19 @@
   -ms-transition: all 0.1s ease;
   -o-transition: all 0.1s ease;
   transition: all 0.1s ease; }
-  #citation-51925 .citation-input#comment-field {
+  .citation-input-519256#comment-field-519256 {
     border-radius: 10px; }
-#citation-51925 .citation-input:focus {
+
+.citation-input-519256:focus {
   outline: none;
   box-shadow: inset 0px 0px 0px 1px #9DB8BF; }
-#citation-51925 .citation-input-label {
+
+.citation-input-label-519256 {
   display: block;
   font-size: 12px;
   margin-bottom: 2px; }
-#citation-51925 .control-button {
+
+.control-button-519256 {
   border: none;
   text-align: left;
   width: auto;
@@ -177,13 +181,14 @@
   -ms-transition: all 0.2s ease;
   -o-transition: all 0.2s ease;
   transition: all 0.2s ease; }
-  #citation-51925 .control-button:hover {
+  .control-button-519256:hover {
     cursor: pointer;
     opacity: .5; }
-  #citation-51925 .control-button#getlink {
+  .control-button-519256#getlink-519256 {
     color: #395FE5;
     height: 37px; }
-#citation-51925 .citation-bottom {
+
+.citation-bottom-519256 {
   height: 50px;
   display: flex;
   flex-direction: row;
@@ -191,9 +196,10 @@
   align-items: start;
   flex: 0 0 100%;
   margin-top: -13px; }
-  #citation-51925 .citation-bottom div {
+  .citation-bottom-519256 div {
     display: inline-block; }
-#citation-51925 #save-button {
+
+#save-button-519256 {
   -webkit-appearance: none;
   width: 130px;
   display: block;
