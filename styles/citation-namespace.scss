@@ -1,2 +1,15 @@
-@import "quote.scss";
-@import "popup.scss";
+@charset "UTF-8";
+
+#citation-519256{
+    all:revert;
+}
+
+#citation-519256 *{
+    all:revert;
+}
+
+#citation-519256 {
+	@import "quote.scss";
+	@import "popup.scss";
+}
+

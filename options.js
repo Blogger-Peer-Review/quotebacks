@@ -58,7 +58,7 @@ document.addEventListener("DOMContentLoaded", function(){
     
     $('#rightpanel').on('click',"#copy", function() {
       console.log("copying?");
-      var quote = $(this).closest('.quoteblock').find('.portal-content').text();
+      var quote = $(this).closest('.quoteblock').find('.portal-content-519256').text();
       copyToClipboard(quote);
       var el = $(this);
       el.css('border', '1px solid red');
@@ -71,14 +71,14 @@ document.addEventListener("DOMContentLoaded", function(){
       
       var title = $(".selected").find(".title").text();
       var url = $(".selected").attr("data-id");
-      var quote = $(this).closest('.quoteblock').find('.portal-content').text();
+      var quote = $(this).closest('.quoteblock').find('.portal-content-519256').text();
 
       const embed_fragment = document.getElementById('embed');
       const embed = document.importNode(embed_fragment.content, true);
       // Add relevant content to the template
-      embed.querySelector('.portal-text-title').innerHTML = title;
-      embed.querySelector('.portal-arrow').setAttribute("href", url);
-      embed.querySelector('.portal-content').innerHTML = quote;
+      embed.querySelector('.title-wrapper-519256').innerHTML = title;
+      embed.querySelector('.portal-arrow-519256').setAttribute("href", url);
+      embed.querySelector('.portal-content-519256').innerHTML = quote;
     
       let div=document.createElement("div");
       div.appendChild(embed);
@@ -168,11 +168,11 @@ function displayquotes(url){
     const instance = document.importNode(fragment.content, true);
 
     // Add relevant content to the template
-    instance.querySelector('.portal-content').innerHTML = item.text;
+    instance.querySelector('.portal-content-519256').innerHTML = item.text;
     instance.querySelector('.linkback a').href = url;
-    instance.querySelector('.portal-arrow').href = url;
-    instance.querySelector('.portal-text-title').innerHTML = alldata[url].title;
-    instance.querySelector('.portal-author').innerHTML = alldata[url].author;
+    instance.querySelector('.portal-arrow-519256').href = url;
+    instance.querySelector('.title-wrapper-519256').innerHTML = alldata[url].title;
+    instance.querySelector('.portal-author-519256').innerHTML = alldata[url].author;
 
     var date = new Date(item.date);
     console.log(date); // date is a timestamp but we only display formatted
