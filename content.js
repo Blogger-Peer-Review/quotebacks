@@ -81,7 +81,7 @@ document.addEventListener('keydown', function(event) {
 </form>
 <form>
 <label class="citation-input-label-519256" for="Title">Title</label>
-<input class="citation-input-519256" id="title-field" name="Title" value="${page_object["title"]}></input>
+<input class="citation-input-519256" id="title-field" name="Title" value="${page_object["title"]}"></input>
 </form>       
 </div>
 

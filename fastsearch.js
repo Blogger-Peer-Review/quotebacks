@@ -181,7 +181,7 @@ function executeSearch(term) {
         <img src='https://s2.googleusercontent.com/s2/favicons?domain_url=${extractHostname(results[i].item.url)}'/>
         ${extractHostname(results[i].item.url)}
         </div>
-        <span>${results[i].item.quotes[j].text.substring(1,100)}</span>
+        <span>${results[i].item.quotes[j].text.substring(0,100)}</span>
         </a></li>`;
 
         searchitems = searchitems + searchresult;
