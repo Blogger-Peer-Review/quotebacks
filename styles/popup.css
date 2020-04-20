@@ -3,8 +3,8 @@ input, button {
   background-image: none;
   background-color: transparent;
   -webkit-box-shadow: none;
-  -moz-box-shadow: none;
-  box-shadow: none; }
+  box-shadow: none;
+}
 
 #citation-capture-519256 {
   font-family: -apple-system, system-ui, "Open Sans", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol";
@@ -21,17 +21,32 @@ input, button {
   border-radius: 0.25em;
   padding: 24px;
   z-index: 2147483;
-  background-color: white; }
+  background-color: white;
+}
 
 .citation-meta-519256 {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-  flex: 0 0 100%;
-  margin-bottom: 10px; }
-  .citation-meta-519256 form:first-child {
-    margin-right: 10px; }
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 100%;
+          flex: 0 0 100%;
+  margin-bottom: 10px;
+}
+
+.citation-meta-519256 form:first-child {
+  margin-right: 10px;
+}
 
 .citation-input-519256 {
   width: 280px;
@@ -39,28 +54,33 @@ input, button {
   padding: 11px;
   height: 37px;
   font-size: 12px;
-  box-shadow: none;
+  -webkit-box-shadow: none;
+          box-shadow: none;
   -webkit-appearance: none;
   color: #464A4D;
   background: #ECEEEF;
-  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
   border-radius: 4px;
   -webkit-transition: all 0.1s ease;
-  -moz-transition: all 0.1s ease;
-  -ms-transition: all 0.1s ease;
-  -o-transition: all 0.1s ease;
-  transition: all 0.1s ease; }
-  .citation-input-519256#comment-field-519256 {
-    border-radius: 10px; }
+  transition: all 0.1s ease;
+}
+
+.citation-input-519256#comment-field-519256 {
+  border-radius: 10px;
+}
 
 .citation-input-519256:focus {
   outline: none;
-  box-shadow: inset 0px 0px 0px 1px #9DB8BF; }
+  -webkit-box-shadow: inset 0px 0px 0px 1px #9DB8BF;
+          box-shadow: inset 0px 0px 0px 1px #9DB8BF;
+}
 
 .citation-input-label-519256 {
   display: block;
   font-size: 12px;
-  margin-bottom: 2px; }
+  margin-bottom: 2px;
+}
 
 .control-button-519256 {
   border: none;
@@ -73,27 +93,43 @@ input, button {
   font-family: inherit;
   display: block;
   -webkit-transition: all 0.2s ease;
-  -moz-transition: all 0.2s ease;
-  -ms-transition: all 0.2s ease;
-  -o-transition: all 0.2s ease;
-  transition: all 0.2s ease; }
-  .control-button-519256:hover {
-    cursor: pointer;
-    opacity: .5; }
-  .control-button-519256#getlink-519256 {
-    color: #395FE5;
-    height: 37px; }
+  transition: all 0.2s ease;
+}
+
+.control-button-519256:hover {
+  cursor: pointer;
+  opacity: .5;
+}
+
+.control-button-519256#getlink-519256 {
+  color: #395FE5;
+  height: 37px;
+}
 
 .citation-bottom-519256 {
   height: 50px;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: start;
-  flex: 0 0 100%;
-  margin-top: -13px; }
-  .citation-bottom-519256 div {
-    display: inline-block; }
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: start;
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 100%;
+          flex: 0 0 100%;
+  margin-top: -13px;
+}
+
+.citation-bottom-519256 div {
+  display: inline-block;
+}
 
 #save-button-519256 {
   -webkit-appearance: none;
@@ -101,10 +137,12 @@ input, button {
   display: block;
   padding: 11px;
   font-size: 14px;
-  box-shadow: none;
+  -webkit-box-shadow: none;
+          box-shadow: none;
   background: #F2F7FA;
   border: 0.5px solid #D5D5D5;
-  box-sizing: border-box;
-  border-radius: 4px; }
-
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  border-radius: 4px;
+}
 /*# sourceMappingURL=popup.css.map */
