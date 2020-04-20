@@ -19,6 +19,7 @@ document.addEventListener('keydown', function(event) {
     // https://stackoverflow.com/questions/10097988/chrome-extension-prevent-css-from-being-over-written
     // Create our iframe and style it so that we can see it...
     var iframe = document.createElement('iframe');
+    iframe.className = "citation-iframe-519256";
     document.documentElement.appendChild(iframe);
     iframe.style.cssText = "width:670px; height:800px; position:fixed; top:0px; right:0px; z-index:99999;"
 
@@ -119,7 +120,7 @@ document.addEventListener('keydown', function(event) {
 <div class="citation-bottom-519256">
 <div class="comment-519256">
 <form>
-  <input class="citation-input-519256" id="comment-field" placeholder="+ Add Comment"></input>
+  <input class="citation-input-519256" id="comment-field-519256" placeholder="+ Add Comment"></input>
 </form>
 </div>
 <div><button id="getlink-519256" class="control-button-519256"><> Embed</button></div>
@@ -146,7 +147,7 @@ document.addEventListener('keydown', function(event) {
             txtAreaListenFocus();
             txtAreaListenBlur();
 
-            let popup = document.querySelector(".citation-capture");
+            let popup = iframe;
   
             popup.addEventListener("mouseover", function( event ) {   
                 ishover = true;
@@ -176,14 +177,14 @@ document.addEventListener('keydown', function(event) {
               }, 1000);
 
               function txtAreaListenFocus(){
-                var txtArea = document.querySelector('#comment-field');
+                var txtArea = iframe.contentDocument.querySelector('#comment-field-519256'); // changed
                 txtArea.addEventListener('focus', function(event) {
                    textfocus = true;
                 }.bind(this));
               };
 
               function txtAreaListenBlur(){
-                var txtArea = document.querySelector('#comment-field');
+                var txtArea = iframe.contentDocument.querySelector('#comment-field-519256'); // changed
                 txtArea.addEventListener('blur', function(event) {
                   textfocus = false;
                 }.bind(this));
@@ -309,7 +310,7 @@ var AutoSave = (function(){
             console.log(editor);
                  
           editor.addEventListener("keydown", function( event ) {   
-              document.querySelector(".citation-saving").innerText = "Saving...";
+              iframe.contentDocument.querySelector(".citation-saving").innerText = "Saving..."; // changed
           });            
 
 			if (editor.value.length <= 0)
