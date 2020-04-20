@@ -19,9 +19,9 @@ document.addEventListener('keydown', function(event) {
     // https://stackoverflow.com/questions/10097988/chrome-extension-prevent-css-from-being-over-written
     // Create our iframe and style it so that we can see it...
     var iframe = document.createElement('iframe');
-    iframe.className = "citation-iframe-519256";
+    iframe.id = "citation-iframe-519256";
     document.documentElement.appendChild(iframe);
-    iframe.style.cssText = "width:670px; height:800px; position:fixed; top:0px; right:0px; z-index:99999;"
+    iframe.style.cssText = "width:670px; height:800px; position:fixed; border:none; top:0px; right:0px; z-index:99999;"
 
 
 
@@ -122,6 +122,7 @@ document.addEventListener('keydown', function(event) {
 <form>
   <input class="citation-input-519256" id="comment-field-519256" placeholder="+ Add Comment"></input>
 </form>
+<div class="citation-saving-519256"></div>
 </div>
 <div><button id="getlink-519256" class="control-button-519256"><> Embed</button></div>
 <div><button id="save-button-519256">Save & Close</button></div>
@@ -147,13 +148,13 @@ document.addEventListener('keydown', function(event) {
             txtAreaListenFocus();
             txtAreaListenBlur();
 
-            let popup = iframe;
+            // let popup = iframe;
   
-            popup.addEventListener("mouseover", function( event ) {   
+            iframe.addEventListener("mouseover", function( event ) {   
                 ishover = true;
             });
 
-            popup.addEventListener("mouseout", function( event ) {   
+            iframe.addEventListener("mouseout", function( event ) {   
                 ishover = false;
             });
 
@@ -161,13 +162,17 @@ document.addEventListener('keydown', function(event) {
 
             var t = window.setInterval(function() {
 
+                // timeout to remove popups
                 if(!ishover && !textfocus) {
                   time++;
                   if(time > 5){
-                    var paras = document.getElementsByClassName('citation-capture');
-                    while(paras[0]) {
-                        paras[0].parentNode.removeChild(paras[0]); // remove all popups
-                    };         
+                    var paras = document.getElementById('citation-iframe-519256');
+                    if (paras){
+                      paras.parentNode.removeChild(paras);
+                    };
+                    // while(paras[0]) {
+                    //     paras[0].parentNode.removeChild(paras[0]); // remove all popups
+                    // };         
                     AutoSave.stop();              
                     clearInterval(t); // stop timer
                   };
@@ -264,9 +269,10 @@ function getDate(){
 var AutoSave = (function(){
 
     var timer = null;
-    
+
 	function getEditor(){
-		var elems = document.querySelector("#comment-field");
+    let iframe = document.getElementById("citation-iframe-519256"); // added
+		var elems = iframe.contentDocument.querySelector("#comment-field-519256"); // changed
 		if (!elems)
 			return null;
 		return elems;
@@ -274,6 +280,7 @@ var AutoSave = (function(){
 
 	function save(object){
         console.log("running save");
+        let iframe = document.getElementById("citation-iframe-519256"); // added        
 		    var editor = getEditor(); 
             if (editor) {
 
@@ -282,8 +289,8 @@ var AutoSave = (function(){
             object[page]["quotes"][0]["comment"] = editor.value;
             chrome.storage.local.set(object, function() { 
                 console.log("autosaved");
-                if(document.querySelector(".citation-saving").innerText == "Saving..."){
-                  document.querySelector(".citation-saving").innerHTML = "<span id='tomtobysavedgreen'>Saved</span>";
+                if(iframe.contentDocument.querySelector(".citation-saving-519256").innerText == "Saving..."){
+                  iframe.contentDocument.querySelector(".citation-saving-519256").innerHTML = "<span style='color:green'>Saved</span>"; // changed
               };
             });
             }
@@ -305,12 +312,12 @@ var AutoSave = (function(){
 	return { 
 
 		start: function(object){
-
+            let iframe = document.getElementById("citation-iframe-519256"); // added
             var editor = getEditor(); 
             console.log(editor);
                  
           editor.addEventListener("keydown", function( event ) {   
-              iframe.contentDocument.querySelector(".citation-saving").innerText = "Saving..."; // changed
+              iframe.contentDocument.querySelector(".citation-saving-519256").innerText = "Saving..."; // changed
           });            
 
 			if (editor.value.length <= 0)
