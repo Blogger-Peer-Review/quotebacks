@@ -1,3 +1,8 @@
+$graybg: #EBEEF0;
+$lightbg: #F7F9FA;
+$graydiv: #BCBDBD;
+$selection: #2162AF;
+
 body{
   font-size:14px;
   font-family: -apple-system, system-ui, "Open Sans", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol";
@@ -12,14 +17,14 @@ body{
 }
 
 #nav{
-  border: 1px solid #BDBCBC;
+  border: 1px solid #d5d5d5;
   box-sizing: border-box;
   width:100%;
-  height:50px;
+  height:36px;
   position:absolute;
   top:0px;
   left:0px;
-  background-color:white;
+  background-color:$graybg;
   
 
   #searchbar{
@@ -27,7 +32,7 @@ body{
     width: 516px;
     height: 40px;
     margin:auto;
-    margin-top:5px;
+    margin-top:2px;
   }
 
 }
@@ -39,37 +44,43 @@ body{
   display: inline-block;
   width: 100%;
   z-index:5;
-  border-radius: 4px;
   &:focus-within{
     #searchInput{
       box-shadow:0 1px 1px 0 rgba(65,69,73,0.3), 0 1px 3px 1px rgba(65,69,73,0.15);
       background:white;
-      border-radius: 4px 4px 0px 0px;  
+      border-radius: 4px 4px 0px 0px;
+      border:none;  
     }
   }
 }      
 
 #fastSearch input { 
   @include transition(all .20s ease);
-  padding: 13px;
+  padding-left: 10px;
   width: 100%;
-  height: 14px;
+  height: 26px;
   font-size: 14px;
   background: #ECEEEF;
-  border: none;
   outline: none;
   text-align: left;
   display: inline-block;
-  border-radius:4px;
+  background: linear-gradient(180deg, #FFFFFF 0%, #FCFCFC 14.58%, #FCFCFC 82.29%, #F6F6F6 100%);
+  border: 0.5px solid #D5D5D5;
+  border-radius: 4px;
+  &::placeholder{
+    color: #767778;
+    opacity: .5;
+  };
 }
 
 
 
 #searchResults{
+  display:none;
   position:absolute;
   margin:0px;
   padding:0px;
-  width:542px;
+  width:527px;
   background:white;
   border-radius:0px 0px 4px 4px;
   box-shadow:0 1px 1px 0 rgba(65,69,73,0.3), 0 1px 3px 1px rgba(65,69,73,0.15);
@@ -79,7 +90,7 @@ body{
   list-style: none; 
   margin-left: 0em;
   background:white; 
-  border-bottom: 1px solid #d8d8d8;
+  border-bottom: 1px solid #d5d5d5;
 }
   #searchResults li .title { font-size: 1.1em; margin-bottom: 10px; display: inline-block;}
 
@@ -89,16 +100,17 @@ body{
 
 #appcontainer{
   position:fixed;
-  top:50px;
+  top:36px;
   display:flex;
   flex-direction:row;
   width:100%;
 
   #leftnav{
-    border-right: 1px solid #BDBCBC;
+    border-right: 1px solid #d5d5d5;
     height:100vh;
     min-width:350px;
     overflow-y:scroll;
+    overscroll-behavior: contain;
   }
 
   #rightpanel{
@@ -115,6 +127,15 @@ body{
   padding-bottom:70px;
 }
 
+#article-scrollContainer{
+  background-color: $graybg;
+}
+
+#capture-helper{
+  z-index:100;
+  color: #A8A9AB;
+  font-size:14px;
+}
 
 .quoteblock{
   margin-bottom: 25px;  
@@ -209,26 +230,32 @@ body{
 
 
 .article{
-  border-bottom: 1px solid #979797;
-  padding:20px 20px 20px 25px;
+  @include transition(all .1s ease);
+  border-bottom: .5px solid #d5d5d5;
+  padding:15px 11px 10px 15px;
+  background-color: $lightbg;
   cursor:pointer;
+  display:flex;
+  flex-flow:row nowrap;
+  justify-content: start;
+  align-items: stretch;
   &:hover{
-    background-color:#F1F3F4;
+    background-color:white;
   }
   .title{
+    color: #253237;
     font-weight:600;
     margin-bottom:8px;
     white-space: nowrap; 
     overflow: hidden; 
     text-overflow: ellipsis;    
-  }
-  .author{
-    font-weight:600;
-    color:#808080;
-    margin-bottom:8px;
-  }  
+  } 
   .url{
     font-weight:300;
+    margin-left: auto;
+    white-space: nowrap;
+    color: #253237;
+    opacity: .5;
 
     img{
       padding-right:5px;
@@ -238,8 +265,19 @@ body{
   }  
 }
 
+.mini-favicon{
+  margin-right: 6px;
+}
+
 .selected{
-  border-left:4px solid black;
-  background-color: #ECEEEF;
+  border-left:4px solid $selection;
+  background-color: white;
+  .title{
+    color: $selection;
+  }
+  .url{
+    color: $selection;
+    opacity: 1;
+  }  
 }
 

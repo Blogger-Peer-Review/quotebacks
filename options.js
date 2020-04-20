@@ -18,10 +18,10 @@ document.addEventListener("DOMContentLoaded", function(){
       // Add relevant content to the template
 
       var domain = extractHostname(items[i].url);
-      article_instance.querySelector('.title').innerHTML = items[i].title;
+      article_instance.querySelector('.title').innerHTML = "<img class='mini-favicon' src='https://s2.googleusercontent.com/s2/favicons?domain_url=" +domain+"'/>" + items[i].title;
       // article_instance.querySelector('.author').innerHTML = items[i].author;
 
-      article_instance.querySelector('.url').innerHTML = "<img src='https://s2.googleusercontent.com/s2/favicons?domain_url=" +domain+"'/>" +domain;
+      article_instance.querySelector('.url').innerHTML = domain;
       article_instance.querySelector('.article').setAttribute("data-id",items[i].url);
 
       // Append the instance ot the DOM
