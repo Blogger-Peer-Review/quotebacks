@@ -76,11 +76,11 @@ document.addEventListener('keydown', function(event) {
 <div class="citation-meta-519256">
 <form>
 <label class="citation-input-label-519256" for="Author">Author</label>
-<input class="citation-input-519256" id="author-field" name="Author"></input>
+<input class="citation-input-519256" id="author-field" name="Author" value="${page_object["author"]}"></input>
 </form>
 <form>
 <label class="citation-input-label-519256" for="Title">Title</label>
-<input class="citation-input-519256" id="title-field" name="Title"></input>
+<input class="citation-input-519256" id="title-field" name="Title" value="${page_object["title"]}></input>
 </form>       
 </div>
 
@@ -91,22 +91,22 @@ document.addEventListener('keydown', function(event) {
 <div class="portal-container-519256">
 
 <div id="portal-parent-519256" class="portal-parent-519256">
-<div class="portal-content-519256">To complete the tasks integration with VS Code, we will need to modify the task configuration from before to run the default Gulp task we just created. You can either delete the tasks.json file or empty it only keeping the "version": "2.0.0" property. Now execute Run Task from the global Terminal menu. Observe that you are presented with a picker listing the tasks defined in the gulp file. Select gulp: default to start the task. We allow you to scan the output for compile problems. Depending on the compiler, select an appropriate entry in the list to scan the tool output for errors and warnings. If you don't want to scan the output, select Never scan the build output from the presented list. At this point, if you create and/or modify Less or SASS files, you see the respective CSS files generated and/or changes reflected on save. You can also enable Auto Save to make things even more streamlined.
+<div class="portal-content-519256">
 </div>       
 </div> 
 
 <div class="portal-head-519256">
 
-<div class="portal-avatar-519256"><img src=""/></div>
+<div class="portal-avatar-519256"><img src="https://s2.googleusercontent.com/s2/favicons?domain_url=${location.hostname}&sz=64"/></div>
 
 <div class="portal-metadata-519256">
 <div class="portal-title-519256">
-<div class="portal-author-519256">Author Text</div>
-<div class="title-wrapper-519256">CSS, SCSS, and Less support in Visual Studio Code</div>
+<div class="portal-author-519256">${page_object["author"]}</div>
+<div class="title-wrapper-519256">${page_object["title"]}</div>
 </div> 
 </div>
 
-<div class="portal-backlink-519256"><a target="_blank" href="https://code.visualstudio.com/docs/languages/css" class="portal-arrow">Go to text <span class="right-arrow">&#8594;</span></a></div>
+<div class="portal-backlink-519256"><a target="_blank" href="${page_object["url"]}" class="portal-arrow">Go to text <span class="right-arrow">&#8594;</span></a></div>
 
 </div>       
 </div>
@@ -128,6 +128,62 @@ document.addEventListener('keydown', function(event) {
 
 </div>
 `;
+
+`
+<div class="citation-capture" id="citation-capture">
+<div class="citation-meta">
+<form>
+<label class="citation-input-label" for="Author">Author</label>
+<input class="citation-input" id="author-field" name="Author" value="${page_object["author"]}"></input>
+</form>
+<form>
+<label class="citation-input-label" for="Title">Title</label>
+<input class="citation-input" id="title-field" name="Title" value="${page_object["title"]}"></input>
+</form>       
+</div>
+
+<div class="thickdivider"></div>
+
+
+
+<div class="portal-container">
+
+<div id="portal-parent" class="portal-parent">
+<div class="portal-content">${text.substring(0,50)}
+</div>       
+</div> 
+
+<div class="portal-head">
+
+<div class="portal-avatar"><img src="https://s2.googleusercontent.com/s2/favicons?domain_url=${location.hostname}&sz=64"/></div>
+
+<div class="portal-metadata">
+<div class="portal-title">
+<div class="portal-author">Author Text</div>
+<div class="title-wrapper">${page_object["title"]}</div>
+</div> 
+</div>
+
+<div class="portal-backlink"><a target="_blank" href="${page_object["url"]}" class="portal-arrow">Go to text <span class="right-arrow">&#8594;</span></a></div>
+
+</div>       
+</div>
+
+<div class="thickdivider"></div>
+
+<div class="citation-bottom">
+<div class="comment">
+<form>
+<input class="citation-input" id="comment-field" placeholder="+ Add Comment"></input>
+</form>
+<div class="citation-saving"></div>
+</div>
+<div><button id="getlink" class="control-button"><> Embed</button></div>
+<div><button id="save-button">Save & Close</button></div>
+</div>
+
+</div>
+`
             
             // boundary.top from here if we wanna position relative to the text selection
             // https://stackoverflow.com/questions/4106109/selected-text-and-xy-coordinates
