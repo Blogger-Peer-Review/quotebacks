@@ -91,7 +91,7 @@ document.addEventListener('keydown', function(event) {
 <div class="portal-container-519256">
 
 <div id="portal-parent-519256" class="portal-parent-519256">
-<div class="portal-content-519256">
+<div class="portal-content-519256">${text}
 </div>       
 </div> 
 
@@ -129,61 +129,7 @@ document.addEventListener('keydown', function(event) {
 </div>
 `;
 
-`
-<div class="citation-capture" id="citation-capture">
-<div class="citation-meta">
-<form>
-<label class="citation-input-label" for="Author">Author</label>
-<input class="citation-input" id="author-field" name="Author" value="${page_object["author"]}"></input>
-</form>
-<form>
-<label class="citation-input-label" for="Title">Title</label>
-<input class="citation-input" id="title-field" name="Title" value="${page_object["title"]}"></input>
-</form>       
-</div>
 
-<div class="thickdivider"></div>
-
-
-
-<div class="portal-container">
-
-<div id="portal-parent" class="portal-parent">
-<div class="portal-content">${text.substring(0,50)}
-</div>       
-</div> 
-
-<div class="portal-head">
-
-<div class="portal-avatar"><img src="https://s2.googleusercontent.com/s2/favicons?domain_url=${location.hostname}&sz=64"/></div>
-
-<div class="portal-metadata">
-<div class="portal-title">
-<div class="portal-author">Author Text</div>
-<div class="title-wrapper">${page_object["title"]}</div>
-</div> 
-</div>
-
-<div class="portal-backlink"><a target="_blank" href="${page_object["url"]}" class="portal-arrow">Go to text <span class="right-arrow">&#8594;</span></a></div>
-
-</div>       
-</div>
-
-<div class="thickdivider"></div>
-
-<div class="citation-bottom">
-<div class="comment">
-<form>
-<input class="citation-input" id="comment-field" placeholder="+ Add Comment"></input>
-</form>
-<div class="citation-saving"></div>
-</div>
-<div><button id="getlink" class="control-button"><> Embed</button></div>
-<div><button id="save-button">Save & Close</button></div>
-</div>
-
-</div>
-`
             
             // boundary.top from here if we wanna position relative to the text selection
             // https://stackoverflow.com/questions/4106109/selected-text-and-xy-coordinates
