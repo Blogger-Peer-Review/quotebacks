@@ -11,9 +11,15 @@ body{
 }
 
 #clearStorage {
-  margin: 10px;
+  margin: 8px;
   position:fixed;
   right:10px;
+  color: #A8A9AB;
+  font-size:14px;
+  &:hover{
+    cursor:pointer;
+    text-decoration:underline;
+  }
 }
 
 #nav{
@@ -106,7 +112,9 @@ body{
   width:100%;
 
   #leftnav{
+    position:relative;
     border-right: 1px solid #d5d5d5;
+    background-color: $graybg;
     height:100vh;
     min-width:350px;
     overflow-y:scroll;
@@ -128,10 +136,15 @@ body{
 }
 
 #article-scrollContainer{
-  background-color: $graybg;
 }
 
 #capture-helper{
+  position:absolute;
+  left:50%;
+  width:300px;
+  margin-top:-50px;
+  transform:translateX(-50%);
+  text-align:center;
   z-index:100;
   color: #A8A9AB;
   font-size:14px;
