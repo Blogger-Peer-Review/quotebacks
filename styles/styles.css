@@ -156,7 +156,7 @@ body {
   text-align: left;
   display: inline-block;
   background: linear-gradient(180deg, #FFFFFF 0%, #FCFCFC 14.58%, #FCFCFC 82.29%, #F6F6F6 100%);
-  border: 0.5px solid #D5D5D5;
+  border: 0.5px solid #d5d5d5;
   border-radius: 4px; }
   #fastSearch input::placeholder {
     color: #767778;
@@ -204,18 +204,40 @@ body {
     border-right: 1px solid #d5d5d5;
     background-color: #EBEEF0;
     height: 100vh;
+    flex-grow: 1;
     min-width: 350px;
+    max-width: 500px;
     overflow-y: scroll;
     overscroll-behavior: contain; }
   #appcontainer #rightpanel {
-    padding: 25px 75px 50px 3vw;
     background: white;
-    width: 100%;
     height: 100vh;
     overflow: scroll; }
 
 #article-scrollContainer, #panel-scrollContainer {
   padding-bottom: 70px; }
+
+#panel-scrollContainer {
+  margin-top: 40px;
+  padding: 25px 75px 50px 3vw; }
+
+#titlebar {
+  position: fixed;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  height: 40px;
+  width: 100%;
+  z-index: 10;
+  background-color: white;
+  font-size: 14px;
+  border-bottom: 1px solid #d5d5d5;
+  padding-left: 15px; }
+  #titlebar #titlebar-author {
+    margin-right: 10px; }
+  #titlebar #titlebar-title {
+    color: #2162AF;
+    font-weight: 600; }
 
 #capture-helper {
   position: absolute;
@@ -318,7 +340,7 @@ body {
   -ms-transition: all 0.1s ease;
   -o-transition: all 0.1s ease;
   transition: all 0.1s ease;
-  border-bottom: .5px solid #d5d5d5;
+  border-bottom: 0.5px solid #d5d5d5;
   padding: 15px 11px 10px 15px;
   background-color: #F7F9FA;
   cursor: pointer;
@@ -468,5 +490,13 @@ input, button {
   border: 0.5px solid #D5D5D5;
   box-sizing: border-box;
   border-radius: 4px; }
+
+body.welcome {
+  margin: 0px auto;
+  padding-top: 2rem;
+  line-height: 130%;
+  width: 500px; }
+  body.welcome ol li {
+    margin-bottom: .5rem; }
 
 /*# sourceMappingURL=styles.css.map */

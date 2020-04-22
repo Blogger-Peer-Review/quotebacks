@@ -1,6 +1,6 @@
 $graybg: #EBEEF0;
 $lightbg: #F7F9FA;
-$graydiv: #BCBDBD;
+$graydiv: #d5d5d5;
 $selection: #2162AF;
 
 body{
@@ -23,7 +23,7 @@ body{
 }
 
 #nav{
-  border: 1px solid #d5d5d5;
+  border: 1px solid $graydiv;
   box-sizing: border-box;
   width:100%;
   height:36px;
@@ -71,15 +71,13 @@ body{
   text-align: left;
   display: inline-block;
   background: linear-gradient(180deg, #FFFFFF 0%, #FCFCFC 14.58%, #FCFCFC 82.29%, #F6F6F6 100%);
-  border: 0.5px solid #D5D5D5;
+  border: 0.5px solid $graydiv;
   border-radius: 4px;
   &::placeholder{
     color: #767778;
     opacity: .5;
   };
 }
-
-
 
 #searchResults{
   display:none;
@@ -96,7 +94,7 @@ body{
   list-style: none; 
   margin-left: 0em;
   background:white; 
-  border-bottom: 1px solid #d5d5d5;
+  border-bottom: 1px solid $graydiv;
 }
   #searchResults li .title { font-size: 1.1em; margin-bottom: 10px; display: inline-block;}
 
@@ -113,29 +111,56 @@ body{
 
   #leftnav{
     position:relative;
-    border-right: 1px solid #d5d5d5;
+    border-right: 1px solid $graydiv;
     background-color: $graybg;
     height:100vh;
+    flex-grow:1;
     min-width:350px;
+    max-width:500px;
     overflow-y:scroll;
     overscroll-behavior: contain;
   }
 
   #rightpanel{
-    padding: 25px 75px 50px 3vw;
+    // flex-grow:3;
     background:white;
-    width:100%;
+    // width:100%;
     height:100vh;
     overflow:scroll;
   }
 
 }
 
+
 #article-scrollContainer, #panel-scrollContainer{
   padding-bottom:70px;
 }
 
-#article-scrollContainer{
+#panel-scrollContainer{
+  margin-top:40px ;
+  padding: 25px 75px 50px 3vw;
+}
+
+
+#titlebar{
+  position:fixed;
+  display:flex;
+  flex-direction:row;
+  align-items:center;
+  height:40px;
+  width: 100%;
+  z-index: 10;
+  background-color:white;
+  font-size:14px;
+  border-bottom:1px solid $graydiv;
+  padding-left:15px;
+  #titlebar-author{
+    margin-right:10px;
+  }
+  #titlebar-title{
+    color: $selection;
+    font-weight:600;
+  }
 }
 
 #capture-helper{
@@ -244,7 +269,7 @@ body{
 
 .article{
   @include transition(all .1s ease);
-  border-bottom: .5px solid #d5d5d5;
+  border-bottom: .5px solid $graydiv;
   padding:15px 11px 10px 15px;
   background-color: $lightbg;
   cursor:pointer;

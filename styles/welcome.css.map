@@ -1,0 +1,7 @@
+{
+"version": 3,
+"mappings": "AACE,YAAS;EACT,MAAM,EAAE,QAAQ;EAChB,WAAW,EAAC,IAAI;EAChB,WAAW,EAAC,IAAI;EAChB,KAAK,EAAE,KAAK;EAEV,kBAAE;IACD,aAAa,EAAC,KAAK",
+"sources": ["welcome.scss"],
+"names": [],
+"file": "welcome.css"
+}

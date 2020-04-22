@@ -204,6 +204,10 @@ function displayquotes(url){
 
     $(".article[data-id='"+url+"']").addClass( "selected" );
 
+    // Update the Title Bar
+    var titlebar = document.getElementById('titlebar');
+    titlebar.querySelector("#titlebar-author").innerHTML = alldata[url].author;
+    titlebar.querySelector("#titlebar-title").innerHTML = alldata[url].title;
 
   });
 };

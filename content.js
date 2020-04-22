@@ -95,7 +95,7 @@ document.addEventListener('keydown', function(event) {
 
 <div class="portal-head-519256">
 
-<div class="portal-avatar-519256"><img src="https://s2.googleusercontent.com/s2/favicons?domain_url=${location.hostname}&sz=64"/></div>
+<div class="portal-avatar-519256"><img class="mini-favicon-519256" src="https://s2.googleusercontent.com/s2/favicons?domain_url=${location.hostname}&sz=64"/></div>
 
 <div class="portal-metadata-519256">
 <div class="portal-title-519256">
