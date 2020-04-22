@@ -25,9 +25,11 @@
       z-index: 40; }
     .portal-container-519256 .portal-parent-519256 .portal-content-519256 {
       font-family: -apple-system, system-ui, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol";
+      font-size: 16px;
+      font-weight: 400;
       padding: 15px;
       color: #464A4D;
-      line-height: 140%; }
+      line-height: 150%; }
   .portal-container-519256 .portal-head-519256 {
     border-top: 1px solid #C2DFE3;
     display: flex;
@@ -45,6 +47,7 @@
       border: 1px solid #C2DFE3;
       width: 42px;
       height: 42px;
+      min-width: 42px !important;
       margin: 12px 0px;
       position: relative; }
       .portal-container-519256 .portal-head-519256 .portal-avatar-519256 .mini-favicon-519256 {
@@ -64,11 +67,13 @@
       margin-left: 10px; }
     .portal-container-519256 .portal-head-519256 .portal-author-519256 {
       font-size: 14px;
+      line-height: 1.2;
       color: black;
       font-weight: 600;
       margin-bottom: 2px; }
     .portal-container-519256 .portal-head-519256 .portal-title-519256 {
       font-size: 14px;
+      line-height: 1.2;
       color: #9DB8BF;
       max-width: 100%; }
       .portal-container-519256 .portal-head-519256 .portal-title-519256 .title-wrapper-519256 {
@@ -76,13 +81,15 @@
         overflow: hidden;
         text-overflow: ellipsis;
         font-weight: 600;
+        padding-right: 20px;
         color: #5C6D73; }
     .portal-container-519256 .portal-head-519256 .portal-backlink-519256 {
       margin-left: auto;
       display: flex;
       flex-shrink: 1;
       align-items: center;
-      min-width: 80px;
+      width: 85px;
+      min-width: 85px !important;
       padding: 0px 15px;
       border-left: 1px solid #C2DFE3; }
       .portal-container-519256 .portal-head-519256 .portal-backlink-519256 .portal-arrow-519256 {

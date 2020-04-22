@@ -222,7 +222,7 @@ function getSelectionText() {
 
       // your document fragment to a string (w/ html)! (yay!)
       var text = div.innerHTML;
-      console.log(text);
+      // console.log(text);
 
 
     } else if (document.selection && document.selection.type != "Control") { // think this is for IE?
@@ -311,7 +311,7 @@ var AutoSave = (function(){
 		start: function(object){
             let iframe = document.getElementById("citation-iframe-519256"); // added
             var editor = getEditor(); 
-            console.log(editor);
+            // console.log(editor);
                  
           editor.addEventListener("keydown", function( event ) {   
               iframe.contentDocument.querySelector(".citation-saving-519256").innerText = "Saving..."; // changed
@@ -337,6 +337,7 @@ var AutoSave = (function(){
 			}
 
 		}
-	}  
+	}
+ 
 
 }());
