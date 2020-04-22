@@ -18,9 +18,9 @@ document.addEventListener("DOMContentLoaded", function(){
       // Add relevant content to the template
 
       var domain = extractHostname(items[i].url);
-      article_instance.querySelector('.title').innerHTML = "<img class='mini-favicon' src='https://s2.googleusercontent.com/s2/favicons?domain_url=" +domain+"'/>" + items[i].title;
+      article_instance.querySelector('.title').innerHTML = items[i].title;
       // article_instance.querySelector('.author').innerHTML = items[i].author;
-
+      article_instance.querySelector('.mini-favicon').src = "https://s2.googleusercontent.com/s2/favicons?domain_url="+domain+"";
       article_instance.querySelector('.url').innerHTML = domain;
       article_instance.querySelector('.article').setAttribute("data-id",items[i].url);
 
@@ -79,6 +79,7 @@ document.addEventListener("DOMContentLoaded", function(){
       embed.querySelector('.title-wrapper-519256').innerHTML = title;
       embed.querySelector('.portal-arrow-519256').setAttribute("href", url);
       embed.querySelector('.portal-content-519256').innerHTML = quote;
+      embed.querySelector('.mini-favicon-519256').src = "https://s2.googleusercontent.com/s2/favicons?domain_url="+url+"";
     
       let div=document.createElement("div");
       div.appendChild(embed);

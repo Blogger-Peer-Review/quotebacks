@@ -337,6 +337,6 @@ var AutoSave = (function(){
 			}
 
 		}
-	}
+	}  
 
 }());
