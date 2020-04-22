@@ -47,8 +47,9 @@
       height: 42px;
       margin: 12px 0px;
       position: relative; }
-      .portal-container-519256 .portal-head-519256 .portal-avatar-519256 img {
-        max-width: 24px;
+      .portal-container-519256 .portal-head-519256 .portal-avatar-519256 .mini-favicon-519256 {
+        width: 22px;
+        height: 22px;
         position: absolute;
         margin: auto;
         top: 0;

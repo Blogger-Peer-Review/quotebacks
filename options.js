@@ -79,7 +79,7 @@ document.addEventListener("DOMContentLoaded", function(){
       embed.querySelector('.title-wrapper-519256').innerHTML = title;
       embed.querySelector('.portal-arrow-519256').setAttribute("href", url);
       embed.querySelector('.portal-content-519256').innerHTML = quote;
-      embed.querySelector('.mini-favicon-519256').src = "https://s2.googleusercontent.com/s2/favicons?domain_url="+url+"";
+      embed.querySelector('.mini-favicon-519256').src= "https://s2.googleusercontent.com/s2/favicons?domain_url="+url+"";
     
       let div=document.createElement("div");
       div.appendChild(embed);
@@ -108,7 +108,6 @@ document.addEventListener("DOMContentLoaded", function(){
         if(quotes.length == 0){ //if no quotes left then delete whole item from alldata
           chrome.storage.local.remove(url, function (){
             console.log("deleted "+url);
-            $(".selected").hide();
             displayquotes(url);
           });
         }else{
@@ -175,6 +174,7 @@ function displayquotes(url){
     instance.querySelector('.portal-arrow-519256').href = url;
     instance.querySelector('.title-wrapper-519256').innerHTML = alldata[url].title;
     instance.querySelector('.portal-author-519256').innerHTML = alldata[url].author;
+    instance.querySelector('.mini-favicon-519256').src = "https://s2.googleusercontent.com/s2/favicons?domain_url="+url+"";
 
     var date = new Date(item.date);
     console.log(date); // date is a timestamp but we only display formatted
