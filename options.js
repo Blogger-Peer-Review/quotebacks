@@ -67,19 +67,21 @@ document.addEventListener("DOMContentLoaded", function(){
       }, 1000);
     });
 
-    $('#rightpanel').on('click',"#getlink", function() {
+    $('#rightpanel').on('click',"#embedLink", function() {
       
       var title = $(".selected").find(".title").text();
       var url = $(".selected").attr("data-id");
       var quote = $(this).closest('.quoteblock').find('.portal-content-519256').text();
+      var author = $(this).closest('.quoteblock').find('.portal-author-519256').text();
 
       const embed_fragment = document.getElementById('embed');
       const embed = document.importNode(embed_fragment.content, true);
       // Add relevant content to the template
+      embed.querySelector('.portal-author-519256').innerHTML = author;
       embed.querySelector('.title-wrapper-519256').innerHTML = title;
       embed.querySelector('.portal-arrow-519256').setAttribute("href", url);
       embed.querySelector('.portal-content-519256').innerHTML = quote;
-      embed.querySelector('.mini-favicon-519256').src= "https://s2.googleusercontent.com/s2/favicons?domain_url="+url+"";
+      embed.querySelector('.mini-favicon-519256').src = "https://s2.googleusercontent.com/s2/favicons?domain_url="+url+"";
     
       let div=document.createElement("div");
       div.appendChild(embed);
