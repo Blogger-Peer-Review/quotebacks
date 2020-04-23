@@ -110,6 +110,7 @@ document.addEventListener("DOMContentLoaded", function(){
         if(quotes.length == 0){ //if no quotes left then delete whole item from alldata
           chrome.storage.local.remove(url, function (){
             console.log("deleted "+url);
+            $(".selected").hide();
             displayquotes(url);
           });
         }else{
