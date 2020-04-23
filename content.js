@@ -168,7 +168,7 @@ document.addEventListener('keydown', function(event) {
                 // timeout to remove popups
                 if(!ishover && !textfocus) {
                   time++;
-                  if(time > 500){
+                  if(time > 5){
                     var paras = document.getElementById('citation-iframe-519256');
                     if (paras){
                       paras.parentNode.removeChild(paras);
