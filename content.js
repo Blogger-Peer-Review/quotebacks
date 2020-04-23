@@ -22,8 +22,6 @@ document.addEventListener('keydown', function(event) {
     document.documentElement.appendChild(iframe);
     iframe.style.cssText = "width:670px; height:800px; position:fixed; border:none; top:0px; right:0px; z-index:99999;"
 
-
-
     chrome.storage.local.get([page], function(result) {
 
         var page_object = {};        
@@ -265,60 +263,40 @@ function getDate(){
 // From: https://gist.github.com/gcmurphy/3651776
 var AutoSave = (function(){
 
-    var timer = null;
-
-	function getEditor(){
-    let iframe = document.getElementById("citation-iframe-519256"); // added
-		var elems = iframe.contentDocument.querySelector("#comment-field-519256"); // changed
-		if (!elems)
-			return null;
-		return elems;
-	}
+  var timer = null;
 
 	function save(object){
         console.log("running save");
-        let iframe = document.getElementById("citation-iframe-519256"); // added        
-		    var editor = getEditor(); 
-            if (editor) {
+        let iframe = document.getElementById("citation-iframe-519256"); // added
+        var commentbox = iframe.contentDocument.querySelector("#comment-field-519256");
+        var title = iframe.contentDocument.querySelector("#title-field")
+        var author = iframe.contentDocument.querySelector("#author-field");
 
-            var page = document.location.href;
-
-            object[page]["quotes"][0]["comment"] = editor.value;
-            chrome.storage.local.set(object, function() { 
-                console.log("autosaved");
-                if(iframe.contentDocument.querySelector(".citation-saving-519256").innerText == "Saving..."){
-                  iframe.contentDocument.querySelector(".citation-saving-519256").innerHTML = "<span style='color:green'>Saved</span>"; // changed
-              };
-            });
-            }
-        };
-
-	function restore(){ //don't think I actually need this restore function...?
         var page = document.location.href;
-        var saved = "";
-        chrome.storage.local.get([page], function(result) {
-            saved = result[page]["quotes"][0]["comment"];
+
+        object[page]["quotes"][0]["comment"] = commentbox.value;
+        object[page]["title"] = title.value;
+        object[page]["author"] = author.value;
+
+        chrome.storage.local.set(object, function() { 
+            console.log("autosaved");
+            if(iframe.contentDocument.querySelector(".citation-saving-519256").innerText == "Saving..."){
+              iframe.contentDocument.querySelector(".citation-saving-519256").innerHTML = "<span style='color:green'>Saved</span>"; // changed
+              iframe.contentDocument.querySelector(".portal-author-519256").innerHTML = author.value;
+              iframe.contentDocument.querySelector(".title-wrapper-519256").innerHTML = title.value;
+          };
         });
-        //var saved = localStorage.getItem("AUTOSAVE_" + document.location)
-		var editor = getEditor();
-		if (saved && editor){
-			editor.value = saved; 
-		}
-	}
+            
+        };
 
 	return { 
 
 		start: function(object){
             let iframe = document.getElementById("citation-iframe-519256"); // added
-            var editor = getEditor(); 
-            // console.log(editor);
                  
-          editor.addEventListener("keydown", function( event ) {   
+          iframe.contentDocument.addEventListener("keydown", function( event ) {   
               iframe.contentDocument.querySelector(".citation-saving-519256").innerText = "Saving..."; // changed
           });            
-
-			if (editor.value.length <= 0)
-				restore();
 
 			if (timer != null){
 				clearInterval(timer);
@@ -326,7 +304,7 @@ var AutoSave = (function(){
 			}
 			timer = setInterval(function(){
                 save(object)
-            }, 1000);
+            }, 500);
 		},
 
 		stop: function(){
