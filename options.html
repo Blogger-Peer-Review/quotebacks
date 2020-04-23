@@ -11,7 +11,7 @@
 <div id="nav">
   <div id="searchbar">
       <div id="fastSearch">
-          <input id="searchInput" tabindex="0" placeholder="Search" autocomplete="off">
+          <input id="searchInput" tabindex="0" placeholder="Search (&#8984;+K)" autocomplete="off">
           <ul id="searchResults">
           </ul>
         </div>
@@ -21,18 +21,24 @@
 <div id="appcontainer">
   <div id="leftnav">
     <div id="article-scrollContainer"></div>
+    <span id="capture-helper">&#8984;+Shift+S to save a quote on any site</span>
   </div>
   <div id="rightpanel">
+    <div id="titlebar">
+      <div id="titlebar-author">hey say something</div>
+      <div id="titlebar-title">title</div>
+    </div>
     <div id="panel-scrollContainer"></div>
   </div>  
 </div>
 
 
 
-<button id="clearStorage" class="control-button">Clear Storage</button>
+<button id="clearStorage">Clear Storage</button>
 
 <template id="articleItem">
   <div class="article">
+    <img class="mini-favicon"/>
     <div class="title"></div>
     <div class="url"></div>
   </div>
@@ -56,7 +62,7 @@
         </div>
 
         <div class="portal-head-519256">       
-          <div class="portal-avatar-519256"><img src=""/></div>     
+          <div class="portal-avatar-519256"><img class="mini-favicon-519256" src=""/></div>     
           <div class="portal-metadata-519256">
             <div class="portal-title-519256">
               <div class="portal-author-519256"></div>
@@ -70,7 +76,7 @@
       </div>
 
       <div class="quote-controls">
-          <button id="getlink" class="control-button"><> Embed</button>        
+          <button id="embedLink" class="control-button"><> Embed</button>        
           <button id="copy" class="control-button">Copy Text</button>
           <button id="delete" class="control-button">Delete</button>        
       </div>
@@ -82,22 +88,29 @@
 
 
 <template id="embed">
-<link rel="stylesheet" href="https://files-lovat-six.now.sh/quote.css" type="text/css">
-<div class="portal-container">
-<div class="portal-head">
-<div class="portal-metadata">
-<div class="portal-title">
-<div class="portal-author"></div>
-<div class="title-wrapper">in <span class="portal-text-title"></span></div>
-</div>              
-</div>
-<div class="portal-backlink"><a target="_blank" href="" class="portal-arrow">Go to text <span class="right-arrow">&#8594;</span></a></div>
-</div>
-<div id="portal-parent" class="portal-parent">
-<div class="portal-content">
+<embed>
+<link rel="stylesheet" href="https://files-d9sgh3tq3.now.sh/quote.css" type="text/css">
+<div class="portal-container-519256">
+
+<div id="portal-parent-519256" class="portal-parent-519256">
+<div class="portal-content-519256">
 </div>       
-</div>    
 </div>
+
+<div class="portal-head-519256">       
+<div class="portal-avatar-519256"><img class="mini-favicon-519256" src=""/></div>     
+<div class="portal-metadata-519256">
+<div class="portal-title-519256">
+<div class="portal-author-519256"></div>
+<div class="title-wrapper-519256"></div>
+</div> 
+</div>
+
+<div class="portal-backlink-519256"><a target="_blank" href="" class="portal-arrow-519256">Go to text <span class="right-arrow">&#8594;</span></a></div>
+</div>  
+
+</div>
+</embed>
 </template>
 
 <template id="searchitem">

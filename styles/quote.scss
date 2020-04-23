@@ -44,9 +44,11 @@ $bluegray-text-dark: #253237;
         }
         .portal-content-519256{
             font-family: -apple-system, system-ui, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol";
+            font-size:16px;
+            font-weight:400;
             padding: 15px; 
             color: #464A4D;
-            line-height:140%; 
+            line-height:150%; 
         }
     }
 
@@ -64,11 +66,12 @@ $bluegray-text-dark: #253237;
             border: 1px solid #C2DFE3;
             width:42px;
             height:42px;
-            // delet following
+            min-width:42px !important;
             margin: 12px 0px;
             position:relative;
-            img{
-                max-width:24px;
+            .mini-favicon-519256{
+                width:22px;
+                height:22px;
                 position: absolute;
                 margin: auto;
                 top: 0;
@@ -88,12 +91,14 @@ $bluegray-text-dark: #253237;
 
         .portal-author-519256{
             font-size:14px;
+            line-height:1.2;
             color: black;
             font-weight:600;
             margin-bottom:2px;
         }       
         .portal-title-519256{
             font-size: 14px;
+            line-height:1.2;
             color: $bluegray-text-light;
             max-width: 100%;
 
@@ -102,6 +107,7 @@ $bluegray-text-dark: #253237;
                 overflow: hidden; 
                 text-overflow: ellipsis;
                 font-weight:600;
+                padding-right:20px;
                 color: $bluegray-text-med;                  
             }                   
         }
@@ -110,7 +116,8 @@ $bluegray-text-dark: #253237;
             display:flex;
             flex-shrink:1;
             align-items:center;
-            min-width:80px;
+            width:85px;
+            min-width:85px !important;
             padding: 0px 15px;
             border-left: 1px solid $bluegray-bg-med;
             .portal-arrow-519256{
