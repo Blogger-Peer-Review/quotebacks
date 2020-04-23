@@ -136,6 +136,52 @@ document.addEventListener('keydown', function(event) {
             boundary = range.getBoundingClientRect();
             */
 
+            //Make copy button work
+            iframe.contentDocument.querySelector("#getlink-519256").addEventListener("click", function(event) {
+              var embed = `<div class="portal-container-519256">
+
+              <div id="portal-parent-519256" class="portal-parent-519256">
+              <div class="portal-content-519256">${text}
+              </div>       
+              </div> 
+              
+              <div class="portal-head-519256">
+              
+              <div class="portal-avatar-519256"><img class="mini-favicon-519256" src="https://s2.googleusercontent.com/s2/favicons?domain_url=${location.hostname}&sz=64"/></div>
+              
+              <div class="portal-metadata-519256">
+              <div class="portal-title-519256">
+              <div class="portal-author-519256">${page_object["author"]}</div>
+              <div class="title-wrapper-519256">${page_object["title"]}</div>
+              </div> 
+              </div>
+              
+              <div class="portal-backlink-519256"><a target="_blank" href="${page_object["url"]}" class="portal-arrow">Go to text <span class="right-arrow">&#8594;</span></a></div>
+              
+              </div>       
+              </div>`;
+              copyToClipboard(embed);
+              console.log(iframe.contentDocument.querySelector("#getlink-519256"));
+              iframe.contentDocument.querySelector("#getlink-519256").innerHTML = "Copied!";
+              setTimeout(function() {
+                iframe.contentDocument.querySelector("#getlink-519256").innerHTML = "<> Embed";
+              }, 1000);
+            });
+            
+            //Make save & close work
+            iframe.contentDocument.querySelector("#save-button-519256").addEventListener("click", function(event) {
+              var paras = document.getElementById('citation-iframe-519256');
+              if (paras){
+                paras.parentNode.removeChild(paras);
+              };
+              // while(paras[0]) {
+              //     paras[0].parentNode.removeChild(paras[0]); // remove all popups
+              // };         
+              AutoSave.stop();              
+              clearInterval(t); // stop timer
+            });
+
+
             var time = 0;
             var textfocus = false;
             var ishover = false;
@@ -319,3 +365,12 @@ var AutoSave = (function(){
  
 
 }());
+
+const copyToClipboard = str => {
+  const el = document.createElement('textarea');
+  el.value = str;
+  document.body.appendChild(el);
+  el.select();
+  document.execCommand('copy');
+  document.body.removeChild(el);
+};

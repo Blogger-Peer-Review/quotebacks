@@ -61,9 +61,9 @@ document.addEventListener("DOMContentLoaded", function(){
       var quote = $(this).closest('.quoteblock').find('.portal-content-519256').text();
       copyToClipboard(quote);
       var el = $(this);
-      el.css('border', '1px solid red');
+      el.html("Copied!");
       setTimeout(function() {
-        el.css('border', 'none');
+        el.html("Copy Text");
       }, 1000);
     });
 
@@ -89,9 +89,9 @@ document.addEventListener("DOMContentLoaded", function(){
       copyToClipboard(div.innerHTML);
 
       var el = $(this);
-      el.css('border', '1px solid red');
+      el.html("Copied!");
       setTimeout(function() {
-        el.css('border', 'none');
+        el.html("<> Embed");
       }, 1000);
     });
 
