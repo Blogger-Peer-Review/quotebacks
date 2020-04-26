@@ -363,7 +363,8 @@ body {
     margin-bottom: 8px;
     white-space: nowrap;
     overflow: hidden;
-    text-overflow: ellipsis; }
+    text-overflow: ellipsis;
+    padding-right: 5px; }
   .article .url {
     font-weight: 300;
     margin-left: auto;
