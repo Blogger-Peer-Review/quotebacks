@@ -260,6 +260,7 @@ function getSelectionText() {
       // plain text of selected range (if you want it w/o html)
       var plaintext = window.getSelection();
       plaintext = plaintext.toString().replace(/(?:\r\n|\r|\n)/g, '<br>'); // replace line breaks with <br> tags
+      plaintext = plaintext.replace(/(<br>)+$/g, ''); //remove trailing <br> if there is one
           
       // document fragment with html for selection
       var fragment = range.cloneContents();
