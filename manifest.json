@@ -26,7 +26,7 @@
     "scripts": ["background.js"],
     "persistent": false
   },
-  "web_accessible_resources": ["options.html","styles/styles.css"],
+  "web_accessible_resources": ["options.html","styles/styles.css","images/allquotes.png"],
   "commands": {
     "toggle-feature": {
       "suggested_key": {

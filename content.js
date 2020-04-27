@@ -123,7 +123,7 @@ document.addEventListener('keydown', function(event) {
 </div>
 </div>
 
-<div class="allquotes-519256"><a class="quoteslink-519256" href="chrome-extension://onojfidcfnnjdfmhklhdgfjdcfnccdla/options.html">All Quotes<img src="images/allquotes.png"></a></div>
+<div class="allquotes-519256"><a target="_blank" class="quoteslink-519256" href="${chrome.runtime.getURL("options.html")}#${page}">All Quotes<img src="${chrome.runtime.getURL("images/allquotes.png")}"></a></div>
 
 </div>
 `;
