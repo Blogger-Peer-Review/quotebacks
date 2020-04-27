@@ -55,7 +55,7 @@ input,button{
 
 .citation-input-519256{
   width: 280px;
-  display:block;
+  display:inline-block;
   padding:11px;
   height:37px;
   font-size:12px;
@@ -81,6 +81,7 @@ input,button{
   display:block;
   font-size:12px;
   margin-bottom:2px;
+  display:inline-block;
 }
 
 .control-button-519256{
@@ -90,7 +91,7 @@ input,button{
   font-size:14px;
   font-weight:500;
   font-family:inherit;
-  display:block;
+  display:inline-block;
   @include transition(all .20s ease);
   &:hover{
     cursor: pointer;
@@ -118,9 +119,9 @@ input,button{
   align-items:start;
   flex: 0 0 100%;  
   margin-top:-13px;
-  div{
-    display:inline-block;
-  }
+  // div{
+  //   display:inline-block;
+  // }
 }
 #close-button-519256{
   -webkit-appearance: none;
@@ -129,7 +130,6 @@ input,button{
   color: #888888;
   background: linear-gradient(180deg, #FFFFFF 0%, #FCFCFC 14.58%, #FCFCFC 82.29%, #F6F6F6 100%);
   border: 1px solid #D5D5D5;
-  display:block;
   font-size:14px;
   box-shadow:none;
   box-sizing: border-box;
@@ -139,7 +139,7 @@ input,button{
 
 
 .save-indicator-519256{
-  display:none;
+  display:inline-block;
   width:80px;
   text-align:center;
   box-sizing: border-box;
