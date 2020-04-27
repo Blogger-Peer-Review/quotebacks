@@ -104,5 +104,7 @@
         transition: opacity 0.1s ease; }
         .portal-container-519256 .portal-head-519256 .portal-backlink-519256 .portal-arrow-519256:hover {
           opacity: .5; }
+        .portal-container-519256 .portal-head-519256 .portal-backlink-519256 .portal-arrow-519256:visited {
+          text-decoration: none; }
 
 /*# sourceMappingURL=quote.css.map */

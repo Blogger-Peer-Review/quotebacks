@@ -129,6 +129,9 @@ $bluegray-text-dark: #253237;
                 &:hover{
                     opacity:.5;
                 }
+                &:visited{
+                    text-decoration: none;
+                };
             }
         }
     }   

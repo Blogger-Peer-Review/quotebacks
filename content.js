@@ -123,6 +123,8 @@ document.addEventListener('keydown', function(event) {
 </div>
 </div>
 
+<div class="allquotes-519256"><a class="quoteslink-519256" href="chrome-extension://onojfidcfnnjdfmhklhdgfjdcfnccdla/options.html">All Quotes<img src="images/allquotes.png"></a></div>
+
 </div>
 `;
 
@@ -139,6 +141,8 @@ document.addEventListener('keydown', function(event) {
             //Make copy button work
             iframe.contentDocument.querySelector("#getlink-519256").addEventListener("click", function(event) {
               var embed = `
+<embed>
+<link rel="stylesheet" href="https://files-lovat-six.now.sh/quote.css" type="text/css">
 <div class="portal-container-519256">
 
 <div id="portal-parent-519256" class="portal-parent-519256">
@@ -157,10 +161,11 @@ document.addEventListener('keydown', function(event) {
 </div> 
 </div>
 
-<div class="portal-backlink-519256"><a target="_blank" href="${page_object["url"]}" class="portal-arrow">Go to text <span class="right-arrow">&#8594;</span></a></div>
+<div class="portal-backlink-519256"><a target="_blank" href="${page_object["url"]}" class="portal-arrow-159256">Go to text <span class="right-arrow">&#8594;</span></a></div>
 
 </div>       
-</div>`;
+</div>
+</embed>`;
               copyToClipboard(embed);
               console.log(iframe.contentDocument.querySelector("#getlink-519256"));
               iframe.contentDocument.querySelector("#getlink-519256").innerHTML = "Copied!";

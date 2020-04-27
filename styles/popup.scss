@@ -14,7 +14,8 @@ input,button{
   background-color:transparent;
   -webkit-box-shadow: none;
   -moz-box-shadow: none;
-  box-shadow: none;
+  box-shadow: none;color:#9DB8BF;
+  text-decoration:none;
 }
 
 #citation-capture-519256{
@@ -30,7 +31,7 @@ input,button{
     max-height: calc(100% - 50px);
     border: 5px solid #e7e7e5 !important;
     border-radius: 0.25em;
-    padding: 24px;
+    padding: 24px 24px 0px 24px;
     z-index:2147483;
     background-color:white;
 }
@@ -86,6 +87,7 @@ input,button{
 
 .control-button-519256{
   border:none;
+  height:38px;
   text-align: center;
   width:auto;
   font-size:14px;
@@ -126,7 +128,6 @@ input,button{
 #close-button-519256{
   -webkit-appearance: none;
   padding:0px;
-  height: 37px;
   color: #888888;
   background: linear-gradient(180deg, #FFFFFF 0%, #FCFCFC 14.58%, #FCFCFC 82.29%, #F6F6F6 100%);
   border: 1px solid #D5D5D5;
@@ -141,10 +142,39 @@ input,button{
 .save-indicator-519256{
   display:inline-block;
   width:80px;
+  height:38px;
   text-align:center;
   box-sizing: border-box;
   border-radius: 4px;
   padding:10px 10px;
   background-color:#E1F3DF;
   align-self:start;
+}
+
+
+.allquotes-519256{
+  border-top: 1px solid #C2DFE3;
+  height:80px;
+  width:inherit;
+  display:flex;
+  flex-direction: row;
+  align-items:stretch;
+  justify-content: space-around;
+  text-align:center;
+  .quoteslink-519256{
+    height:80px;
+    color:#9DB8BF;
+    text-decoration:none;
+    display:flex;
+    align-items:center;
+    @include transition(all .20s ease);
+    &:hover{
+      opacity:.5;
+    };
+    img{
+      width:24px;
+      height:auto;
+      margin-left:11px;
+    }
+  }
 }
