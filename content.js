@@ -187,7 +187,6 @@ document.addEventListener('keydown', function(event) {
               clearInterval(t); // stop timer
             });
 
-
             var time = 0;
             var textfocus = false;
             var ishover = false;
@@ -217,9 +216,7 @@ document.addEventListener('keydown', function(event) {
                     if (paras){
                       paras.parentNode.removeChild(paras);
                     };
-                    // while(paras[0]) {
-                    //     paras[0].parentNode.removeChild(paras[0]); // remove all popups
-                    // };         
+       
                     AutoSave.stop();              
                     clearInterval(t); // stop timer
                   };
