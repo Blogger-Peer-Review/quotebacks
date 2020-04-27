@@ -443,23 +443,22 @@ input, button {
   -o-transition: all 0.1s ease;
   transition: all 0.1s ease; }
   .citation-input-519256#comment-field-519256 {
-    border-radius: 10px; }
+    border-radius: 4px; }
 
 .citation-input-519256:focus {
   outline: none;
   box-shadow: inset 0px 0px 0px 1px #9DB8BF; }
 
 .citation-input-label-519256 {
+  color: #707070;
   display: block;
   font-size: 12px;
   margin-bottom: 2px; }
 
 .control-button-519256 {
   border: none;
-  text-align: left;
+  text-align: center;
   width: auto;
-  min-width: 85px;
-  height: 24px;
   font-size: 14px;
   font-weight: 500;
   font-family: inherit;
@@ -470,11 +469,18 @@ input, button {
   -o-transition: all 0.2s ease;
   transition: all 0.2s ease; }
   .control-button-519256:hover {
-    cursor: pointer;
-    opacity: .5; }
+    cursor: pointer; }
   .control-button-519256#getlink-519256 {
+    /* Rectangle 7 */
+    padding: 0px;
+    height: 37px;
+    background: linear-gradient(180deg, #FFFFFF 0%, #FCFCFC 14.58%, #FCFCFC 82.29%, #F6F6F6 100%);
+    border: 1px solid #D5D5D5;
+    box-sizing: border-box;
+    border-radius: 4px;
     color: #395FE5;
-    height: 37px; }
+    width: 94px;
+    text-align: center; }
 
 .citation-bottom-519256 {
   height: 50px;
@@ -487,17 +493,29 @@ input, button {
   .citation-bottom-519256 div {
     display: inline-block; }
 
-#save-button-519256 {
+#close-button-519256 {
   -webkit-appearance: none;
-  width: 130px;
+  padding: 0px;
+  height: 37px;
+  color: #888888;
+  background: linear-gradient(180deg, #FFFFFF 0%, #FCFCFC 14.58%, #FCFCFC 82.29%, #F6F6F6 100%);
+  border: 1px solid #D5D5D5;
   display: block;
-  padding: 11px;
   font-size: 14px;
   box-shadow: none;
-  background: #F2F7FA;
-  border: 0.5px solid #D5D5D5;
   box-sizing: border-box;
-  border-radius: 4px; }
+  border-radius: 4px;
+  padding: 0px 10px; }
+
+.save-indicator-519256 {
+  display: none;
+  width: 80px;
+  text-align: center;
+  box-sizing: border-box;
+  border-radius: 4px;
+  padding: 10px 10px;
+  background-color: #E1F3DF;
+  align-self: start; }
 
 body.welcome {
   margin: 0px auto;

@@ -49,6 +49,10 @@ input,button{
   }
 }
 
+.comment-519256{
+
+}
+
 .citation-input-519256{
   width: 280px;
   display:block;
@@ -62,7 +66,7 @@ input,button{
   box-sizing: border-box;
   border-radius: 4px;
   &#comment-field-519256{
-    border-radius: 10px;
+    border-radius: 4px;
   }
   @include transition(all .10s ease);
 }
@@ -73,6 +77,7 @@ input,button{
 }
 
 .citation-input-label-519256{
+  color: #707070;
   display:block;
   font-size:12px;
   margin-bottom:2px;
@@ -80,10 +85,8 @@ input,button{
 
 .control-button-519256{
   border:none;
-  text-align: left;
-  width:auto;  
-  min-width:85px;
-  height:24px;
+  text-align: center;
+  width:auto;
   font-size:14px;
   font-weight:500;
   font-family:inherit;
@@ -91,11 +94,19 @@ input,button{
   @include transition(all .20s ease);
   &:hover{
     cursor: pointer;
-    opacity:.5;
+    // opacity:.5;
   }
   &#getlink-519256{
+/* Rectangle 7 */
+    padding:0px;
+    height: 37px;
+    background: linear-gradient(180deg, #FFFFFF 0%, #FCFCFC 14.58%, #FCFCFC 82.29%, #F6F6F6 100%);
+    border: 1px solid #D5D5D5;
+    box-sizing: border-box;
+    border-radius: 4px;
     color: #395FE5;
-    height:37px;
+    width:94px;
+    text-align:center;
   }  
 }
 
@@ -111,26 +122,29 @@ input,button{
     display:inline-block;
   }
 }
-#save-button-519256{
+#close-button-519256{
   -webkit-appearance: none;
-  // height:37px;
-  width: 130px;
+  padding:0px;
+  height: 37px;
+  color: #888888;
+  background: linear-gradient(180deg, #FFFFFF 0%, #FCFCFC 14.58%, #FCFCFC 82.29%, #F6F6F6 100%);
+  border: 1px solid #D5D5D5;
   display:block;
-  padding:11px;
   font-size:14px;
   box-shadow:none;
-  background: #F2F7FA;
-  border: 0.5px solid #D5D5D5;
   box-sizing: border-box;
   border-radius: 4px;
-
+  padding:0px 10px;
 }
 
 
-// .citation-capture-519256{
-//     all:revert;
-// }
-
-// .citation-capture-519256 > *{
-//     all:revert;
-// }
+.save-indicator-519256{
+  display:none;
+  width:80px;
+  text-align:center;
+  box-sizing: border-box;
+  border-radius: 4px;
+  padding:10px 10px;
+  background-color:#E1F3DF;
+  align-self:start;
+}

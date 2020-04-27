@@ -115,12 +115,14 @@ document.addEventListener('keydown', function(event) {
 <div class="citation-bottom-519256">
 <div class="comment-519256">
 <form>
-  <input class="citation-input-519256" id="comment-field-519256" placeholder="+ Add Comment"></input>
+<input class="citation-input-519256" id="comment-field-519256" placeholder="+ Add Comment"></input>
 </form>
-<div class="citation-saving-519256"></div>
 </div>
+<div class="save-indicator-519256">Saved</div>
+<div>
 <div><button id="getlink-519256" class="control-button-519256"><> Embed</button></div>
-<div><button id="save-button-519256">Save & Close</button></div>
+<div><button id="close-button-519256">Close</button></div>
+</div>
 </div>
 
 </div>
@@ -170,7 +172,7 @@ document.addEventListener('keydown', function(event) {
             });
             
             //Make save & close work
-            iframe.contentDocument.querySelector("#save-button-519256").addEventListener("click", function(event) {
+            iframe.contentDocument.querySelector("#close-button-519256").addEventListener("click", function(event) {
               var paras = document.getElementById('citation-iframe-519256');
               if (paras){
                 paras.parentNode.removeChild(paras);
@@ -327,8 +329,8 @@ var AutoSave = (function(){
 
         chrome.storage.local.set(object, function() { 
             console.log("autosaved");
-            if(iframe.contentDocument.querySelector(".citation-saving-519256").innerText == "Saving..."){
-              iframe.contentDocument.querySelector(".citation-saving-519256").innerHTML = "<span style='color:green'>Saved</span>"; // changed
+            if(iframe.contentDocument.querySelector(".save-indicator-519256").innerText == "Saving..."){
+              iframe.contentDocument.querySelector(".save-indicator-519256").innerHTML = "<span style='color:green'>Saved</span>"; // changed
               iframe.contentDocument.querySelector(".portal-author-519256").innerHTML = author.value;
               iframe.contentDocument.querySelector(".title-wrapper-519256").innerHTML = title.value;
           };
@@ -341,8 +343,8 @@ var AutoSave = (function(){
 		start: function(object){
             let iframe = document.getElementById("citation-iframe-519256"); // added
                  
-          iframe.contentDocument.addEventListener("keydown", function( event ) {   
-              iframe.contentDocument.querySelector(".citation-saving-519256").innerText = "Saving..."; // changed
+          iframe.contentDocument.addEventListener("keydown", function( event ) {
+              iframe.contentDocument.querySelector(".save-indicator-519256").innerText = "Saving..."; // changed
           });            
 
 			if (timer != null){
