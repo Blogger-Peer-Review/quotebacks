@@ -114,14 +114,12 @@ document.addEventListener('keydown', function(event) {
 
 <div class="citation-bottom-519256">
 <div class="comment-519256">
-<form>
-<input class="citation-input-519256" id="comment-field-519256" placeholder="+ Add Comment"></input>
-</form>
-</div>
+<input class="citation-input-519256" id="comment-field-519256" placeholder="+ Add Comment"></input>    
 <div class="save-indicator-519256">Saved</div>
+</div>
 <div>
-<div><button id="getlink-519256" class="control-button-519256"><> Embed</button></div>
-<div><button id="close-button-519256">Close</button></div>
+<button id="getlink-519256" class="control-button-519256"><> Embed</button>
+<button id="close-button-519256" class="control-button-519256">Close</button>
 </div>
 </div>
 

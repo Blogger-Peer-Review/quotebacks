@@ -23,6 +23,7 @@ $bluegray-text-dark: #253237;
     border-radius: 8px;
     margin-bottom: 25px;
     max-width:800px;
+    background-color:white;
 
     @include transition(all .20s ease);
     &:hover{
