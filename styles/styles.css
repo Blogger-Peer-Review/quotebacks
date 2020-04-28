@@ -220,12 +220,16 @@ body {
     overflow-y: scroll;
     overscroll-behavior: contain; }
   #appcontainer #rightpanel {
+    flex-grow: 2;
     background: white;
     height: 100vh;
     overflow: scroll; }
 
 #article-scrollContainer, #panel-scrollContainer {
   padding-bottom: 70px; }
+
+#leftnav::-webkit-scrollbar {
+  display: none; }
 
 #panel-scrollContainer {
   margin-top: 40px;
@@ -273,8 +277,7 @@ body {
     flex-direction: column;
     margin-left: 5px;
     position: relative;
-    display: none;
-    opacity: 1;
+    opacity: 0;
     -webkit-transition: all 0.2s ease;
     -moz-transition: all 0.2s ease;
     -ms-transition: all 0.2s ease;
@@ -307,7 +310,8 @@ body {
     opacity: .5; }
 
 .showcontrols {
-  transform: translateX(10px); }
+  transform: translateX(10px);
+  opacity: 1 !important; }
 
 .comment {
   max-width: 600px;

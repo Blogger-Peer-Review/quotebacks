@@ -244,9 +244,9 @@ function extractHostname(url) {
 $(document).on('mouseenter mouseleave', '.quoteblock', function(e) {
     if (e.type == "mouseenter"){
 
-      $(this).find('.quote-controls').show().css({"opacity":"1"}).addClass('showcontrols');
+      $(this).find('.quote-controls').addClass('showcontrols');
     }else{
-      $(this).find('.quote-controls').hide().css("opacity","0").removeClass('showcontrols');
+      $(this).find('.quote-controls').removeClass('showcontrols');
     }
 });
 

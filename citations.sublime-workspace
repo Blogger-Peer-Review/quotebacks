@@ -1,0 +1,1717 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"remove",
+				"removeChild"
+			],
+			[
+				"getEleme",
+				"getElementsByClassName"
+			],
+			[
+				"text",
+				"textfocus"
+			],
+			[
+				"content",
+				"contentDocument"
+			],
+			[
+				"end",
+				"endhighlight"
+			],
+			[
+				"link",
+				"linkFunction"
+			],
+			[
+				"itxt",
+				"itxt-body"
+			],
+			[
+				"getElem",
+				"getElementById"
+			],
+			[
+				"flex",
+				"flexdir\tFlexbox - flex-direction: row;"
+			],
+			[
+				"contribut",
+				"contributor-avatar"
+			],
+			[
+				"contrib",
+				"contributor-avatar"
+			],
+			[
+				"blue",
+				"bluegray-text-med"
+			],
+			[
+				"slidesh",
+				"slideshowStopper"
+			],
+			[
+				"slid",
+				"slideshow"
+			],
+			[
+				"channel",
+				"channelButton"
+			],
+			[
+				"title",
+				"titleString"
+			],
+			[
+				"slides",
+				"slideshowButton"
+			],
+			[
+				"get",
+				"getElementById"
+			],
+			[
+				"slideshow",
+				"slideshow"
+			],
+			[
+				"chan",
+				"channelTitle"
+			],
+			[
+				"display",
+				"displayTitle"
+			],
+			[
+				"arena",
+				"arenaChannel"
+			],
+			[
+				"backgroun",
+				"background-color"
+			],
+			[
+				"background",
+				"background-position"
+			],
+			[
+				"text-",
+				"text-align"
+			],
+			[
+				"font-",
+				"font-style"
+			],
+			[
+				"margin-",
+				"margin-right"
+			],
+			[
+				"bluegra",
+				"bluegray-text-dark"
+			],
+			[
+				"list-",
+				"list-style-type"
+			],
+			[
+				"bluegr",
+				"bluegray-text-light"
+			],
+			[
+				"blueg",
+				"bluegray-bg-med"
+			],
+			[
+				"chane",
+				"changelog-container"
+			],
+			[
+				"changelog",
+				"changelog-list"
+			],
+			[
+				"bluegray-",
+				"bluegray-text-dark"
+			],
+			[
+				"iline",
+				"inline-block"
+			],
+			[
+				"base",
+				"base-line-height"
+			],
+			[
+				"ba",
+				"base-line-height"
+			],
+			[
+				"menu-",
+				"menu-container-bot"
+			],
+			[
+				"elemen",
+				"element_height"
+			],
+			[
+				"offset-",
+				"offset-by-one"
+			],
+			[
+				"font",
+				"font-size"
+			],
+			[
+				"min-",
+				"min-width"
+			],
+			[
+				"backgrou",
+				"background-origin"
+			],
+			[
+				"Moskau",
+				"MoskauGrotesk-ExtraBold"
+			],
+			[
+				"rb",
+				"rgba(r,g,b,a)"
+			],
+			[
+				"fon",
+				"font-family"
+			],
+			[
+				"padd",
+				"padding-top"
+			],
+			[
+				"backg",
+				"backgroundColor"
+			],
+			[
+				"post",
+				"postdate"
+			],
+			[
+				"cone",
+				"content-container"
+			],
+			[
+				"head",
+				"head-container"
+			],
+			[
+				"current",
+				"currentMinutes"
+			],
+			[
+				"inline",
+				"inline-block"
+			],
+			[
+				"block",
+				"inline-block"
+			],
+			[
+				"carouse",
+				"carousel-inner"
+			],
+			[
+				"margin",
+				"margin-right"
+			],
+			[
+				"supported-",
+				"supported-list-2"
+			],
+			[
+				"supporte",
+				"supported-services"
+			],
+			[
+				"backgr",
+				"background-color"
+			],
+			[
+				"amber",
+				"ambergraphic"
+			],
+			[
+				"padding",
+				"padding-left"
+			],
+			[
+				"carousel",
+				"carousel-inner"
+			],
+			[
+				"back",
+				"background-color"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "embedpreview.html",
+			"settings":
+			{
+				"buffer_size": 2869,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "styles/popup.scss",
+			"settings":
+			{
+				"buffer_size": 3626,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "styles/styles.scss",
+			"settings":
+			{
+				"buffer_size": 89,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "welcome.html",
+			"settings":
+			{
+				"buffer_size": 5482,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "content.js",
+			"settings":
+			{
+				"buffer_size": 12377,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "options.html",
+			"settings":
+			{
+				"buffer_size": 3549,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "manifest.json",
+			"settings":
+			{
+				"buffer_size": 871,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "styles/quote.scss",
+			"settings":
+			{
+				"buffer_size": 3841,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		}
+	],
+	"build_system": "Packages/SASS Build/SASS.sublime-build",
+	"build_system_choices":
+	[
+		[
+			[
+				[
+					"Packages/SASS Build/SASS - Compressed.sublime-build",
+					""
+				],
+				[
+					"Packages/SASS Build/SASS.sublime-build",
+					""
+				]
+			],
+			[
+				"Packages/SASS Build/SASS.sublime-build",
+				""
+			]
+		]
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 400.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"gulp",
+				"Gulp"
+			],
+			[
+				"g",
+				"Gulp: Show panel"
+			],
+			[
+				"package instal",
+				"Package Control: Install Package"
+			],
+			[
+				"install",
+				"Package Control: Install Package"
+			],
+			[
+				"package control ",
+				"Package Control: List Packages"
+			],
+			[
+				"packagecontrol",
+				"Package Control: Remove Package"
+			],
+			[
+				"package control",
+				"Package Control: List Packages"
+			],
+			[
+				"package setting",
+				"Preferences: Package Control Settings – User"
+			],
+			[
+				"sass",
+				"Build With: SASS - Compressed"
+			],
+			[
+				"sublimerge",
+				"Sublimerge: Compare to Clipboard"
+			],
+			[
+				"install package",
+				"Package Control: Install Package"
+			],
+			[
+				"install p",
+				"Package Control: Install Package"
+			],
+			[
+				"package ",
+				"Package Control: Install Package"
+			],
+			[
+				"packageresour",
+				"PackageResourceViewer: Open Resource"
+			],
+			[
+				"package",
+				"Package Control: Install Package"
+			],
+			[
+				"package insta",
+				"Package Control: Install Package"
+			],
+			[
+				"package inst",
+				"Package Control: Install Package"
+			],
+			[
+				"remove packa",
+				"Package Control: Remove Package"
+			],
+			[
+				"package control rem",
+				"Package Control: Remove Package"
+			],
+			[
+				"package control remove",
+				"Package Control: Remove Package"
+			],
+			[
+				"package contro",
+				"Package Control: Remove Package"
+			],
+			[
+				"packate inst",
+				"Package Control: Advanced Install Package"
+			],
+			[
+				"package: install",
+				"Package Control: Install Package"
+			],
+			[
+				"package co",
+				"Package Control: Install Package"
+			],
+			[
+				"package: instal",
+				"Package Control: Install Package"
+			],
+			[
+				"packagecontrol remov",
+				"Package Control: Remove Package"
+			],
+			[
+				"package control: install",
+				"Package Control: Install Package"
+			],
+			[
+				"monito",
+				"SFTP: Monitor File (Upload on External Save)"
+			],
+			[
+				"monit",
+				"SFTP: Monitor File (Upload on External Save)"
+			],
+			[
+				"moni",
+				"SFTP: Monitor File (Upload on External Save)"
+			],
+			[
+				"monitor",
+				"SFTP: Monitor File (Upload on External Save)"
+			],
+			[
+				"upload",
+				"SFTP: Monitor File (Upload on External Save)"
+			],
+			[
+				"uplod",
+				"SFTP: Monitor File (Upload on External Save)"
+			],
+			[
+				"mont",
+				"SFTP: Monitor File (Upload on External Save)"
+			],
+			[
+				"monio",
+				"SFTP: Monitor File (Upload on External Save)"
+			],
+			[
+				"mon",
+				"SFTP: Monitor File (Upload on External Save)"
+			],
+			[
+				"sftp: monitor",
+				"SFTP: Monitor File (Upload on External Save)"
+			],
+			[
+				"sftp: moni",
+				"SFTP: Monitor File (Upload on External Save)"
+			],
+			[
+				"SFTP: monio",
+				"SFTP: Monitor File (Upload on External Save)"
+			],
+			[
+				"package contro: install package",
+				"Package Control: Install Package"
+			],
+			[
+				"insta",
+				"Package Control: Install Package"
+			],
+			[
+				"Package COntrol: Install",
+				"Package Control: Install Package"
+			],
+			[
+				"Package ",
+				"Package Control: Install Package"
+			]
+		],
+		"width": 583.0
+	},
+	"console":
+	{
+		"height": 109.0,
+		"history":
+		[
+			"sass --watch",
+			"ls",
+			"npm update",
+			"import urllib.request,os,hashlib; h = '2915d1851351e5ee549c20394736b442' + '8bc59f460fa1548d1514676163dafc88'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://packagecontrol.io/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by)"
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/Users/tobyshorin/Documents/Work/2020/Citations-Magic/manifest.json",
+		"/Users/tobyshorin/Documents/Work/2020/Citations-Magic/options.js",
+		"/Users/tobyshorin/Documents/Work/2020/Citations-Magic/styles/quote.scss",
+		"/Users/tobyshorin/Documents/Work/2020/Citations-Magic/options.html",
+		"/Users/tobyshorin/Documents/Work/2020/Citations-Magic/styles/_options.scss",
+		"/Users/tobyshorin/Documents/Work/2020/Citations-Magic/styles/popup.scss",
+		"/Users/tobyshorin/Documents/Work/2020/Citations-Magic/welcome.html",
+		"/Users/tobyshorin/Documents/Work/2020/Citations-Magic/content.js",
+		"/Users/tobyshorin/Documents/Work/2020/Citations-Magic/styles/quote.css",
+		"/Users/tobyshorin/Documents/Work/2020/Citations-Magic/styles/styles.scss",
+		"/Users/tobyshorin/Documents/Work/2020/Citations-Magic/images/android-chrome-512x512.png",
+		"/Users/tobyshorin/Documents/Work/2020/Citations-Magic/styles.css",
+		"/Users/tobyshorin/Documents/Work/2020/Citations-Magic/styles/welcome.scss",
+		"/Users/tobyshorin/Documents/Work/2020/Citations-Magic/embed.html",
+		"/Users/tobyshorin/Library/Application Support/Sublime Text 3/Packages/User/SublimeOnSaveBuild.sublime-settings",
+		"/Users/tobyshorin/Library/Application Support/Google/Chrome/Default/Extensions/fhckbdfnalikpmcmcpcpkkdlhabngbod/0.0.0.6_0/javascripts/background.js",
+		"/Users/tobyshorin/Library/Application Support/Google/Chrome/Default/Extensions/fhckbdfnalikpmcmcpcpkkdlhabngbod/0.0.0.6_0/javascripts/readability.js",
+		"/Users/tobyshorin/Library/Application Support/Google/Chrome/Default/Extensions/fhckbdfnalikpmcmcpcpkkdlhabngbod/0.0.0.6_0/javascripts/app.js",
+		"/Users/tobyshorin/Desktop/test test",
+		"/Users/tobyshorin/Documents/Work/2020/Citations-Magic/styles/citation-namespace.scss",
+		"/Users/tobyshorin/Documents/Work/2020/Citations-Magic/styles/styles.css",
+		"/Users/tobyshorin/Documents/Work/2020/Citations-Magic/styles/citation-namespace.css",
+		"/Users/tobyshorin/Documents/Work/2020/Citations-Magic/embedpreview.html",
+		"/Users/tobyshorin/Documents/Work/2020/Citations-Magic/styles/popup.css",
+		"/Users/tobyshorin/Documents/Work/2020/Citations-Magic/styles/citation-namespace.css.map",
+		"/Users/tobyshorin/Documents/Work/2020/Citations-Magic/fastsearch.js",
+		"/Users/tobyshorin/Documents/Work/2020/Citations-Magic/jquery-resizable.js",
+		"/Users/tobyshorin/Documents/Work/2020/Citations-Magic/jquery-3.5.0.min.js",
+		"/Users/tobyshorin/Documents/Work/2020/Citations-Magic/styles/options.css",
+		"/Users/tobyshorin/Documents/Work/2020/Citations-Magic/TODO.txt",
+		"/Users/tobyshorin/Documents/Work/2020/Citations-Magic/styles/_search.scss",
+		"/Users/tobyshorin/Documents/Work/2020/Citations-Magic/styles/_popup.scss",
+		"/Users/tobyshorin/Documents/Work/2020/Citations-Magic/fuse.js",
+		"/Users/tobyshorin/Documents/Work/2020/Citations-Magic/.vscode/gulpfile.js",
+		"/Users/tobyshorin/Documents/Work/2020/Citations-Magic/gulpfile.js",
+		"/Users/tobyshorin/Documents/Work/2020/Citations-Magic/gulpfile.js.gulpfile.gulpfile.js",
+		"/Users/tobyshorin/Documents/Work/2020/citations.sublime-project",
+		"/Users/tobyshorin/Documents/Work/2020/citations.sublime-workspace",
+		"/Users/tobyshorin/Documents/Work/2020/Citations-Magic/test",
+		"/Users/tobyshorin/Library/Application Support/Sublime Text 3/Packages/SublimeOnSaveBuild/SublimeOnSaveBuild.sublime-settings",
+		"/Users/tobyshorin/Documents/Work/Subpixel Space/subpixel-space/_sass/_colors.scss",
+		"/Users/tobyshorin/Documents/Work/Subpixel Space/subpixel-space/_includes/portal.html",
+		"/Users/tobyshorin/Documents/Work/Subpixel Space/subpixel-space/_layouts/words.html",
+		"/Users/tobyshorin/Documents/Work/Subpixel Space/subpixel-space/words.markdown",
+		"/Users/tobyshorin/Documents/Work/Subpixel Space/subpixel-space/_sass/_mixins.scss",
+		"/Users/tobyshorin/Documents/Work/Subpixel Space/subpixel-space/_includes/contribution.html",
+		"/Users/tobyshorin/Documents/Work/Subpixel Space/subpixel-space/_entries/premonition.markdown",
+		"/Users/tobyshorin/Documents/Work/Subpixel Space/subpixel-space/_sass/_bpr.scss",
+		"/Users/tobyshorin/Documents/Work/Subpixel Space/subpixel-space/_sass/_global.scss",
+		"/Users/tobyshorin/Documents/Work/Subpixel Space/subpixel-space/_sass/_portal.scss",
+		"/Users/tobyshorin/Documents/Work/Subpixel Space/subpixel-space/_includes/head.html",
+		"/Users/tobyshorin/Documents/Work/Subpixel Space/subpixel-space/_entries/open-transclude.markdown",
+		"/Users/tobyshorin/Documents/Work/Subpixel Space/subpixel-space/_includes/bpr.html",
+		"/Users/tobyshorin/Documents/Work/Subpixel Space/subpixel-space/css/main.scss",
+		"/Users/tobyshorin/Documents/Work/Subpixel Space/subpixel-space/_entries/mapping-the-self-in-the-desert-of-the-real.markdown",
+		"/Users/tobyshorin/Documents/Work/Subpixel Space/subpixel-space/_sass/_grid.scss",
+		"/Users/tobyshorin/Documents/Work/Subpixel Space/subpixel-space/_uploads/bpr.png",
+		"/Users/tobyshorin/Documents/Work/Subpixel Space/subpixel-space/_sass/_contribution.scss",
+		"/Users/tobyshorin/Documents/Work/Subpixel Space/subpixel-space/_entries/after-authenticity.markdown",
+		"/Users/tobyshorin/Documents/Work/Subpixel Space/subpixel-space/.sass-cache/4db1e82618fe15d38f2efe200e4f832552c0416f/_contribution.scssc",
+		"/Users/tobyshorin/Documents/Work/Subpixel Space/subpixel-space/_entries/diminishing-marginal-aesthetic-value.markdown",
+		"/Users/tobyshorin/Documents/Work/Subpixel Space/subpixel-space/_config.yml",
+		"/Users/tobyshorin/Documents/Work/Subpixel Space/subpixel-space/_layouts/components.html",
+		"/Users/tobyshorin/Documents/Work/Subpixel Space/subpixel-space/components.markdown",
+		"/Users/tobyshorin/Documents/Work/Subpixel Space/subpixel-space/entries.markdown",
+		"/Users/tobyshorin/Documents/Work/Subpixel Space/subpixel-space/_entries/notes-on-comparative-psychology.markdown",
+		"/Users/tobyshorin/Documents/Work/Subpixel Space/subpixel-space/_site/entries/premonition/index.html",
+		"/Users/tobyshorin/Documents/Work/Subpixel Space/subpixel-space/_entries/jobs-to-be-done.markdown",
+		"/Users/tobyshorin/Documents/Work/Subpixel Space/subpixel-space/portal.js",
+		"/Users/tobyshorin/Documents/Work/Subpixel Space/subpixel-space/_sass/_highlight.scss",
+		"/Users/tobyshorin/Documents/Work/Subpixel Space/subpixel-space/_sass/_post.scss",
+		"/Users/tobyshorin/Documents/Work/Subpixel Space/subpixel-space/gemfile",
+		"/Users/tobyshorin/Documents/Work/Subpixel Space/subpixel-space/about.markdown",
+		"/Users/tobyshorin/Documents/Work/Subpixel Space/subpixel-space/_entries/building-for-the-culture.markdown",
+		"/Users/tobyshorin/Documents/Work/Subpixel Space/subpixel-space/_sass/_fonts.scss",
+		"/Users/tobyshorin/Desktop/Open Transclude.md",
+		"/Users/tobyshorin/Documents/Work/Subpixel Space/subpixel-space/_site/css/main.css",
+		"/Users/tobyshorin/Documents/Work/Subpixel Space/subpixel-space/_entries/define-concepts-from-the-behavior-up.markdown",
+		"/Users/tobyshorin/Documents/Work/Subpixel Space/subpixel-space/_entries/haute-baroque-capitalism.markdown",
+		"/Users/tobyshorin/Documents/Work/Subpixel Space/subpixel-space/_sass/_intertext.scss",
+		"/Users/tobyshorin/Documents/Work/Subpixel Space/subpixel-space/_layouts/channel.html",
+		"/Users/tobyshorin/Documents/Work/Subpixel Space/subpixel-space/universal-menu.js",
+		"/Users/tobyshorin/Documents/Work/Subpixel Space/subpixel-space/clock.js",
+		"/Users/tobyshorin/Documents/Work/Subpixel Space/subpixel-space/_includes/channel-menu.html",
+		"/Users/tobyshorin/Documents/Work/Subpixel Space/subpixel-space/timechecker.js",
+		"/Users/tobyshorin/Documents/Work/Subpixel Space/subpixel-space/itxt.js",
+		"/Users/tobyshorin/Documents/Work/Subpixel Space/subpixel-space/_includes/bftc-player.html",
+		"/Users/tobyshorin/Documents/Work/Subpixel Space/subpixel-space/main.js",
+		"/Users/tobyshorin/Documents/Work/Subpixel Space/subpixel-space/_sass/_building-for-the-culture.scss",
+		"/Users/tobyshorin/Documents/Work/Subpixel Space/subpixel-space/_site/itxt.js",
+		"/Users/tobyshorin/Documents/Work/Subpixel Space/subpixel-space/_includes/universal-menu.html",
+		"/Users/tobyshorin/Documents/Work/Subpixel Space/subpixel-space/_includes/intertext.html",
+		"/Users/tobyshorin/Documents/Work/Subpixel Space/subpixel-space/_layouts/post.html",
+		"/Users/tobyshorin/Documents/Work/Subpixel Space/subpixel-space/_includes/custom-posts/architecture-at-scale.html",
+		"/Users/tobyshorin/Documents/Work/Subpixel Space/subpixel-space/_includes/channel-head.html",
+		"/Users/tobyshorin/Desktop/Export-19c9d7cd-5ea0-404e-bdc1-ad7e18e0ca5d/Define Concepts From the Behavior Up.md",
+		"/Users/tobyshorin/Documents/Work/Subpixel Space/subpixel-space/_layouts/consulting-promo.html",
+		"/Users/tobyshorin/Documents/Work/Subpixel Space/subpixel-space/_sass/_channel.scss",
+		"/Users/tobyshorin/Documents/Work/Subpixel Space/subpixel-space/_includes/layout-selector.html",
+		"/Users/tobyshorin/Documents/Work/Subpixel Space/subpixel-space/_layouts/entries.html",
+		"/Users/tobyshorin/Documents/Work/Subpixel Space/subpixel-space/_layouts/about.html",
+		"/Users/tobyshorin/Documents/Work/Subpixel Space/subpixel-space/_sass/_about.scss",
+		"/Users/tobyshorin/Documents/Work/Subpixel Space/subpixel-space/index.markdown",
+		"/Users/tobyshorin/Documents/Work/Subpixel Space/subpixel-space/_includes/default-post.html",
+		"/Users/tobyshorin/Documents/Work/Subpixel Space/subpixel-space/.ruby-version",
+		"/Users/tobyshorin/Desktop/jtbd.md",
+		"/Users/tobyshorin/Documents/Work/Subpixel Space/subpixel-space/_entries/our-jobs-to-be-done.markdown",
+		"/Users/tobyshorin/Documents/Work/Subpixel Space/subpixel-space/_entries/the-desire-for-full-automation.markdown",
+		"/Users/tobyshorin/Documents/Work/Subpixel Space/subpixel-space/_includes/frame-speaking-info.html",
+		"/Users/tobyshorin/Documents/Work/Subpixel Space/subpixel-space/_sass/_topnav.scss",
+		"/Users/tobyshorin/Documents/Work/Subpixel Space/subpixel-space/_includes/topnav.html",
+		"/Users/tobyshorin/Documents/Work/Subpixel Space/subpixel-space/_workshops/lifestyle-brand.markdown",
+		"/Users/tobyshorin/Documents/Work/Subpixel Space/subpixel-space/_sass/_universal-menu.scss",
+		"/Users/tobyshorin/Documents/Work/Subpixel Space/subpixel-space/_sass/_newera.scss",
+		"/Users/tobyshorin/Documents/Work/Subpixel Space/subpixel-space/_layouts/full-automation.html",
+		"/Users/tobyshorin/Documents/Work/Subpixel Space/subpixel-space/_sass/_issue-cover.scss",
+		"/Users/tobyshorin/Documents/Work/Subpixel Space/subpixel-space/_entries/the-disbelievers-guide-to-authenticity.markdown",
+		"/Users/tobyshorin/Documents/Work/Subpixel Space/subpixel-space/_entries/the-new-era-of-trust.markdown",
+		"/Users/tobyshorin/Documents/Work/Subpixel Space/subpixel-space/_entries/the-desire-for-full-autonomy.markdown",
+		"/Users/tobyshorin/Documents/Work/Subpixel Space/subpixel-space/_layouts/workshop-material.html",
+		"/Users/tobyshorin/Documents/Work/Subpixel Space/subpixel-space/_layouts/newera.html",
+		"/Users/tobyshorin/Documents/Work/Subpixel Space/subpixel-space/_layouts/frame-speaking-info.html",
+		"/Users/tobyshorin/Documents/Work/Subpixel Space/subpixel-space/_includes/custom-posts/mapping-the-self.html",
+		"/Users/tobyshorin/Documents/Work/Subpixel Space/subpixel-space/_sass/_ministorage.scss",
+		"/Users/tobyshorin/Documents/Work/Subpixel Space/subpixel-space/_layouts/ministorage.html",
+		"/Users/tobyshorin/Documents/Work/Subpixel Space/subpixel-space/_entries/nyc-mini-storage.markdown",
+		"/Users/tobyshorin/Documents/Work/Subpixel Space/subpixel-space/_includes/issue-cover-2.html",
+		"/Users/tobyshorin/Documents/Work/Subpixel Space/subpixel-space/_site/entries/nyc-mini-storage.html"
+	],
+	"find":
+	{
+		"height": 24.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"arrow",
+			"underline",
+			"save",
+			"form",
+			"save-indica",
+			"save-in",
+			"saving...",
+			"save-indica",
+			"save",
+			"inline-block",
+			"comment-",
+			"citation-saving",
+			"save-",
+			"saving",
+			"37px",
+			"38px",
+			"label",
+			"load",
+			"favicon",
+			"title",
+			"keydown",
+			"console.log",
+			"queryselec",
+			"getlink",
+			"click",
+			"event",
+			"getl",
+			"getlink",
+			"title",
+			";",
+			"mini-favic",
+			"displayquotes(",
+			"scroll",
+			"#d5d5d5",
+			"d5d5d5",
+			"graydiv",
+			"gryadiv",
+			"avatar",
+			"title",
+			"getlink",
+			"embed",
+			"mini-favicon",
+			"displayquotes",
+			"titlebar",
+			"mini-favicon",
+			"displayquotes",
+			"container",
+			"src",
+			"mini-favicon-519256",
+			"mini-favicon",
+			"avatar",
+			"find",
+			"transition",
+			"img",
+			"embed",
+			"search",
+			"scrollcontainer",
+			"titl",
+			"appcontainer",
+			"graydiv",
+			"article",
+			"scrollcontainer",
+			"title",
+			"padding",
+			"box-siz",
+			"txtAreaListenFocus()",
+			"ishover",
+			"!ishover",
+			"node",
+			"\"saved",
+			"let iframe",
+			"citation-iframe-519256",
+			"citation-iframe",
+			"elems",
+			"citation-iframe",
+			"comment-field",
+			"editor",
+			"citation-saving",
+			"comment-field",
+			"#comment-f",
+			"citation-capture-519",
+			"content",
+			"iframe",
+			"hide",
+			"portal",
+			"title",
+			"author",
+			"portal-content",
+			"portal",
+			"-519256",
+			"title",
+			"portal-text-title",
+			"ifram",
+			"content",
+			"control-button",
+			"parent",
+			"4px",
+			"comment",
+			"key",
+			"rightpanel",
+			"leftnav",
+			"article",
+			"margin-left",
+			"right-",
+			"wrap",
+			"titl",
+			"author",
+			");\n",
+			"transition",
+			".quote'",
+			".portal-content",
+			"content",
+			"quote",
+			"quoteblock",
+			"title",
+			"background-color",
+			"hover",
+			"href",
+			"mouse",
+			"search",
+			"embed",
+			"flex",
+			"12.5"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 7,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "embedpreview.html",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2869,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2596,
+								2596
+							]
+						],
+						"settings":
+						{
+							"incomplete_sync": null,
+							"remote_loading": false,
+							"synced": false,
+							"syntax": "Packages/HTML/HTML.sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 5,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "styles/popup.scss",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 3626,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								3497,
+								3497
+							]
+						],
+						"settings":
+						{
+							"color_scheme": "Packages/User/Color Highlighter/themes/Afterglow-twilight.tmTheme",
+							"incomplete_sync": null,
+							"remote_loading": false,
+							"synced": false,
+							"syntax": "Packages/SCSS/SCSS.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 6,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "styles/styles.scss",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 89,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"color_scheme": "Packages/User/Color Highlighter/themes/Afterglow-twilight.tmTheme",
+							"incomplete_sync": null,
+							"remote_loading": false,
+							"synced": false,
+							"syntax": "Packages/SCSS/SCSS.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 7,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "welcome.html",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 5482,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2633,
+								2633
+							]
+						],
+						"settings":
+						{
+							"incomplete_sync": null,
+							"remote_loading": false,
+							"synced": false,
+							"syntax": "Packages/HTML/HTML.sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 259.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "content.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 12377,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								5145,
+								5227
+							]
+						],
+						"settings":
+						{
+							"incomplete_sync": null,
+							"remote_loading": false,
+							"synced": false,
+							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 201.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "options.html",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 3549,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2749,
+								2749
+							]
+						],
+						"settings":
+						{
+							"incomplete_sync": null,
+							"remote_loading": false,
+							"synced": false,
+							"syntax": "Packages/HTML/HTML.sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 4,
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"file": "manifest.json",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 871,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								71,
+								86
+							]
+						],
+						"settings":
+						{
+							"incomplete_sync": null,
+							"remote_loading": false,
+							"synced": false,
+							"syntax": "Packages/JavaScript/JSON.sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 7,
+					"file": "styles/quote.scss",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 3841,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								679,
+								679
+							]
+						],
+						"settings":
+						{
+							"color_scheme": "Packages/User/Color Highlighter/themes/Afterglow-twilight.tmTheme",
+							"incomplete_sync": null,
+							"remote_loading": false,
+							"synced": false,
+							"syntax": "Packages/SCSS/SCSS.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 24.0
+	},
+	"input":
+	{
+		"height": 34.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.exec":
+	{
+		"height": 195.0
+	},
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"output.sftp":
+	{
+		"height": 146.0
+	},
+	"pinned_build_system": "",
+	"project": "citations.sublime-project",
+	"replace":
+	{
+		"height": 44.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"welc",
+				"welcome.html"
+			],
+			[
+				"man",
+				"manifest.json"
+			],
+			[
+				"con",
+				"content.js"
+			],
+			[
+				"mani",
+				"manifest.json"
+			],
+			[
+				"option",
+				"options.html"
+			],
+			[
+				"welcom",
+				"welcome.html"
+			],
+			[
+				"quo",
+				"styles/quote.scss"
+			],
+			[
+				"options.",
+				"styles/_options.scss"
+			],
+			[
+				"pop",
+				"styles/popup.scss"
+			],
+			[
+				"sty",
+				"styles/styles.scss"
+			],
+			[
+				"cont",
+				"content.js"
+			],
+			[
+				"embed",
+				"embedpreview.html"
+			],
+			[
+				"op",
+				"options.js"
+			],
+			[
+				"welco",
+				"welcome.html"
+			],
+			[
+				"welcome",
+				"welcome.html"
+			],
+			[
+				"options",
+				"styles/_options.scss"
+			],
+			[
+				"conten",
+				"content.js"
+			],
+			[
+				"quote",
+				"styles/quote.css"
+			],
+			[
+				"style.",
+				"styles.css"
+			],
+			[
+				"emb",
+				"embedpreview.html"
+			],
+			[
+				"conte",
+				"content.js"
+			],
+			[
+				"s",
+				"styles/styles.scss"
+			],
+			[
+				"styles",
+				"styles/styles.scss"
+			],
+			[
+				"namesp",
+				"styles/citation-namespace.scss"
+			],
+			[
+				"opt",
+				"styles/_options.scss"
+			],
+			[
+				"style",
+				"styles.css"
+			],
+			[
+				"quot",
+				"styles/quote.scss"
+			],
+			[
+				"embe",
+				"embedpreview.html"
+			],
+			[
+				"cita",
+				"styles/citation-namespace.css"
+			],
+			[
+				"popup",
+				"styles/popup.scss"
+			],
+			[
+				"styl",
+				"styles/styles.scss"
+			],
+			[
+				"name",
+				"styles/citation-namespace.scss"
+			],
+			[
+				"options.scss",
+				"styles/_options.scss"
+			],
+			[
+				"quote.",
+				"styles/quote.scss"
+			],
+			[
+				"citation.",
+				"styles/citation-namespace.css"
+			],
+			[
+				"citation",
+				"styles/citation-namespace.css.map"
+			],
+			[
+				"nam",
+				"styles/citation-namespace.css"
+			],
+			[
+				"popu",
+				"styles/popup.css"
+			],
+			[
+				"manif",
+				"manifest.json"
+			],
+			[
+				"c",
+				"content.js"
+			],
+			[
+				"po",
+				"styles/popup.scss"
+			],
+			[
+				"embedp",
+				"embedpreview.html"
+			],
+			[
+				"em",
+				"embed.html"
+			],
+			[
+				"fast",
+				"fastsearch.js"
+			],
+			[
+				"o",
+				"options.html"
+			],
+			[
+				"options.sc",
+				"styles/_options.scss"
+			],
+			[
+				"optio",
+				"options.js"
+			],
+			[
+				"fastse",
+				"fastsearch.js"
+			],
+			[
+				"eme",
+				"embed.html"
+			],
+			[
+				"search",
+				"styles/_search.scss"
+			],
+			[
+				"fuse",
+				"fuse.js"
+			],
+			[
+				"gulp",
+				"gulpfile.js"
+			],
+			[
+				"gulpfi",
+				".vscode/gulpfile.js"
+			],
+			[
+				"stye",
+				"styles.css"
+			],
+			[
+				"options.js",
+				"options.js"
+			],
+			[
+				"embedre",
+				"embedpreview.html"
+			],
+			[
+				"colo",
+				"_sass/_colors.scss"
+			],
+			[
+				"contribu",
+				"_sass/_contribution.scss"
+			],
+			[
+				"contrib",
+				"_includes/contribution.html"
+			],
+			[
+				"head",
+				"_includes/channel-head.html"
+			],
+			[
+				"mix",
+				"_sass/_mixins.scss"
+			],
+			[
+				"col",
+				"_sass/_colors.scss"
+			],
+			[
+				"portal",
+				"_sass/_portal.scss"
+			],
+			[
+				"premoni",
+				"_entries/premonition.markdown"
+			],
+			[
+				"por",
+				"_includes/portal.html"
+			],
+			[
+				"portal.sc",
+				"_sass/_portal.scss"
+			],
+			[
+				"bpr",
+				"_includes/bpr.html"
+			],
+			[
+				"global",
+				"_sass/_global.scss"
+			],
+			[
+				"glob",
+				"_sass/_global.scss"
+			],
+			[
+				"main",
+				"css/main.scss"
+			],
+			[
+				"dr",
+				"_entries/mapping-the-self-in-the-desert-of-the-real.markdown"
+			],
+			[
+				"prem",
+				"_entries/premonition.markdown"
+			],
+			[
+				"grid",
+				"_sass/_grid.scss"
+			],
+			[
+				"premon",
+				"_entries/premonition.markdown"
+			],
+			[
+				"main.sc",
+				"css/main.scss"
+			],
+			[
+				"color",
+				"_sass/_colors.scss"
+			],
+			[
+				"contribution",
+				".sass-cache/4db1e82618fe15d38f2efe200e4f832552c0416f/_contribution.scssc"
+			],
+			[
+				"after-",
+				"_entries/after-authenticity.markdown"
+			],
+			[
+				"after ",
+				"_entries/after-authenticity.markdown"
+			],
+			[
+				"open",
+				"_entries/open-transclude.markdown"
+			],
+			[
+				"porta",
+				"_includes/portal.html"
+			],
+			[
+				"",
+				"_entries/diminishing-marginal-aesthetic-value.markdown"
+			],
+			[
+				"premonition.",
+				"_site/entries/premonition/index.html"
+			],
+			[
+				"diminish",
+				"_entries/diminishing-marginal-aesthetic-value.markdown"
+			],
+			[
+				"gri",
+				"_sass/_grid.scss"
+			],
+			[
+				"open ",
+				"_entries/open-transclude.markdown"
+			],
+			[
+				"after",
+				"_entries/after-authenticity.markdown"
+			],
+			[
+				"jobs",
+				"_entries/jobs-to-be-done.markdown"
+			],
+			[
+				"portal.",
+				"_sass/_portal.scss"
+			],
+			[
+				"notes on com",
+				"_entries/notes-on-comparative-psychology.markdown"
+			],
+			[
+				"entr",
+				"entries.markdown"
+			],
+			[
+				"post",
+				"_sass/_post.scss"
+			],
+			[
+				"high",
+				"_sass/_highlight.scss"
+			],
+			[
+				"portal.scss",
+				"_sass/_portal.scss"
+			],
+			[
+				"confi",
+				"_config.yml"
+			],
+			[
+				"compon",
+				"_layouts/components.html"
+			],
+			[
+				"highligh",
+				"_sass/_highlight.scss"
+			],
+			[
+				"building",
+				"_entries/building-for-the-culture.markdown"
+			],
+			[
+				"gem",
+				"gemfile"
+			],
+			[
+				"font",
+				"_sass/_fonts.scss"
+			],
+			[
+				"scss",
+				"css/main.scss"
+			],
+			[
+				"gemf",
+				"gemfile"
+			],
+			[
+				"psychol",
+				"_entries/notes-on-comparative-psychology.markdown"
+			],
+			[
+				"mixin",
+				"_sass/_mixins.scss"
+			],
+			[
+				"css",
+				"_site/css/main.css"
+			],
+			[
+				"config",
+				"_config.yml"
+			],
+			[
+				"define",
+				"_entries/define-concepts-from-the-behavior-up.markdown"
+			],
+			[
+				"compone",
+				"_layouts/components.html"
+			],
+			[
+				"psych",
+				"_entries/notes-on-comparative-psychology.markdown"
+			],
+			[
+				"building for",
+				"_entries/building-for-the-culture.markdown"
+			],
+			[
+				"interte",
+				"_sass/_intertext.scss"
+			],
+			[
+				"baroque",
+				"_entries/haute-baroque-capitalism.markdown"
+			],
+			[
+				"dimini",
+				"_entries/diminishing-marginal-aesthetic-value.markdown"
+			],
+			[
+				"INTERTE",
+				"_sass/_intertext.scss"
+			],
+			[
+				"componen",
+				"components.markdown"
+			],
+			[
+				"channel.",
+				"_layouts/channel.html"
+			],
+			[
+				"channel-menu",
+				"_includes/channel-menu.html"
+			],
+			[
+				"universa",
+				"universal-menu.js"
+			],
+			[
+				"channel-m",
+				"_includes/channel-menu.html"
+			],
+			[
+				"univer",
+				"universal-menu.js"
+			],
+			[
+				"intert",
+				"_sass/_intertext.scss"
+			],
+			[
+				"buildin",
+				"_entries/building-for-the-culture.markdown"
+			],
+			[
+				"it",
+				"itxt.js"
+			],
+			[
+				"components.",
+				"_layouts/components.html"
+			],
+			[
+				"compo",
+				"_layouts/components.html"
+			],
+			[
+				"components",
+				"components.markdown"
+			],
+			[
+				"itx",
+				"itxt.js"
+			],
+			[
+				"bui",
+				"_entries/building-for-the-culture.markdown"
+			]
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": true,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 267.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}

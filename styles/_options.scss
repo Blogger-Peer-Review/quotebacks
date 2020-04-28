@@ -122,9 +122,8 @@ body{
   }
 
   #rightpanel{
-    // flex-grow:3;
+    flex-grow:2;
     background:white;
-    // width:100%;
     height:100vh;
     overflow:scroll;
   }
@@ -135,6 +134,15 @@ body{
 #article-scrollContainer, #panel-scrollContainer{
   padding-bottom:70px;
 }
+
+#leftnav::-webkit-scrollbar {
+      display: none;
+};
+#rightpanel::-webkit-scrollbar {
+      // display: none;
+};
+
+
 
 #panel-scrollContainer{
   margin-top:40px ;
@@ -191,8 +199,8 @@ body{
     flex-direction:column;
     margin-left:5px;
     position:relative;
-    display:none;
-    opacity:1;
+    // display:none;
+    opacity:0;
     @include transition(all .20s ease);
     .control-button{
       margin-bottom:6px;
@@ -226,6 +234,7 @@ body{
 
 .showcontrols{
   transform: translateX(10px);
+  opacity:1 !important;
 }
 
 .comment{
