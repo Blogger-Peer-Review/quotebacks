@@ -1,6 +1,6 @@
 {
   "name": "Tom & Toby Experimental Citation Tool",
-  "description": "Citations Magic",
+  "description": "QuoteBack Generator",
   "version": "1.0",
   "manifest_version": 2,
   "permissions": [
