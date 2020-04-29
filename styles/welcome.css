@@ -1,0 +1,10 @@
+body.welcome {
+  margin: 0px auto;
+  padding-top: 15rem;
+  padding-bottom: 3rem;
+  line-height: 130%;
+  width: 500px; }
+  body.welcome ol li {
+    margin-bottom: .5rem; }
+
+/*# sourceMappingURL=welcome.css.map */

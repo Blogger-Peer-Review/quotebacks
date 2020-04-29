@@ -20,8 +20,8 @@ document.addEventListener("DOMContentLoaded", function(){
       var domain = extractHostname(items[i].url);
       article_instance.querySelector('.title').innerHTML = items[i].title;
       // article_instance.querySelector('.author').innerHTML = items[i].author;
-
-      article_instance.querySelector('.url').innerHTML = "<img src='https://s2.googleusercontent.com/s2/favicons?domain_url=" +domain+"'/>" +domain;
+      article_instance.querySelector('.mini-favicon').src = "https://s2.googleusercontent.com/s2/favicons?domain_url="+domain+"";
+      article_instance.querySelector('.url').innerHTML = domain;
       article_instance.querySelector('.article').setAttribute("data-id",items[i].url);
 
       // Append the instance ot the DOM
@@ -58,27 +58,30 @@ document.addEventListener("DOMContentLoaded", function(){
     
     $('#rightpanel').on('click',"#copy", function() {
       console.log("copying?");
-      var quote = $(this).closest('.quoteblock').find('.portal-content').text();
+      var quote = $(this).closest('.quoteblock').find('.portal-content-519256').text();
       copyToClipboard(quote);
       var el = $(this);
-      el.css('border', '1px solid red');
+      el.html("Copied!");
       setTimeout(function() {
-        el.css('border', 'none');
+        el.html("Copy Text");
       }, 1000);
     });
 
-    $('#rightpanel').on('click',"#getlink", function() {
+    $('#rightpanel').on('click',"#embedLink", function() {
       
       var title = $(".selected").find(".title").text();
       var url = $(".selected").attr("data-id");
-      var quote = $(this).closest('.quoteblock').find('.portal-content').text();
+      var quote = $(this).closest('.quoteblock').find('.portal-content-519256').text();
+      var author = $(this).closest('.quoteblock').find('.portal-author-519256').text();
 
       const embed_fragment = document.getElementById('embed');
       const embed = document.importNode(embed_fragment.content, true);
       // Add relevant content to the template
-      embed.querySelector('.portal-text-title').innerHTML = title;
-      embed.querySelector('.portal-arrow').setAttribute("href", url);
-      embed.querySelector('.portal-content').innerHTML = quote;
+      embed.querySelector('.portal-author-519256').innerHTML = author;
+      embed.querySelector('.title-wrapper-519256').innerHTML = title;
+      embed.querySelector('.portal-arrow-519256').setAttribute("href", url);
+      embed.querySelector('.portal-content-519256').innerHTML = quote;
+      embed.querySelector('.mini-favicon-519256').src = "https://s2.googleusercontent.com/s2/favicons?domain_url="+url+"";
     
       let div=document.createElement("div");
       div.appendChild(embed);
@@ -86,9 +89,9 @@ document.addEventListener("DOMContentLoaded", function(){
       copyToClipboard(div.innerHTML);
 
       var el = $(this);
-      el.css('border', '1px solid red');
+      el.html("Copied!");
       setTimeout(function() {
-        el.css('border', 'none');
+        el.html("<> Embed");
       }, 1000);
     });
 
@@ -107,6 +110,7 @@ document.addEventListener("DOMContentLoaded", function(){
         if(quotes.length == 0){ //if no quotes left then delete whole item from alldata
           chrome.storage.local.remove(url, function (){
             console.log("deleted "+url);
+            $(".selected").hide();
             displayquotes(url);
           });
         }else{
@@ -168,11 +172,12 @@ function displayquotes(url){
     const instance = document.importNode(fragment.content, true);
 
     // Add relevant content to the template
-    instance.querySelector('.portal-content').innerHTML = item.text;
+    instance.querySelector('.portal-content-519256').innerHTML = item.text;
     instance.querySelector('.linkback a').href = url;
-    instance.querySelector('.portal-arrow').href = url;
-    instance.querySelector('.portal-text-title').innerHTML = alldata[url].title;
-    instance.querySelector('.portal-author').innerHTML = alldata[url].author;
+    instance.querySelector('.portal-arrow-519256').href = url;
+    instance.querySelector('.title-wrapper-519256').innerHTML = alldata[url].title;
+    instance.querySelector('.portal-author-519256').innerHTML = alldata[url].author;
+    instance.querySelector('.mini-favicon-519256').src = "https://s2.googleusercontent.com/s2/favicons?domain_url="+url+"";
 
     var date = new Date(item.date);
     console.log(date); // date is a timestamp but we only display formatted
@@ -200,6 +205,10 @@ function displayquotes(url){
 
     $(".article[data-id='"+url+"']").addClass( "selected" );
 
+    // Update the Title Bar
+    var titlebar = document.getElementById('titlebar');
+    titlebar.querySelector("#titlebar-author").innerHTML = alldata[url].author;
+    titlebar.querySelector("#titlebar-title").innerHTML = alldata[url].title;
 
   });
 };
@@ -235,9 +244,9 @@ function extractHostname(url) {
 $(document).on('mouseenter mouseleave', '.quoteblock', function(e) {
     if (e.type == "mouseenter"){
 
-      $(this).find('.quote-controls').show().css({"opacity":"1"}).addClass('showcontrols');
+      $(this).find('.quote-controls').addClass('showcontrols');
     }else{
-      $(this).find('.quote-controls').hide().css("opacity","0").removeClass('showcontrols');
+      $(this).find('.quote-controls').removeClass('showcontrols');
     }
 });
 

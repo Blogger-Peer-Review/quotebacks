@@ -1,53 +1,25 @@
-.tomtobybutton, .tomtobybutton a, .tomtobypopup > div, .tomtobypopup , .tomtobysaved , .tomtobytext{
-    all:unset;
-}
+/*
+Errno::ENOENT: No such file or directory @ rb_sysopen - styles.scss
 
-.tomtobypopup{
-    position:fixed;
-    right: 300px;
-    top:0px;
-    font-family:Arial, Helvetica, sans-serif;
-    font-size:14px;
-    z-index:9000;
-    display:block;
-}
-
-.tomtobypopup > div{
-    position: absolute;
-    height: 250px;
-    width: 300px;
-    padding: 15px;
-    background: #FFFFFF;
-    border: 1px solid #000000;
-    box-sizing: border-box;
-    box-shadow: 0px 4px 25px rgba(0, 0, 0, 0.25);
-}
-
-.tomtobypopup textarea{
-    width:100%;
-    border-radius:4px;
-    margin-top:10px;
-}
-
-.tomtobytext{
-    border-bottom:1px solid black;
-    overflow:hidden;
-    height:100px;
-}
-
-.tomtobybutton, .tomtobysaved{
-    width:100px;;
-    text-align:center;
-    margin-top:20px;
-    float:left;
-
-}
-
-.tomtobybutton{
-    background: #7572FF;border-radius: 4px;
-}
-
-.tomtobybutton a{
-    color:white;
-    text-decoration:none;
-}
+Backtrace:
+/Users/tobyshorin/.rvm/gems/ruby-2.6.3/gems/sass-3.7.4/lib/sass/plugin/compiler.rb:454:in `read'
+/Users/tobyshorin/.rvm/gems/ruby-2.6.3/gems/sass-3.7.4/lib/sass/plugin/compiler.rb:454:in `update_stylesheet'
+/Users/tobyshorin/.rvm/gems/ruby-2.6.3/gems/sass-3.7.4/lib/sass/plugin/compiler.rb:215:in `block in update_stylesheets'
+/Users/tobyshorin/.rvm/gems/ruby-2.6.3/gems/sass-3.7.4/lib/sass/plugin/compiler.rb:209:in `each'
+/Users/tobyshorin/.rvm/gems/ruby-2.6.3/gems/sass-3.7.4/lib/sass/plugin/compiler.rb:209:in `update_stylesheets'
+/Users/tobyshorin/.rvm/gems/ruby-2.6.3/gems/sass-3.7.4/lib/sass/plugin/compiler.rb:294:in `watch'
+/Users/tobyshorin/.rvm/gems/ruby-2.6.3/gems/sass-3.7.4/lib/sass/plugin.rb:109:in `method_missing'
+/Users/tobyshorin/.rvm/gems/ruby-2.6.3/gems/sass-3.7.4/lib/sass/exec/sass_scss.rb:358:in `watch_or_update'
+/Users/tobyshorin/.rvm/gems/ruby-2.6.3/gems/sass-3.7.4/lib/sass/exec/sass_scss.rb:51:in `process_result'
+/Users/tobyshorin/.rvm/gems/ruby-2.6.3/gems/sass-3.7.4/lib/sass/exec/base.rb:50:in `parse'
+/Users/tobyshorin/.rvm/gems/ruby-2.6.3/gems/sass-3.7.4/lib/sass/exec/base.rb:18:in `parse!'
+/Users/tobyshorin/.rvm/gems/ruby-2.6.3/gems/sass-3.7.4/bin/sass:13:in `<top (required)>'
+/Users/tobyshorin/.rvm/gems/ruby-2.6.3/bin/sass:23:in `load'
+/Users/tobyshorin/.rvm/gems/ruby-2.6.3/bin/sass:23:in `<main>'
+/Users/tobyshorin/.rvm/gems/ruby-2.6.3/bin/ruby_executable_hooks:24:in `eval'
+/Users/tobyshorin/.rvm/gems/ruby-2.6.3/bin/ruby_executable_hooks:24:in `<main>'
+*/
+body:before {
+  white-space: pre;
+  font-family: monospace;
+  content: "Errno::ENOENT: No such file or directory @ rb_sysopen - styles.scss"; }

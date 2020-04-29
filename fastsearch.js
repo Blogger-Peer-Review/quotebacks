@@ -58,6 +58,7 @@ document.addEventListener('keydown', function(event) {
 
   // CMD-/ to show / hide Search
   if ((event.metaKey && event.which === 191) || (event.metaKey && event.which === 75)) {
+      event.preventDefault();
       // Load json search index if first time invoking search
       // Means we don't load json unless searches are going to happen; keep user payload small unless needed
       if(firstRun) {
@@ -73,7 +74,7 @@ document.addEventListener('keydown', function(event) {
         searchVisible = true; // search visible
       }
       else {
-        document.getElementById("fastSearch").style.visibility = "hidden"; // hide search box
+        
         document.activeElement.blur(); // remove focus from search box 
         searchVisible = false; // search not visible
       }
@@ -180,7 +181,7 @@ function executeSearch(term) {
         <img src='https://s2.googleusercontent.com/s2/favicons?domain_url=${extractHostname(results[i].item.url)}'/>
         ${extractHostname(results[i].item.url)}
         </div>
-        <span>${results[i].item.quotes[j].text.substring(1,100)}</span>
+        <span>${results[i].item.quotes[j].text.substring(0,100)}</span>
         </a></li>`;
 
         searchitems = searchitems + searchresult;

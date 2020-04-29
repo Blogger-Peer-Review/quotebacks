@@ -1,6 +1,6 @@
 {
   "name": "Tom & Toby Experimental Citation Tool",
-  "description": "Citations Magic",
+  "description": "QuoteBack Generator",
   "version": "1.0",
   "manifest_version": 2,
   "permissions": [
@@ -10,7 +10,7 @@
     "unlimitedStorage"
   ],
   "icons": {
-    "16": "/images/favicon.png"
+    "32": "/images/favicon-32x32.png"
   },
   "browser_action": {
     "default_title": "Options"
@@ -19,15 +19,14 @@
   "content_scripts": [
     {
       "matches": ["<all_urls>"],
-      "js": ["content.js"],
-      "css": ["styles.css"]
+      "js": ["content.js"]
     }
   ],
   "background": {
     "scripts": ["background.js"],
     "persistent": false
   },
-  "web_accessible_resources": ["options.html"],
+  "web_accessible_resources": ["options.html","styles/styles.css","images/allquotes.png"],
   "commands": {
     "toggle-feature": {
       "suggested_key": {

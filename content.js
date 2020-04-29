@@ -2,10 +2,25 @@ document.addEventListener('keydown', function(event) {
 //  cmd + shift + S
   if (event.metaKey && event.shiftKey && event.which === 83) {
     
+
     var object = {};
 
     var text = getSelectionText();  
-    var page = document.location.href;    
+    
+    var links = document.getElementsByTagName("link");
+    if (getCanonical()){
+      var page = getCanonical();    
+    }else{
+      var page = document.location.href;      
+    };
+
+
+    // https://stackoverflow.com/questions/10097988/chrome-extension-prevent-css-from-being-over-written
+    // Create our iframe and style it so that we can see it...
+    var iframe = document.createElement('iframe');
+    iframe.id = "citation-iframe-519256";
+    document.documentElement.appendChild(iframe);
+    iframe.style.cssText = "width:670px; height:800px; position:fixed; border:none; top:0px; right:0px; z-index:99999;"
 
     chrome.storage.local.get([page], function(result) {
 
@@ -13,7 +28,12 @@ document.addEventListener('keydown', function(event) {
         // page_object["date"] = getDate(); needs to get attached to each quote item
         page_object["url"] = page;
         page_object["title"] = document.title;
-        page_object["author"] = getMeta("author");
+        
+        if(getMeta("author")){
+          page_object["author"] = getMeta("author");  
+        }else{
+        page_object["author"] = getMeta("twitter:site");
+        }
 
         var quotes = [];
         var quote = {};
@@ -39,13 +59,76 @@ document.addEventListener('keydown', function(event) {
 
             var browser_page = chrome.runtime.getURL("options.html");
 
-            //old code for putting the popup inline - fails on overflow hidden on parent for e.g.
-            //window.getSelection().anchorNode.parentNode.insertAdjacentHTML( 'afterbegin', "<div class='tomtobypopup' id='tomtobyid'><div><div class='tomtobytext'>"+text.substring(1,50)+"</div><textarea rows='4'></textarea><div class='tomtobysaved'>Saved</div><div class='tomtobybutton'><a href='"+browser_page+"#"+page+"'>See Quotes</div></div></div>" );
-                        
-            document.getElementsByTagName('body')[0].insertAdjacentHTML( 'afterbegin', `
-            <div class='tomtobypopup' id='tomtobyid'><div><div class='tomtobytext'>${text.substring(1,50)}</div>
-            <textarea rows='4'></textarea><div class='tomtobysaved'>Saved</div>
-            <div class='tomtobybutton'><a href="${browser_page}#${page}">See Quotes</div></div></div>`);
+            var stylesurl = chrome.runtime.getURL("styles/styles.css");
+            var popupStyle = '<link rel="stylesheet" href="'+stylesurl+'" type="text/css">';
+            //iframe.contentDocument.head.appendChild(popupStyle);
+            
+            iframe.contentDocument.head.insertAdjacentHTML('beforeend', popupStyle);
+
+            // stick our css in the iframe body
+            iframe.contentDocument.body.innerHTML = `
+
+<div class="citation-capture-519256" id="citation-capture-519256">
+<div class="citation-meta-519256">
+<form>
+<label class="citation-input-label-519256" for="Author">Author</label>
+<input class="citation-input-519256" id="author-field" name="Author" value="${page_object["author"]}"></input>
+</form>
+<form>
+<label class="citation-input-label-519256" for="Title">Title</label>
+<input class="citation-input-519256" id="title-field" name="Title" value="${page_object["title"]}"></input>
+</form>       
+</div>
+
+<div class="thickdivider"></div>
+
+
+
+<div class="portal-container-519256">
+
+<div id="portal-parent-519256" class="portal-parent-519256">
+<div class="portal-content-519256">${text}
+</div>       
+</div> 
+
+<div class="portal-head-519256">
+
+<div class="portal-avatar-519256"><img class="mini-favicon-519256" src="https://s2.googleusercontent.com/s2/favicons?domain_url=${location.hostname}&sz=64"/></div>
+
+<div class="portal-metadata-519256">
+<div class="portal-title-519256">
+<div class="portal-author-519256">${page_object["author"]}</div>
+<div class="title-wrapper-519256">${page_object["title"]}</div>
+</div> 
+</div>
+
+<div class="portal-backlink-519256"><a target="_blank" href="${page_object["url"]}" class="portal-arrow">Go to text <span class="right-arrow">&#8594;</span></a></div>
+
+</div>       
+</div>
+
+
+
+
+<div class="thickdivider"></div>
+
+<div class="citation-bottom-519256">
+<div class="comment-519256">
+<input class="citation-input-519256" id="comment-field-519256" placeholder="+ Add Comment"></input>    
+<div class="save-indicator-519256">Saved</div>
+</div>
+<div>
+<button id="getlink-519256" class="control-button-519256"><> Embed</button>
+<button id="close-button-519256" class="control-button-519256">Close</button>
+</div>
+</div>
+
+<div class="allquotes-519256"><a target="_blank" class="quoteslink-519256" href="${chrome.runtime.getURL("options.html")}#${page}">All Quotes<img src="${chrome.runtime.getURL("images/allquotes.png")}"></a></div>
+
+</div>
+`;
+
+
             
             // boundary.top from here if we wanna position relative to the text selection
             // https://stackoverflow.com/questions/4106109/selected-text-and-xy-coordinates
@@ -55,6 +138,55 @@ document.addEventListener('keydown', function(event) {
             boundary = range.getBoundingClientRect();
             */
 
+            //Make copy button work
+            iframe.contentDocument.querySelector("#getlink-519256").addEventListener("click", function(event) {
+              var embed = `
+<embed>
+<link rel="stylesheet" href="https://files-lovat-six.now.sh/quote.css" type="text/css">
+<div class="portal-container-519256">
+
+<div id="portal-parent-519256" class="portal-parent-519256">
+<div class="portal-content-519256">${text}
+</div>       
+</div> 
+
+<div class="portal-head-519256">
+
+<div class="portal-avatar-519256"><img class="mini-favicon-519256" src="https://s2.googleusercontent.com/s2/favicons?domain_url=${location.hostname}&sz=64"/></div>
+
+<div class="portal-metadata-519256">
+<div class="portal-title-519256">
+<div class="portal-author-519256">${page_object["author"]}</div>
+<div class="title-wrapper-519256">${page_object["title"]}</div>
+</div> 
+</div>
+
+<div class="portal-backlink-519256"><a target="_blank" href="${page_object["url"]}" class="portal-arrow-159256">Go to text <span class="right-arrow">&#8594;</span></a></div>
+
+</div>       
+</div>
+</embed>`;
+              copyToClipboard(embed);
+              console.log(iframe.contentDocument.querySelector("#getlink-519256"));
+              iframe.contentDocument.querySelector("#getlink-519256").innerHTML = "Copied!";
+              setTimeout(function() {
+                iframe.contentDocument.querySelector("#getlink-519256").innerHTML = "<> Embed";
+              }, 1000);
+            });
+            
+            //Make save & close work
+            iframe.contentDocument.querySelector("#close-button-519256").addEventListener("click", function(event) {
+              var paras = document.getElementById('citation-iframe-519256');
+              if (paras){
+                paras.parentNode.removeChild(paras);
+              };
+              // while(paras[0]) {
+              //     paras[0].parentNode.removeChild(paras[0]); // remove all popups
+              // };         
+              AutoSave.stop();              
+              clearInterval(t); // stop timer
+            });
+
             var time = 0;
             var textfocus = false;
             var ishover = false;
@@ -62,13 +194,13 @@ document.addEventListener('keydown', function(event) {
             txtAreaListenFocus();
             txtAreaListenBlur();
 
-            let popup = document.querySelector(".tomtobypopup");
+            // let popup = iframe;
   
-            popup.addEventListener("mouseover", function( event ) {   
+            iframe.addEventListener("mouseover", function( event ) {   
                 ishover = true;
             });
 
-            popup.addEventListener("mouseout", function( event ) {   
+            iframe.addEventListener("mouseout", function( event ) {   
                 ishover = false;
             });
 
@@ -76,13 +208,15 @@ document.addEventListener('keydown', function(event) {
 
             var t = window.setInterval(function() {
 
+                // timeout to remove popups
                 if(!ishover && !textfocus) {
                   time++;
                   if(time > 5){
-                    var paras = document.getElementsByClassName('tomtobypopup');
-                    while(paras[0]) {
-                        paras[0].parentNode.removeChild(paras[0]); // remove all popups
-                    };         
+                    var paras = document.getElementById('citation-iframe-519256');
+                    if (paras){
+                      paras.parentNode.removeChild(paras);
+                    };
+       
                     AutoSave.stop();              
                     clearInterval(t); // stop timer
                   };
@@ -92,18 +226,34 @@ document.addEventListener('keydown', function(event) {
               }, 1000);
 
               function txtAreaListenFocus(){
-                var txtArea = document.querySelector('.tomtobypopup textarea');
-                txtArea.addEventListener('focus', function(event) {
+                var txtArea = iframe.contentDocument.querySelector('#comment-field-519256'); // changed
+                var authorArea = iframe.contentDocument.querySelector('#author-field'); // changed
+                var titleArea = iframe.contentDocument.querySelector('#title-field'); // changed
+                authorArea.addEventListener('focus', function(event) {
                    textfocus = true;
                 }.bind(this));
+                titleArea.addEventListener('focus', function(event) {
+                  textfocus = true;
+               }.bind(this));
+               txtArea.addEventListener('focus', function(event) {
+                textfocus = true;
+             }.bind(this));                               
               };
 
               function txtAreaListenBlur(){
-                var txtArea = document.querySelector('.tomtobypopup textarea');
+                var txtArea = iframe.contentDocument.querySelector('#comment-field-519256'); // changed
+                var authorArea = iframe.contentDocument.querySelector('#author-field'); // changed
+                var titleArea = iframe.contentDocument.querySelector('#title-field'); // changed
                 txtArea.addEventListener('blur', function(event) {
                   textfocus = false;
                 }.bind(this));
-              };
+                authorArea.addEventListener('blur', function(event) {
+                  textfocus = false;
+                }.bind(this));
+                titleArea.addEventListener('blur', function(event) {
+                  textfocus = false;
+                }.bind(this));
+              };                          
 
 
           });
@@ -125,7 +275,8 @@ function getSelectionText() {
 
       // plain text of selected range (if you want it w/o html)
       var plaintext = window.getSelection();
-      console.log(plaintext);
+      plaintext = plaintext.toString().replace(/(?:\r\n|\r|\n)/g, '<br>'); // replace line breaks with <br> tags
+      plaintext = plaintext.replace(/(<br>)+$/g, ''); //remove trailing <br> if there is one
           
       // document fragment with html for selection
       var fragment = range.cloneContents();
@@ -136,26 +287,37 @@ function getSelectionText() {
 
       // your document fragment to a string (w/ html)! (yay!)
       var text = div.innerHTML;
-      console.log(text);
 
 
     } else if (document.selection && document.selection.type != "Control") { // think this is for IE?
     text = document.selection.createRange().text;
     }
-    return text;
+    return plaintext.toString();
 };
 
 function getMeta(metaName) {
     const metas = document.getElementsByTagName('meta');
-  
+
     for (let i = 0; i < metas.length; i++) {
       if (metas[i].getAttribute('name') === metaName) {
         return metas[i].getAttribute('content');
       }
     }
+
   
     return '';
   };
+
+function getCanonical() {
+  var canonical = "";
+  var links = document.getElementsByTagName("link");
+  for (var i = 0; i < links.length; i ++) {
+      if (links[i].getAttribute("rel") === "canonical") {
+          canonical = links[i].getAttribute("href")
+      }
+  }
+  return canonical;
+  };  
 
 function getDate(){
   
@@ -167,51 +329,40 @@ function getDate(){
 // From: https://gist.github.com/gcmurphy/3651776
 var AutoSave = (function(){
 
-    var timer = null;
-    
-	function getEditor(){
-		var elems = document.querySelector(".tomtobypopup textarea")
-		if (!elems)
-			return null;
-		return elems;
-	}
+  var timer = null;
 
 	function save(object){
         console.log("running save");
-		    var editor = getEditor(); 
-            if (editor) {
+        let iframe = document.getElementById("citation-iframe-519256"); // added
+        var commentbox = iframe.contentDocument.querySelector("#comment-field-519256");
+        var title = iframe.contentDocument.querySelector("#title-field")
+        var author = iframe.contentDocument.querySelector("#author-field");
 
-            var page = document.location.href;
-
-            object[page]["quotes"][0]["comment"] = editor.value;
-            chrome.storage.local.set(object, function() { 
-                console.log("autosaved");
-            });
-            }
-        };
-
-	function restore(){ //don't think I actually need this restore function...?
         var page = document.location.href;
-        var saved = "";
-        chrome.storage.local.get([page], function(result) {
-            saved = result[page]["quotes"][0]["comment"];
+
+        object[page]["quotes"][0]["comment"] = commentbox.value;
+        object[page]["title"] = title.value;
+        object[page]["author"] = author.value;
+
+        chrome.storage.local.set(object, function() { 
+            console.log("autosaved");
+            if(iframe.contentDocument.querySelector(".save-indicator-519256").innerText == "Saving..."){
+              iframe.contentDocument.querySelector(".save-indicator-519256").innerHTML = "<span style='color:green'>Saved</span>"; // changed
+              iframe.contentDocument.querySelector(".portal-author-519256").innerHTML = author.value;
+              iframe.contentDocument.querySelector(".title-wrapper-519256").innerHTML = title.value;
+          };
         });
-        //var saved = localStorage.getItem("AUTOSAVE_" + document.location)
-		var editor = getEditor();
-		if (saved && editor){
-			editor.value = saved; 
-		}
-	}
+            
+        };
 
 	return { 
 
 		start: function(object){
-
-            var editor = getEditor(); 
-            console.log(editor);
-
-			if (editor.value.length <= 0)
-				restore();
+            let iframe = document.getElementById("citation-iframe-519256"); // added
+                 
+          iframe.contentDocument.addEventListener("keydown", function( event ) {
+              iframe.contentDocument.querySelector(".save-indicator-519256").innerText = "Saving..."; // changed
+          });            
 
 			if (timer != null){
 				clearInterval(timer);
@@ -219,7 +370,7 @@ var AutoSave = (function(){
 			}
 			timer = setInterval(function(){
                 save(object)
-            }, 1000);
+            }, 500);
 		},
 
 		stop: function(){
@@ -231,5 +382,15 @@ var AutoSave = (function(){
 
 		}
 	}
+ 
 
 }());
+
+const copyToClipboard = str => {
+  const el = document.createElement('textarea');
+  el.value = str;
+  document.body.appendChild(el);
+  el.select();
+  document.execCommand('copy');
+  document.body.removeChild(el);
+};
