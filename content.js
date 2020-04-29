@@ -227,17 +227,33 @@ document.addEventListener('keydown', function(event) {
 
               function txtAreaListenFocus(){
                 var txtArea = iframe.contentDocument.querySelector('#comment-field-519256'); // changed
-                txtArea.addEventListener('focus', function(event) {
+                var authorArea = iframe.contentDocument.querySelector('#author-field'); // changed
+                var titleArea = iframe.contentDocument.querySelector('#title-field'); // changed
+                authorArea.addEventListener('focus', function(event) {
                    textfocus = true;
                 }.bind(this));
+                titleArea.addEventListener('focus', function(event) {
+                  textfocus = true;
+               }.bind(this));
+               txtArea.addEventListener('focus', function(event) {
+                textfocus = true;
+             }.bind(this));                               
               };
 
               function txtAreaListenBlur(){
                 var txtArea = iframe.contentDocument.querySelector('#comment-field-519256'); // changed
+                var authorArea = iframe.contentDocument.querySelector('#author-field'); // changed
+                var titleArea = iframe.contentDocument.querySelector('#title-field'); // changed
                 txtArea.addEventListener('blur', function(event) {
                   textfocus = false;
                 }.bind(this));
-              };
+                authorArea.addEventListener('blur', function(event) {
+                  textfocus = false;
+                }.bind(this));
+                titleArea.addEventListener('blur', function(event) {
+                  textfocus = false;
+                }.bind(this));
+              };                          
 
 
           });
