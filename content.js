@@ -28,6 +28,8 @@ document.addEventListener('keydown', function(event) {
         // page_object["date"] = getDate(); needs to get attached to each quote item
         page_object["url"] = page;
         page_object["title"] = document.title;
+
+
         
         if(getMeta("author")){
           page_object["author"] = getMeta("author");  
@@ -160,7 +162,7 @@ document.addEventListener('keydown', function(event) {
 </div> 
 </div>
 
-<div class="portal-backlink-519256"><a target="_blank" href="${page_object["url"]}" class="portal-arrow-159256">Go to text <span class="right-arrow">&#8594;</span></a></div>
+<div class="portal-backlink-519256"><a target="_blank" href="${page_object["url"]}" class="portal-arrow-519256">Go to text <span class="right-arrow">&#8594;</span></a></div>
 
 </div>       
 </div>`;
