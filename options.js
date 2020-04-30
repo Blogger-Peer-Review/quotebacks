@@ -71,7 +71,7 @@ document.addEventListener("DOMContentLoaded", function(){
       
       var title = $(".selected").find(".title").text();
       var url = $(".selected").attr("data-id");
-      var quote = $(this).closest('.quoteblock').find('.portal-content-519256').text();
+      var quote = $(this).closest('.quoteblock').find('.portal-content-519256').html();
       var author = $(this).closest('.quoteblock').find('.portal-author-519256').text();
 
       const embed_fragment = document.getElementById('embed');
