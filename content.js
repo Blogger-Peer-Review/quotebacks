@@ -27,9 +27,14 @@ document.addEventListener('keydown', function(event) {
         var page_object = {};        
         // page_object["date"] = getDate(); needs to get attached to each quote item
         page_object["url"] = page;
-        page_object["title"] = document.title;
 
-
+        if(getMeta("twitter:title")){
+          page_object["title"] = getMeta("twitter:title");
+        } else if(getMeta("og:title")){
+          page_object["title"] = getMeta("og:title");
+        }else{
+          page_object["title"] = document.title;
+        }
         
         if(getMeta("author")){
           page_object["author"] = getMeta("author");  
@@ -301,10 +306,11 @@ function getMeta(metaName) {
     for (let i = 0; i < metas.length; i++) {
       if (metas[i].getAttribute('name') === metaName) {
         return metas[i].getAttribute('content');
+      } else if(metas[i].getAttribute('property') === metaName){ //for facebook meta property tags
+        return metas[i].getAttribute('content');
       }
     }
 
-  
     return '';
   };
 
