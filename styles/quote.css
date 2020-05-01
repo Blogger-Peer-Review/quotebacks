@@ -94,17 +94,19 @@
       padding: 0px 15px;
       border-left: 1px solid #C2DFE3; }
       .portal-container-519256 .portal-head-519256 .portal-backlink-519256 .portal-arrow-519256 {
-        font-size: 14px;
-        color: #9DB8BF;
-        text-decoration: none;
+        border: none !important;
+        font-family: inherit !important;
+        font-size: 14px !important;
+        color: #9DB8BF !important;
+        text-decoration: none !important;
         -webkit-transition: opacity 0.1s ease;
         -moz-transition: opacity 0.1s ease;
         -ms-transition: opacity 0.1s ease;
         -o-transition: opacity 0.1s ease;
         transition: opacity 0.1s ease; }
         .portal-container-519256 .portal-head-519256 .portal-backlink-519256 .portal-arrow-519256:hover {
-          opacity: .5; }
+          opacity: .5 !important; }
         .portal-container-519256 .portal-head-519256 .portal-backlink-519256 .portal-arrow-519256:visited {
-          text-decoration: none; }
+          text-decoration: none !important; }
 
 /*# sourceMappingURL=quote.css.map */

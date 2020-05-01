@@ -122,15 +122,17 @@ $bluegray-text-dark: #253237;
             padding: 0px 15px;
             border-left: 1px solid $bluegray-bg-med;
             .portal-arrow-519256{
-                font-size: 14px;
-                color: $bluegray-text-light;
-                text-decoration:none;
+                border: none !important;
+                font-family:inherit !important;
+                font-size: 14px !important;
+                color: $bluegray-text-light !important;
+                text-decoration:none !important;
                 @include transition(opacity .10s ease);
                 &:hover{
-                    opacity:.5;
+                    opacity:.5 !important;
                 }
                 &:visited{
-                    text-decoration: none;
+                    text-decoration: none !important;
                 };
             }
         }
