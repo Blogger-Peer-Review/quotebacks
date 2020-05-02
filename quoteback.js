@@ -1,9 +1,7 @@
 const template = document.createElement('template');
 const url = document.getElementById('123456789').getAttribute("href");
 template.innerHTML=`
-<style>
-@import "./styles/quote.css";
-</style>   
+<link rel="stylesheet" type="text/css" href="https://files-lovat-six.now.sh/quote.css"> 
 <div class="portal-container-519256">
     <div id="portal-parent-519256" class="portal-parent-519256">
         <div class="portal-content-519256"><slot name="portal-content"></slot></div>       
