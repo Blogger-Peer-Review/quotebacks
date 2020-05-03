@@ -94,18 +94,20 @@
       padding: 0px 15px;
       border-left: 1px solid #C2DFE3; }
       .portal-container-519256 .portal-head-519256 .portal-backlink-519256 .portal-arrow-519256 {
-        font-size: 14px;
-        color: #9DB8BF;
-        text-decoration: none;
+        border: none !important;
+        font-family: inherit !important;
+        font-size: 14px !important;
+        color: #9DB8BF !important;
+        text-decoration: none !important;
         -webkit-transition: opacity 0.1s ease;
         -moz-transition: opacity 0.1s ease;
         -ms-transition: opacity 0.1s ease;
         -o-transition: opacity 0.1s ease;
         transition: opacity 0.1s ease; }
         .portal-container-519256 .portal-head-519256 .portal-backlink-519256 .portal-arrow-519256:hover {
-          opacity: .5; }
+          opacity: .5 !important; }
         .portal-container-519256 .portal-head-519256 .portal-backlink-519256 .portal-arrow-519256:visited {
-          text-decoration: none; }
+          text-decoration: none !important; }
 
 body {
   font-size: 14px;
@@ -220,6 +222,8 @@ body {
     overflow-y: scroll;
     overscroll-behavior: contain; }
   #appcontainer #rightpanel {
+    position: relative;
+    min-width: 800px;
     flex-grow: 2;
     background: white;
     height: 100vh;
@@ -236,22 +240,43 @@ body {
   padding: 25px 75px 50px 3vw; }
 
 #titlebar {
-  position: fixed;
+  position: absolute;
+  width: 100%;
   display: flex;
   flex-direction: row;
   align-items: center;
+  justify-content: space-between;
   height: 40px;
-  width: 100%;
   z-index: 10;
   background-color: white;
   font-size: 14px;
-  border-bottom: 1px solid #d5d5d5;
-  padding-left: 15px; }
+  border-bottom: 1px solid #d5d5d5; }
   #titlebar #titlebar-author {
-    margin-right: 10px; }
+    margin-left: 10px;
+    padding: 5px 5px 5px 5px;
+    display: inline; }
   #titlebar #titlebar-title {
+    display: inline;
     color: #2162AF;
-    font-weight: 600; }
+    font-weight: 600;
+    padding: 5px; }
+  #titlebar #titlebar-options {
+    right: 40px;
+    display: flex;
+    align-items: center;
+    width: 40px;
+    height: 100%;
+    border-left: 1px solid #d5d5d5; }
+    #titlebar #titlebar-options::after {
+      content: '\2807';
+      font-size: 24px;
+      padding: 12px 10px 10px 14px;
+      color: #B1B2B4; }
+
+#titlebar-author:hover, #titlebar-title:hover {
+  opacity: .65;
+  background-color: #EBEEF0;
+  content: "Edit Author"; }
 
 #capture-helper {
   position: absolute;
