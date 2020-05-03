@@ -96,6 +96,7 @@ document.addEventListener("DOMContentLoaded", function(){
     });
 
 
+    // DELETE QUOTE
     $('#rightpanel').on('click',"#delete", function() {
       
       var r = confirm("Are you sure you want to delete this quote?");
@@ -119,13 +120,30 @@ document.addEventListener("DOMContentLoaded", function(){
           displayquotes(url);
         }); 
       }
-        
-
-
+      
       } else {
       } 
     });    
 
+    // DELETE ARTICLE
+    $('#titlebar').on('click',"#titlebar-delete", function(){
+      var r = confirm("Are you sure you want to delete this entire article?")
+      if (r == true) {
+        var url = $(".selected").attr("data-id");
+        chrome.storage.local.remove(url, function(){
+          console.log("deleted article "+url);
+          $(".selected").hide();
+          displayquotes(url);          
+        });
+      }else{
+        chrome.storage.local.set(alldata, function(){ 
+          console.log("saving data");
+          displayquotes(url);        
+        });
+      }
+    });
+
+    // CLEAR STORAGE
     document.getElementById("clearStorage").onclick = function(){
       var r = confirm("Are you sure you want to delete all citations?!");
       if (r == true) {
