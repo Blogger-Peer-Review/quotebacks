@@ -130,16 +130,12 @@ document.addEventListener("DOMContentLoaded", function(){
       var r = confirm("Are you sure you want to delete this entire article?")
       if (r == true) {
         var url = $(".selected").attr("data-id");
-        chrome.storage.local.remove(url, function(){
+        chrome.storage.local.remove(url, function(){ // delete entire item from alldata
           console.log("deleted article "+url);
           $(".selected").hide();
           displayquotes(url);          
         });
       }else{
-        chrome.storage.local.set(alldata, function(){ 
-          console.log("saving data");
-          displayquotes(url);        
-        });
       }
     });
 
