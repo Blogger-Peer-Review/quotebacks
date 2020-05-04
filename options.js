@@ -101,9 +101,10 @@ document.addEventListener("DOMContentLoaded", function(){
       var el = $(this);
 
       var element = $(this).closest('.quoteblock').find('.portal-container-519256');
-      console.log(element[0]);
 
-      html2canvas(element[0], {useCORS: true}).then((canvas) => {
+      html2canvas(element[0], {
+        useCORS: true
+      }).then((canvas) => {
         canvas.toBlob(function(blob) {
           console.log("Writing to clipboard");
           const item = new ClipboardItem({ "image/png": blob });
