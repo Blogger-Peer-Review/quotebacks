@@ -1,7 +1,7 @@
 {
-  "name": "Tom & Toby Experimental Citation Tool",
-  "description": "QuoteBack Generator",
-  "version": "1.0",
+  "name": "Quotebacks - quote the web",
+  "description": "Quote the web and manage your snippets.",
+  "version": "0.5",
   "manifest_version": 2,
   "permissions": [
     "storage",
