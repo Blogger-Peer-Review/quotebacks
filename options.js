@@ -186,10 +186,14 @@ document.addEventListener("DOMContentLoaded", function(){
 
     // Export function
     document.getElementById("exportQuotes").onclick = function(){
-      var dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(alldata));
+      var dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(alldata, null, 2));
+      var d = new Date();
+      var curr_date = d.getDate();
+      var curr_month = d.getMonth() + 1; //Months are zero based
+      var curr_year = d.getFullYear();
       var a = document.createElement("a");
       a.setAttribute("href",     dataStr     );
-      a.setAttribute("download", "quotes.json");
+      a.setAttribute("download", curr_date + "-" + curr_month + "-" + curr_year +"-quoteback.json");
       a.click();
     };
 
