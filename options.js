@@ -96,6 +96,38 @@ document.addEventListener("DOMContentLoaded", function(){
     });
 
 
+    // use html2screenshot to generate canvas, copy img to clipboard
+    $('#rightpanel').on('click',"#copyimg", function() {
+      var el = $(this);
+
+      var element = $(this).closest('.quoteblock').find('.portal-container-519256');
+      console.log(element[0]);
+
+      html2canvas(element[0], {useCORS: true}).then((canvas) => {
+        canvas.toBlob(function(blob) {
+          console.log("Writing to clipboard");
+          const item = new ClipboardItem({ "image/png": blob });
+          navigator.clipboard.write([item]).then(
+            function() {
+              console.log("Copied to clipboard successfully!");
+              el.html("Copied!");
+              setTimeout(function() {
+                el.html("Copy Image");
+              }, 1000);
+            },
+            function(error) {
+              console.error("unable to write to clipboard. Error:");
+              console.log(error);
+            }
+          );
+        });
+      }).catch(function (error) {
+          console.log('oops, something went wrong!', error);
+      });
+
+  });
+
+
     // DELETE QUOTE
     $('#rightpanel').on('click',"#delete", function() {
       
