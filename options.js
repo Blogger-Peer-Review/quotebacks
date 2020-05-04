@@ -165,7 +165,11 @@ document.addEventListener("DOMContentLoaded", function(){
         chrome.storage.local.remove(url, function(){ // delete entire item from alldata
           console.log("deleted article "+url);
           $(".selected").hide();
-          displayquotes(url);          
+          if(url == allKeys[0]){
+            displayquotes(allKeys[1]);          
+          }else{
+            displayquotes(allKeys[0]);          
+          };
         });
       }else{
       }
@@ -219,7 +223,9 @@ function displayquotes(url){
 
     // Add relevant content to the template
     instance.querySelector('.portal-content-519256').innerHTML = item.text;
-    instance.querySelector('.linkback a').href = url;
+    //instance.querySelector('.linkback a').href = url;
+    // try making the "view original" link use the text fragment spec. Janky af.
+    instance.querySelector('.linkback a').href = url + "#:~:text=" + item.text.substring(0,20);
     instance.querySelector('.portal-arrow-519256').href = url;
     instance.querySelector('.title-wrapper-519256').innerHTML = alldata[url].title;
     instance.querySelector('.portal-author-519256').innerHTML = alldata[url].author;
