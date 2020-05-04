@@ -190,6 +190,13 @@ document.addEventListener("DOMContentLoaded", function(){
       var url = $(".selected").attr("data-id");
       var object = alldata[url];
       AutoSaveTitle.start(object, el ,url);
+      $("#titlebar-author").keypress(function(e){
+        if(e.which == 13){
+          $("#titlebar-author").blur();
+        }
+        return e.which != 13;
+        
+       });
     });
 
     $( "#rightpanel" ).on("focusout" , "#titlebar-author", function() {
@@ -201,6 +208,13 @@ document.addEventListener("DOMContentLoaded", function(){
       var url = $(".selected").attr("data-id");
       var object = alldata[url];
       AutoSaveTitle.start(object, el ,url);
+      $("#titlebar-title").keypress(function(e){
+        if(e.which == 13){
+          $("#titlebar-title").blur();
+        }
+        return e.which != 13;
+        
+       });
     });
 
     $( "#rightpanel" ).on("focusout" , "#titlebar-title", function() {
