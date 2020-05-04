@@ -184,6 +184,31 @@ document.addEventListener("DOMContentLoaded", function(){
       } 
     };
 
+    // on title/author -> trigger autosave
+    $( "#rightpanel" ).on("focus" , "#titlebar-author", function() {
+      var el = $(this);
+      var url = $(".selected").attr("data-id");
+      var object = alldata[url];
+      AutoSaveTitle.start(object, el ,url);
+    });
+
+    $( "#rightpanel" ).on("focusout" , "#titlebar-author", function() {
+      AutoSaveTitle.stop();
+    });
+
+    $( "#rightpanel" ).on("focus" , "#titlebar-title", function() {
+      var el = $(this);
+      var url = $(".selected").attr("data-id");
+      var object = alldata[url];
+      AutoSaveTitle.start(object, el ,url);
+    });
+
+    $( "#rightpanel" ).on("focusout" , "#titlebar-title", function() {
+      AutoSaveTitle.stop();
+    });
+    
+    
+    
     // on focus comment box -> trigger autosave
     $( "#rightpanel" ).on("focus" , ".comment", function() {
       
@@ -339,6 +364,46 @@ var AutoSave = (function(){
       }
       timer = setInterval(function(){
                 save(object, el, index, url)
+            }, 1000);
+    },
+
+    stop: function(){
+
+      if (timer){ 
+        clearInterval(timer);
+        timer = null;
+      }
+
+    }
+  }
+}());
+
+// AUTOSAVE Meta Title / Author FUNCTION
+var AutoSaveTitle = (function(){
+  var timer = null;
+
+  function save(object, el, url){
+    console.log("running autosavetitle");
+    console.log(el);
+    var author = document.getElementById("titlebar-author").textContent;
+    var title = document.getElementById("titlebar-title").textContent;
+    alldata[url]["author"] = author;
+    alldata[url]["title"] = title;
+    chrome.storage.local.set(alldata, function(){ 
+      console.log("autosaved");
+    });          
+  };
+
+  return { 
+
+    start: function(object, el, url){
+
+      if (timer != null){
+        clearInterval(timer);
+        timer = null;
+      }
+      timer = setInterval(function(){
+                save(object, el, url)
             }, 1000);
     },
 
