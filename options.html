@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
   <script src="jquery-3.5.0.min.js" type="text/javascript"></script>
+  <script src="html2screenshot.js" type="text/javascript"></script>
   <link rel="stylesheet" href="styles/styles.css" type="text/css">
 
 </head>
@@ -26,8 +27,12 @@
   </div>
   <div id="rightpanel">
     <div id="titlebar">
-      <div id="titlebar-author">Author</div>
-      <div id="titlebar-title">Title</div>
+      <div>
+        <div id="titlebar-author" contenteditable="true">Author</div>
+        <div id="titlebar-title" contenteditable="true">Title</div>        
+      </div>
+      <button id="titlebar-delete">Delete Article</button>
+      <div id="titlebar-options"></div>
     </div>
     <div id="panel-scrollContainer"></div>
   </div>  
@@ -36,6 +41,7 @@
 
 
 <button id="clearStorage">Clear Storage</button>
+<button id="exportQuotes">Export quotes</button>
 
 <template id="articleItem">
   <div class="article">
@@ -71,13 +77,14 @@
             </div> 
           </div>
 
-          <div class="portal-backlink-519256"><a target="_blank" href="" class="portal-arrow-519256">Go to text <span class="right-arrow">&#8594;</span></a></div>
+          <div class="portal-backlink-519256" data-html2canvas-ignore="true"><a target="_blank" href="" class="portal-arrow-519256">Go to text <span class="right-arrow">&#8594;</span></a></div>
         </div>  
 
       </div>
 
       <div class="quote-controls">
           <button id="embedLink" class="control-button"><> Embed</button>        
+          <button id="copyimg" class="control-button">Copy Image</button>        
           <button id="copy" class="control-button">Copy Text</button>
           <button id="delete" class="control-button">Delete</button>        
       </div>

@@ -22,6 +22,18 @@ body{
   }
 }
 
+#exportQuotes {
+  margin: 8px;
+  position:fixed;
+  right:150px;
+  color: #A8A9AB;
+  font-size:14px;
+  &:hover{
+    cursor:pointer;
+    text-decoration:underline;
+  }
+}
+
 #nav{
   border: 1px solid $graydiv;
   box-sizing: border-box;
@@ -31,7 +43,6 @@ body{
   top:0px;
   left:0px;
   background-color:$graybg;
-  
 
   #searchbar{
     position:relative;  
@@ -122,6 +133,8 @@ body{
   }
 
   #rightpanel{
+    position:relative;
+    min-width:800px;
     flex-grow:2;
     background:white;
     height:100vh;
@@ -149,27 +162,54 @@ body{
   padding: 25px 75px 50px 3vw;
 }
 
-
 #titlebar{
-  position:fixed;
+  position:absolute;
+  width:100%;
   display:flex;
   flex-direction:row;
   align-items:center;
+  justify-content: space-between;
   height:40px;
-  width: 100%;
   z-index: 10;
   background-color:white;
   font-size:14px;
   border-bottom:1px solid $graydiv;
-  padding-left:15px;
   #titlebar-author{
-    margin-right:10px;
+    margin-left:10px;
+    padding:5px 5px 5px 5px;
+    display:inline;
   }
   #titlebar-title{
+    display:inline;
     color: $selection;
     font-weight:600;
+    padding:5px;
+  }
+  #titlebar-options{
+    right:40px;
+    display:flex;
+    align-items:center;    
+    width:40px;
+    height:100%;
+    border-left: 1px solid $graydiv;
+    &::after {
+      content: '\2807';
+      font-size: 24px;
+      padding:12px 10px 10px 14px;
+      color: #B1B2B4;
+    }    
   }
 }
+
+#titlebar-author, #titlebar-title{
+ &:hover{
+  opacity:.65;
+  background-color: $graybg;
+  content: "Edit Author";
+ }
+}
+
+
 
 #capture-helper{
   position:absolute;

@@ -96,6 +96,40 @@ document.addEventListener("DOMContentLoaded", function(){
     });
 
 
+    // use html2screenshot to generate canvas, copy img to clipboard
+    $('#rightpanel').on('click',"#copyimg", function() {
+      var el = $(this);
+
+      var element = $(this).closest('.quoteblock').find('.portal-container-519256');
+
+      html2canvas(element[0], {
+        useCORS: true
+      }).then((canvas) => {
+        canvas.toBlob(function(blob) {
+          console.log("Writing to clipboard");
+          const item = new ClipboardItem({ "image/png": blob });
+          navigator.clipboard.write([item]).then(
+            function() {
+              console.log("Copied to clipboard successfully!");
+              el.html("Copied!");
+              setTimeout(function() {
+                el.html("Copy Image");
+              }, 1000);
+            },
+            function(error) {
+              console.error("unable to write to clipboard. Error:");
+              console.log(error);
+            }
+          );
+        });
+      }).catch(function (error) {
+          console.log('oops, something went wrong!', error);
+      });
+
+  });
+
+
+    // DELETE QUOTE
     $('#rightpanel').on('click',"#delete", function() {
       
       var r = confirm("Are you sure you want to delete this quote?");
@@ -119,13 +153,30 @@ document.addEventListener("DOMContentLoaded", function(){
           displayquotes(url);
         }); 
       }
-        
-
-
+      
       } else {
       } 
     });    
 
+    // DELETE ARTICLE
+    $('#titlebar').on('click',"#titlebar-delete", function(){
+      var r = confirm("Are you sure you want to delete this entire article?")
+      if (r == true) {
+        var url = $(".selected").attr("data-id");
+        chrome.storage.local.remove(url, function(){ // delete entire item from alldata
+          console.log("deleted article "+url);
+          $(".selected").hide();
+          if(url == allKeys[0]){
+            displayquotes(allKeys[1]);          
+          }else{
+            displayquotes(allKeys[0]);          
+          };
+        });
+      }else{
+      }
+    });
+
+    // CLEAR STORAGE
     document.getElementById("clearStorage").onclick = function(){
       var r = confirm("Are you sure you want to delete all citations?!");
       if (r == true) {
@@ -134,6 +185,59 @@ document.addEventListener("DOMContentLoaded", function(){
       } 
     };
 
+    // Export function
+    document.getElementById("exportQuotes").onclick = function(){
+      var dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(alldata, null, 2));
+      var d = new Date();
+      var curr_date = d.getDate();
+      var curr_month = d.getMonth() + 1; //Months are zero based
+      var curr_year = d.getFullYear();
+      var a = document.createElement("a");
+      a.setAttribute("href",     dataStr     );
+      a.setAttribute("download", curr_date + "-" + curr_month + "-" + curr_year +"-quoteback.json");
+      a.click();
+    };
+
+
+    // on title/author -> trigger autosave
+    $( "#rightpanel" ).on("focus" , "#titlebar-author", function() {
+      var el = $(this);
+      var url = $(".selected").attr("data-id");
+      var object = alldata[url];
+      AutoSaveTitle.start(object, el ,url);
+      $("#titlebar-author").keypress(function(e){ // prevent return in title
+        if(e.which == 13){
+          $("#titlebar-author").blur();
+        }
+        return e.which != 13;
+        
+       });
+    });
+
+    $( "#rightpanel" ).on("focusout" , "#titlebar-author", function() {
+      AutoSaveTitle.stop();
+    });
+
+    $( "#rightpanel" ).on("focus" , "#titlebar-title", function() {
+      var el = $(this);
+      var url = $(".selected").attr("data-id");
+      var object = alldata[url];
+      AutoSaveTitle.start(object, el ,url);
+      $("#titlebar-title").keypress(function(e){ // prevent return in title
+        if(e.which == 13){
+          $("#titlebar-title").blur();
+        }
+        return e.which != 13;
+        
+       });
+    });
+
+    $( "#rightpanel" ).on("focusout" , "#titlebar-title", function() {
+      AutoSaveTitle.stop();
+    });
+    
+    
+    
     // on focus comment box -> trigger autosave
     $( "#rightpanel" ).on("focus" , ".comment", function() {
       
@@ -174,6 +278,8 @@ function displayquotes(url){
     // Add relevant content to the template
     instance.querySelector('.portal-content-519256').innerHTML = item.text;
     instance.querySelector('.linkback a').href = url;
+    // try making the "view original" link use the text fragment spec. Janky af.
+    //instance.querySelector('.linkback a').href = url + "#:~:text=" + item.text.substring(0,20);
     instance.querySelector('.portal-arrow-519256').href = url;
     instance.querySelector('.title-wrapper-519256').innerHTML = alldata[url].title;
     instance.querySelector('.portal-author-519256').innerHTML = alldata[url].author;
@@ -287,6 +393,46 @@ var AutoSave = (function(){
       }
       timer = setInterval(function(){
                 save(object, el, index, url)
+            }, 1000);
+    },
+
+    stop: function(){
+
+      if (timer){ 
+        clearInterval(timer);
+        timer = null;
+      }
+
+    }
+  }
+}());
+
+// AUTOSAVE Meta Title / Author FUNCTION
+var AutoSaveTitle = (function(){
+  var timer = null;
+
+  function save(object, el, url){
+    console.log("running autosavetitle");
+    console.log(el);
+    var author = document.getElementById("titlebar-author").textContent;
+    var title = document.getElementById("titlebar-title").textContent;
+    alldata[url]["author"] = author;
+    alldata[url]["title"] = title;
+    chrome.storage.local.set(alldata, function(){ 
+      console.log("autosaved");
+    });          
+  };
+
+  return { 
+
+    start: function(object, el, url){
+
+      if (timer != null){
+        clearInterval(timer);
+        timer = null;
+      }
+      timer = setInterval(function(){
+                save(object, el, url)
             }, 1000);
     },
 
