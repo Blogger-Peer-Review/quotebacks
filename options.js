@@ -184,13 +184,23 @@ document.addEventListener("DOMContentLoaded", function(){
       } 
     };
 
+    // Export function
+    document.getElementById("exportQuotes").onclick = function(){
+      var dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(alldata));
+      var a = document.createElement("a");
+      a.setAttribute("href",     dataStr     );
+      a.setAttribute("download", "quotes.json");
+      a.click();
+    };
+
+
     // on title/author -> trigger autosave
     $( "#rightpanel" ).on("focus" , "#titlebar-author", function() {
       var el = $(this);
       var url = $(".selected").attr("data-id");
       var object = alldata[url];
       AutoSaveTitle.start(object, el ,url);
-      $("#titlebar-author").keypress(function(e){
+      $("#titlebar-author").keypress(function(e){ // prevent return in title
         if(e.which == 13){
           $("#titlebar-author").blur();
         }
@@ -208,7 +218,7 @@ document.addEventListener("DOMContentLoaded", function(){
       var url = $(".selected").attr("data-id");
       var object = alldata[url];
       AutoSaveTitle.start(object, el ,url);
-      $("#titlebar-title").keypress(function(e){
+      $("#titlebar-title").keypress(function(e){ // prevent return in title
         if(e.which == 13){
           $("#titlebar-title").blur();
         }
