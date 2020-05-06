@@ -14,13 +14,8 @@ document.addEventListener("DOMContentLoaded", function(){
 
         // create a new component with that data
         var component = `
-        <quoteback-component url="${url}" text="${text}" author="${author}" title="${title}" favicon="${author}">
-        <span slot="portal-content">${text}</span>
-        <span slot="portal-author">${author}</span>  
-        <span slot="portal-title">${title}</span>
-        <a target="_blank" class="portal-arrow-519256" href="${url}" slot="portal-link">Go to text <span class="right-arrow">&#8594;</span></a>
-        <img slot="mini-favicon-519256" href="${favicon}">   
-        <script src="./quoteback.js"></script>  
+        <quoteback-component url="${url}" text="${text}" author="${author}" title="${title}" favicon="${author}"> 
+        	<script src="./quoteback.js"></script>  
         </quoteback-component>    
         `;   
         var newEl = document.createElement('div');
@@ -62,7 +57,7 @@ document.addEventListener("DOMContentLoaded", function(){
 							  this.url = this.getAttribute('url')
 							  this.favicon =`https://s2.googleusercontent.com/s2/favicons?domain_url=${this.url}&sz=64`            
             };
-            
+
 						set text(value) {
 						  this._text = value;
 						  if (this.shadowRoot)
