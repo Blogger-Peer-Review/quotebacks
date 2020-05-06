@@ -20,7 +20,7 @@ document.addEventListener('keydown', function(event) {
     var iframe = document.createElement('iframe');
     iframe.id = "citation-iframe-519256";
     document.documentElement.appendChild(iframe);
-    iframe.style.cssText = "width:670px; height:800px; position:fixed; border:none; top:0px; right:0px; z-index:99999;"
+    iframe.style.cssText = "width:670px; height:800px; position:fixed; border:none; top:0px; right:0px; z-index:2147483647;"
 
     chrome.storage.local.get([page], function(result) {
 
