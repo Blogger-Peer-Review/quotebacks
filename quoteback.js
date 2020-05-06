@@ -10,11 +10,11 @@ document.addEventListener("DOMContentLoaded", function(){
         var url = index[item].cite;
         var author = index[item].getAttribute("data-author");
         var title = index[item].getAttribute("data-title");
-        var favicon = "https://s2.googleusercontent.com/s2/favicons?domain_url="+url+"&sz=64"
+        var favicon = `https://s2.googleusercontent.com/s2/favicons?domain_url=${url}&sz=64`
 
         // create a new component with that data
         var component = `
-        <quoteback-component url="${url}" text="${text}" author="${author}" title="${title}" favicon="${author}"> 
+        <quoteback-component url="${url}" text="${text}" author="${author}" title="${title}" favicon="${favicon}"> 
         	<script src="./quoteback.js"></script>  
         </quoteback-component>    
         `;   
@@ -51,11 +51,12 @@ document.addEventListener("DOMContentLoaded", function(){
                 super();
                 this.attachShadow({mode: 'open'});
                 this.shadowRoot.appendChild(template.content.cloneNode(true));
+							  
 							  this.text = this.getAttribute('text');
 							  this.author = this.getAttribute('author');
 							  this.title = this.getAttribute('title'); 
 							  this.url = this.getAttribute('url')
-							  this.favicon =`https://s2.googleusercontent.com/s2/favicons?domain_url=${this.url}&sz=64`            
+							  this.favicon = this.getAttribute('favicon');
             };
 
 						set text(value) {
@@ -93,7 +94,7 @@ document.addEventListener("DOMContentLoaded", function(){
 						set favicon(value) {
 							this._favicon = value;
 							if (this.shadowRoot)
-								this.shadowRoot.querySelector('mini-favicon-519256').src = value;
+								this.shadowRoot.querySelector('.mini-favicon-519256').src = value;
 						};
 
         }
