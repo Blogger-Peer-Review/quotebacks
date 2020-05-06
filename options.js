@@ -102,8 +102,12 @@ document.addEventListener("DOMContentLoaded", function(){
 
       var element = $(this).closest('.quoteblock').find('.portal-container-519256');
 
+      document.querySelector(".portal-container-519256").style.width = "550px";
+
       html2canvas(element[0], {
-        useCORS: true
+        useCORS: true,
+        onclone: function(document) {
+        }
       }).then((canvas) => {
         canvas.toBlob(function(blob) {
           console.log("Writing to clipboard");
@@ -111,6 +115,7 @@ document.addEventListener("DOMContentLoaded", function(){
           navigator.clipboard.write([item]).then(
             function() {
               console.log("Copied to clipboard successfully!");
+              document.querySelector(".portal-container-519256").style.width = "initial";
               el.html("Copied!");
               setTimeout(function() {
                 el.html("Copy Image");
