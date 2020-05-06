@@ -25,7 +25,7 @@ document.addEventListener('keydown', function(event) {
     chrome.storage.local.get([page], function(result) {
 
         var page_object = {};        
-        // page_object["date"] = getDate(); needs to get attached to each quote item
+        page_object["last_update"] = getDate();
         page_object["url"] = page;
 
         if(getMeta("twitter:title")){
@@ -319,7 +319,9 @@ function getCanonical() {
   var links = document.getElementsByTagName("link");
   for (var i = 0; i < links.length; i ++) {
       if (links[i].getAttribute("rel") === "canonical") {
+        if(links[i].getAttribute("href").includes("http")){  // ignore relative canonical links
           canonical = links[i].getAttribute("href")
+        }
       }
   }
   return canonical;
