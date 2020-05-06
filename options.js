@@ -1,6 +1,7 @@
 var alldata;
 var allKeys;
 var alljson = [];
+var sorted = [];
 
 document.addEventListener("DOMContentLoaded", function(){
   chrome.storage.local.get(null, function(items) {
@@ -9,20 +10,30 @@ document.addEventListener("DOMContentLoaded", function(){
 
     console.log(alldata);
 
-    for( var i in items){
+    //create sorted array by last_updated 
+    for (var item in items) {
+      sorted.push([item, items[item].last_update]);
+    }
+    sorted.sort(function(a,b){
+      return a[1] - b[1]
+    })    
+    sorted.reverse();
 
-      alljson.push(items[i]);
+    for( var i in sorted){
+
+      alljson.push(items[sorted[i][0]]);
 
       const article_fragment = document.getElementById('articleItem');
       const article_instance = document.importNode(article_fragment.content, true);
       // Add relevant content to the template
 
-      var domain = extractHostname(items[i].url);
-      article_instance.querySelector('.title').innerHTML = items[i].title;
-      // article_instance.querySelector('.author').innerHTML = items[i].author;
+      var domain = extractHostname(items[sorted[i][0]].url);
+      article_instance.querySelector('.title').innerHTML = items[sorted[i][0]].title;
       article_instance.querySelector('.mini-favicon').src = "https://s2.googleusercontent.com/s2/favicons?domain_url="+domain+"";
       article_instance.querySelector('.url').innerHTML = domain;
-      article_instance.querySelector('.article').setAttribute("data-id",items[i].url);
+      article_instance.querySelector('.article').setAttribute("data-id",items[sorted[i][0]].url);
+
+      
 
       // Append the instance ot the DOM
       document.getElementById('article-scrollContainer').appendChild(article_instance);
@@ -291,7 +302,6 @@ function displayquotes(url){
     instance.querySelector('.mini-favicon-519256').src = "https://s2.googleusercontent.com/s2/favicons?domain_url="+url+"";
 
     var date = new Date(item.date);
-    console.log(date); // date is a timestamp but we only display formatted
     var dd = String(date.getDate()).padStart(2, '0');
     var mm = String(date.getMonth() + 1).padStart(2, '0'); //January is 0!
     var yyyy = date.getFullYear();
