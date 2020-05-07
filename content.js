@@ -71,7 +71,6 @@ document.addEventListener('keydown', function(event) {
             //iframe.contentDocument.head.appendChild(popupStyle);
             
             iframe.contentDocument.head.insertAdjacentHTML('beforeend', popupStyle);
-
             // stick our css in the iframe body
             iframe.contentDocument.body.innerHTML = `
 

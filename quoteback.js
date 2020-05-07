@@ -21,28 +21,27 @@ document.addEventListener("DOMContentLoaded", function(){
         var newEl = document.createElement('div');
         newEl.innerHTML = component;
 
-
         // replace the original blockquote with our quoteback seed component
         index[item].parentNode.replaceChild(newEl, index[item]);
 
         const template = document.createElement('template');
         template.innerHTML=`
-        <link rel="stylesheet" type="text/css" href="https://files-lovat-six.now.sh/quote.css"> 
-        <div class="portal-container-519256">
-            <div id="portal-parent-519256" class="portal-parent-519256">
-                <div class="portal-content-519256"></div>       
+        <link rel="stylesheet" type="text/css" href="https://files-cra1rdef4.now.sh/"> 
+        <div class="quoteback-container">
+            <div id="quoteback-parent" class="quoteback-parent">
+                <div class="quoteback-content"></div>       
             </div>
 
-            <div class="portal-head-519256">       
-                <div class="portal-avatar-519256"><img class="mini-favicon-519256" src=""/></div>     
-                <div class="portal-metadata-519256">
-                    <div class="portal-title-519256">
-                        <div class="portal-author-519256"></div>
-                        <div class="title-wrapper-519256"></div>
+            <div class="quoteback-head">       
+                <div class="quoteback-avatar"><img class="mini-favicon" src=""/></div>     
+                <div class="quoteback-metadata">
+                    <div class="quoteback-title">
+                        <div class="quoteback-author"></div>
+                        <div class="title-wrapper"></div>
                     </div> 
                 </div>
 
-            <div class="portal-backlink-519256"><a target="_blank" href="" class="portal-arrow-519256">Go to text <span class="right-arrow">&#8594;</span></a></div>
+            <div class="quoteback-backlink"><a target="_blank" href="" class="quoteback-arrow">Go to text <span class="right-arrow">&#8594;</span></a></div>
             </div>  
         </div>`;
 
@@ -62,7 +61,7 @@ document.addEventListener("DOMContentLoaded", function(){
 						set text(value) {
 						  this._text = value;
 						  if (this.shadowRoot)
-						    this.shadowRoot.querySelector('.portal-content-519256').innerHTML = value;
+						    this.shadowRoot.querySelector('.quoteback-content').innerHTML = value;
 						};
 						get text() {
 						  return this._text;
@@ -70,7 +69,7 @@ document.addEventListener("DOMContentLoaded", function(){
 						set author(value) {
 						  this._author = value;
 						  if (this.shadowRoot)
-						    this.shadowRoot.querySelector('.portal-author-519256').innerHTML = value;
+						    this.shadowRoot.querySelector('.quoteback-author').innerHTML = value;
 						};
 						get author() {
 						  return this._author;
@@ -78,7 +77,7 @@ document.addEventListener("DOMContentLoaded", function(){
 						set title(value) {
 						  this._title = value;
 						  if (this.shadowRoot)
-						    this.shadowRoot.querySelector('.title-wrapper-519256').innerHTML = value;
+						    this.shadowRoot.querySelector('.title-wrapper').innerHTML = value;
 						};
 						get title() {
 						  return this._title;
@@ -86,7 +85,7 @@ document.addEventListener("DOMContentLoaded", function(){
 						set url(value) {
 						  this._url = value;
 						  if (this.shadowRoot)
-						    this.shadowRoot.querySelector('.portal-arrow-519256').href = value;
+						    this.shadowRoot.querySelector('.quoteback-arrow').href = value;
 						};
 						get url() {
 						  return this._url;
@@ -94,7 +93,7 @@ document.addEventListener("DOMContentLoaded", function(){
 						set favicon(value) {
 							this._favicon = value;
 							if (this.shadowRoot)
-								this.shadowRoot.querySelector('.mini-favicon-519256').src = value;
+								this.shadowRoot.querySelector('.mini-favicon').src = value;
 						};
 
         }
