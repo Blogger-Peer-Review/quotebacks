@@ -1,4 +1,4 @@
-function embedquoteback(iframe){
+function embedquoteback(){
     
     const template = document.createElement('template');
         template.innerHTML=`
@@ -75,8 +75,8 @@ function embedquoteback(iframe){
         }
 
         // if quoteback-component is already defined
-        if(iframe){
-            iframe.customElements.define('quoteback-component', QuoteBack)  
+        if (customElements.get('quoteback-component')){
+            null;
         }else{
             window.customElements.define('quoteback-component', QuoteBack)  
         }

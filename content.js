@@ -2,7 +2,7 @@ document.addEventListener('keydown', function(event) {
 //  cmd + shift + S
   if (event.metaKey && event.shiftKey && event.which === 83) {
     
-    embedquoteback();
+    //embedquoteback();
 
     var object = {};
 
