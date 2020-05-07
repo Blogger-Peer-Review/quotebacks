@@ -9,6 +9,7 @@ document.addEventListener("DOMContentLoaded", function(){
     alldata = items;
 
     console.log(alldata);
+    embedquoteback();
 
     //create sorted array by last_updated 
     for (var item in items) {
@@ -87,6 +88,7 @@ document.addEventListener("DOMContentLoaded", function(){
 
       const embed_fragment = document.getElementById('embed');
       const embed = document.importNode(embed_fragment.content, true);
+      
       // Add relevant content to the template
       embed.querySelector('.portal-author-519256').innerHTML = author;
       embed.querySelector('.title-wrapper-519256').innerHTML = title;
@@ -288,18 +290,6 @@ function displayquotes(url){
   $("#article-scrollContainer").scrollTop(offset.top);
     
   alldata[url].quotes.forEach(item => {
-    // Create an instance of the template content
-    const instance = document.importNode(fragment.content, true);
-
-    // Add relevant content to the template
-    instance.querySelector('.portal-content-519256').innerHTML = item.text;
-    instance.querySelector('.linkback a').href = url;
-    // try making the "view original" link use the text fragment spec. Janky af.
-    //instance.querySelector('.linkback a').href = url + "#:~:text=" + item.text.substring(0,20);
-    instance.querySelector('.portal-arrow-519256').href = url;
-    instance.querySelector('.title-wrapper-519256').innerHTML = alldata[url].title;
-    instance.querySelector('.portal-author-519256').innerHTML = alldata[url].author;
-    instance.querySelector('.mini-favicon-519256').src = "https://s2.googleusercontent.com/s2/favicons?domain_url="+url+"";
 
     var date = new Date(item.date);
     var dd = String(date.getDate()).padStart(2, '0');
@@ -307,18 +297,44 @@ function displayquotes(url){
     var yyyy = date.getFullYear();
     
     date = mm + '/' + dd + '/' + yyyy;
-    instance.querySelector('.date').innerHTML += date;
+    var datefield = date;
 
+    /*
     if(item.comment){
-     instance.querySelector('.comment').innerHTML = item.comment;
-     instance.querySelector('.comment').style.color = "#464A4D";
-    }else{
-      instance.querySelector('.comment').innerHTML = "Add comment";
-    };
+      instance.querySelector('.comment').innerHTML = item.comment;
+      instance.querySelector('.comment').style.color = "#464A4D";
+     }else{
+       instance.querySelector('.comment').innerHTML = "Add comment";
+     };
+     */
+     
+
+
+    var quotetemplate = `
+    <div class="quoteblock">
+      <div class="meta">
+      <div class="date">Created ${datefield}</div>
+      <div class="linkback"><a target="_blank" href="${url}">View Original</a></div>
+      </div>
+      <div class="quote-container">
+        <quoteback-component url="${url}" text="${item.text}" author="${alldata[url].author}" title="${alldata[url].title}" favicon=""> 
+        </quoteback-component> 
+        <div class="quote-controls">
+          <button id="embedLink" class="control-button"><> Embed</button>        
+          <button id="copyimg" class="control-button">Copy Image</button>        
+          <button id="copy" class="control-button">Copy Text</button>
+          <button id="delete" class="control-button">Delete</button>        
+        </div>
+      </div>
+    <div class="comment" contenteditable="true" ${item.comment ? "style='color:#464A4D'" : ""}}>${item.comment ? item.comment : "Add Comment"}</div>
+    </div>
+    `;
+    
+    embedquoteback();
+    // Append the instance ot the DOM
+    document.getElementById('panel-scrollContainer').insertAdjacentHTML("beforeend", quotetemplate);
 
     
-    // Append the instance ot the DOM
-    document.getElementById('panel-scrollContainer').appendChild(instance);
 
     $( ".article" ).each(function() {
       $( this ).removeClass( "selected" );

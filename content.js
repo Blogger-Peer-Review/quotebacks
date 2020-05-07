@@ -2,6 +2,7 @@ document.addEventListener('keydown', function(event) {
 //  cmd + shift + S
   if (event.metaKey && event.shiftKey && event.which === 83) {
     
+    //embedquoteback();
 
     var object = {};
 
@@ -87,7 +88,6 @@ document.addEventListener('keydown', function(event) {
 </div>
 
 <div class="thickdivider"></div>
-
 
 
 <div class="portal-container-519256">
