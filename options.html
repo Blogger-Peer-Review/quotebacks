@@ -51,7 +51,7 @@
   </div>
 </template>
 
-<template id="quote">
+<template id="quote_old">
   <div class="quoteblock">
 
     <div class="meta">
@@ -94,6 +94,11 @@
 </div>
 </template>
 
+<template id="quote">
+  <quoteback-component url="" text="" author="" title="" favicon=""> 
+  </quoteback-component>   
+</template>
+
 
 <template id="embed">
 <link rel="stylesheet" href="https://files-lovat-six.now.sh/quote.css" type="text/css">
@@ -126,6 +131,7 @@
 </template>
 
 
+<script src="quoteback-internal.js"></script>
 <script src="options.js"></script>
 <script src="fuse.js"></script> <!-- download and copy over fuse.js file from fusejs.io -->
 <script src="fastsearch.js"></script>

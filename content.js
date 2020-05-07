@@ -2,6 +2,7 @@ document.addEventListener('keydown', function(event) {
 //  cmd + shift + S
   if (event.metaKey && event.shiftKey && event.which === 83) {
     
+    embedquoteback();
 
     var object = {};
 
@@ -90,30 +91,8 @@ document.addEventListener('keydown', function(event) {
 <div class="thickdivider"></div>
 
 
-
-<div class="portal-container-519256">
-
-<div id="portal-parent-519256" class="portal-parent-519256">
-<div class="portal-content-519256">${text}
-</div>       
-</div> 
-
-<div class="portal-head-519256">
-
-<div class="portal-avatar-519256"><img class="mini-favicon-519256" src="https://s2.googleusercontent.com/s2/favicons?domain_url=${location.hostname}&sz=64"/></div>
-
-<div class="portal-metadata-519256">
-<div class="portal-title-519256">
-<div class="portal-author-519256">${page_object["author"]}</div>
-<div class="title-wrapper-519256">${page_object["title"]}</div>
-</div> 
-</div>
-
-<div class="portal-backlink-519256"><a target="_blank" href="${page_object["url"]}" class="portal-arrow">Go to text <span class="right-arrow">&#8594;</span></a></div>
-
-</div>       
-</div>
-
+<quoteback-component url="${page_object["url"]}" text="${text}" author="${page_object["author"]}" title="${page_object["title"]}" favicon=""> 
+        </quoteback-component> 
 
 
 
@@ -135,7 +114,7 @@ document.addEventListener('keydown', function(event) {
 </div>
 `;
 
-
+embedquoteback(iframe);
             
             // boundary.top from here if we wanna position relative to the text selection
             // https://stackoverflow.com/questions/4106109/selected-text-and-xy-coordinates
