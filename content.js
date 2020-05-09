@@ -151,7 +151,7 @@ iframe.contentDocument.body.appendChild(scriptObj);
 
 </div>       
 </div>`;
-              copyToClipboard(embed);
+            copyToClipboard(embed);
               console.log(iframe.contentDocument.querySelector("#getlink-519256"));
               iframe.contentDocument.querySelector("#getlink-519256").innerHTML = "Copied!";
               setTimeout(function() {
@@ -178,9 +178,7 @@ iframe.contentDocument.body.appendChild(scriptObj);
             var isPaused = false;
             txtAreaListenFocus();
             txtAreaListenBlur();
-
-            // let popup = iframe;
-  
+  //
             iframe.addEventListener("mouseover", function( event ) {   
                 ishover = true;
             });

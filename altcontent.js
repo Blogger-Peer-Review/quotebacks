@@ -14,8 +14,6 @@ document.addEventListener('keydown', function(event) {
     };
 
 
-    // https://stackoverflow.com/questions/10097988/chrome-extension-prevent-css-from-being-over-written
-    // Create our iframe and style it so that we can see it...
     chrome.storage.local.get([page], function(result) {
       var page_object = {};        
       page_object["last_update"] = getDate();
@@ -63,13 +61,13 @@ document.addEventListener('keydown', function(event) {
 
       // Web Component Stuff Start Here //
       var component = `
-      <quoteback-popup url="${page_object["url"]}" text="${text}" author="${page_object["author"]}" title="${page_object["title"]}" favicon="https://s2.googleusercontent.com/s2/favicons?domain_url=${page_object["url"]}&sz=64"> 
+      <quoteback-popup text="${text}" author="${page_object["author"]}" title="${page_object["title"]}" favicon="https://s2.googleusercontent.com/s2/favicons?domain_url=${page_object["url"]}&sz=64"> 
       </quoteback-popup>    
       `;   
       var popup = document.createElement('div');
-      popup.innerHTML = component;
       document.documentElement.appendChild(popup);
-      popup.style.cssText = "background-color:white; width:670px; height:800px; position:fixed; border:none; top:0px; right:0px; z-index:2147483647;"
+      popup.innerHTML = component;
+      popup.style.cssText = "background-color:white; width:670px; height:auto; position:fixed; border:none; top:0px; right:0px; z-index:2147483647;"
 
       const template = document.createElement('template');
       template.innerHTML=`
@@ -97,17 +95,16 @@ document.addEventListener('keydown', function(event) {
       </div>
       </div>
 
-      <div class="allquotes-519256"><a target="_blank" class="quoteslink-519256" href="">All Quotes<img src="${chrome.runtime.getURL("images/allquotes.png")}"></a></div>
+      <div class="allquotes-519256"><a target="_blank" class="quoteslink-519256" href="${chrome.runtime.getURL("options.html")}#${page}">All Quotes<img src="${chrome.runtime.getURL("images/allquotes.png")}"></a></div>
 
       </div>`;
 
-      class Popup extends HTMLElement {
+      class QuotebackPopup extends HTMLElement {
         constructor(){
           super();
           this.attachShadow({mode: 'open'});
           this.shadowRoot.appendChild(template.content.cloneNode(true));
-          
-          this.text = this.getAttribute('text');
+        
           this.author = this.getAttribute('author');
           this.title = this.getAttribute('title'); 
           this.url = this.getAttribute('url')
@@ -130,22 +127,90 @@ document.addEventListener('keydown', function(event) {
         get title() {
           return this._title;
         };
-        set url(value) {
-          this._url = value;
-          if (this.shadowRoot)
-            this.shadowRoot.querySelector('.quoteslink-519256').href = value;
-        };
-        get url() {
-          return this._url;
-        };
-        // set favicon(value) {
-        //   this._favicon = value;
-        //   if (this.shadowRoot)
-        //     this.shadowRoot.querySelector('.mini-favicon').src = value;
-        // };
-
       }
-    window.customElements.define('quoteback-popup', Popup);        
+      
+      window.customElements.define('quoteback-popup', QuotebackPopup);
+
+      //Make save & close work
+      var p = document.querySelector("quoteback-popup").shadowRoot;
+      p.querySelector("#close-button-519256").addEventListener("click", function(event) {
+        var paras = popup;
+        if (paras){
+          paras.parentNode.removeChild(paras);
+        };         
+        AutoSave.stop();              
+        clearInterval(t); // stop timer
+      });
+
+      var time = 0;
+      var textfocus = false;
+      var ishover = false;
+      var isPaused = false;
+      txtAreaListenFocus();
+      txtAreaListenBlur();
+
+
+      p.addEventListener("mouseover", function( event ) {   
+          ishover = true;
+      });
+
+      p.addEventListener("mouseout", function( event ) {   
+          ishover = false;
+      });
+
+      AutoSave.start(object);
+
+      var t = window.setInterval(function() {
+
+          // timeout to remove popups
+          if(!ishover && !textfocus) {
+            time++;
+            if(time > 500){
+              var paras = popup;
+              if (paras){
+                paras.parentNode.removeChild(paras);
+              };
+ 
+              AutoSave.stop();              
+              clearInterval(t); // stop timer
+            };
+            console.log(time + "is hover: "+ishover + "is textfocus:"+textfocus);
+          }
+
+        }, 1000);
+
+        function txtAreaListenFocus(){
+          var txtArea = p.querySelector('#comment-field-519256'); // changed
+          var authorArea = p.querySelector('#author-field'); // changed
+          var titleArea = p.querySelector('#title-field'); // changed
+          authorArea.addEventListener('focus', function(event) {
+             textfocus = true;
+          }.bind(this));
+          titleArea.addEventListener('focus', function(event) {
+            textfocus = true;
+         }.bind(this));
+         txtArea.addEventListener('focus', function(event) {
+          textfocus = true;
+       }.bind(this));                               
+        };
+
+        function txtAreaListenBlur(){
+          var txtArea = p.querySelector('#comment-field-519256'); // changed
+          var authorArea = p.querySelector('#author-field'); // changed
+          var titleArea = p.querySelector('#title-field'); // changed
+          txtArea.addEventListener('blur', function(event) {
+            textfocus = false;
+          }.bind(this));
+          authorArea.addEventListener('blur', function(event) {
+            textfocus = false;
+          }.bind(this));
+          titleArea.addEventListener('blur', function(event) {
+            textfocus = false;
+          }.bind(this));
+        };                          
+
+
+
     });
   }
 });
@@ -216,64 +281,61 @@ function getDate(){
 
 
 
-// var AutoSave = (function(){
+var AutoSave = (function(){
 
-//   var timer = null;
+  var timer = null;
 
-// 	function save(object){
-//         console.log("running save");
-//         let iframe = document.getElementById("citation-iframe-519256"); // added
-//         var commentbox = iframe.contentDocument.querySelector("#comment-field-519256");
-//         var title = iframe.contentDocument.querySelector("#title-field")
-//         var author = iframe.contentDocument.querySelector("#author-field");
+	function save(object){
+    console.log("running save");
+    var popup = document.querySelector("quoteback-popup").shadowRoot;
+    var commentbox = popup.querySelector("#comment-field-519256");
+    var title = popup.querySelector("#title-field")
+    var author = popup.querySelector("#author-field");
 
-//         var page = document.location.href;
+    var page = document.location.href;
 
-//         object[page]["quotes"][0]["comment"] = commentbox.value;
-//         object[page]["title"] = title.value;
-//         object[page]["author"] = author.value;
+    object[page]["quotes"][0]["comment"] = commentbox.value;
+    object[page]["title"] = title.value;
+    object[page]["author"] = author.value;
 
-//         chrome.storage.local.set(object, function() { 
-//             console.log("autosaved");
-//             if(iframe.contentDocument.querySelector(".save-indicator-519256").innerText == "Saving..."){
-//               iframe.contentDocument.querySelector(".save-indicator-519256").innerHTML = "<span style='color:green'>Saved</span>"; // changed
-//               iframe.contentDocument.querySelector(".portal-author-519256").innerHTML = author.value;
-//               iframe.contentDocument.querySelector(".title-wrapper-519256").innerHTML = title.value;
-//           };
-//         });
+    chrome.storage.local.set(object, function() { 
+        console.log("autosaved");
+        if(popup.querySelector(".save-indicator-519256").innerText == "Saving..."){
+          popup.querySelector(".save-indicator-519256").innerHTML = "<span style='color:green'>Saved</span>"; // changed
+          popup.querySelector(".portal-author-519256").innerHTML = author.value;
+          popup.querySelector(".title-wrapper-519256").innerHTML = title.value;
+      };
+    });
             
-//         };
+  };
 
-// 	return { 
+	return { 
 
-// 		start: function(object){
-//             let iframe = document.getElementById("citation-iframe-519256"); // added
-                 
-//           iframe.contentDocument.addEventListener("keydown", function( event ) {
-//               iframe.contentDocument.querySelector(".save-indicator-519256").innerText = "Saving..."; // changed
-//           });            
+		start: function(object){
+      var popup = document.querySelector("quoteback-popup").shadowRoot;                 
+      popup.addEventListener("keydown", function( event ) {
+          popup.querySelector(".save-indicator-519256").innerText = "Saving..."; // changed
+      });            
 
-// 			if (timer != null){
-// 				clearInterval(timer);
-// 				timer = null;
-// 			}
-// 			timer = setInterval(function(){
-//                 save(object)
-//             }, 500);
-// 		},
+			if (timer != null){
+				clearInterval(timer);
+				timer = null;
+			}
+			timer = setInterval(function(){
+        save(object)
+      }, 500);
+	  },
 
-// 		stop: function(){
-
-// 			if (timer){ 
-// 				clearInterval(timer);
-// 				timer = null;
-// 			}
-
-// 		}
-// 	}
+		stop: function(){
+			if (timer){ 
+				clearInterval(timer);
+				timer = null;
+			}
+		}
+	}
  
 
-// }());
+}());
 
 const copyToClipboard = str => {
   const el = document.createElement('textarea');
