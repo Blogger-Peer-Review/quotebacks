@@ -139,8 +139,30 @@ document.addEventListener('keydown', function(event) {
       
       window.customElements.define('quoteback-popup', QuotebackPopup);
       embedquoteback();
-      //Make save & close work
+
+
+      //
+      //
+      // COPY EMBED //
       var p = document.querySelector("quoteback-popup").shadowRoot;
+      p.querySelector("#getlink-519256").addEventListener("click", function(event) {
+        var embed = `
+        <blockquote class="quoteback" data-title="${page_object["title"]}" data-author="${page_object["author"]}" cite="${page_object["url"]}">
+          <p>${text}</p>
+          <footer>${page_object["author"]} <cite><a href="${page_object["url"]}">${page_object["url"]}</a></cite></footer>
+          <script note="SCRIPT GOES HERE" src=""></script>
+        </blockquote>`;
+
+        copyToClipboard(embed);
+        console.log(p.querySelector("#getlink-519256"));
+        p.querySelector("#getlink-519256").innerHTML = "Copied!";
+        setTimeout(function() {
+          p.querySelector("#getlink-519256").innerHTML = "<> Embed";
+        }, 1000);
+      });
+
+
+      // SAVE & CLOSE //
       p.querySelector("#close-button-519256").addEventListener("click", function(event) {
         var paras = popup;
         if (paras){
@@ -169,15 +191,12 @@ document.addEventListener('keydown', function(event) {
       AutoSave.start(object);
 
       var t = window.setInterval(function() {
-
           // timeout to remove popups
           if(!ishover && !textfocus) {
             time++;
-            if(time > 500){
-              var paras = popup;
-              console.log(paras);
-              if (paras){
-                paras.parentNode.removeChild(paras);
+            if(time > 5){
+              if (popup){
+                popup.parentNode.removeChild(popup);
               };
  
               AutoSave.stop();              
