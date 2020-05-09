@@ -17,7 +17,7 @@ document.addEventListener("DOMContentLoaded", function(){
         <quoteback-component url="${url}" text="${text}" author="${author}" title="${title}" favicon="${favicon}"> 
         	<script src="./quoteback.js"></script>  
         </quoteback-component>    
-        `;   
+        `;
         var newEl = document.createElement('div');
         newEl.innerHTML = component;
 
@@ -95,6 +95,9 @@ document.addEventListener("DOMContentLoaded", function(){
 						if (this.shadowRoot)
 							this.shadowRoot.querySelector('.mini-favicon').src = value;
 					};
+                    get favicon() {
+                        return this._favicon;
+                    }                    
 
         }
 

@@ -15,7 +15,7 @@ function embedquoteback(){
                 <div class="title-wrapper-519256"></div>
           	</div> 
         	</div>
-					<div class="portal-backlink-519256"><a target="_blank" href="" class="portal-arrow-519256">Go to text <span class="right-arrow">&#8594;</span></a></div>
+			<div class="portal-backlink-519256"><a target="_blank" href="" class="portal-arrow-519256">Go to text <span class="right-arrow">&#8594;</span></a></div>
         </div>  
     </div>`;
 
@@ -69,6 +69,9 @@ function embedquoteback(){
 				if (this.shadowRoot)
 					this.shadowRoot.querySelector('.mini-favicon-519256').src = value;
 			};
+			get favicon() {
+				return this._favicon;
+			}
 
   }
 

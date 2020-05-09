@@ -49,7 +49,8 @@ document.addEventListener('keydown', function(event) {
       }
 
       page_object["quotes"] = combined;
-      
+      page_object["favicon"] = favicon=`https://s2.googleusercontent.com/s2/favicons?domain_url=${page_object["url"]}&sz=64`
+
       object[page] = page_object; 
 
 
@@ -61,9 +62,14 @@ document.addEventListener('keydown', function(event) {
 
       // Web Component Stuff Start Here //
       var component = `
-      <quoteback-popup text="${text}" author="${page_object["author"]}" title="${page_object["title"]}" favicon="https://s2.googleusercontent.com/s2/favicons?domain_url=${page_object["url"]}&sz=64"> 
+      <quoteback-popup text="${text}" author="${page_object["author"]}" title="${page_object["title"]}">
+        <quoteback-component slot="quoteback-component" url="${page_object["url"]}" text="${text}" author="${page_object["author"]}" title="${page_object["title"]}" favicon="${page_object["favicon"]}">
+        </quoteback-component> 
       </quoteback-popup>    
       `;   
+
+      // ABOVE - not sure the best way to get quoteback-internal.js here
+
       var popup = document.createElement('div');
       document.documentElement.appendChild(popup);
       popup.innerHTML = component;
@@ -83,6 +89,8 @@ document.addEventListener('keydown', function(event) {
       <input class="citation-input-519256" id="title-field" name="Title" value=""></input>
       </form>       
       </div>
+
+      <slot name="quoteback-component"></slot>
 
       <div class="citation-bottom-519256">
       <div class="comment-519256">
@@ -130,7 +138,7 @@ document.addEventListener('keydown', function(event) {
       }
       
       window.customElements.define('quoteback-popup', QuotebackPopup);
-
+      embedquoteback();
       //Make save & close work
       var p = document.querySelector("quoteback-popup").shadowRoot;
       p.querySelector("#close-button-519256").addEventListener("click", function(event) {
@@ -167,6 +175,7 @@ document.addEventListener('keydown', function(event) {
             time++;
             if(time > 500){
               var paras = popup;
+              console.log(paras);
               if (paras){
                 paras.parentNode.removeChild(paras);
               };
@@ -174,7 +183,7 @@ document.addEventListener('keydown', function(event) {
               AutoSave.stop();              
               clearInterval(t); // stop timer
             };
-            console.log(time + "is hover: "+ishover + "is textfocus:"+textfocus);
+            // console.log(time + "is hover: "+ishover + "is textfocus:"+textfocus);
           }
 
         }, 1000);
@@ -286,7 +295,7 @@ var AutoSave = (function(){
   var timer = null;
 
 	function save(object){
-    console.log("running save");
+    // console.log("running save");
     var popup = document.querySelector("quoteback-popup").shadowRoot;
     var commentbox = popup.querySelector("#comment-field-519256");
     var title = popup.querySelector("#title-field")
