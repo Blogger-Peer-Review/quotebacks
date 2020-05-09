@@ -94,7 +94,7 @@ document.addEventListener("DOMContentLoaded", function(){
       embed.querySelector('.title-wrapper-519256').innerHTML = title;
       embed.querySelector('.portal-arrow-519256').setAttribute("href", url);
       embed.querySelector('.portal-content-519256').innerHTML = quote;
-      embed.querySelector('.mini-favicon-519256').src = "https://s2.googleusercontent.com/s2/favicons?domain_url="+url+"";
+      embed.querySelector('.mini-favicon-519256').src = `https://s2.googleusercontent.com/s2/favicons?domain_url=${url}&sz=64`;
     
       let div=document.createElement("div");
       div.appendChild(embed);
@@ -307,8 +307,7 @@ function displayquotes(url){
        instance.querySelector('.comment').innerHTML = "Add comment";
      };
      */
-     
-
+  
 
     var quotetemplate = `
     <div class="quoteblock">
@@ -317,7 +316,7 @@ function displayquotes(url){
       <div class="linkback"><a target="_blank" href="${url}">View Original</a></div>
       </div>
       <div class="quote-container">
-        <quoteback-component url="${url}" text="${item.text}" author="${alldata[url].author}" title="${alldata[url].title}" favicon=""> 
+        <quoteback-component url="${url}" text="${item.text}" author="${alldata[url].author}" title="${alldata[url].title}" favicon="https://s2.googleusercontent.com/s2/favicons?domain_url=${url}&size=64"> 
         </quoteback-component> 
         <div class="quote-controls">
           <button id="embedLink" class="control-button"><> Embed</button>        

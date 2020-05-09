@@ -209,9 +209,9 @@ iframe.contentDocument.body.appendChild(scriptObj);
               }, 1000);
 
               function txtAreaListenFocus(){
-                var txtArea = iframe.contentDocument.querySelector('#comment-field-519256'); // changed
-                var authorArea = iframe.contentDocument.querySelector('#author-field'); // changed
-                var titleArea = iframe.contentDocument.querySelector('#title-field'); // changed
+                var txtArea = iframe.contentDocument.querySelector('#comment-field-519256');
+                var authorArea = iframe.contentDocument.querySelector('#author-field');
+                var titleArea = iframe.contentDocument.querySelector('#title-field');
                 authorArea.addEventListener('focus', function(event) {
                    textfocus = true;
                 }.bind(this));
