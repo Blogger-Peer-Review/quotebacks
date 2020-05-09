@@ -73,15 +73,16 @@ document.addEventListener('keydown', function(event) {
 
       const template = document.createElement('template');
       template.innerHTML=`
+      <link rel="stylesheet" type="text/css" href="${chrome.runtime.getURL("styles/styles.css")}">
       <div class="citation-capture-519256" id="citation-capture-519256">
       <div class="citation-meta-519256">
       <form>
       <label class="citation-input-label-519256" for="Author">Author</label>
-      <input class="citation-input-519256" id="author-field" name="Author" value="${page_object["author"]}"></input>
+      <input class="citation-input-519256" id="author-field" name="Author" value=""></input>
       </form>
       <form>
       <label class="citation-input-label-519256" for="Title">Title</label>
-      <input class="citation-input-519256" id="title-field" name="Title" value="${page_object["title"]}"></input>
+      <input class="citation-input-519256" id="title-field" name="Title" value=""></input>
       </form>       
       </div>
 
@@ -124,7 +125,7 @@ document.addEventListener('keydown', function(event) {
         set title(value) {
           this._title = value;
           if (this.shadowRoot)
-            this.shadowRoot.querySelector('#title-field').innerHTML = value;
+            this.shadowRoot.querySelector('#title-field').value = value;
         };
         get title() {
           return this._title;
