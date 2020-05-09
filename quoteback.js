@@ -46,55 +46,55 @@ document.addEventListener("DOMContentLoaded", function(){
         </div>`;
 
         class QuoteBack extends HTMLElement {
-            constructor(){
-                super();
-                this.attachShadow({mode: 'open'});
-                this.shadowRoot.appendChild(template.content.cloneNode(true));
-							  
-							  this.text = this.getAttribute('text');
-							  this.author = this.getAttribute('author');
-							  this.title = this.getAttribute('title'); 
-							  this.url = this.getAttribute('url')
-							  this.favicon = this.getAttribute('favicon');
-            };
+          constructor(){
+            super();
+            this.attachShadow({mode: 'open'});
+            this.shadowRoot.appendChild(template.content.cloneNode(true));
+					  
+					  this.text = this.getAttribute('text');
+					  this.author = this.getAttribute('author');
+					  this.title = this.getAttribute('title'); 
+					  this.url = this.getAttribute('url')
+					  this.favicon = this.getAttribute('favicon');
+          };
 
-						set text(value) {
-						  this._text = value;
-						  if (this.shadowRoot)
-						    this.shadowRoot.querySelector('.quoteback-content').innerHTML = value;
-						};
-						get text() {
-						  return this._text;
-						};
-						set author(value) {
-						  this._author = value;
-						  if (this.shadowRoot)
-						    this.shadowRoot.querySelector('.quoteback-author').innerHTML = value;
-						};
-						get author() {
-						  return this._author;
-						};	
-						set title(value) {
-						  this._title = value;
-						  if (this.shadowRoot)
-						    this.shadowRoot.querySelector('.title-wrapper').innerHTML = value;
-						};
-						get title() {
-						  return this._title;
-						};
-						set url(value) {
-						  this._url = value;
-						  if (this.shadowRoot)
-						    this.shadowRoot.querySelector('.quoteback-arrow').href = value;
-						};
-						get url() {
-						  return this._url;
-						};
-						set favicon(value) {
-							this._favicon = value;
-							if (this.shadowRoot)
-								this.shadowRoot.querySelector('.mini-favicon').src = value;
-						};
+					set text(value) {
+					  this._text = value;
+					  if (this.shadowRoot)
+					    this.shadowRoot.querySelector('.quoteback-content').innerHTML = value;
+					};
+					get text() {
+					  return this._text;
+					};
+					set author(value) {
+					  this._author = value;
+					  if (this.shadowRoot)
+					    this.shadowRoot.querySelector('.quoteback-author').innerHTML = value;
+					};
+					get author() {
+					  return this._author;
+					};	
+					set title(value) {
+					  this._title = value;
+					  if (this.shadowRoot)
+					    this.shadowRoot.querySelector('.title-wrapper').innerHTML = value;
+					};
+					get title() {
+					  return this._title;
+					};
+					set url(value) {
+					  this._url = value;
+					  if (this.shadowRoot)
+					    this.shadowRoot.querySelector('.quoteback-arrow').href = value;
+					};
+					get url() {
+					  return this._url;
+					};
+					set favicon(value) {
+						this._favicon = value;
+						if (this.shadowRoot)
+							this.shadowRoot.querySelector('.mini-favicon').src = value;
+					};
 
         }
 

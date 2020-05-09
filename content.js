@@ -69,9 +69,11 @@ document.addEventListener('keydown', function(event) {
 
             var stylesurl = chrome.runtime.getURL("styles/styles.css");
             var popupStyle = '<link rel="stylesheet" href="'+stylesurl+'" type="text/css">';
+            var quotebackjs = `<script src="${chrome.runtime.getURL("quoteback-internal.js")}" type="text/javascript"></script>`;
             //iframe.contentDocument.head.appendChild(popupStyle);
             
             iframe.contentDocument.head.insertAdjacentHTML('beforeend', popupStyle);
+            iframe.contentDocument.head.insertAdjacentHTML('beforeend', quotebackjs);
             // stick our css in the iframe body
             iframe.contentDocument.body.innerHTML = `
 
@@ -89,32 +91,8 @@ document.addEventListener('keydown', function(event) {
 
 <div class="thickdivider"></div>
 
-
-<div class="portal-container-519256">
-
-<div id="portal-parent-519256" class="portal-parent-519256">
-<div class="portal-content-519256">${text}
-</div>       
-</div> 
-
-<div class="portal-head-519256">
-
-<div class="portal-avatar-519256"><img class="mini-favicon-519256" src="https://s2.googleusercontent.com/s2/favicons?domain_url=${location.hostname}&sz=64"/></div>
-
-<div class="portal-metadata-519256">
-<div class="portal-title-519256">
-<div class="portal-author-519256">${page_object["author"]}</div>
-<div class="title-wrapper-519256">${page_object["title"]}</div>
-</div> 
-</div>
-
-<div class="portal-backlink-519256"><a target="_blank" href="${page_object["url"]}" class="portal-arrow">Go to text <span class="right-arrow">&#8594;</span></a></div>
-
-</div>       
-</div>
-
-
-
+<quoteback-component url="${page_object["url"]}" text="${text}" author="${page_object["author"]}" title="${page_object["title"]}" favicon=""> 
+</quoteback-component> 
 
 <div class="thickdivider"></div>
 
@@ -134,6 +112,9 @@ document.addEventListener('keydown', function(event) {
 </div>
 `;
 
+var scriptObj = iframe.contentDocument.createElement("script");
+scriptObj.innerHTML = "embedquoteback()";
+iframe.contentDocument.body.appendChild(scriptObj);
 
             
             // boundary.top from here if we wanna position relative to the text selection
@@ -215,7 +196,7 @@ document.addEventListener('keydown', function(event) {
                 // timeout to remove popups
                 if(!ishover && !textfocus) {
                   time++;
-                  if(time > 5){
+                  if(time > 500){
                     var paras = document.getElementById('citation-iframe-519256');
                     if (paras){
                       paras.parentNode.removeChild(paras);
