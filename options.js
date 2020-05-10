@@ -70,8 +70,10 @@ document.addEventListener("DOMContentLoaded", function(){
     
     $('#rightpanel').on('click',"#copy", function() {
       console.log("copying?");
-      var quote = $(this).closest('.quoteblock').find('.portal-content-519256').text();
-      copyToClipboard(quote);
+      var quote = $(this).closest(".quote-container").find("#quoteback-component");
+      var text = quote.attr("text");
+
+      copyToClipboard(text);
       var el = $(this);
       el.html("Copied!");
       setTimeout(function() {
@@ -107,8 +109,8 @@ document.addEventListener("DOMContentLoaded", function(){
     $('#rightpanel').on('click',"#copyimg", function() {
       var el = $(this);
 
-      bar = $(this).closest('quoteback-component').text;
-      console.log(bar);
+      quote = $(this).closest('.quote-container').find("#quoteback-component");
+      console.log(quote.shadowRoot);
       // var element = $(this).querySelector('quoteback-component').shadowRoot.querySelector('.portal-container-519256');
       // document.querySelector(".portal-container-519256").style.width = "550px";
 
@@ -139,7 +141,7 @@ document.addEventListener("DOMContentLoaded", function(){
           console.log('oops, something went wrong!', error);
       });
 
-  });
+    });
 
 
     // DELETE QUOTE
