@@ -30,7 +30,7 @@ document.addEventListener("DOMContentLoaded", function(){
 
       var domain = extractHostname(items[sorted[i][0]].url);
       article_instance.querySelector('.title').innerHTML = items[sorted[i][0]].title;
-      article_instance.querySelector('.mini-favicon').src = "https://s2.googleusercontent.com/s2/favicons?domain_url="+domain+"";
+      article_instance.querySelector('.mini-favicon').src = "https://s2.googleusercontent.com/s2/favicons?domain_url="+domain+"&size=64";
       article_instance.querySelector('.url').innerHTML = domain;
       article_instance.querySelector('.article').setAttribute("data-id",items[sorted[i][0]].url);
 
@@ -80,42 +80,37 @@ document.addEventListener("DOMContentLoaded", function(){
     });
 
     $('#rightpanel').on('click',"#embedLink", function() {
-      
+
+      var quote = $(this).closest(".quote-container").find("#quoteback-component");
+
       var title = $(".selected").find(".title").text();
       var url = $(".selected").attr("data-id");
-      var quote = $(this).closest('.quoteblock').find('.portal-content-519256').html();
-      var author = $(this).closest('.quoteblock').find('.portal-author-519256').text();
+      var text = quote.attr("text");
+      var author = quote.attr("author");
 
-      const embed_fragment = document.getElementById('embed');
-      const embed = document.importNode(embed_fragment.content, true);
-      
-      // Add relevant content to the template
-      embed.querySelector('.portal-author-519256').innerHTML = author;
-      embed.querySelector('.title-wrapper-519256').innerHTML = title;
-      embed.querySelector('.portal-arrow-519256').setAttribute("href", url);
-      embed.querySelector('.portal-content-519256').innerHTML = quote;
-      embed.querySelector('.mini-favicon-519256').src = `https://s2.googleusercontent.com/s2/favicons?domain_url=${url}&sz=64`;
-    
-      let div=document.createElement("div");
-      div.appendChild(embed);
+      var embed = `
+        <blockquote class="quoteback" data-title="${title}" data-author="${author}" cite="${url}}">
+          <p>${text}</p>
+          <footer>${author} <cite><a href="${url}">${url}</a></cite></footer>
+          <script note="SCRIPT GOES HERE" src=""></script>
+        </blockquote>`;
 
-      copyToClipboard(div.innerHTML);
-
-      var el = $(this);
-      el.html("Copied!");
-      setTimeout(function() {
-        el.html("<> Embed");
-      }, 1000);
-    });
-
+        copyToClipboard(embed);
+        let el = $(this);
+        el.html("Copied!");
+        setTimeout(function() {
+          el.html("<> Embed");
+        }, 1000);
+      });
 
     // use html2screenshot to generate canvas, copy img to clipboard
     $('#rightpanel').on('click',"#copyimg", function() {
       var el = $(this);
 
-      var element = $(this).closest('.quoteblock').find('.portal-container-519256');
-
-      document.querySelector(".portal-container-519256").style.width = "550px";
+      bar = $(this).closest('quoteback-component').text;
+      console.log(bar);
+      // var element = $(this).querySelector('quoteback-component').shadowRoot.querySelector('.portal-container-519256');
+      // document.querySelector(".portal-container-519256").style.width = "550px";
 
       html2canvas(element[0], {
         useCORS: true,
@@ -316,7 +311,7 @@ function displayquotes(url){
       <div class="linkback"><a target="_blank" href="${url}">View Original</a></div>
       </div>
       <div class="quote-container">
-        <quoteback-component url="${url}" text="${item.text}" author="${alldata[url].author}" title="${alldata[url].title}" favicon="https://s2.googleusercontent.com/s2/favicons?domain_url=${url}&size=64"> 
+        <quoteback-component id="quoteback-component" url="${url}" text="${item.text}" author="${alldata[url].author}" title="${alldata[url].title}" favicon="https://s2.googleusercontent.com/s2/favicons?domain_url=${url}&size=64"> 
         </quoteback-component> 
         <div class="quote-controls">
           <button id="embedLink" class="control-button"><> Embed</button>        
@@ -350,6 +345,9 @@ function displayquotes(url){
 };
 
 // COPY TO CLIPBOARD
+
+
+
 
 const copyToClipboard = str => {
   const el = document.createElement('textarea');
