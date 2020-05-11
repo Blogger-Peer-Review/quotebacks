@@ -316,6 +316,7 @@ var AutoSave = (function(){
 	function save(object){
     // console.log("running save");
     var popup = document.querySelector("quoteback-popup").shadowRoot;
+    var quote = document.querySelector("quoteback-component").shadowRoot;
     var commentbox = popup.querySelector("#comment-field-519256");
     var title = popup.querySelector("#title-field")
     var author = popup.querySelector("#author-field");
@@ -330,8 +331,8 @@ var AutoSave = (function(){
         console.log("autosaved");
         if(popup.querySelector(".save-indicator-519256").innerText == "Saving..."){
           popup.querySelector(".save-indicator-519256").innerHTML = "<span style='color:green'>Saved</span>"; // changed
-          popup.querySelector(".portal-author-519256").innerHTML = author.value;
-          popup.querySelector(".title-wrapper-519256").innerHTML = title.value;
+          quote.querySelector(".portal-author-519256").innerHTML = author.value;
+          quote.querySelector(".title-wrapper-519256").innerHTML = title.value;
       };
     });
             
