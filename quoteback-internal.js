@@ -1,7 +1,7 @@
 function embedquoteback(){
   const template = document.createElement('template');
     template.innerHTML=`
-    <style>${styleTest}</style>
+    <style>${quoteStyle}</style>
     <div class="portal-container-519256">
         <div id="portal-parent-519256" class="portal-parent-519256">
             <div class="portal-content-519256"></div>       

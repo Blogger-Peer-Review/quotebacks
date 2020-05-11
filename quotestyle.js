@@ -1,4 +1,4 @@
-var styleTest  = `.portal-container-519256 {
+var quoteStyle  = `.portal-container-519256 {
   font-family: -apple-system, system-ui, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol";
   text-rendering: optimizeLegibility;
   border: 1px solid #C2DFE3;
