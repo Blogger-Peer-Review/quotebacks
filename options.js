@@ -90,12 +90,11 @@ document.addEventListener("DOMContentLoaded", function(){
       var text = quote.attr("text");
       var author = quote.attr("author");
 
-      var embed = `
-        <blockquote class="quoteback" data-title="${title}" data-author="${author}" cite="${url}}">
-          <p>${text}</p>
-          <footer>${author} <cite><a href="${url}">${url}</a></cite></footer>
-          <script note="SCRIPT GOES HERE" src=""></script>
-        </blockquote>`;
+      var embed = `<blockquote class="quoteback" data-title="${title}" data-author="${author}" cite="${url}">
+<p>${text}</p>
+<footer>${author} <cite><a href="${url}">${url}</a></cite></footer>
+<script note="UPDATE THIS 4REALZ" src="https://cdn.jsdelivr.net/gh/tomcritchlow/Citations-Magic@tom-branch/quoteback.js"></script>
+</blockquote>`;
 
         copyToClipboard(embed);
         let el = $(this);
