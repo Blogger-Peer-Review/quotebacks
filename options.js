@@ -144,7 +144,7 @@ document.addEventListener("DOMContentLoaded", function(){
     });
 
 
-    // DELETE QUOTE
+    // Delete QUOTE
     $('#rightpanel').on('click',"#delete", function() {
       
       var r = confirm("Are you sure you want to delete this quote?");
