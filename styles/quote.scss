@@ -22,7 +22,7 @@ $bluegray-text-dark: #253237;
     border: 1px solid #C2DFE3;
     border-radius: 8px;
     margin-bottom: 25px;
-    max-width:800px;
+    max-width:750px;
     background-color:white;
 
     @include transition(all .20s ease);
@@ -117,9 +117,9 @@ $bluegray-text-dark: #253237;
             display:flex;
             flex-shrink:1;
             align-items:center;
-            width:111px;
-            min-width:111px !important;
-            padding: 0px 15px;
+            width:81px;
+            min-width:81px !important;
+            padding: 0px 15px !important;
             border-left: 1px solid $bluegray-bg-med;
             .portal-arrow-519256{
                 border: none !important;

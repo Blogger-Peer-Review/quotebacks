@@ -16,7 +16,7 @@ $bluegray-text-med: #5C6D73;
 $bluegray-text-dark: #253237;
 
 
-.quoteback-container{
+.portal-container-519256{
     font-family: -apple-system, system-ui, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol";
     text-rendering: optimizeLegibility;
     border: 1px solid #C2DFE3;
@@ -32,18 +32,18 @@ $bluegray-text-dark: #253237;
         border: 1px solid $bluegray-text-light;
     }
     
-    .quoteback-parent{
+    .portal-parent-519256{
         overflow:hidden;
         position: relative;
         width:100%;
         box-sizing: border-box;
             
-        .quoteback-parent-text{
+        .portal-parent-text-519256{
             padding: 15px;
             color: $bluegray-text-med;          
             z-index: 40;
         }
-        .quoteback-content{
+        .portal-content-519256{
             font-family: -apple-system, system-ui, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol";
             font-size:16px;
             font-weight:400;
@@ -53,7 +53,7 @@ $bluegray-text-dark: #253237;
         }
     }
 
-    .quoteback-head{
+    .portal-head-519256{
         border-top: 1px solid $bluegray-bg-med;
         display:flex;
         flex-flow:row nowrap;
@@ -62,7 +62,7 @@ $bluegray-text-dark: #253237;
         padding-left:15px;
         @include transition(all .20s ease); 
 
-        .quoteback-avatar{
+        .portal-avatar-519256{
             border-radius:100%;
             border: 1px solid #C2DFE3;
             width:42px;
@@ -70,7 +70,7 @@ $bluegray-text-dark: #253237;
             min-width:42px !important;
             margin: 12px 0px;
             position:relative;
-            .mini-favicon{
+            .mini-favicon-519256{
                 width:22px;
                 height:22px;
                 position: absolute;
@@ -82,7 +82,7 @@ $bluegray-text-dark: #253237;
             }
         }
 
-        .quoteback-metadata{
+        .portal-metadata-519256{
             min-width:0px;
             display:flex;
             flex-shrink:1;
@@ -90,20 +90,20 @@ $bluegray-text-dark: #253237;
             margin-left:10px;
         }
 
-        .quoteback-author{
+        .portal-author-519256{
             font-size:14px;
             line-height:1.2;
             color: black;
             font-weight:600;
             margin-bottom:2px;
         }       
-        .quoteback-title{
+        .portal-title-519256{
             font-size: 14px;
             line-height:1.2;
             color: $bluegray-text-light;
             max-width: 100%;
 
-            .title-wrapper{
+            .title-wrapper-519256{
                 white-space: nowrap; 
                 overflow: hidden; 
                 text-overflow: ellipsis;
@@ -112,16 +112,16 @@ $bluegray-text-dark: #253237;
                 color: $bluegray-text-med;                  
             }                   
         }
-        .quoteback-backlink{
+        .portal-backlink-519256{
             margin-left: auto;
             display:flex;
             flex-shrink:1;
             align-items:center;
-            width:85px;
-            min-width:85px !important;
-            padding: 0px 15px;
+            width:81px;
+            min-width:81px !important;
+            padding: 0px 15px !important;
             border-left: 1px solid $bluegray-bg-med;
-            .quoteback-arrow{
+            .portal-arrow-519256{
                 border: none !important;
                 font-family:inherit !important;
                 font-size: 14px !important;

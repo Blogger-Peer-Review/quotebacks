@@ -4,7 +4,7 @@
   border: 1px solid #C2DFE3;
   border-radius: 8px;
   margin-bottom: 25px;
-  max-width: 800px;
+  max-width: 750px;
   background-color: white;
   -webkit-transition: all 0.2s ease;
   -moz-transition: all 0.2s ease;
@@ -89,9 +89,9 @@
       display: flex;
       flex-shrink: 1;
       align-items: center;
-      width: 111px;
-      min-width: 111px !important;
-      padding: 0px 15px;
+      width: 81px;
+      min-width: 81px !important;
+      padding: 0px 15px !important;
       border-left: 1px solid #C2DFE3; }
       .portal-container-519256 .portal-head-519256 .portal-backlink-519256 .portal-arrow-519256 {
         border: none !important;

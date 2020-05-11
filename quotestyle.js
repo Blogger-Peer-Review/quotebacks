@@ -89,9 +89,9 @@ var quoteStyle  = `.portal-container-519256 {
       display: flex;
       flex-shrink: 1;
       align-items: center;
-      width: 111px;
-      min-width: 111px !important;
-      padding: 0px 15px;
+      width: 81px;
+      min-width: 81px !important;
+      padding: 0px 15px !important;
       border-left: 1px solid #C2DFE3; }
       .portal-container-519256 .portal-head-519256 .portal-backlink-519256 .portal-arrow-519256 {
         border: none !important;
@@ -107,4 +107,5 @@ var quoteStyle  = `.portal-container-519256 {
         .portal-container-519256 .portal-head-519256 .portal-backlink-519256 .portal-arrow-519256:hover {
           opacity: .5 !important; }
         .portal-container-519256 .portal-head-519256 .portal-backlink-519256 .portal-arrow-519256:visited {
-          text-decoration: none !important; }`
+          text-decoration: none !important; }
+`
