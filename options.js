@@ -109,13 +109,25 @@ document.addEventListener("DOMContentLoaded", function(){
     $('#rightpanel').on('click',"#copyimg", function() {
       var el = $(this);
 
-      
-      quote = document.getElementsByTagName("quoteback-component");
-      console.log(quote[0].shadowRoot);
+      quote = el.closest(".quoteblock");
+      quote = quote[0].querySelector("quoteback-component");
+      console.log(quote);
 
       var newDiv = document.createElement("div"); 
-      newDiv.innerHTML = quote[0].shadowRoot.innerHTML;
+      newDiv.id = "copyimage";
+      newDiv.innerHTML = quote.shadowRoot.innerHTML;
       document.querySelector(".quoteblock").appendChild(newDiv);
+
+      document.getElementById("copyimage").style.width = "500px";
+      document.getElementById("copyimage").querySelector(".portal-container-519256").style.margin = "0px 0px 0px 0px";
+      document.getElementById("copyimage").style.padding = "5px 5px 5px 5px";
+
+      var title = document.getElementById("copyimage").querySelector(".title-wrapper-519256");
+      if(title.innerHTML.length > 45){ // html2canvas doesn't support text-overflow:ellipses
+        title.innerHTML = title.innerHTML.substring(0,42);
+        title.innerHTML = title.innerHTML + "...";
+      }
+      
 
       html2canvas(newDiv, {
         useCORS: true,
@@ -128,7 +140,10 @@ document.addEventListener("DOMContentLoaded", function(){
           navigator.clipboard.write([item]).then(
             function() {
               console.log("Copied to clipboard successfully!");
-              //document.querySelector(".portal-container-519256").style.width = "initial";
+              
+              var element = document. getElementById("copyimage");
+              element.parentNode.removeChild(element);
+
               el.html("Copied!");
               setTimeout(function() {
                 el.html("Copy Image");
