@@ -194,7 +194,7 @@ document.addEventListener('keydown', function(event) {
           // timeout to remove popups
           if(!ishover && !textfocus) {
             time++;
-            if(time > 5){
+            if(time > 500){
               if (popup){
                 popup.parentNode.removeChild(popup);
               };

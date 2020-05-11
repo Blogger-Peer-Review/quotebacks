@@ -109,12 +109,15 @@ document.addEventListener("DOMContentLoaded", function(){
     $('#rightpanel').on('click',"#copyimg", function() {
       var el = $(this);
 
-      quote = $(this).closest('.quote-container').find("#quoteback-component");
-      console.log(quote.shadowRoot);
-      // var element = $(this).querySelector('quoteback-component').shadowRoot.querySelector('.portal-container-519256');
-      // document.querySelector(".portal-container-519256").style.width = "550px";
+      
+      quote = document.getElementsByTagName("quoteback-component");
+      console.log(quote[0].shadowRoot);
 
-      html2canvas(element[0], {
+      var newDiv = document.createElement("div"); 
+      newDiv.innerHTML = quote[0].shadowRoot.innerHTML;
+      document.querySelector(".quoteblock").appendChild(newDiv);
+
+      html2canvas(newDiv, {
         useCORS: true,
         onclone: function(document) {
         }
@@ -125,7 +128,7 @@ document.addEventListener("DOMContentLoaded", function(){
           navigator.clipboard.write([item]).then(
             function() {
               console.log("Copied to clipboard successfully!");
-              document.querySelector(".portal-container-519256").style.width = "initial";
+              //document.querySelector(".portal-container-519256").style.width = "initial";
               el.html("Copied!");
               setTimeout(function() {
                 el.html("Copy Image");
