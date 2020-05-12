@@ -182,10 +182,12 @@ body{
   #titlebar-author{
     margin-left:10px;
     padding:5px 5px 5px 5px;
-    display:inline;
+    display:block;
+    float:left
   }
   #titlebar-title{
-    display:inline;
+    display:block;
+    float:left;
     color: $selection;
     font-weight:600;
     padding:5px;
@@ -217,7 +219,17 @@ body{
  }
 }
 
+#titlebar-author, #titlebar-title{
+  &:focus{
+   opacity:.65;
+   background-color: $graybg;
+   outline:none;
+  }
+ }
 
+[contenteditable=true]:empty:before{
+  content: attr(placeholder);
+}
 
 #capture-helper{
   position:absolute;

@@ -115,15 +115,21 @@ document.addEventListener("DOMContentLoaded", function(){
       var newDiv = document.createElement("div"); 
       newDiv.id = "copyimage";
       newDiv.innerHTML = quote.shadowRoot.innerHTML;
-      document.querySelector(".quoteblock").appendChild(newDiv);
+      
+      //position div offscreen to prevent flicker
+      document.getElementById("panel-scrollContainer").style.height = "3000px";
+      newDiv.style.bottom = "-999px";
+      newDiv.style.position = "absolute";
+      newDiv.style.width = "500px";
+      newDiv.style.padding = "5px 5px 5px 5px";
+      newDiv.querySelector(".portal-container-519256").style.margin = "0px 0px 0px 0px";
+      document.getElementById("panel-scrollContainer").appendChild(newDiv);
 
-      document.getElementById("copyimage").style.width = "500px";
-      document.getElementById("copyimage").querySelector(".portal-container-519256").style.margin = "0px 0px 0px 0px";
-      document.getElementById("copyimage").style.padding = "5px 5px 5px 5px";
+      document.getElementById("copyimage").querySelector(".portal-backlink-519256").setAttribute("data-html2canvas-ignore", "true");
 
       var title = document.getElementById("copyimage").querySelector(".title-wrapper-519256");
-      if(title.innerHTML.length > 45){ // html2canvas doesn't support text-overflow:ellipses
-        title.innerHTML = title.innerHTML.substring(0,42);
+      if(title.innerHTML.length > 65){ // html2canvas doesn't support text-overflow:ellipses
+        title.innerHTML = title.innerHTML.substring(0,60);
         title.innerHTML = title.innerHTML + "...";
       }
       
@@ -143,6 +149,8 @@ document.addEventListener("DOMContentLoaded", function(){
               var element = document. getElementById("copyimage");
               element.parentNode.removeChild(element);
 
+              document.getElementById("panel-scrollContainer").style.height = "initial";
+
               el.html("Copied!");
               setTimeout(function() {
                 el.html("Copy Image");
@@ -160,6 +168,28 @@ document.addEventListener("DOMContentLoaded", function(){
 
     });
 
+    // convert quote to markdown using turndown.js
+    $('#rightpanel').on('click',"#copymd", function() {
+      var el = $(this);
+
+      quote = el.closest(".quoteblock");
+      quote = quote[0].querySelector("quoteback-component");
+
+      var html = `<blockquote>${quote.text}</blockquote>
+      Source: <a href="${quote.url}">${quote.title}</a> by ${quote.author}`;
+
+      const turndownService = new TurndownService();
+
+      const markdown = turndownService.turndown(html);
+
+      copyToClipboard(markdown);
+
+      el.html("Copied!");
+      setTimeout(function() {
+        el.html("Copy Markdown");
+      }, 1000);
+
+    });
 
     // Delete QUOTE
     $('#rightpanel').on('click',"#delete", function() {
@@ -336,6 +366,7 @@ function displayquotes(url){
           <button id="embedLink" class="control-button"><> Embed</button>        
           <button id="copyimg" class="control-button">Copy Image</button>        
           <button id="copy" class="control-button">Copy Text</button>
+          <button id="copymd" class="control-button">Copy Markdown</button>
           <button id="delete" class="control-button">Delete</button>        
         </div>
       </div>
@@ -440,7 +471,7 @@ var AutoSave = (function(){
       }
       timer = setInterval(function(){
                 save(object, el, index, url)
-            }, 1000);
+            }, 500);
     },
 
     stop: function(){
@@ -466,6 +497,12 @@ var AutoSaveTitle = (function(){
     alldata[url]["author"] = author;
     alldata[url]["title"] = title;
     chrome.storage.local.set(alldata, function(){ 
+      var quoteelems = document.getElementsByTagName("quoteback-component");
+      for(var i = 0; i < quoteelems.length; i++){
+        quoteelems[i].author = author;
+        quoteelems[i].title = title;
+      }
+      
       console.log("autosaved");
     });          
   };
@@ -480,7 +517,7 @@ var AutoSaveTitle = (function(){
       }
       timer = setInterval(function(){
                 save(object, el, url)
-            }, 1000);
+            }, 500);
     },
 
     stop: function(){

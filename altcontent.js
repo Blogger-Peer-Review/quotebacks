@@ -146,12 +146,11 @@ document.addEventListener('keydown', function(event) {
       // COPY EMBED //
       var p = document.querySelector("quoteback-popup").shadowRoot;
       p.querySelector("#getlink-519256").addEventListener("click", function(event) {
-        var embed = `
-        <blockquote class="quoteback" data-title="${page_object["title"]}" data-author="${page_object["author"]}" cite="${page_object["url"]}">
-          <p>${text}</p>
-          <footer>${page_object["author"]} <cite><a href="${page_object["url"]}">${page_object["url"]}</a></cite></footer>
-          <script note="SCRIPT GOES HERE" src=""></script>
-        </blockquote>`;
+        var embed = `<blockquote class="quoteback" data-title="${page_object["title"]}" data-author="${page_object["author"]}" cite="${page_object["url"]}">
+<p>${text}</p>
+<footer>${page_object["author"]} <cite><a href="${page_object["url"]}">${page_object["url"]}</a></cite></footer>
+<script note="REPLACE WITH REAL SCRIPT" src="https://cdn.jsdelivr.net/gh/tomcritchlow/Citations-Magic@tom-branch/quoteback.js"></script>
+</blockquote>`;
 
         copyToClipboard(embed);
         console.log(p.querySelector("#getlink-519256"));
@@ -171,6 +170,16 @@ document.addEventListener('keydown', function(event) {
         AutoSave.stop();              
         clearInterval(t); // stop timer
       });
+
+      // Close popup on "all quotes" button
+      p.querySelector(".quoteslink-519256").addEventListener("click", function(event) {
+        var paras = popup;
+        if (paras){
+          paras.parentNode.removeChild(paras);
+        };         
+        AutoSave.stop();              
+        clearInterval(t); // stop timer
+      });      
 
       var time = 0;
       var textfocus = false;
