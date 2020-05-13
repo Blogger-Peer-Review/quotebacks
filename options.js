@@ -360,7 +360,7 @@ function displayquotes(url){
       <div class="linkback"><a target="_blank" href="${url}">View Original</a></div>
       </div>
       <div class="quote-container">
-        <quoteback-component id="quoteback-component" url="${url}" text="${item.text}" author="${alldata[url].author}" title="${alldata[url].title}" favicon="https://s2.googleusercontent.com/s2/favicons?domain_url=${url}&size=64"> 
+        <quoteback-component id="quoteback-component" url="${url}" text="${encodeURIComponent(item.text)}" author="${alldata[url].author}" title="${alldata[url].title}" favicon="https://s2.googleusercontent.com/s2/favicons?domain_url=${url}&size=64"> 
         </quoteback-component> 
         <div class="quote-controls">
           <button id="embedLink" class="control-button"><> Embed</button>        
