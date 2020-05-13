@@ -138,8 +138,12 @@ document.addEventListener('keydown', function(event) {
           return this._title;
         };
       }
-      
-      window.customElements.define('quoteback-popup', QuotebackPopup);
+
+      if (customElements.get('quoteback-popup')){
+        null;
+      }else{
+        window.customElements.define('quoteback-popup', QuotebackPopup)  
+      }
       embedquoteback();
 
 
@@ -260,31 +264,17 @@ function getSelectionText() {
     var text = "";
     if (window.getSelection) {
     
-      // from here: https://gist.github.com/gleuch/2475825
-      // selection range
-      var range = window.getSelection().getRangeAt(0);
-
-      // plain text of selected range (if you want it w/o html)
-      var plaintext = window.getSelection();
-      plaintext = plaintext.toString().replace(/(?:\r\n|\r|\n)/g, '<br>'); // replace line breaks with <br> tags
-      plaintext = plaintext.replace(/(<br>)+$/g, ''); //remove trailing <br> if there is one
-          
-      // document fragment with html for selection
-      var fragment = range.cloneContents();
-
-      // make new element, insert document fragment, then get innerHTML!
-      var div = document.createElement('div');
-      div.appendChild( fragment.cloneNode(true) );
-
-      // your document fragment to a string (w/ html)! (yay!)
-      var text = div.innerHTML;
-
+      //get rangehtml using rangy, strip un-allowed tags (e.g. script tags, button tags)
+      // regex here: https://stackoverflow.com/questions/44009089/javascript-replace-regex-all-html-tags-except-p-a-and-img
+      var selectionhtml =  rangy.getSelection().toHtml();
+      var output = selectionhtml.replace(/(<\/?(?:a|p|img|h1|h2|h3|h4|h5|em|strong|ul|ol|li|blockquote)[^>]*>)|<[^>]+>/ig, '$1');
+      return(output);
 
     } else if (document.selection && document.selection.type != "Control") { // think this is for IE?
     text = document.selection.createRange().text;
     }
-    //return plaintext.toString();
-    return rangy.getSelection().toHtml()
+    
+    
 };
 
 function getMeta(metaName) {

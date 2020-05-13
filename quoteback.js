@@ -51,7 +51,7 @@ document.addEventListener("DOMContentLoaded", function(){
             this.attachShadow({mode: 'open'});
             this.shadowRoot.appendChild(template.content.cloneNode(true));
 					  
-					  this.text = this.getAttribute('text');
+					  this.text = decodeURIComponent(this.getAttribute('text'));
 					  this.author = this.getAttribute('author');
 					  this.title = this.getAttribute('title'); 
 					  this.url = this.getAttribute('url')

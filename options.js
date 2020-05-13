@@ -88,10 +88,17 @@ document.addEventListener("DOMContentLoaded", function(){
       var title = $(".selected").find(".title").text();
       var url = $(".selected").attr("data-id");
       var text = quote.attr("text");
+
+      // if we want to use text instead of html inside the blockquote we should use this:
+      // https://ourcodeworld.com/articles/read/376/how-to-strip-html-from-a-string-extract-only-text-content-in-javascript
+      // however we'd then need to move to storing the html string in an attribute in the web component
+      //var stripedHtml = decodeURIComponent(text).replace(/<[^>]+>/g, '');
+      
+      
       var author = quote.attr("author");
 
       var embed = `<blockquote class="quoteback" data-title="${title}" data-author="${author}" cite="${url}">
-<p>${text}</p>
+<p>${decodeURIComponent(text)}</p>
 <footer>${author} <cite><a href="${url}">${url}</a></cite></footer>
 <script note="UPDATE THIS 4REALZ" src="https://cdn.jsdelivr.net/gh/tomcritchlow/Citations-Magic@tom-branch/quoteback.js"></script>
 </blockquote>`;
