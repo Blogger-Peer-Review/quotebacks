@@ -20,6 +20,7 @@
     "scripts": ["background.js"],
     "persistent": false
   },
+  "web_accessible_resources": ["options.html","styles/styles.css","images/allquotes.png","quoteback-internal.js"],
   "commands": {
     "open-popup": {
       "description": "Capture a quote from the web",
