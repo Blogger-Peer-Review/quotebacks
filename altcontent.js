@@ -283,15 +283,34 @@ function getSelectionText() {
       // regex here: https://stackoverflow.com/questions/44009089/javascript-replace-regex-all-html-tags-except-p-a-and-img
       // NOTE: this removes tags but not contents. e.g. <script>some script</script> will return "some script"
       var selectionhtml =  rangy.getSelection().toHtml();
-      var output = selectionhtml.replace(/(<\/?(?:a|p|img|h1|h2|h3|h4|h5|em|strong|ul|ol|li|blockquote)[^>]*>)|<[^>]+>/ig, '$1');
-      return(output);
+      var cleaned = selectionhtml.replace(/(<\/?(?:a|p|img|h1|h2|h3|h4|h5|em|strong|ul|ol|li|blockquote)[^>]*>)|<[^>]+>/ig, '$1');
+      
+      //create a document fragment to make manipulations like absolute links
+      var htmlfragment = document.createRange().createContextualFragment(cleaned);
+      var links = htmlfragment.querySelectorAll("a");
+      links.forEach(e => {
+        e.href = convertAbsolute(e.href);
+        e.setAttribute("target","_blank"); //ensure links open inside quoteback in new window
+      });
+
+      var images = htmlfragment.querySelectorAll("img");
+      images.forEach(e => {e.src = convertAbsolute(e.src)});
+
+      var div = document.createElement('div');
+      div.appendChild( htmlfragment.cloneNode(true) );
+      var html = div.innerHTML;
+      
+      return(html);
 
     } else if (document.selection && document.selection.type != "Control") { // think this is for IE?
     text = document.selection.createRange().text;
     }
-    
-    
-};
+    };
+
+function convertAbsolute(url){
+  let absolute = new URL(url, document.baseURI).href;
+  return absolute;
+}    
 
 function getMeta(metaName) {
     const metas = document.getElementsByTagName('meta');
