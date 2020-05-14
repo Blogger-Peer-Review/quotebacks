@@ -173,6 +173,19 @@ body {
   text-decoration: underline;
 }
 
+#importQuotes {
+  margin: 8px;
+  position: fixed;
+  right: 250px;
+  color: #A8A9AB;
+  font-size: 14px;
+}
+
+#importQuotes:hover {
+  cursor: pointer;
+  text-decoration: underline;
+}
+
 #exportQuotes {
   margin: 8px;
   position: fixed;

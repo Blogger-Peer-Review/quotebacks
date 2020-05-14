@@ -267,6 +267,39 @@ document.addEventListener("DOMContentLoaded", function(){
       a.click();
     };
 
+    // Import function
+    document.getElementById("importQuotes").onclick = function(){
+      document.getElementById('fileid').click();
+    };
+
+    document.getElementById('fileid').onchange = function(evt) {
+      try {
+          let files = evt.target.files;
+          if (!files.length) {
+              alert('No file selected!');
+              return;
+          }
+          let file = files[0];
+          let reader = new FileReader();
+          const self = this;
+          var importobject = {};
+          reader.onload = (event) => {
+              var importitems = JSON.parse(event.target.result);
+              //console.log('FILE CONTENT', event.target.result);
+
+              chrome.storage.local.set(importitems, function() {            
+                console.log("import done!");
+        
+              });
+
+              //console.log(importitems);
+          };
+          reader.readAsText(file);
+      } catch (err) {
+          console.error(err);
+      }
+  }
+
 
     // on title/author -> trigger autosave
     $( "#rightpanel" ).on("focus" , "#titlebar-author", function() {
@@ -331,6 +364,9 @@ document.addEventListener("DOMContentLoaded", function(){
 
 
 function displayquotes(url){
+
+  if(alldata[url]){
+
   document.getElementById('panel-scrollContainer').innerHTML = "";
 
   window.location.hash = url;
@@ -338,7 +374,9 @@ function displayquotes(url){
   const fragment = document.getElementById('quote');
 
   var offset = $(".article[data-id='"+url+"']").offset();
-  $("#article-scrollContainer").scrollTop(offset.top);
+  if(offset){
+    $("#article-scrollContainer").scrollTop(offset.top);
+  }
     
   alldata[url].quotes.forEach(item => {
 
@@ -349,16 +387,6 @@ function displayquotes(url){
     
     date = mm + '/' + dd + '/' + yyyy;
     var datefield = date;
-
-    /*
-    if(item.comment){
-      instance.querySelector('.comment').innerHTML = item.comment;
-      instance.querySelector('.comment').style.color = "#464A4D";
-     }else{
-       instance.querySelector('.comment').innerHTML = "Add comment";
-     };
-     */
-  
 
     var quotetemplate = `
     <div class="quoteblock">
@@ -399,12 +427,10 @@ function displayquotes(url){
     titlebar.querySelector("#titlebar-title").innerHTML = alldata[url].title;
 
   });
+  }
 };
 
 // COPY TO CLIPBOARD
-
-
-
 
 const copyToClipboard = str => {
   const el = document.createElement('textarea');

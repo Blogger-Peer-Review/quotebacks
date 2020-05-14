@@ -22,6 +22,18 @@ body{
   }
 }
 
+#importQuotes{
+  margin: 8px;
+  position:fixed;
+  right:200px;
+  color: #A8A9AB;
+  font-size:14px;
+  &:hover{
+    cursor:pointer;
+    text-decoration:underline;
+  }
+}
+
 #exportQuotes {
   margin: 8px;
   position:fixed;
