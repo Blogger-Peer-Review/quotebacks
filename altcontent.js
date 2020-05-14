@@ -281,7 +281,7 @@ function getSelectionText() {
     
       //get rangehtml using rangy, strip un-allowed tags (e.g. script tags, button tags)
       // regex here: https://stackoverflow.com/questions/44009089/javascript-replace-regex-all-html-tags-except-p-a-and-img
-      // NOTE: this removes tags but not contents. e.g. <script>some script</script> will return "some script"
+      // NOTE: this removes tags but not contents. e.g. "<script>some script</script>"" will return "some script"
       var selectionhtml =  rangy.getSelection().toHtml();
       var cleaned = selectionhtml.replace(/(<\/?(?:a|p|img|h1|h2|h3|h4|h5|em|strong|ul|ol|li|blockquote)[^>]*>)|<[^>]+>/ig, '$1');
       
