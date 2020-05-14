@@ -1,5 +1,3 @@
-
-    
 var object = {};
 
 rangy.init();
