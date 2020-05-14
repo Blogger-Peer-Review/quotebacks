@@ -187,6 +187,21 @@ document.addEventListener('keydown', function(event) {
         clearInterval(t); // stop timer
       });      
 
+      // Close popup on tab focus out
+      window.onblur = onBlur;
+      function onBlur() {
+        var paras = popup;
+        if (paras){
+          paras.parentNode.removeChild(paras);
+        };         
+        AutoSave.stop();              
+        clearInterval(t); // stop timer
+      };
+      
+
+      
+
+
       var time = 0;
       var textfocus = false;
       var ishover = false;
