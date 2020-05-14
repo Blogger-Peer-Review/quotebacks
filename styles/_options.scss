@@ -187,6 +187,8 @@ body{
   font-size:14px;
   border-bottom:1px solid $graydiv;
   #titlebar-innercontainer{
+    display:flex;
+    flex-flow: row nowrap;
     white-space: nowrap !important;
     overflow: hidden !important;
     text-overflow: ellipsis;    
@@ -227,7 +229,6 @@ body{
  &:hover{
   opacity:.65;
   background-color: $graybg;
-  content: "Edit Author";
  }
 }
 
