@@ -298,6 +298,8 @@ body {
     width: 40px;
     height: 100%;
     border-left: 1px solid #d5d5d5; }
+    #titlebar #titlebar-options:hover {
+      background-color: #fafafa; }
     #titlebar #titlebar-options::after {
       content: '\2807';
       font-size: 24px;
@@ -315,6 +317,34 @@ body {
 
 [contenteditable=true]:empty:before {
   content: attr(placeholder); }
+
+.dropdown {
+  position: absolute;
+  color: #333;
+  border: 1px solid #9DB8BF;
+  box-shadow: 1px 3px 8px rgba(0, 0, 0, 0.15); }
+
+#titlebar-dropdown {
+  position: absolute;
+  right: 0px;
+  top: 40px;
+  display: none;
+  background-color: #fff;
+  padding: 10px; }
+  #titlebar-dropdown #titlebar-delete:hover {
+    cursor: pointer;
+    color: red; }
+
+#titlebar-dropdown.on {
+  position: absolute;
+  display: block;
+  background-color: #fff;
+  padding: 10px;
+  color: #333; }
+
+#titlebar-dropdown li {
+  margin-top: 10px;
+  list-style-type: none; }
 
 #capture-helper {
   position: absolute;

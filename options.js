@@ -569,6 +569,29 @@ document.addEventListener("DOMContentLoaded", function(){
   $(".comment").resizable();
 });
 
+document.addEventListener("DOMContentLoaded", function(){
+    var articleOptions = document.getElementById("titlebar-options");
+    // Grab dropdown menu from the DOM
+    var dropdown = document.getElementById("titlebar-dropdown");
+    // Creates function to add dropdown menu
+    var addMenu = function addDropDownMenu() {
+      dropdown.classList.add("on");
+      console.log("hi");
+    };
+    // Creates function to remove dropdown menu
+    var removeMenu = function removeDropDownMenu() {
+      dropdown.classList.remove("on");
+      console.log("bye");
+    };
+    // Add mouse over event to show menu
+    articleOptions.addEventListener("mouseover", addMenu);
+    // Add mouse out event to remove menu
+    articleOptions.addEventListener("mouseout", removeMenu);
+});
+
+
+
+
 // $("#leftnav").resizable({
 //     // only use the eastern handle
 //     handles: 'e',
