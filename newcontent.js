@@ -397,7 +397,7 @@ chrome.storage.local.get([page], function(result) {
     
     }());
     
-    const copyToClipboard = str => {
+function  copyToClipboard(str){   
       const el = document.createElement('textarea');
       el.value = str;
       document.body.appendChild(el);
