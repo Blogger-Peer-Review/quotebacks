@@ -115,36 +115,6 @@ body {
   margin: 0px;
   padding: 0px; }
 
-#clearStorage {
-  margin: 8px;
-  position: fixed;
-  right: 10px;
-  color: #A8A9AB;
-  font-size: 14px; }
-  #clearStorage:hover {
-    cursor: pointer;
-    text-decoration: underline; }
-
-#importQuotes {
-  margin: 8px;
-  position: fixed;
-  right: 200px;
-  color: #A8A9AB;
-  font-size: 14px; }
-  #importQuotes:hover {
-    cursor: pointer;
-    text-decoration: underline; }
-
-#exportQuotes {
-  margin: 8px;
-  position: fixed;
-  right: 150px;
-  color: #A8A9AB;
-  font-size: 14px; }
-  #exportQuotes:hover {
-    cursor: pointer;
-    text-decoration: underline; }
-
 #nav {
   border: 1px solid #d5d5d5;
   box-sizing: border-box;
@@ -160,6 +130,38 @@ body {
     height: 40px;
     margin: auto;
     margin-top: 2px; }
+  #nav #global-options-button {
+    position: absolute;
+    top: 7px;
+    right: 10px;
+    height: 36px;
+    width: 36px; }
+
+#global-options {
+  position: absolute;
+  z-index: 100;
+  right: 0px;
+  top: 24px;
+  display: none;
+  background-color: #fff;
+  padding: 10px;
+  width: 100px; }
+
+#global-options.on {
+  position: absolute;
+  display: block;
+  background-color: #fff;
+  padding: 10px;
+  color: #333; }
+
+#global-options button {
+  margin-top: 10px;
+  color: #A8A9AB;
+  font-size: 14px;
+  text-align: left; }
+  #global-options button:hover {
+    cursor: pointer;
+    text-decoration: underline; }
 
 #fastSearch {
   position: absolute;
@@ -341,10 +343,6 @@ body {
   background-color: #fff;
   padding: 10px;
   color: #333; }
-
-#titlebar-dropdown li {
-  margin-top: 10px;
-  list-style-type: none; }
 
 #capture-helper {
   position: absolute;
