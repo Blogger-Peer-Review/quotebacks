@@ -162,4 +162,12 @@ $bluegray-text-dark: #253237;
     margin-inline-start: 1em;
     color: $bluegray-text-med;
   }
+  ol, ul{
+    margin-block-start: .5em;
+    margin-block-end: .5em;
+  }
+  h1, h2, h3{
+    margin-block-start: .5em;
+    margin-block-end: .5em;
+  }
 }

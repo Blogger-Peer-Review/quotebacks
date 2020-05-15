@@ -129,5 +129,10 @@ var quoteStyle  = `.portal-container-519256 {
   padding-left: .75em;
   margin-inline-start: 1em;
   color: #5C6D73; }
-  
+.portal-content-519256 ol, .portal-content-519256 ul {
+  margin-block-start: .5em;
+  margin-block-end: .5em; }
+.portal-content-519256 h1, .portal-content-519256 h2, .portal-content-519256 h3 {
+  margin-block-start: .5em;
+  margin-block-end: .5em; }  
 `
