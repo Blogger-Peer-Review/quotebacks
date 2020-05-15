@@ -132,16 +132,15 @@ body {
     margin-top: 2px; }
   #nav #global-options-button {
     position: absolute;
-    top: 7px;
-    right: 10px;
-    height: 36px;
-    width: 36px; }
+    top: 1px;
+    right: 4px;
+    padding: 7px; }
 
 #global-options {
   position: absolute;
   z-index: 100;
-  right: 0px;
-  top: 24px;
+  right: -5px;
+  top: 33px;
   display: none;
   background-color: #fff;
   padding: 10px;
@@ -155,7 +154,7 @@ body {
   color: #333; }
 
 #global-options button {
-  margin-top: 10px;
+  padding: 5px;
   color: #A8A9AB;
   font-size: 14px;
   text-align: left; }
@@ -368,6 +367,7 @@ body {
     flex-direction: column;
     margin-left: 5px;
     position: relative;
+    width: 130px;
     opacity: 0;
     -webkit-transition: all 0.2s ease;
     -moz-transition: all 0.2s ease;
@@ -375,7 +375,8 @@ body {
     -o-transition: all 0.2s ease;
     transition: all 0.2s ease; }
     .quote-container .quote-controls .control-button {
-      margin-bottom: 6px; }
+      margin-bottom: 6px;
+      word-wrap: no-wrap; }
     .quote-container .quote-controls #delete {
       color: red; }
     .quote-container .quote-controls #embedLink {
