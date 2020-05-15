@@ -1,6 +1,29 @@
-// Copyright (c) 2012 The Chromium Authors. All rights reserved.
-// Use of this source code is governed by a BSD-style license that can be
-// found in the LICENSE file.
+chrome.commands.onCommand.addListener(function(command) {
+  
+  chrome.tabs.executeScript({
+    file: 'webcomponents-sd-ce.js'
+  });
+
+  chrome.tabs.executeScript({
+    file: 'quoteback-internal.js'
+  });
+
+  chrome.tabs.executeScript({
+    file: 'quotestyle.js'
+  });  
+  
+  chrome.tabs.executeScript({
+    file: 'rangy-core.js'
+  });
+
+  chrome.tabs.executeScript({
+    file: 'newcontent.js'
+  });
+  
+
+
+});
+
 
 chrome.browserAction.setPopup({popup:''});  //disable browserAction's popup
 
@@ -17,6 +40,3 @@ chrome.runtime.onInstalled.addListener(function(details){
       console.log("Updated from " + details.previousVersion + " to " + thisVersion + "!");
   }
 });
-
-
-
