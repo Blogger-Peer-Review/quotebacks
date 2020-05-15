@@ -10,42 +10,6 @@ body{
   padding:0px;
 }
 
-#clearStorage {
-  margin: 8px;
-  position:fixed;
-  right:10px;
-  color: #A8A9AB;
-  font-size:14px;
-  &:hover{
-    cursor:pointer;
-    text-decoration:underline;
-  }
-}
-
-#importQuotes{
-  margin: 8px;
-  position:fixed;
-  right:200px;
-  color: #A8A9AB;
-  font-size:14px;
-  &:hover{
-    cursor:pointer;
-    text-decoration:underline;
-  }
-}
-
-#exportQuotes {
-  margin: 8px;
-  position:fixed;
-  right:150px;
-  color: #A8A9AB;
-  font-size:14px;
-  &:hover{
-    cursor:pointer;
-    text-decoration:underline;
-  }
-}
-
 #nav{
   border: 1px solid $graydiv;
   box-sizing: border-box;
@@ -55,7 +19,6 @@ body{
   top:0px;
   left:0px;
   background-color:$graybg;
-
   #searchbar{
     position:relative;  
     width: 516px;
@@ -63,8 +26,46 @@ body{
     margin:auto;
     margin-top:2px;
   }
-
+  #global-options-button{
+    position:absolute;
+    top:7px;
+    right:10px;
+    height:36px;
+    width:36px;
+  }
 }
+
+#global-options{
+  position: absolute;
+  z-index: 100;
+  right: 0px;
+  top: 24px;
+  display:none;
+  background-color: #fff;
+  padding: 10px;
+  width: 100px;
+}
+
+
+#global-options.on {
+  position: absolute;
+  display:block;
+  background-color: #fff; 
+  padding: 10px;
+  color: #333;
+}
+
+#global-options button {
+  margin-top: 10px;
+  color: #A8A9AB;
+  font-size:14px;
+  text-align:left;
+  &:hover{
+    cursor:pointer;
+    text-decoration:underline;
+  }  
+}
+
 
 
 #fastSearch { 
@@ -187,6 +188,8 @@ body{
   font-size:14px;
   border-bottom:1px solid $graydiv;
   #titlebar-innercontainer{
+    display:flex;
+    flex-flow: row nowrap;
     white-space: nowrap !important;
     overflow: hidden !important;
     text-overflow: ellipsis;    
@@ -214,6 +217,9 @@ body{
     width:40px;
     height:100%;
     border-left: 1px solid $graydiv;
+    &:hover{
+      background-color: #fafafa;
+    };
     &::after {
       content: '\2807';
       font-size: 24px;
@@ -227,7 +233,6 @@ body{
  &:hover{
   opacity:.65;
   background-color: $graybg;
-  content: "Edit Author";
  }
 }
 
@@ -241,6 +246,37 @@ body{
 
 [contenteditable=true]:empty:before{
   content: attr(placeholder);
+}
+
+.dropdown{
+  position:absolute;
+  color: #333;
+  border: 1px solid #9DB8BF;
+  box-shadow: 1px 3px 8px rgba(0,0,0,.15);  
+}
+
+
+#titlebar-dropdown{
+  position: absolute;
+  right: 0px;
+  top: 40px;
+  display:none;
+  background-color: #fff;
+  padding: 10px;
+  #titlebar-delete{
+    &:hover{
+      cursor:pointer;
+      color:red;
+    };
+  }
+}
+
+#titlebar-dropdown.on {
+  position: absolute;
+  display:block;
+  background-color: #fff; 
+  padding: 10px;
+  color: #333;
 }
 
 #capture-helper{
@@ -323,7 +359,6 @@ body{
 
 .comment:focus{
   outline:none;
-  // border: 1px solid #9DB8BF;
   box-shadow: inset 0px 0px 0px 1px #9DB8BF;
 }
 

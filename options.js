@@ -569,6 +569,39 @@ document.addEventListener("DOMContentLoaded", function(){
   $(".comment").resizable();
 });
 
+document.addEventListener("DOMContentLoaded", function(){
+    var articleOptions = document.getElementById("titlebar-options");
+    var dropdown = document.getElementById("titlebar-dropdown");
+
+    var addMenu = function addDropDownMenu() {
+      dropdown.classList.add("on");
+    };
+    var removeMenu = function removeDropDownMenu() {
+      dropdown.classList.remove("on");
+    };
+    articleOptions.addEventListener("mouseover", addMenu);
+    articleOptions.addEventListener("mouseout", removeMenu);
+});
+
+document.addEventListener("DOMContentLoaded", function(){
+    var globalOptions = document.getElementById("global-options-button");
+    var dropdown = document.getElementById("global-options");
+
+    var addMenu = function addDropDownMenu() {
+      dropdown.classList.add("on");
+    };
+    var removeMenu = function removeDropDownMenu() {
+      dropdown.classList.remove("on");
+    };
+    // Add mouse over event to show menu
+    globalOptions.addEventListener("mouseover", addMenu);
+    // Add mouse out event to remove menu
+    globalOptions.addEventListener("mouseout", removeMenu);
+});
+
+
+
+
 // $("#leftnav").resizable({
 //     // only use the eastern handle
 //     handles: 'e',
