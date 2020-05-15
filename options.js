@@ -132,6 +132,7 @@ document.addEventListener("DOMContentLoaded", function(){
       newDiv.querySelector(".portal-container-519256").style.margin = "0px 0px 0px 0px";
       document.getElementById("panel-scrollContainer").appendChild(newDiv);
 
+      //stop the "go to text" element rendering in the image
       document.getElementById("copyimage").querySelector(".portal-backlink-519256").setAttribute("data-html2canvas-ignore", "true");
 
       var title = document.getElementById("copyimage").querySelector(".title-wrapper-519256");
