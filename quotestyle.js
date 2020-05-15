@@ -108,4 +108,26 @@ var quoteStyle  = `.portal-container-519256 {
           opacity: .5 !important; }
         .portal-container-519256 .portal-head-519256 .portal-backlink-519256 .portal-arrow-519256:visited {
           text-decoration: none !important; }
+
+.portal-content-519256 a {
+  color: #464A4D;
+  -webkit-transition: opacity 0.2s ease;
+  -moz-transition: opacity 0.2s ease;
+  -ms-transition: opacity 0.2s ease;
+  -o-transition: opacity 0.2s ease;
+  transition: opacity 0.2s ease; }
+  .portal-content-519256 a:hover {
+    opacity: .5; }
+.portal-content-519256 p {
+  margin: 0px; }
+.portal-content-519256 img {
+  width: 100%;
+  height: auto;
+  margin: .5em 0em; }
+.portal-content-519256 blockquote {
+  border-left: 2px solid #C2DFE3;
+  padding-left: .75em;
+  margin-inline-start: 1em;
+  color: #5C6D73; }
+  
 `

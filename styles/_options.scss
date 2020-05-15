@@ -376,12 +376,14 @@ body{
 }
 
 .linkback{
-  color:#B8B8B8;
-  float:left;
-  text-decoration:underline;
-  margin-left:15px;
-  &:visited{
+  a{
     color:#B8B8B8;
+    float:left;
+    text-decoration:underline;
+    margin-left:15px;
+    &:visited{
+      color:#B8B8B8;
+    }
   }
 }
 
