@@ -96,6 +96,9 @@ input,button{
     opacity: 1;
     background-color:rgba(194,223,227,.25);
   }
+  &:focus{
+    outline:none;
+  }
 }
 
 #getlink{
@@ -111,7 +114,7 @@ input,button{
 }  
 
 #close-button{
-  width:100px;
+  width:50%;
 }
 
 

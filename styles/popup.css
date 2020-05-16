@@ -85,6 +85,8 @@ input, button {
     cursor: pointer;
     opacity: 1;
     background-color: rgba(194, 223, 227, 0.25); }
+  .control-button:focus {
+    outline: none; }
 
 #getlink {
   padding: 0px;
@@ -97,7 +99,7 @@ input, button {
   border-right: 1px solid #C2DFE3; }
 
 #close-button {
-  width: 100px; }
+  width: 50%; }
 
 .save-indicator {
   float: right;

@@ -227,14 +227,14 @@ chrome.storage.local.get([page], function(result) {
 
     function txtAreaListenFocus(){
         var txtArea = p.querySelector('#comment-field'); // changed
-        // var authorArea = p.querySelector('#author-field'); // changed
-        // var titleArea = p.querySelector('#title-field'); // changed
-        // authorArea.addEventListener('focus', function(event) {
-        //     textfocus = true;
-        // }.bind(this));
-        // titleArea.addEventListener('focus', function(event) {
-        // textfocus = true;
-        // }.bind(this));
+        var authorArea = p.querySelector('#author-field'); // changed
+        var titleArea = p.querySelector('#title-field'); // changed
+        authorArea.addEventListener('focus', function(event) {
+            textfocus = true;
+        }.bind(this));
+        titleArea.addEventListener('focus', function(event) {
+        textfocus = true;
+        }.bind(this));
         txtArea.addEventListener('focus', function(event) {
         textfocus = true;
     }.bind(this));                               
@@ -242,17 +242,17 @@ chrome.storage.local.get([page], function(result) {
 
     function txtAreaListenBlur(){
         var txtArea = p.querySelector('#comment-field'); // changed
-        // var authorArea = p.querySelector('#author-field'); // changed
-        // var titleArea = p.querySelector('#title-field'); // changed
+        var authorArea = p.querySelector('#author-field'); // changed
+        var titleArea = p.querySelector('#title-field'); // changed
         txtArea.addEventListener('blur', function(event) {
         textfocus = false;
         }.bind(this));
-        // authorArea.addEventListener('blur', function(event) {
-        // textfocus = false;
-        // }.bind(this));
-        // titleArea.addEventListener('blur', function(event) {
-        // textfocus = false;
-        // }.bind(this));
+        authorArea.addEventListener('blur', function(event) {
+        textfocus = false;
+        }.bind(this));
+        titleArea.addEventListener('blur', function(event) {
+        textfocus = false;
+        }.bind(this));
     };                          
 
 

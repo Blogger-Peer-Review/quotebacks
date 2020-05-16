@@ -406,27 +406,31 @@ body {
       word-wrap: no-wrap; }
     .quote-container .quote-controls #delete {
       color: red; }
+      .quote-container .quote-controls #delete:hover {
+        color: black; }
     .quote-container .quote-controls #embedLink {
       color: #395FE5; }
+      .quote-container .quote-controls #embedLink:hover {
+        color: black; }
 
-.control-button {
+.options-control-button {
   border: none;
+  padding: 10px;
   text-align: left;
-  width: auto;
-  min-width: 85px;
-  height: 24px;
   font-size: 14px;
   font-weight: 500;
   font-family: inherit;
-  display: block;
-  -webkit-transition: all 0.2s ease;
-  -moz-transition: all 0.2s ease;
-  -ms-transition: all 0.2s ease;
-  -o-transition: all 0.2s ease;
-  transition: all 0.2s ease; }
-  .control-button:hover {
+  display: inline-block;
+  border-radius: 2px;
+  -webkit-transition: background-color 0.2s ease;
+  -moz-transition: background-color 0.2s ease;
+  -ms-transition: background-color 0.2s ease;
+  -o-transition: background-color 0.2s ease;
+  transition: background-color 0.2s ease; }
+  .options-control-button:hover {
     cursor: pointer;
-    opacity: .5; }
+    color: black;
+    background-color: rgba(194, 223, 227, 0.25); }
 
 .showcontrols {
   transform: translateX(10px);
@@ -603,6 +607,8 @@ input, button {
     cursor: pointer;
     opacity: 1;
     background-color: rgba(194, 223, 227, 0.25); }
+  .control-button:focus {
+    outline: none; }
 
 #getlink {
   padding: 0px;
@@ -615,7 +621,7 @@ input, button {
   border-right: 1px solid #C2DFE3; }
 
 #close-button {
-  width: 100px; }
+  width: 50%; }
 
 .save-indicator {
   float: right;

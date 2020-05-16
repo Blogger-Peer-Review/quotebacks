@@ -315,28 +315,34 @@ body{
     }
     #delete{
       color:red;
+      &:hover{
+        color:black;
+      }      
     }
     #embedLink{
       color: #395FE5;
+      &:hover{
+        color:black;
+      }
     }
   }
 }
 
 
-.control-button{
+.options-control-button{
   border:none;
+  padding:10px;
   text-align: left;
-  width:auto;  
-  min-width:85px;
-  height:24px;
   font-size:14px;
   font-weight:500;
   font-family:inherit;
-  display:block;
-  @include transition(all .20s ease);
+  display:inline-block;
+  border-radius:2px;
+  @include transition(background-color .20s ease);
   &:hover{
     cursor: pointer;
-    opacity:.5;
+    color: black;
+    background-color:rgba(194,223,227,.25);
   }
   #options-svg{
 

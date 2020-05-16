@@ -399,11 +399,11 @@ function displayquotes(url){
         <quoteback-component id="quoteback-component" url="${url}" text="${encodeURIComponent(item.text)}" author="${alldata[url].author}" title="${alldata[url].title}" favicon="https://s2.googleusercontent.com/s2/favicons?domain_url=${url}&size=64"> 
         </quoteback-component> 
         <div class="quote-controls">
-          <button id="embedLink" class="control-button"><> Embed</button>        
-          <button id="copyimg" class="control-button">Copy Image</button>        
-          <button id="copy" class="control-button">Copy Text</button>
-          <button id="copymd" class="control-button">Copy Markdown</button>
-          <button id="delete" class="control-button">Delete</button>        
+          <button id="embedLink" class="options-control-button"><> Embed</button>        
+          <button id="copyimg" class="options-control-button">Copy Image</button>        
+          <button id="copy" class="options-control-button">Copy Text</button>
+          <button id="copymd" class="options-control-button">Copy Markdown</button>
+          <button id="delete" class="options-control-button">Delete</button>        
         </div>
       </div>
     <div class="comment" contenteditable="true" ${item.comment ? "style='color:#464A4D'" : ""}}>${item.comment ? item.comment : "Add Comment"}</div>
