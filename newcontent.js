@@ -353,7 +353,7 @@ chrome.storage.local.get([page], function(result) {
         chrome.storage.local.set(object, function() { 
             console.log("autosaved");
             if(popup.querySelector(".save-indicator").innerText == "Saving..."){
-              popup.querySelector(".save-indicator").innerHTML = ; // changed
+              popup.querySelector(".save-indicator").innerHTML = "Saved"; // changed
               quote.querySelector(".portal-author-519256").innerHTML = author.value;
               quote.querySelector(".title-wrapper-519256").innerHTML = title.value;
           };
@@ -366,7 +366,7 @@ chrome.storage.local.get([page], function(result) {
             start: function(object){
           var popup = document.querySelector("quoteback-popup").shadowRoot;                 
           popup.addEventListener("keydown", function( event ) {
-              popup.querySelector(".save-indicator").innerText = "Saving..."; // changed
+              popup.querySelector(".save-indicator-519256").innerText = "Saving..."; // changed
           });            
     
                 if (timer != null){
