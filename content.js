@@ -110,6 +110,32 @@ document.addEventListener('keydown', function(event) {
 <div class="allquotes-519256"><a target="_blank" class="quoteslink-519256" href="${chrome.runtime.getURL("options.html")}#${page}">All Quotes<img src="${chrome.runtime.getURL("images/allquotes.png")}"></a></div>
 
 </div>
+
+
+
+
+<link rel="stylesheet" type="text/css" href="styles/styles.css">
+<div class="citation-capture" id="citation-capture">
+
+<quoteback-component url="${page_object["url"]}" text="${text}" author="${page_object["author"]}" title="${page_object["title"]}" favicon=""> 
+</quoteback-component> 
+
+  <div class="citation-tools">
+    <div class="comment-field">
+      <input class="citation-input" placeholder="Add comment"></input>    
+      <div class="save-indicator">Saved</div>
+    </div>
+    <div class="tools-buttons">
+      <button id="getlink" class="control-button"><> Embed</button>
+      <button id="getMarkdown" class="control-button">Copy Markdown</button>
+      <a target="_blank" id="quoteslink" class="control-button" href="${chrome.runtime.getURL("options.html")}#${page}">All Quotes<img src="${chrome.runtime.getURL("images/allquotes.png")}"></a>
+      <button id="close-button" class="control-button">Close</button>
+    </div>
+  </div>
+
+</div>
+
+
 `;
 
 var scriptObj = iframe.contentDocument.createElement("script");

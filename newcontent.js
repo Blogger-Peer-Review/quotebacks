@@ -76,34 +76,26 @@ chrome.storage.local.get([page], function(result) {
     const template = document.createElement('template');
     template.innerHTML=`
     <link rel="stylesheet" type="text/css" href="${chrome.runtime.getURL("styles/styles.css")}">
-    <div class="citation-capture-519256" id="citation-capture-519256">
-    <div class="citation-meta-519256">
-    <form>
-    <label class="citation-input-label-519256" for="Author">Author</label>
-    <input class="citation-input-519256" id="author-field" name="Author" value=""></input>
-    </form>
-    <form>
-    <label class="citation-input-label-519256" for="Title">Title</label>
-    <input class="citation-input-519256" id="title-field" name="Title" value=""></input>
-    </form>       
-    </div>
+    <div class="citation-capture" id="citation-capture">
 
-    <slot name="quoteback-component"></slot>
+    <quoteback-component url="${page_object["url"]}" text="${text}" author="${page_object["author"]}" title="${page_object["title"]}" favicon=""> 
+    </quoteback-component> 
 
-    <div class="citation-bottom-519256">
-    <div class="comment-519256">
-    <input class="citation-input-519256" id="comment-field-519256" placeholder="+ Add Comment"></input>    
-    <div class="save-indicator-519256">Saved</div>
+    <div class="citation-tools">
+    <div class="comment-field">
+    <input class="citation-input" placeholder="Add comment"></input>    
+      <div class="save-indicator">Saved</div>
     </div>
-    <div>
-    <button id="getlink-519256" class="control-button-519256"><> Embed</button>
-    <button id="close-button-519256" class="control-button-519256">Close</button>
+    <div class="tools-buttons">
+      <button id="getlink" class="control-button"><> Embed</button>
+      <button id="getMarkdown" class="control-button">Copy Markdown</button>
+      <a target="_blank" id="quoteslink" class="control-button" href="${chrome.runtime.getURL("options.html")}#${page}">All Quotes<img src="${chrome.runtime.getURL("images/allquotes.png")}"></a>
+      <button id="close-button" class="control-button">Close</button>
     </div>
     </div>
 
-    <div class="allquotes-519256"><a target="_blank" class="quoteslink-519256" href="${chrome.runtime.getURL("options.html")}#${page}">All Quotes<img src="${chrome.runtime.getURL("images/allquotes.png")}"></a></div>
-
-    </div>`;
+    </div>
+`;
 
     class QuotebackPopup extends HTMLElement {
     constructor(){
@@ -147,7 +139,7 @@ chrome.storage.local.get([page], function(result) {
     //
     // COPY EMBED //
     var p = document.querySelector("quoteback-popup").shadowRoot;
-    p.querySelector("#getlink-519256").addEventListener("click", function(event) {
+    p.querySelector("#getlink").addEventListener("click", function(event) {
     var embed = `<blockquote class="quoteback" data-title="${page_object["title"]}" data-author="${page_object["author"]}" cite="${page_object["url"]}">
 <p>${text}</p>
 <footer>${page_object["author"]} <cite><a href="${page_object["url"]}">${page_object["url"]}</a></cite></footer>
@@ -155,16 +147,16 @@ chrome.storage.local.get([page], function(result) {
 </blockquote>`;
 
     copyToClipboard(embed);
-    console.log(p.querySelector("#getlink-519256"));
-    p.querySelector("#getlink-519256").innerHTML = "Copied!";
+    console.log(p.querySelector("#getlink"));
+    p.querySelector("#getlink").innerHTML = "Copied!";
     setTimeout(function() {
-        p.querySelector("#getlink-519256").innerHTML = "<> Embed";
+        p.querySelector("#getlink").innerHTML = "<> Embed";
     }, 1000);
     });
 
 
     // SAVE & CLOSE //
-    p.querySelector("#close-button-519256").addEventListener("click", function(event) {
+    p.querySelector("#close-button").addEventListener("click", function(event) {
     var paras = popup;
     if (paras){
         paras.parentNode.removeChild(paras);
@@ -174,7 +166,7 @@ chrome.storage.local.get([page], function(result) {
     });
 
     // Close popup on "all quotes" button
-    p.querySelector(".quoteslink-519256").addEventListener("click", function(event) {
+    p.querySelector(".quoteslink").addEventListener("click", function(event) {
     var paras = popup;
     if (paras){
         paras.parentNode.removeChild(paras);
@@ -234,7 +226,7 @@ chrome.storage.local.get([page], function(result) {
     }, 1000);
 
     function txtAreaListenFocus(){
-        var txtArea = p.querySelector('#comment-field-519256'); // changed
+        var txtArea = p.querySelector('#comment-field'); // changed
         var authorArea = p.querySelector('#author-field'); // changed
         var titleArea = p.querySelector('#title-field'); // changed
         authorArea.addEventListener('focus', function(event) {
@@ -249,7 +241,7 @@ chrome.storage.local.get([page], function(result) {
     };
 
     function txtAreaListenBlur(){
-        var txtArea = p.querySelector('#comment-field-519256'); // changed
+        var txtArea = p.querySelector('#comment-field'); // changed
         var authorArea = p.querySelector('#author-field'); // changed
         var titleArea = p.querySelector('#title-field'); // changed
         txtArea.addEventListener('blur', function(event) {
@@ -348,7 +340,7 @@ chrome.storage.local.get([page], function(result) {
         // console.log("running save");
         var popup = document.querySelector("quoteback-popup").shadowRoot;
         var quote = document.querySelector("quoteback-component").shadowRoot;
-        var commentbox = popup.querySelector("#comment-field-519256");
+        var commentbox = popup.querySelector("#comment-field");
         var title = popup.querySelector("#title-field")
         var author = popup.querySelector("#author-field");
     
@@ -360,8 +352,8 @@ chrome.storage.local.get([page], function(result) {
     
         chrome.storage.local.set(object, function() { 
             console.log("autosaved");
-            if(popup.querySelector(".save-indicator-519256").innerText == "Saving..."){
-              popup.querySelector(".save-indicator-519256").innerHTML = "<span style='color:green'>Saved</span>"; // changed
+            if(popup.querySelector(".save-indicator").innerText == "Saving..."){
+              popup.querySelector(".save-indicator").innerHTML = ; // changed
               quote.querySelector(".portal-author-519256").innerHTML = author.value;
               quote.querySelector(".title-wrapper-519256").innerHTML = title.value;
           };
@@ -374,7 +366,7 @@ chrome.storage.local.get([page], function(result) {
             start: function(object){
           var popup = document.querySelector("quoteback-popup").shadowRoot;                 
           popup.addEventListener("keydown", function( event ) {
-              popup.querySelector(".save-indicator-519256").innerText = "Saving..."; // changed
+              popup.querySelector(".save-indicator").innerText = "Saving..."; // changed
           });            
     
                 if (timer != null){
