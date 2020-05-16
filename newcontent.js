@@ -109,22 +109,22 @@ chrome.storage.local.get([page], function(result) {
         this.favicon = this.getAttribute('favicon');
     };
 
-    set author(value) {
-        this._author = value;
-        if (this.shadowRoot)
-        this.shadowRoot.querySelector('#author-field').value = value;
-    };
-    get author() {
-        return this._author;
-    };  
-    set title(value) {
-        this._title = value;
-        if (this.shadowRoot)
-        this.shadowRoot.querySelector('#title-field').value = value;
-    };
-    get title() {
-        return this._title;
-    };
+    // set author(value) {
+    //     this._author = value;
+    //     if (this.shadowRoot)
+    //     this.shadowRoot.querySelector('#author-field').value = value;
+    // };
+    // get author() {
+    //     return this._author;
+    // };  
+    // set title(value) {
+    //     this._title = value;
+    //     if (this.shadowRoot)
+    //     this.shadowRoot.querySelector('#title-field').value = value;
+    // };
+    // get title() {
+    //     return this._title;
+    // };
     }
 
     if (customElements.get('quoteback-popup')){
@@ -166,7 +166,7 @@ chrome.storage.local.get([page], function(result) {
     });
 
     // Close popup on "all quotes" button
-    p.querySelector(".quoteslink").addEventListener("click", function(event) {
+    p.querySelector("#quoteslink").addEventListener("click", function(event) {
     var paras = popup;
     if (paras){
         paras.parentNode.removeChild(paras);
@@ -227,14 +227,14 @@ chrome.storage.local.get([page], function(result) {
 
     function txtAreaListenFocus(){
         var txtArea = p.querySelector('#comment-field'); // changed
-        var authorArea = p.querySelector('#author-field'); // changed
-        var titleArea = p.querySelector('#title-field'); // changed
-        authorArea.addEventListener('focus', function(event) {
-            textfocus = true;
-        }.bind(this));
-        titleArea.addEventListener('focus', function(event) {
-        textfocus = true;
-        }.bind(this));
+        // var authorArea = p.querySelector('#author-field'); // changed
+        // var titleArea = p.querySelector('#title-field'); // changed
+        // authorArea.addEventListener('focus', function(event) {
+        //     textfocus = true;
+        // }.bind(this));
+        // titleArea.addEventListener('focus', function(event) {
+        // textfocus = true;
+        // }.bind(this));
         txtArea.addEventListener('focus', function(event) {
         textfocus = true;
     }.bind(this));                               
@@ -242,17 +242,17 @@ chrome.storage.local.get([page], function(result) {
 
     function txtAreaListenBlur(){
         var txtArea = p.querySelector('#comment-field'); // changed
-        var authorArea = p.querySelector('#author-field'); // changed
-        var titleArea = p.querySelector('#title-field'); // changed
+        // var authorArea = p.querySelector('#author-field'); // changed
+        // var titleArea = p.querySelector('#title-field'); // changed
         txtArea.addEventListener('blur', function(event) {
         textfocus = false;
         }.bind(this));
-        authorArea.addEventListener('blur', function(event) {
-        textfocus = false;
-        }.bind(this));
-        titleArea.addEventListener('blur', function(event) {
-        textfocus = false;
-        }.bind(this));
+        // authorArea.addEventListener('blur', function(event) {
+        // textfocus = false;
+        // }.bind(this));
+        // titleArea.addEventListener('blur', function(event) {
+        // textfocus = false;
+        // }.bind(this));
     };                          
 
 
