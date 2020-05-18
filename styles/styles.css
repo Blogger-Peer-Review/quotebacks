@@ -142,6 +142,13 @@ body {
   margin: 0px;
   padding: 0px; }
 
+#pagetitle {
+  float: left;
+  color: #253237;
+  opacity: .5;
+  line-height: 33px;
+  margin-left: 12px; }
+
 #nav {
   border: 1px solid #d5d5d5;
   box-sizing: border-box;
@@ -247,11 +254,15 @@ body {
   color: black;
   text-decoration: none !important;
   padding: 10px;
-  display: inline-block; }
-
-#searchResults a:hover, a:focus {
-  outline: 0;
-  background-color: #ECEEEF; }
+  display: inline-block;
+  -webkit-transition: all 0.1s ease;
+  -moz-transition: all 0.1s ease;
+  -ms-transition: all 0.1s ease;
+  -o-transition: all 0.1s ease;
+  transition: all 0.1s ease; }
+  #searchResults a:hover {
+    outline: 0;
+    background-color: #ECEEEF; }
 
 #appcontainer {
   position: fixed;
@@ -505,13 +516,8 @@ body {
       padding-right: 5px;
       vertical-align: bottom; }
 
-.mini-favicon {
-  margin-right: 6px;
-  width: 16px;
-  height: 16px;
-  margin: 1px 12px 0px 0px; }
-
 .selected {
+  border-right: 1px solid #2162AF;
   border-left: 4px solid #2162AF;
   background-color: white; }
   .selected .title {
@@ -519,6 +525,12 @@ body {
   .selected .url {
     color: #2162AF;
     opacity: 1; }
+
+.mini-favicon {
+  margin-right: 6px;
+  width: 16px;
+  height: 16px;
+  margin: 1px 12px 0px 0px; }
 
 input, button {
   border: none;

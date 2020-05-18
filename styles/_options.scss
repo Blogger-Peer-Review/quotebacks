@@ -10,6 +10,14 @@ body{
   padding:0px;
 }
 
+#pagetitle{
+  float:left;
+  color: #253237;
+  opacity: .5; 
+  line-height:33px; 
+  margin-left: 12px;
+}
+
 #nav{
   border: 1px solid $graydiv;
   box-sizing: border-box;
@@ -119,11 +127,22 @@ body{
   background:white; 
   border-bottom: 1px solid $graydiv;
 }
-  #searchResults li .title { font-size: 1.1em; margin-bottom: 10px; display: inline-block;}
+#searchResults li .title { 
+  font-size: 1.1em; 
+  margin-bottom: 10px; 
+  display: inline-block;
+}
 
-#searchResults a { color:black;text-decoration: none !important; padding: 10px; display: inline-block; }
-#searchResults a:hover, a:focus { outline: 0; background-color: #ECEEEF; }
-
+#searchResults a{
+  color:black;
+  text-decoration: none !important;
+  padding: 10px;
+  display: inline-block;
+  @include transition(all .1s ease);
+  &:hover{
+    outline: 0; background-color: #ECEEEF;
+  }
+}
 
 #appcontainer{
   position:fixed;
@@ -431,14 +450,8 @@ body{
   }  
 }
 
-.mini-favicon{
-  margin-right: 6px;
-  width:16px;
-  height:16px;
-  margin: 1px 12px 0px 0px;
-}
-
 .selected{
+  border-right:1px solid $selection;
   border-left:4px solid $selection;
   background-color: white;
   .title{
@@ -449,4 +462,13 @@ body{
     opacity: 1;
   }  
 }
+
+.mini-favicon{
+  margin-right: 6px;
+  width:16px;
+  height:16px;
+  margin: 1px 12px 0px 0px;
+}
+
+
 

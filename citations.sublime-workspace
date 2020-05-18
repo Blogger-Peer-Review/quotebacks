@@ -4,6 +4,26 @@
 		"selected_items":
 		[
 			[
+				"background",
+				"background-color"
+			],
+			[
+				"wrap",
+				"word-wrap\tproperty"
+			],
+			[
+				"list-stye",
+				"list-style-type\tproperty"
+			],
+			[
+				"create",
+				"createElement"
+			],
+			[
+				"d",
+				"d"
+			],
+			[
 				"quote",
 				"quoteback-component"
 			],
@@ -130,10 +150,6 @@
 			[
 				"backgroun",
 				"background-color"
-			],
-			[
-				"background",
-				"background-position"
 			],
 			[
 				"text-",
@@ -296,18 +312,20 @@
 	"buffers":
 	[
 		{
-			"file": "styles/quote.scss",
+			"file": "fastsearch.js",
 			"settings":
 			{
-				"buffer_size": 3996,
+				"buffer_size": 6879,
+				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "content.js",
+			"file": "styles/_options.scss",
 			"settings":
 			{
-				"buffer_size": 13512,
+				"buffer_size": 7942,
+				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
 		},
@@ -315,7 +333,25 @@
 			"file": "options.html",
 			"settings":
 			{
-				"buffer_size": 1952,
+				"buffer_size": 3258,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "styles/quoteback.css",
+			"settings":
+			{
+				"buffer_size": 5117,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "quotestyle.js",
+			"settings":
+			{
+				"buffer_size": 5138,
+				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
 		}
@@ -546,40 +582,46 @@
 	[
 		"/Users/tobyshorin/Documents/Work/2020/Citations-Magic",
 		"/Users/tobyshorin/Documents/Work/2020/Citations-Magic/.vscode",
-		"/Users/tobyshorin/Documents/Work/2020/Citations-Magic/styles"
+		"/Users/tobyshorin/Documents/Work/2020/Citations-Magic/styles",
+		"/Users/tobyshorin/Documents/Work/2020/Citations-Magic/styles/.sass-cache"
 	],
 	"file_history":
 	[
-		"/Users/tobyshorin/Documents/Work/2020/Citations-Magic/quoteback.js",
+		"/Users/tobyshorin/Documents/Work/2020/Citations-Magic/styles/quoteback.scss",
+		"/Users/tobyshorin/Documents/Work/2020/Citations-Magic/styles/quote.scss",
+		"/Users/tobyshorin/Documents/Work/2020/Citations-Magic/styles/quote.css",
+		"/Users/tobyshorin/Documents/Work/2020/Citations-Magic/newcontent.js",
+		"/Users/tobyshorin/Documents/Work/2020/Citations-Magic/styles/_options.scss",
+		"/Users/tobyshorin/Documents/Work/2020/Citations-Magic/styles/styles.scss",
+		"/Users/tobyshorin/Documents/Work/2020/Citations-Magic/styles/popup.scss",
+		"/Users/tobyshorin/Documents/Work/2020/Citations-Magic/test-webc.html",
 		"/Users/tobyshorin/Documents/Work/2020/Citations-Magic/options.js",
+		"/Users/tobyshorin/Documents/Work/2020/Citations-Magic/content.js",
+		"/Users/tobyshorin/Documents/Work/2020/Citations-Magic/options.html",
+		"/Users/tobyshorin/Documents/Work/2020/Citations-Magic/quotestyle.js",
+		"/Users/tobyshorin/Documents/Work/2020/Citations-Magic/styles/quoteback.css",
+		"/Users/tobyshorin/Documents/Work/2020/Citations-Magic/manifest.json",
+		"/Users/tobyshorin/Documents/Work/2020/Citations-Magic/styles/quote.css.map",
+		"/Users/tobyshorin/Downloads/14-5-2020-quoteback.json",
+		"/Users/tobyshorin/Documents/Work/2020/Citations-Magic/background.js",
+		"/Users/tobyshorin/Documents/Work/2020/Citations-Magic/quoteback-internal.js",
+		"/Users/tobyshorin/Documents/Work/2020/Citations-Magic/quoteback.js",
 		"/Users/tobyshorin/Documents/Work/2020/Citations-Magic/altcontent.js",
 		"/Users/tobyshorin/Documents/Work/2020/Citations-Magic/.git/hooks/fsmonitor-watchman.sample",
-		"/Users/tobyshorin/Documents/Work/2020/Citations-Magic/styles/_options.scss",
-		"/Users/tobyshorin/Documents/Work/2020/Citations-Magic/styles/quote.css",
-		"/Users/tobyshorin/Documents/Work/2020/Citations-Magic/quoteback-internal.js",
-		"/Users/tobyshorin/Documents/Work/2020/Citations-Magic/quotestyle.js",
-		"/Users/tobyshorin/Documents/Work/2020/Citations-Magic/styles/quoteback.scss",
-		"/Users/tobyshorin/Documents/Work/2020/Citations-Magic/content.js",
-		"/Users/tobyshorin/Documents/Work/2020/Citations-Magic/manifest.json",
-		"/Users/tobyshorin/Documents/Work/2020/Citations-Magic/options.html",
 		"/Users/tobyshorin/Documents/Work/2020/Citations-Magic/embedpreview.html",
 		"/Users/tobyshorin/Documents/Work/2020/Citations-Magic/embed.html",
 		"/Users/tobyshorin/Documents/Work/2020/Citations-Magic/embed-test.js",
 		"/Users/tobyshorin/Documents/Work/2020/Citations-Magic/test-embed.html",
 		"/Users/tobyshorin/Documents/Work/2020/Citations-Magic/styles/options.css",
 		"/Users/tobyshorin/Documents/Work/2020/Citations-Magic/styletest.js",
-		"/Users/tobyshorin/Documents/Work/2020/Citations-Magic/styles/quote.scss",
-		"/Users/tobyshorin/Documents/Work/2020/Citations-Magic/test-webc.html",
 		"/Users/tobyshorin/Documents/Work/2020/Citations-Magic/webcomponents-sd-ce.js",
 		"/Users/tobyshorin/Documents/Work/2020/Citations-Magic/styletest.css",
 		"/Users/tobyshorin/Documents/Work/2020/Citations-Magic/quoteback.scss",
-		"/Users/tobyshorin/Documents/Work/2020/Citations-Magic/styles/popup.scss",
 		"/Users/tobyshorin/Documents/Work/2020/Citations-Magic/styles/styles.css",
 		"/Users/tobyshorin/Documents/Work/2020/Citations-Magic/styles.css",
 		"/Users/tobyshorin/Documents/Work/2020/Citations-Magic/welcome.html",
 		"/Users/tobyshorin/Documents/Work/2020/Citations-Magic/styles/welcome.scss",
 		"/Users/tobyshorin/Documents/Work/2020/Citations-Magic/now.json",
-		"/Users/tobyshorin/Documents/Work/2020/Citations-Magic/styles/styles.scss",
 		"/Users/tobyshorin/Documents/Work/2020/Citations-Magic/images/android-chrome-512x512.png",
 		"/Users/tobyshorin/Library/Application Support/Sublime Text 3/Packages/User/SublimeOnSaveBuild.sublime-settings",
 		"/Users/tobyshorin/Library/Application Support/Google/Chrome/Default/Extensions/fhckbdfnalikpmcmcpcpkkdlhabngbod/0.0.0.6_0/javascripts/background.js",
@@ -672,16 +714,11 @@
 		"/Users/tobyshorin/Desktop/jtbd.md",
 		"/Users/tobyshorin/Documents/Work/Subpixel Space/subpixel-space/_entries/our-jobs-to-be-done.markdown",
 		"/Users/tobyshorin/Documents/Work/Subpixel Space/subpixel-space/_entries/the-desire-for-full-automation.markdown",
-		"/Users/tobyshorin/Documents/Work/Subpixel Space/subpixel-space/_includes/frame-speaking-info.html",
-		"/Users/tobyshorin/Documents/Work/Subpixel Space/subpixel-space/_sass/_topnav.scss",
-		"/Users/tobyshorin/Documents/Work/Subpixel Space/subpixel-space/_includes/topnav.html",
-		"/Users/tobyshorin/Documents/Work/Subpixel Space/subpixel-space/_workshops/lifestyle-brand.markdown",
-		"/Users/tobyshorin/Documents/Work/Subpixel Space/subpixel-space/_sass/_universal-menu.scss",
-		"/Users/tobyshorin/Documents/Work/Subpixel Space/subpixel-space/_sass/_newera.scss"
+		"/Users/tobyshorin/Documents/Work/Subpixel Space/subpixel-space/_includes/frame-speaking-info.html"
 	],
 	"find":
 	{
-		"height": 24.0
+		"height": 38.0
 	},
 	"find_in_files":
 	{
@@ -695,6 +732,25 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"article",
+			"nav",
+			"article",
+			"searchresults",
+			"favicon",
+			"link",
+			"buttons",
+			"popup",
+			"quoteslink",
+			"quoteback-popup",
+			"citation-capture",
+			"519256",
+			"input",
+			"meta",
+			"tools",
+			"getselectiontext",
+			"getselection",
+			"befor",
+			"after",
 			"copyimg",
 			"copytoclipboard",
 			"copy",
@@ -803,26 +859,7 @@
 			"event",
 			"getl",
 			"getlink",
-			"title",
-			";",
-			"mini-favic",
-			"displayquotes(",
-			"scroll",
-			"#d5d5d5",
-			"d5d5d5",
-			"graydiv",
-			"gryadiv",
-			"avatar",
-			"title",
-			"getlink",
-			"embed",
-			"mini-favicon",
-			"displayquotes",
-			"titlebar",
-			"mini-favicon",
-			"displayquotes",
-			"container",
-			"src"
+			"title"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -840,58 +877,24 @@
 	"groups":
 	[
 		{
-			"selected": 0,
+			"selected": 1,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "styles/quote.scss",
+					"file": "fastsearch.js",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 3996,
+						"buffer_size": 6879,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								607,
-								607
-							]
-						],
-						"settings":
-						{
-							"color_scheme": "Packages/User/Color Highlighter/themes/Afterglow-twilight.tmTheme",
-							"incomplete_sync": null,
-							"remote_loading": false,
-							"synced": false,
-							"syntax": "Packages/SCSS/SCSS.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 0,
-					"type": "text"
-				},
-				{
-					"buffer": 1,
-					"file": "content.js",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 13512,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								5647,
-								5647
+								0,
+								0
 							]
 						],
 						"settings":
@@ -907,7 +910,41 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 2,
+					"stack_index": 4,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "styles/_options.scss",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 7942,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								364,
+								364
+							]
+						],
+						"settings":
+						{
+							"color_scheme": "Packages/User/Color Highlighter/themes/Afterglow-twilight.tmTheme",
+							"incomplete_sync": null,
+							"remote_loading": false,
+							"synced": false,
+							"syntax": "Packages/SCSS/SCSS.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
 					"type": "text"
 				},
 				{
@@ -916,15 +953,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1952,
+						"buffer_size": 3258,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1516,
-								1516
+								477,
+								477
 							]
 						],
 						"settings":
@@ -937,10 +974,77 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 49.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "styles/quoteback.css",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 5117,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								5072,
+								4093
+							]
+						],
+						"settings":
+						{
+							"color_scheme": "Packages/User/Color Highlighter/themes/Afterglow-twilight.tmTheme",
+							"incomplete_sync": null,
+							"remote_loading": false,
+							"synced": false,
+							"syntax": "Packages/CSS/CSS.sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 1583.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "quotestyle.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 5138,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								5092,
+								5092
+							]
+						],
+						"settings":
+						{
+							"incomplete_sync": null,
+							"remote_loading": false,
+							"synced": false,
+							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 1569.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
 					"type": "text"
 				}
 			]
@@ -1003,8 +1107,120 @@
 		"selected_items":
 		[
 			[
+				"options",
+				"styles/_options.scss"
+			],
+			[
+				"quotest",
+				"quotestyle.js"
+			],
+			[
+				"quotebac",
+				"styles/quoteback.css"
+			],
+			[
+				"quote",
+				"styles/quote.scss"
+			],
+			[
+				"quoteback",
+				"styles/quoteback.scss"
+			],
+			[
+				"option",
+				"styles/_options.scss"
+			],
+			[
+				"",
+				"fastsearch.js"
+			],
+			[
+				"op",
+				"options.html"
+			],
+			[
+				"fast",
+				"fastsearch.js"
+			],
+			[
+				"ne",
+				"newcontent.js"
+			],
+			[
 				"conte",
 				"content.js"
+			],
+			[
+				"optio",
+				"options.js"
+			],
+			[
+				"opti",
+				"styles/_options.scss"
+			],
+			[
+				"sty",
+				"styles/styles.scss"
+			],
+			[
+				"new",
+				"newcontent.js"
+			],
+			[
+				"cont",
+				"content.js"
+			],
+			[
+				"quote.sc",
+				"styles/quote.scss"
+			],
+			[
+				"pop",
+				"styles/popup.scss"
+			],
+			[
+				"test-",
+				"test-webc.html"
+			],
+			[
+				"con",
+				"content.js"
+			],
+			[
+				"popup",
+				"styles/popup.scss"
+			],
+			[
+				"newc",
+				"newcontent.js"
+			],
+			[
+				"quotestyl",
+				"quotestyle.js"
+			],
+			[
+				"quoteb",
+				"styles/quoteback.scss"
+			],
+			[
+				"quoeb",
+				"styles/quoteback.css"
+			],
+			[
+				"styl",
+				"styles/styles.scss"
+			],
+			[
+				"ooi",
+				"options.js"
+			],
+			[
+				"backg",
+				"background.js"
+			],
+			[
+				"manif",
+				"manifest.json"
 			],
 			[
 				"alt",
@@ -1015,16 +1231,8 @@
 				"quoteback.js"
 			],
 			[
-				"quote",
-				"quoteback.js"
-			],
-			[
 				"now",
 				".git/hooks/fsmonitor-watchman.sample"
-			],
-			[
-				"option",
-				"styles/_options.scss"
 			],
 			[
 				"quote.",
@@ -1035,16 +1243,8 @@
 				"styles/quote.scss"
 			],
 			[
-				"quoteback",
-				"styles/quoteback.scss"
-			],
-			[
 				"conten",
 				"content.js"
-			],
-			[
-				"quotestyl",
-				"quotestyle.js"
 			],
 			[
 				"quoestyl",
@@ -1055,36 +1255,16 @@
 				"manifest.json"
 			],
 			[
-				"quotebac",
-				"quoteback.js"
-			],
-			[
 				"embe",
 				"embed.html"
-			],
-			[
-				"options",
-				"styles/_options.scss"
 			],
 			[
 				"quob",
 				"quoteback-internal.js"
 			],
 			[
-				"cont",
-				"content.js"
-			],
-			[
-				"optio",
-				"options.js"
-			],
-			[
 				"test",
 				"test-webc.html"
-			],
-			[
-				"con",
-				"content.js"
 			],
 			[
 				"styletes",
@@ -1103,32 +1283,12 @@
 				"manifest.json"
 			],
 			[
-				"quoteb",
-				"quoteback-internal.js"
-			],
-			[
 				"quo",
 				"styles/quote.scss"
 			],
 			[
-				"op",
-				"options.html"
-			],
-			[
 				"test-web",
 				"test-webc.html"
-			],
-			[
-				"sty",
-				"styletest.js"
-			],
-			[
-				"opti",
-				"options.html"
-			],
-			[
-				"quote.sc",
-				"styles/quote.scss"
 			],
 			[
 				"OPT",
@@ -1136,14 +1296,6 @@
 			],
 			[
 				"webc",
-				"test-webc.html"
-			],
-			[
-				"popup",
-				"styles/popup.scss"
-			],
-			[
-				"test-",
 				"test-webc.html"
 			],
 			[
@@ -1199,10 +1351,6 @@
 				"styles/_options.scss"
 			],
 			[
-				"pop",
-				"styles/popup.scss"
-			],
-			[
 				"welco",
 				"welcome.html"
 			],
@@ -1235,10 +1383,6 @@
 				"styles/citation-namespace.css"
 			],
 			[
-				"styl",
-				"styles/styles.scss"
-			],
-			[
 				"name",
 				"styles/citation-namespace.scss"
 			],
@@ -1263,10 +1407,6 @@
 				"styles/popup.css"
 			],
 			[
-				"manif",
-				"manifest.json"
-			],
-			[
 				"c",
 				"content.js"
 			],
@@ -1281,10 +1421,6 @@
 			[
 				"em",
 				"embed.html"
-			],
-			[
-				"fast",
-				"fastsearch.js"
 			],
 			[
 				"o",
@@ -1427,10 +1563,6 @@
 				"_includes/portal.html"
 			],
 			[
-				"",
-				"_entries/diminishing-marginal-aesthetic-value.markdown"
-			],
-			[
 				"premonition.",
 				"_site/entries/premonition/index.html"
 			],
@@ -1485,34 +1617,6 @@
 			[
 				"compon",
 				"_layouts/components.html"
-			],
-			[
-				"highligh",
-				"_sass/_highlight.scss"
-			],
-			[
-				"building",
-				"_entries/building-for-the-culture.markdown"
-			],
-			[
-				"gem",
-				"gemfile"
-			],
-			[
-				"font",
-				"_sass/_fonts.scss"
-			],
-			[
-				"scss",
-				"css/main.scss"
-			],
-			[
-				"gemf",
-				"gemfile"
-			],
-			[
-				"psychol",
-				"_entries/notes-on-comparative-psychology.markdown"
 			]
 		],
 		"width": 0.0
@@ -1543,7 +1647,7 @@
 	"show_open_files": true,
 	"show_tabs": true,
 	"side_bar_visible": true,
-	"side_bar_width": 267.0,
+	"side_bar_width": 260.0,
 	"status_bar_visible": true,
 	"template_settings":
 	{

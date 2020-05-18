@@ -109,6 +109,7 @@ var quoteStyle  = `.portal-container-519256 {
         .portal-container-519256 .portal-head-519256 .portal-backlink-519256 .portal-arrow-519256:visited {
           text-decoration: none !important; }
 
+
 .portal-content-519256 a {
   color: #464A4D;
   -webkit-transition: opacity 0.2s ease;
@@ -119,7 +120,10 @@ var quoteStyle  = `.portal-container-519256 {
   .portal-content-519256 a:hover {
     opacity: .5; }
 .portal-content-519256 p {
-  margin: 0px; }
+  margin-block-start: 0px;
+  margin-block-end: .5em; }
+  .portal-content-519256 p:last-of-type {
+    margin-block-end: 0px; }
 .portal-content-519256 img {
   width: 100%;
   height: auto;
@@ -134,5 +138,8 @@ var quoteStyle  = `.portal-container-519256 {
   margin-block-end: .5em; }
 .portal-content-519256 h1, .portal-content-519256 h2, .portal-content-519256 h3 {
   margin-block-start: .5em;
-  margin-block-end: .5em; }  
+  margin-block-end: .5em; }
+
+/*# sourceMappingURL=quoteback.css.map */
+
 `
