@@ -25,12 +25,12 @@ function embedquoteback(){
       this.attachShadow({mode: 'open'});
       this.shadowRoot.appendChild(template.content.cloneNode(true));
 		  
-			this.text = decodeURIComponent(this.getAttribute('text'));
-		  this.author = this.getAttribute('author');
-		  this.title = this.getAttribute('title'); 
-		  this.url = this.getAttribute('url')
-			this.favicon = this.getAttribute('favicon');
-			this.editable = this.getAttribute('editable');
+		this.text = decodeURIComponent(this.getAttribute('text'));
+		this.author = this.getAttribute('author');
+		this.title = this.getAttribute('title'); 
+		this.url = this.getAttribute('url')
+		this.favicon = this.getAttribute('favicon');
+		this.editable = this.getAttribute('editable');
 		};
 
 			set text(value) {
@@ -78,7 +78,7 @@ function embedquoteback(){
 			  if (this.shadowRoot)
 					if(value == "true"){
 						this.shadowRoot.querySelector('.portal-author-519256').setAttribute("contenteditable", true);
-						this.shadowRoot.querySelector('.portal-title-519256').setAttribute("contenteditable", true);
+						this.shadowRoot.querySelector('.title-wrapper-519256').setAttribute("contenteditable", true);
 					}	
 				
 			};

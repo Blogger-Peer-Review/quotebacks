@@ -102,6 +102,7 @@ input, button {
   width: 50%; }
 
 .save-indicator {
+  font-size: 14px;
   float: right;
   display: inline-block;
   text-align: center;
@@ -112,6 +113,9 @@ input, button {
 #quoteslink {
   height: 44px;
   line-height: 45px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   color: #9DB8BF;
   text-decoration: none;
   text-align: center;

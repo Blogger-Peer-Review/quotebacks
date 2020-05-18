@@ -139,6 +139,15 @@ $bluegray-text-dark: #253237;
   }   
 }
 
+.editable{
+  &:focus{
+    outline:none;
+  }
+  &:after{
+    margin-left:10px;
+    content: url('${chrome.runtime.getURL("images/editicon.svg")}')
+  }
+}
 
 .portal-content-519256{
   a{

@@ -109,6 +109,12 @@ var quoteStyle  = `.portal-container-519256 {
         .portal-container-519256 .portal-head-519256 .portal-backlink-519256 .portal-arrow-519256:visited {
           text-decoration: none !important; }
 
+.editable:focus {
+  outline: none; }
+.editable:after {
+  margin-left: 10px;
+  content: url('${chrome.runtime.getURL("images/editicon.svg")}'); }
+
 
 .portal-content-519256 a {
   color: #464A4D;
@@ -139,7 +145,5 @@ var quoteStyle  = `.portal-container-519256 {
 .portal-content-519256 h1, .portal-content-519256 h2, .portal-content-519256 h3 {
   margin-block-start: .5em;
   margin-block-end: .5em; }
-
-/*# sourceMappingURL=quoteback.css.map */
 
 `
