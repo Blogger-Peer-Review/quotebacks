@@ -1,26 +1,53 @@
 chrome.commands.onCommand.addListener(function(command) {
   
-  chrome.tabs.executeScript({
-    file: 'webcomponents-sd-ce.js'
-  });
+  //send ping. If no response then load scripts.
+  chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
+    chrome.tabs.sendMessage(tabs[0].id, {message: "ping"}, function(response) {
+      if(response){
+        // Send copyquote command
+        chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
+          chrome.tabs.sendMessage(tabs[0].id, {message: "copyquote"}, function(response) {
+            
+          });
+        });
+        
 
-  chrome.tabs.executeScript({
-    file: 'quoteback-internal.js'
-  });
+      }
+      else{
 
-  chrome.tabs.executeScript({
-    file: 'quotestyle.js'
-  });  
-  
-  chrome.tabs.executeScript({
-    file: 'rangy-core.js'
-  });
+        chrome.tabs.executeScript({
+          file: 'webcomponents-sd-ce.js'
+        });
+      
+        chrome.tabs.executeScript({
+          file: 'quoteback-internal.js'
+        });
+      
+        chrome.tabs.executeScript({
+          file: 'quotestyle.js'
+        });  
+        
+        chrome.tabs.executeScript({
+          file: 'rangy-core.js'
+        });
+      
+        chrome.tabs.executeScript({
+          file: 'newcontent.js',
+        },
+        function(){
+          // Send copyquote command
+          chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
+            chrome.tabs.sendMessage(tabs[0].id, {message: "copyquote"}, function(response) {
+              
+            });
+          }); 
+        }
+        );
 
-  chrome.tabs.executeScript({
-    file: 'newcontent.js'
-  });
-  
-
+      }
+      
+    });
+  }); 
 
 });
 

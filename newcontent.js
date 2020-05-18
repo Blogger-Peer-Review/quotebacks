@@ -1,263 +1,260 @@
-var object = {};
+chrome.runtime.onMessage.addListener(
+  function(request, sender, sendResponse) {
 
-rangy.init();
-
-var text = getSelectionText();  
-
-var links = document.getElementsByTagName("link");
-if (getCanonical()){
-    var page = getCanonical();    
-}else{
-    var page = document.location.href;      
-};
-
-
-chrome.storage.local.get([page], function(result) {
-    var page_object = {};        
-    page_object["last_update"] = getDate();
-    page_object["url"] = page;
-
-    if(getMeta("twitter:title")){
-    page_object["title"] = getMeta("twitter:title");
-    } else if(getMeta("og:title")){
-    page_object["title"] = getMeta("og:title");
-    }else{
-    page_object["title"] = document.title;
+    // tell background.js that we're loaded and alive
+    if (request.message == "ping"){
+      sendResponse({alive: "loaded"});
     }
+
+    // run the popup on message from background.js
+    if (request.message == "copyquote"){
+
+      closePopup();
+      
+      var object = {};
+
+      rangy.init();
     
-    if(getMeta("author")){
-    page_object["author"] = getMeta("author");  
-    }else{
-    page_object["author"] = getMeta("twitter:site");
-    }
-
-    var quotes = [];
-    var quote = {};
-
-    quote["text"] = text;
-    quote["date"] = getDate();
-
-    quotes.push(quote);
-
-    if(result[page] == null){
-    var combined = quotes;
-    }
-    else{
-    var combined = quotes.concat(result[page]["quotes"])
-    }
-
-    page_object["quotes"] = combined;
-    page_object["favicon"] = favicon=`https://s2.googleusercontent.com/s2/favicons?domain_url=${page_object["url"]}&sz=64`
-
-    object[page] = page_object; 
-
-
-    chrome.storage.local.set(object, function() {            
-    console.log(object[page]["quotes"][0]);
-
-    });
-
-
-    // Web Component Stuff Start Here //
-    var component = `
-    <quoteback-popup text="${encodeURIComponent(text)}" author="${page_object["author"]}" title="${page_object["title"]}">
-    <quoteback-component slot="quoteback-component" url="${page_object["url"]}" text="${encodeURIComponent(text)}" author="${page_object["author"]}" title="${page_object["title"]}" favicon="${page_object["favicon"]}">
-    </quoteback-component> 
-    </quoteback-popup>    
-    `;   
-
-    // ABOVE - not sure the best way to get quoteback-internal.js here
-
-    var popup = document.createElement('div');
-    document.documentElement.appendChild(popup);
-    popup.innerHTML = component;
-    popup.style.cssText = "background-color:white; width:670px; height:auto; position:fixed; border:none; top:0px; right:0px; z-index:2147483647;"
-
-    const template = document.createElement('template');
-    template.innerHTML=`
-    <link rel="stylesheet" type="text/css" href="${chrome.runtime.getURL("styles/styles.css")}">
-    <div class="citation-capture" id="citation-capture">
-
-    <quoteback-component url="${page_object["url"]}" text="${text}" author="${page_object["author"]}" title="${page_object["title"]}" favicon=""> 
-    </quoteback-component> 
-
-    <div class="citation-tools">
-    <div class="comment-field">
-    <input class="citation-input" placeholder="Add comment"></input>    
-      <div class="save-indicator">Saved</div>
-    </div>
-    <div class="tools-buttons">
-      <button id="getlink" class="control-button"><> Embed</button>
-      <button id="getMarkdown" class="control-button">Copy Markdown</button>
-      <a target="_blank" id="quoteslink" class="control-button" href="${chrome.runtime.getURL("options.html")}#${page}">All Quotes<img src="${chrome.runtime.getURL("images/allquotes.png")}"></a>
-      <button id="close-button" class="control-button">Close</button>
-    </div>
-    </div>
-
-    </div>
-`;
-
-    class QuotebackPopup extends HTMLElement {
-    constructor(){
-        super();
-        this.attachShadow({mode: 'open'});
-        this.shadowRoot.appendChild(template.content.cloneNode(true));
+      var text = getSelectionText(); 
     
-        this.author = this.getAttribute('author');
-        this.title = this.getAttribute('title'); 
-        this.url = this.getAttribute('url')
-        this.favicon = this.getAttribute('favicon');
-    };
-
-    // set author(value) {
-    //     this._author = value;
-    //     if (this.shadowRoot)
-    //     this.shadowRoot.querySelector('#author-field').value = value;
-    // };
-    // get author() {
-    //     return this._author;
-    // };  
-    // set title(value) {
-    //     this._title = value;
-    //     if (this.shadowRoot)
-    //     this.shadowRoot.querySelector('#title-field').value = value;
-    // };
-    // get title() {
-    //     return this._title;
-    // };
-    }
-
-    if (customElements.get('quoteback-popup')){
-    null;
-    }else{
-    window.customElements.define('quoteback-popup', QuotebackPopup)  
-    }
-    embedquoteback();
-
-
-    //
-    //
-    // COPY EMBED //
-    var p = document.querySelector("quoteback-popup").shadowRoot;
-    p.querySelector("#getlink").addEventListener("click", function(event) {
-    var embed = `<blockquote class="quoteback" data-title="${page_object["title"]}" data-author="${page_object["author"]}" cite="${page_object["url"]}">
-<p>${text}</p>
-<footer>${page_object["author"]} <cite><a href="${page_object["url"]}">${page_object["url"]}</a></cite></footer>
-<script note="REPLACE WITH REAL SCRIPT" src="https://cdn.jsdelivr.net/gh/tomcritchlow/Citations-Magic@tom-branch/quoteback.js"></script>
-</blockquote>`;
-
-    copyToClipboard(embed);
-    console.log(p.querySelector("#getlink"));
-    p.querySelector("#getlink").innerHTML = "Copied!";
-    setTimeout(function() {
-        p.querySelector("#getlink").innerHTML = "<> Embed";
-    }, 1000);
-    });
-
-
-    // SAVE & CLOSE //
-    p.querySelector("#close-button").addEventListener("click", function(event) {
-    var paras = popup;
-    if (paras){
-        paras.parentNode.removeChild(paras);
-    };         
-    AutoSave.stop();              
-    clearInterval(t); // stop timer
-    });
-
-    // Close popup on "all quotes" button
-    p.querySelector("#quoteslink").addEventListener("click", function(event) {
-    var paras = popup;
-    if (paras){
-        paras.parentNode.removeChild(paras);
-    };         
-    AutoSave.stop();              
-    clearInterval(t); // stop timer
-    });      
-
-    // Close popup on tab focus out
-    window.onblur = onBlur;
-    function onBlur() {
-    var paras = popup;
-    if (paras){
-        paras.parentNode.removeChild(paras);
-    };         
-    AutoSave.stop();              
-    clearInterval(t); // stop timer
-    };
+      var links = document.getElementsByTagName("link");
+      if (getCanonical()){
+          var page = getCanonical();    
+      }else{
+          var page = document.location.href;      
+      };
     
-
     
-
-
-    var time = 0;
-    var textfocus = false;
-    var ishover = false;
-    var isPaused = false;
-    txtAreaListenFocus();
-    txtAreaListenBlur();
-
-
-    p.addEventListener("mouseover", function( event ) {   
-        ishover = true;
-    });
-
-    p.addEventListener("mouseout", function( event ) {   
-        ishover = false;
-    });
-
-    AutoSave.start(object);
-
-    var t = window.setInterval(function() {
-        // timeout to remove popups
-        if(!ishover && !textfocus) {
-        time++;
-        if(time > 5){
-            if (popup){
-            popup.parentNode.removeChild(popup);
-            };
-
-            AutoSave.stop();              
-            clearInterval(t); // stop timer
-        };
-        // console.log(time + "is hover: "+ishover + "is textfocus:"+textfocus);
+    chrome.storage.local.get([page], function(result) {
+        var page_object = {};        
+        page_object["last_update"] = getDate();
+        page_object["url"] = page;
+    
+        if(getMeta("twitter:title")){
+        page_object["title"] = getMeta("twitter:title");
+        } else if(getMeta("og:title")){
+        page_object["title"] = getMeta("og:title");
+        }else{
+        page_object["title"] = document.title;
         }
-
-    }, 1000);
-
-    function txtAreaListenFocus(){
-        var txtArea = p.querySelector('#comment-field'); // changed
-        var authorArea = p.querySelector('#author-field'); // changed
-        var titleArea = p.querySelector('#title-field'); // changed
-        authorArea.addEventListener('focus', function(event) {
+        
+        if(getMeta("author")){
+        page_object["author"] = getMeta("author");  
+        }else{
+        page_object["author"] = getMeta("twitter:site");
+        }
+    
+        var quotes = [];
+        var quote = {};
+    
+        quote["text"] = text;
+        quote["date"] = getDate();
+    
+        quotes.push(quote);
+    
+        if(result[page] == null){
+        var combined = quotes;
+        }
+        else{
+        var combined = quotes.concat(result[page]["quotes"])
+        }
+    
+        page_object["quotes"] = combined;
+        page_object["favicon"] = favicon=`https://s2.googleusercontent.com/s2/favicons?domain_url=${page_object["url"]}&sz=64`
+    
+        object[page] = page_object; 
+    
+    
+        chrome.storage.local.set(object, function() {            
+        console.log(object[page]["quotes"][0]);
+    
+        });
+    
+    
+        // Web Component Stuff Start Here //
+        var component = `
+        <quoteback-popup text="${encodeURIComponent(text)}" author="${page_object["author"]}" title="${page_object["title"]}">
+        <quoteback-component slot="quoteback-component" url="${page_object["url"]}" text="${encodeURIComponent(text)}" author="${page_object["author"]}" title="${page_object["title"]}" favicon="${page_object["favicon"]}" editable="true">
+        </quoteback-component> 
+        </quoteback-popup>    
+        `;   
+    
+        // ABOVE - not sure the best way to get quoteback-internal.js here
+    
+        var popup = document.createElement('div');
+        document.documentElement.appendChild(popup);
+        popup.innerHTML = component;
+        popup.style.cssText = "background-color:white; width:670px; height:auto; position:fixed; border:none; top:0px; right:0px; z-index:2147483647;"
+    
+        var template = document.createElement('template');
+        template.innerHTML=`
+        <link rel="stylesheet" type="text/css" href="${chrome.runtime.getURL("styles/styles.css")}">
+        <div class="citation-capture" id="citation-capture">
+    
+        <slot name="quoteback-component"></slot>
+    
+        <div class="citation-tools">
+        <div class="comment-field">
+        <input class="citation-input" placeholder="Add comment"></input>    
+          <div class="save-indicator">Saved</div>
+        </div>
+        <div class="tools-buttons">
+          <button id="getlink" class="control-button"><> Embed</button>
+          <button id="getMarkdown" class="control-button">Copy Markdown</button>
+          <a target="_blank" id="quoteslink" class="control-button" href="${chrome.runtime.getURL("options.html")}#${page}">All Quotes<img src="${chrome.runtime.getURL("images/allquotes.png")}"></a>
+          <button id="close-button" class="control-button">Close</button>
+        </div>
+        </div>
+    
+        </div>
+    `;
+    
+        class QuotebackPopup extends HTMLElement {
+        constructor(){
+            super();
+            this.attachShadow({mode: 'open'});
+            this.shadowRoot.appendChild(template.content.cloneNode(true));
+        
+            this.author = this.getAttribute('author');
+            this.title = this.getAttribute('title'); 
+            this.url = this.getAttribute('url')
+            this.favicon = this.getAttribute('favicon');
+        };
+        }
+    
+        if (customElements.get('quoteback-popup')){
+        null;
+        }else{
+        window.customElements.define('quoteback-popup', QuotebackPopup)  
+        }
+        embedquoteback();
+    
+    
+        //
+        //
+        // COPY EMBED //
+        var p = document.querySelector("quoteback-popup").shadowRoot;
+        p.querySelector("#getlink").addEventListener("click", function(event) {
+        var embed = `<blockquote class="quoteback" data-title="${page_object["title"]}" data-author="${page_object["author"]}" cite="${page_object["url"]}">
+    <p>${text}</p>
+    <footer>${page_object["author"]} <cite><a href="${page_object["url"]}">${page_object["url"]}</a></cite></footer>
+    <script note="REPLACE WITH REAL SCRIPT" src="https://cdn.jsdelivr.net/gh/tomcritchlow/Citations-Magic@tom-branch/quoteback.js"></script>
+    </blockquote>`;
+    
+        copyToClipboard(embed);
+        console.log(p.querySelector("#getlink"));
+        p.querySelector("#getlink").innerHTML = "Copied!";
+        setTimeout(function() {
+            p.querySelector("#getlink").innerHTML = "<> Embed";
+        }, 1000);
+        });
+    
+    
+        // SAVE & CLOSE //
+        p.querySelector("#close-button").addEventListener("click", function(event) {
+        closePopup()           
+        clearInterval(t); // stop timer
+        });
+    
+        // Close popup on "all quotes" button
+        p.querySelector("#quoteslink").addEventListener("click", function(event) {
+        closePopup()           
+        clearInterval(t); // stop timer
+        });      
+    
+        // Close popup on tab focus out
+        //window.onblur = onBlur;
+        function onBlur() {
+        closePopup()           
+        clearInterval(t); // stop timer
+        };
+        
+    
+        
+    
+    
+        var time = 0;
+        var textfocus = false;
+        var ishover = false;
+        var isPaused = false;
+        txtAreaListenFocus();
+        txtAreaListenBlur();
+    
+    
+        p.addEventListener("mouseover", function( event ) {   
+            ishover = true;
+        });
+    
+        p.addEventListener("mouseout", function( event ) {   
+            ishover = false;
+        });
+    
+        AutoSave.start(object);
+    
+        var t = window.setInterval(function() {
+            // timeout to remove popups
+            if(!ishover && !textfocus) {
+            time++;
+            if(time > 500){
+                if (popup){
+                popup.parentNode.removeChild(popup);
+                };
+    
+                AutoSave.stop();              
+                clearInterval(t); // stop timer
+            };
+            // console.log(time + "is hover: "+ishover + "is textfocus:"+textfocus);
+            }
+    
+        }, 1000);
+    
+        function txtAreaListenFocus(){
+    
+            var popup = document.querySelector("quoteback-popup");
+            var quote = popup.querySelector("quoteback-component").shadowRoot;   
+            var txtArea = popup.shadowRoot.querySelector('.citation-input'); // changed
+            var authorArea = quote.querySelector('.portal-author-519256'); // changed
+            var titleArea = quote.querySelector('.title-wrapper-519256'); // changed
+            authorArea.addEventListener('focus', function(event) {
+                textfocus = true;
+            }.bind(this));
+            titleArea.addEventListener('focus', function(event) {
             textfocus = true;
-        }.bind(this));
-        titleArea.addEventListener('focus', function(event) {
-        textfocus = true;
-        }.bind(this));
-        txtArea.addEventListener('focus', function(event) {
-        textfocus = true;
-    }.bind(this));                               
-    };
+            }.bind(this));
+            txtArea.addEventListener('focus', function(event) {
+            textfocus = true;
+        }.bind(this));                               
+        };
+    
+        function txtAreaListenBlur(){
+            var popup = document.querySelector("quoteback-popup");
+            var quote = popup.querySelector("quoteback-component").shadowRoot;   
+            var txtArea = popup.shadowRoot.querySelector('.citation-input'); // changed
+            var authorArea = quote.querySelector('.portal-author-519256'); // changed
+            var titleArea = quote.querySelector('.title-wrapper-519256'); // changed
+            txtArea.addEventListener('blur', function(event) {
+            textfocus = false;
+            }.bind(this));
+            authorArea.addEventListener('blur', function(event) {
+            textfocus = false;
+            }.bind(this));
+            titleArea.addEventListener('blur', function(event) {
+            textfocus = false;
+            }.bind(this));
+        };                          
+    
+    
+    
+    });
 
-    function txtAreaListenBlur(){
-        var txtArea = p.querySelector('#comment-field'); // changed
-        var authorArea = p.querySelector('#author-field'); // changed
-        var titleArea = p.querySelector('#title-field'); // changed
-        txtArea.addEventListener('blur', function(event) {
-        textfocus = false;
-        }.bind(this));
-        authorArea.addEventListener('blur', function(event) {
-        textfocus = false;
-        }.bind(this));
-        titleArea.addEventListener('blur', function(event) {
-        textfocus = false;
-        }.bind(this));
-    };                          
+
+    }    
+
+
+  });
 
 
 
-});
     
       
     
@@ -337,27 +334,25 @@ chrome.storage.local.get([page], function(result) {
       var timer = null;
     
         function save(object){
-        // console.log("running save");
-        var popup = document.querySelector("quoteback-popup").shadowRoot;
-        var quote = document.querySelector("quoteback-component").shadowRoot;
-        var commentbox = popup.querySelector("#comment-field");
-        var title = popup.querySelector("#title-field")
-        var author = popup.querySelector("#author-field");
-    
-        var page = document.location.href;
-    
-        object[page]["quotes"][0]["comment"] = commentbox.value;
-        object[page]["title"] = title.value;
-        object[page]["author"] = author.value;
-    
-        chrome.storage.local.set(object, function() { 
-            console.log("autosaved");
-            if(popup.querySelector(".save-indicator").innerText == "Saving..."){
-              popup.querySelector(".save-indicator").innerHTML = "Saved"; // changed
-              quote.querySelector(".portal-author-519256").innerHTML = author.value;
-              quote.querySelector(".title-wrapper-519256").innerHTML = title.value;
-          };
-        });
+
+          var popup = document.querySelector("quoteback-popup");                 
+          var quote = popup.querySelector("quoteback-component").shadowRoot;
+          var commentbox = popup.shadowRoot.querySelector(".citation-input");
+          var title = quote.querySelector('.title-wrapper-519256');
+          var author = quote.querySelector('.portal-author-519256'); 
+      
+          var page = document.location.href;
+      
+          object[page]["quotes"][0]["comment"] = commentbox.value;
+          object[page]["title"] = title.textContent;
+          object[page]["author"] = author.textContent;
+      
+          chrome.storage.local.set(object, function() { 
+              console.log("autosaved");
+              if(popup.shadowRoot.querySelector(".save-indicator").innerText == "Saving..."){
+                popup.shadowRoot.querySelector(".save-indicator").innerHTML = "Saved"; // changed
+            };
+          });
                 
       };
     
@@ -366,7 +361,7 @@ chrome.storage.local.get([page], function(result) {
             start: function(object){
           var popup = document.querySelector("quoteback-popup").shadowRoot;                 
           popup.addEventListener("keydown", function( event ) {
-              popup.querySelector(".save-indicator-519256").innerText = "Saving..."; // changed
+              popup.querySelector(".save-indicator").innerText = "Saving..."; // changed
           });            
     
                 if (timer != null){
@@ -397,3 +392,11 @@ function  copyToClipboard(str){
       document.execCommand('copy');
       document.body.removeChild(el);
     };
+
+function closePopup(){
+  var paras = document.querySelector("quoteback-popup");
+  if (paras){
+      paras.parentNode.removeChild(paras);
+  };         
+  AutoSave.stop();              
+  }

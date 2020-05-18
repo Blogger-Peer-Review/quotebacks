@@ -1,5 +1,5 @@
 function embedquoteback(){
-  const template = document.createElement('template');
+  var template = document.createElement('template');
     template.innerHTML=`
     <style>${quoteStyle}</style>
     <div class="portal-container-519256">
@@ -29,7 +29,8 @@ function embedquoteback(){
 		  this.author = this.getAttribute('author');
 		  this.title = this.getAttribute('title'); 
 		  this.url = this.getAttribute('url')
-		  this.favicon = this.getAttribute('favicon');
+			this.favicon = this.getAttribute('favicon');
+			this.editable = this.getAttribute('editable');
 		};
 
 			set text(value) {
@@ -71,7 +72,19 @@ function embedquoteback(){
 			};
 			get favicon() {
 				return this._favicon;
-			}
+			};
+			set editable(value) {
+			  this._editable = value;
+			  if (this.shadowRoot)
+					if(value == "true"){
+						this.shadowRoot.querySelector('.portal-author-519256').setAttribute("contenteditable", true);
+						this.shadowRoot.querySelector('.portal-title-519256').setAttribute("contenteditable", true);
+					}	
+				
+			};
+			get editable() {
+			  return this._editable;
+			};
 
   }
 
