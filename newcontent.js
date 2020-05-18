@@ -163,7 +163,7 @@ chrome.runtime.onMessage.addListener(
         });      
     
         // Close popup on tab focus out
-        //window.onblur = onBlur;
+        window.onblur = onBlur;
         function onBlur() {
         closePopup()           
         clearInterval(t); // stop timer
@@ -195,7 +195,7 @@ chrome.runtime.onMessage.addListener(
             // timeout to remove popups
             if(!ishover && !textfocus) {
             time++;
-            if(time > 500){
+            if(time > 5){
                 if (popup){
                 popup.parentNode.removeChild(popup);
                 };
