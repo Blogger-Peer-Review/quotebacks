@@ -154,7 +154,7 @@ chrome.runtime.onMessage.addListener(
           var popup = document.querySelector("quoteback-popup");
           var quote = popup.querySelector("quoteback-component").shadowRoot;
           quote.querySelector(".title-wrapper-519256").classList.add("editable");
-          quote.querySelector(".porta-lauthor-519256").classList.add("editable");
+          quote.querySelector(".portal-author-519256").classList.add("editable");
         };
 
         // SAVE & CLOSE //
@@ -288,6 +288,7 @@ chrome.runtime.onMessage.addListener(
     
           var div = document.createElement('div');
           div.appendChild( htmlfragment.cloneNode(true) );
+          CleanChildren(div); // remove empty html elements - rangy is adding them
           var html = div.innerHTML;
           
           return(html);
@@ -296,7 +297,17 @@ chrome.runtime.onMessage.addListener(
         text = document.selection.createRange().text;
         }
         };
-    
+
+//from here: https://stackoverflow.com/questions/43481799/javascript-remove-empty-paragraphs-from-html-string
+function CleanChildren(elem)
+        {
+          var parent = elem
+
+          parent.childNodes.forEach(child => child.nodeType === document.ELEMENT_NODE 
+            && !child.innerText.trim() 
+            && parent.removeChild(child));
+        }
+        
     function convertAbsolute(url){
       let absolute = new URL(url, document.baseURI).href;
       return absolute;

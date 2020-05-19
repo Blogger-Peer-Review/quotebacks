@@ -157,6 +157,10 @@ function loadSearch() {
   
 };
 
+function strip(html){
+  var doc = new DOMParser().parseFromString(html, 'text/html');
+  return doc.body.textContent || "";
+}
 
 // ==========================================
 // using the index we loaded on CMD-/, run 
@@ -176,12 +180,13 @@ function executeSearch(term) {
     for (var i in results.slice(0,5)){
 
       for(var j in results[i].item.quotes){
-        var searchresult = `<li><a href='/options.html#${results[i].item.url}'>${results[i].item.title}
+        var htmlstripped = strip(results[i].item.quotes[j].text);
+        var searchresult = `<li><a href='/options.html#${results[i].item.url}'><img src='https://s2.googleusercontent.com/s2/favicons?domain_url=${extractHostname(results[i].item.url)}'/>${results[i].item.title}
         <div>
-        <img src='https://s2.googleusercontent.com/s2/favicons?domain_url=${extractHostname(results[i].item.url)}'/>
-        ${extractHostname(results[i].item.url)}
+        
+        <div class="url">${extractHostname(results[i].item.url)}</div>
         </div>
-        <span>${results[i].item.quotes[j].text.substring(0,100)}</span>
+        <span>${htmlstripped.substring(0,100)}</span>
         </a></li>`;
 
         searchitems = searchitems + searchresult;
