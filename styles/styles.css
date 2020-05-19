@@ -250,7 +250,8 @@ body {
   margin-bottom: 10px;
   display: inline-block; }
 
-#searchResults a {
+#searchResults li a {
+  width: 100%;
   color: black;
   text-decoration: none !important;
   padding: 10px;
@@ -260,7 +261,7 @@ body {
   -ms-transition: all 0.1s ease;
   -o-transition: all 0.1s ease;
   transition: all 0.1s ease; }
-  #searchResults a:hover {
+  #searchResults li a:hover {
     outline: 0;
     background-color: #ECEEEF; }
 
@@ -385,7 +386,7 @@ body {
   position: absolute;
   left: 50%;
   width: 300px;
-  margin-top: -50px;
+  margin-top: -40px;
   transform: translateX(-50%);
   text-align: center;
   z-index: 100;

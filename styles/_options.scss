@@ -133,7 +133,8 @@ body{
   display: inline-block;
 }
 
-#searchResults a{
+#searchResults li a{
+  width:100%;
   color:black;
   text-decoration: none !important;
   padding: 10px;
@@ -301,7 +302,7 @@ body{
   position:absolute;
   left:50%;
   width:300px;
-  margin-top:-50px;
+  margin-top:-40px;
   transform:translateX(-50%);
   text-align:center;
   z-index:100;
