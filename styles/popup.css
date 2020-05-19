@@ -3,10 +3,10 @@ input, button {
   background-image: none;
   background-color: transparent;
   -webkit-box-shadow: none;
-  -moz-box-shadow: none;
   box-shadow: none;
   color: #9DB8BF;
-  text-decoration: none; }
+  text-decoration: none;
+}
 
 #citation-capture {
   font-family: -apple-system, system-ui, "Open Sans", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol";
@@ -20,52 +20,92 @@ input, button {
   overflow-y: auto;
   max-height: calc(100% - 50px);
   z-index: 2147483;
-  padding: 20px; }
+  padding: 20px;
+}
 
 .blockquote-wrapper {
-  box-shadow: 0px 6px 20px 0px rgba(0, 0, 0, 0.15);
-  border-radius: 8px; }
+  -webkit-box-shadow: 0px 6px 20px 0px rgba(0, 0, 0, 0.15);
+          box-shadow: 0px 6px 20px 0px rgba(0, 0, 0, 0.15);
+  border-radius: 8px;
+}
 
 .citation-tools {
   margin-top: -15px;
   background-color: white;
   border: 1px solid #C2DFE3;
   border-radius: 8px;
-  box-shadow: 0px 6px 20px 0px rgba(0, 0, 0, 0.15); }
+  -webkit-box-shadow: 0px 6px 20px 0px rgba(0, 0, 0, 0.15);
+          box-shadow: 0px 6px 20px 0px rgba(0, 0, 0, 0.15);
+}
 
 .comment-field {
   padding: 12px;
-  border-bottom: 1px solid #C2DFE3; }
+  border-bottom: 1px solid #C2DFE3;
+}
 
 .citation-input {
   width: 500px;
-  box-shadow: none;
+  -webkit-box-shadow: none;
+          box-shadow: none;
   -webkit-appearance: none;
   color: #464A4D;
-  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
   border-radius: 4px;
   word-wrap: break-word;
   word-break: break-all;
   -webkit-transition: all 0.1s ease;
-  -moz-transition: all 0.1s ease;
-  -ms-transition: all 0.1s ease;
-  -o-transition: all 0.1s ease;
-  transition: all 0.1s ease; }
-  .citation-input::placeholder {
-    font-size: 14px;
-    line-height: 150%;
-    color: #000000;
-    opacity: 0.25; }
+  transition: all 0.1s ease;
+}
+
+.citation-input::-webkit-input-placeholder {
+  font-size: 14px;
+  line-height: 150%;
+  color: #000000;
+  opacity: 0.25;
+}
+
+.citation-input:-ms-input-placeholder {
+  font-size: 14px;
+  line-height: 150%;
+  color: #000000;
+  opacity: 0.25;
+}
+
+.citation-input::-ms-input-placeholder {
+  font-size: 14px;
+  line-height: 150%;
+  color: #000000;
+  opacity: 0.25;
+}
+
+.citation-input::placeholder {
+  font-size: 14px;
+  line-height: 150%;
+  color: #000000;
+  opacity: 0.25;
+}
 
 .citation-input:focus {
-  outline: none; }
+  outline: none;
+}
 
 .tools-buttons {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-  height: 44px; }
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 44px;
+}
 
 .control-button {
   border: none;
@@ -77,37 +117,46 @@ input, button {
   font-family: inherit;
   display: inline-block;
   -webkit-transition: background-color 0.2s ease;
-  -moz-transition: background-color 0.2s ease;
-  -ms-transition: background-color 0.2s ease;
-  -o-transition: background-color 0.2s ease;
-  transition: background-color 0.2s ease; }
-  .control-button:hover {
-    cursor: pointer;
-    opacity: 1;
-    background-color: rgba(194, 223, 227, 0.25); }
-  .control-button:focus {
-    outline: none; }
+  transition: background-color 0.2s ease;
+}
+
+.control-button:hover {
+  cursor: pointer;
+  opacity: 1;
+  background-color: rgba(194, 223, 227, 0.25);
+}
+
+.control-button:focus {
+  outline: none;
+}
 
 #getlink {
   padding: 0px;
   color: #395FE5;
-  border-right: 1px solid #C2DFE3; }
+  border-right: 1px solid #C2DFE3;
+}
 
 #getMarkdown {
   padding: 0px;
   text-align: center;
-  border-right: 1px solid #C2DFE3; }
+  border-right: 1px solid #C2DFE3;
+}
 
 #close-button {
-  width: 50%; }
+  width: 50%;
+}
 
 .save-indicator {
   float: right;
   display: inline-block;
   text-align: center;
-  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
   color: rgba(23, 154, 12, 0.5);
-  align-self: start; }
+  -ms-flex-item-align: start;
+      -ms-grid-row-align: start;
+      align-self: start;
+}
 
 #quoteslink {
   height: 44px;
@@ -115,10 +164,12 @@ input, button {
   color: #9DB8BF;
   text-decoration: none;
   text-align: center;
-  border-right: 1px solid #C2DFE3; }
-  #quoteslink img {
-    width: 24px;
-    height: auto;
-    margin-left: 11px; }
+  border-right: 1px solid #C2DFE3;
+}
 
+#quoteslink img {
+  width: 24px;
+  height: auto;
+  margin-left: 11px;
+}
 /*# sourceMappingURL=popup.css.map */
