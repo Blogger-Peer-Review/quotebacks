@@ -135,21 +135,25 @@ document.addEventListener("DOMContentLoaded", function(){
       //stop the "go to text" element rendering in the image
       document.getElementById("copyimage").querySelector(".portal-backlink-519256").setAttribute("data-html2canvas-ignore", "true");
 
+      // use faviconkit for screenshots for CORS
+      var url = document.getElementById("copyimage").querySelector(".portal-arrow-519256").href;
+      var hostname = (new URL(url)).hostname;
+      document.getElementById("copyimage").querySelector(".mini-favicon-519256").src = "https://api.faviconkit.com/"+hostname;
+
       var title = document.getElementById("copyimage").querySelector(".title-wrapper-519256");
       if(title.innerHTML.length > 65){ // html2canvas doesn't support text-overflow:ellipses
         title.innerHTML = title.innerHTML.substring(0,60);
         title.innerHTML = title.innerHTML + "...";
       }
-      
+    
 
-      html2canvas(newDiv, {
+      html2canvas(document.getElementById("copyimage"), {
         useCORS: true,
         onclone: function(document) {
         }
       }).then((canvas) => {
         canvas.toBlob(function(blob) {
-          console.log("Writing to clipboard");
-          const item = new ClipboardItem({ "image/png": blob });
+          var item = new ClipboardItem({ "image/png": blob });
           navigator.clipboard.write([item]).then(
             function() {
               console.log("Copied to clipboard successfully!");
@@ -173,8 +177,13 @@ document.addEventListener("DOMContentLoaded", function(){
       }).catch(function (error) {
           console.log('oops, something went wrong!', error);
       });
+    
+    
+    
+    
 
     });
+  
 
     // convert quote to markdown using turndown.js
     $('#rightpanel').on('click',"#copymd", function() {
