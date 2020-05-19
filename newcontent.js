@@ -121,14 +121,13 @@ chrome.runtime.onMessage.addListener(
             this.favicon = this.getAttribute('favicon');
         };
         }
-    
+
         if (customElements.get('quoteback-popup')){
         null;
         }else{
         window.customElements.define('quoteback-popup', QuotebackPopup)  
         }
         embedquoteback();
-    
     
         //
         //
@@ -150,6 +149,14 @@ chrome.runtime.onMessage.addListener(
         });
     
     
+        appendIcon();
+        function appendIcon(){
+          var popup = document.querySelector("quoteback-popup");
+          var quote = popup.querySelector("quoteback-component").shadowRoot;
+          quote.querySelector(".title-wrapper-519256").classList.add("editable");
+          quote.querySelector(".porta-lauthor-519256").classList.add("editable");
+        };
+
         // SAVE & CLOSE //
         p.querySelector("#close-button").addEventListener("click", function(event) {
         closePopup()           
@@ -165,8 +172,8 @@ chrome.runtime.onMessage.addListener(
         // Close popup on tab focus out
         window.onblur = onBlur;
         function onBlur() {
-        closePopup()           
-        clearInterval(t); // stop timer
+          closePopup()           
+          clearInterval(t); // stop timer
         };
         
     
@@ -195,7 +202,7 @@ chrome.runtime.onMessage.addListener(
             // timeout to remove popups
             if(!ishover && !textfocus) {
             time++;
-            if(time > 5){
+            if(time > 7){
                 if (popup){
                 popup.parentNode.removeChild(popup);
                 };

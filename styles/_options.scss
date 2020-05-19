@@ -10,6 +10,14 @@ body{
   padding:0px;
 }
 
+#pagetitle{
+  float:left;
+  color: #253237;
+  opacity: .5; 
+  line-height:33px; 
+  margin-left: 12px;
+}
+
 #nav{
   border: 1px solid $graydiv;
   box-sizing: border-box;
@@ -445,14 +453,8 @@ top:20px;
   }  
 }
 
-.mini-favicon{
-  margin-right: 6px;
-  width:16px;
-  height:16px;
-  margin: 1px 12px 0px 0px;
-}
-
 .selected{
+  border-right:1px solid $selection;
   border-left:4px solid $selection;
   background-color: white;
   .title{
@@ -463,4 +465,13 @@ top:20px;
     opacity: 1;
   }  
 }
+
+.mini-favicon{
+  margin-right: 6px;
+  width:16px;
+  height:16px;
+  margin: 1px 12px 0px 0px;
+}
+
+
 
