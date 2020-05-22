@@ -190,6 +190,7 @@ chrome.runtime.onMessage.addListener(
         );
 
         highlighter.highlightSelection("quotebackhighlight");
+
         */
     
     
