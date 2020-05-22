@@ -75,73 +75,6 @@ body{
 
 
 
-#fastSearch { 
-  position: absolute;
-  left:0px;
-  display: inline-block;
-  width: 100%;
-  z-index:5;
-  &:focus-within{
-    #searchInput{
-      box-shadow:0 1px 1px 0 rgba(65,69,73,0.3), 0 1px 3px 1px rgba(65,69,73,0.15);
-      background:white;
-      border-radius: 4px 4px 0px 0px;
-      border:none;  
-    }
-  }
-}      
-
-#fastSearch input { 
-  @include transition(all .20s ease);
-  padding-left: 10px;
-  width: 100%;
-  height: 26px;
-  font-size: 14px;
-  background: #ECEEEF;
-  outline: none;
-  text-align: left;
-  display: inline-block;
-  background: linear-gradient(180deg, #FFFFFF 0%, #FCFCFC 14.58%, #FCFCFC 82.29%, #F6F6F6 100%);
-  border: 0.5px solid $graydiv;
-  border-radius: 4px;
-  &::placeholder{
-    color: #767778;
-    opacity: .5;
-  };
-}
-
-#searchResults{
-  display:none;
-  position:absolute;
-  margin:0px;
-  padding:0px;
-  width:527px;
-  background:white;
-  border-radius:0px 0px 4px 4px;
-  box-shadow:0 1px 1px 0 rgba(65,69,73,0.3), 0 1px 3px 1px rgba(65,69,73,0.15);
-}
-
-#searchResults li { 
-  list-style: none; 
-  width:100%;
-  margin-left: 0em;
-  background:white; 
-  border-bottom: 1px solid $graydiv;
-  position:relative;
-}
-#searchResults li .title { font-size: 1.1em; margin-bottom: 10px; display: inline-block;}
-
-#searchResults .url { font-weight: 300;
-  margin-left: auto;
-  white-space: nowrap;
-  color: #253237;
-  opacity: .5;
-}
-
-#searchResults a { color:black;text-decoration: none !important; padding: 10px; display: inline-block; padding-left:40px; }
-#searchResults a:hover, a:focus { outline: 0; background-color: #ECEEEF; }
-#searchResults li:focus-within, #searchResults li:hover {outline: 0; background-color: #ECEEEF;  }
-
 #appcontainer{
   position:fixed;
   top:36px;
@@ -172,6 +105,21 @@ body{
 
 }
 
+#articleSort{
+  position:absolute;
+  display:flex;
+  z-index:105;
+  width:100%;
+  background-color: $lightbg;
+  height:35px;
+  font-size:14px;
+  border-bottom:1px solid $graydiv;
+  color: #333;
+  font-weight:600;
+  padding:5px 0px 0px 12px;
+  text-overflow: ellipsis;     
+}
+
 
 #article-scrollContainer, #panel-scrollContainer{
   padding-bottom:70px;
@@ -183,8 +131,6 @@ body{
 #rightpanel::-webkit-scrollbar {
       // display: none;
 };
-
-
 
 #panel-scrollContainer{
   margin-top:40px ;
@@ -469,4 +415,78 @@ body{
 }
 
 
+
+
+
+#fastSearch { 
+  position: absolute;
+  left:0px;
+  display: inline-block;
+  width: 100%;
+  z-index:5;
+  &:focus-within{
+    #searchInput{
+      box-shadow:0 1px 1px 0 rgba(65,69,73,0.3), 0 1px 3px 1px rgba(65,69,73,0.15);
+      background:white;
+      border-radius: 4px 4px 0px 0px;
+      border:none;  
+    }
+  }
+}      
+
+#fastSearch input { 
+  @include transition(all .20s ease);
+  padding-left: 10px;
+  width: 100%;
+  height: 26px;
+  font-size: 14px;
+  background: #ECEEEF;
+  outline: none;
+  text-align: left;
+  display: inline-block;
+  background: linear-gradient(180deg, #FFFFFF 0%, #FCFCFC 14.58%, #FCFCFC 82.29%, #F6F6F6 100%);
+  border: 0.5px solid $graydiv;
+  border-radius: 4px;
+  &::placeholder{
+    color: #767778;
+    opacity: .5;
+  };
+}
+
+#searchResults{
+  display:none;
+  position:absolute;
+  margin:0px;
+  padding:0px;
+  width:527px;
+  background:white;
+  border-radius:0px 0px 4px 4px;
+  box-shadow:0 1px 1px 0 rgba(65,69,73,0.3), 0 1px 3px 1px rgba(65,69,73,0.15);
+}
+
+#searchResults li { 
+  list-style: none; 
+  width:100%;
+  margin-left: 0em;
+  background:white; 
+  border-bottom: 1px solid $graydiv;
+  position:relative;
+}
+#searchResults li .title { font-size: 1.1em; margin-bottom: 10px; display: inline-block;}
+
+#searchResults .url { font-weight: 300;
+  margin-left: auto;
+  white-space: nowrap;
+  color: #253237;
+  opacity: .5;
+}
+
+#searchResults a { 
+  color:black;
+  text-decoration: none !important; 
+  padding: 10px; 
+  display: inline-block;
+  }
+#searchResults a:hover, a:focus { outline: 0; background-color: #ECEEEF; }
+#searchResults li:focus-within, #searchResults li:hover {outline: 0; background-color: #ECEEEF;  }
 
