@@ -221,12 +221,12 @@ body {
     overflow: scroll; }
 
 #articleSort {
-  position: absolute;
+  position: relative;
   display: flex;
   z-index: 105;
   width: 100%;
-  background-color: #F7F9FA;
-  height: 35px;
+  background-color: #EBEEF0;
+  height: 25px;
   font-size: 14px;
   border-bottom: 1px solid #d5d5d5;
   color: #333;
@@ -534,18 +534,23 @@ body {
   margin-bottom: 10px;
   display: inline-block; }
 
-#searchResults .url {
+#searchResults .search-url {
   font-weight: 300;
-  margin-left: auto;
+  margin: 2px 0px 2px auto;
   white-space: nowrap;
   color: #253237;
   opacity: .5; }
+
+.search-content {
+  color: #464A4D; }
 
 #searchResults a {
   color: black;
   text-decoration: none !important;
   padding: 10px;
   display: inline-block; }
+  #searchResults a img {
+    margin-right: 5px; }
 
 #searchResults a:hover, a:focus {
   outline: 0;

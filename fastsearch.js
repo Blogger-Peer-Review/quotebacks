@@ -181,13 +181,15 @@ function executeSearch(term) {
 
       for(var j in results[i].item.quotes){
         var htmlstripped = strip(results[i].item.quotes[j].text);
-        var searchresult = `<li><a href='/options.html#${results[i].item.url}'><img src='https://s2.googleusercontent.com/s2/favicons?domain_url=${extractHostname(results[i].item.url)}'/>${results[i].item.title}
-        <div>
-        
-        <div class="url">${extractHostname(results[i].item.url)}</div>
-        </div>
-        <span>${htmlstripped.substring(0,100)}</span>
-        </a></li>`;
+        var searchresult = `
+        <li>
+          <a href='/options.html#${results[i].item.url}'><img src='https://s2.googleusercontent.com/s2/favicons?domain_url=${extractHostname(results[i].item.url)}'/>${results[i].item.title}
+            <div>
+              <div class="search-url">${extractHostname(results[i].item.url)}</div>
+            </div>
+            <span class="search-content">${htmlstripped.substring(0,120)}...</span>
+          </a>
+        </li>`;
 
         searchitems = searchitems + searchresult;
         

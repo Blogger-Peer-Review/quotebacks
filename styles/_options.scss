@@ -106,12 +106,12 @@ body{
 }
 
 #articleSort{
-  position:absolute;
+  position:relative;
   display:flex;
   z-index:105;
   width:100%;
-  background-color: $lightbg;
-  height:35px;
+  background-color: $graybg;
+  height:25px;
   font-size:14px;
   border-bottom:1px solid $graydiv;
   color: #333;
@@ -474,11 +474,15 @@ body{
 }
 #searchResults li .title { font-size: 1.1em; margin-bottom: 10px; display: inline-block;}
 
-#searchResults .url { font-weight: 300;
-  margin-left: auto;
+#searchResults .search-url { font-weight: 300;
+  margin: 2px 0px 2px auto;
   white-space: nowrap;
   color: #253237;
   opacity: .5;
+}
+
+.search-content{
+  color: #464A4D;
 }
 
 #searchResults a { 
@@ -486,7 +490,10 @@ body{
   text-decoration: none !important; 
   padding: 10px; 
   display: inline-block;
+  img{  
+    margin-right:5px;
   }
+}
 #searchResults a:hover, a:focus { outline: 0; background-color: #ECEEEF; }
 #searchResults li:focus-within, #searchResults li:hover {outline: 0; background-color: #ECEEEF;  }
 
