@@ -11,7 +11,6 @@ chrome.commands.onCommand.addListener(function(command) {
           });
         });
         
-
       }
       else{
 
@@ -31,6 +30,8 @@ chrome.commands.onCommand.addListener(function(command) {
           file: 'rangy-core.js'
         });
 
+        // files for highlighter
+        /*
         chrome.tabs.executeScript({
           file: 'rangy-classapplier.js'
         });
@@ -42,7 +43,7 @@ chrome.commands.onCommand.addListener(function(command) {
         chrome.tabs.insertCSS({
           file: 'styles/quoteback-highlighter.css'
         });
-        
+        */
       
         chrome.tabs.executeScript({
           file: 'newcontent.js',

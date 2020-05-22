@@ -177,7 +177,9 @@ chrome.runtime.onMessage.addListener(
           clearInterval(t); // stop timer
         };
         
-    
+        // rangy highlight selection code
+        // remember to uncomment background.js files too
+        /*
         highlighter = rangy.createHighlighter();
 
         highlighter.addClassApplier(
@@ -188,7 +190,7 @@ chrome.runtime.onMessage.addListener(
         );
 
         highlighter.highlightSelection("quotebackhighlight");
-
+        */
     
     
         var time = 0;
