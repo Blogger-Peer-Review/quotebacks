@@ -30,6 +30,19 @@ chrome.commands.onCommand.addListener(function(command) {
         chrome.tabs.executeScript({
           file: 'rangy-core.js'
         });
+
+        chrome.tabs.executeScript({
+          file: 'rangy-classapplier.js'
+        });
+
+        chrome.tabs.executeScript({
+          file: 'rangy-highlighter.js'
+        });        
+
+        chrome.tabs.insertCSS({
+          file: 'styles/quoteback-highlighter.css'
+        });
+        
       
         chrome.tabs.executeScript({
           file: 'newcontent.js',
