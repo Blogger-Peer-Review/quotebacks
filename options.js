@@ -13,6 +13,11 @@ document.addEventListener("DOMContentLoaded", function(){
 
     //create sorted array by last_updated 
     for (var item in items) {
+      //for quotes with no last_mod
+      //i.e. beta users
+      if(!items[item].last_update){
+        items[item].last_update = "01/01/2019"
+      }
       sorted.push([item, items[item].last_update]);
     }
     sorted.sort(function(a,b){
@@ -49,10 +54,10 @@ document.addEventListener("DOMContentLoaded", function(){
       if(allKeys.includes(pagehash)){ // error handling for some mishandled hash value
         displayquotes(pagehash)
     }else{
-      displayquotes(allKeys[0]);
+      displayquotes(sorted[0][0]);
     };
     }else{
-      displayquotes(allKeys[0]);
+      displayquotes(sorted[0][0]);
     }
 
     window.addEventListener('hashchange', function() {
@@ -224,7 +229,11 @@ document.addEventListener("DOMContentLoaded", function(){
           chrome.storage.local.remove(url, function (){
             console.log("deleted "+url);
             $(".selected").hide();
-            displayquotes(url);
+            if(url == sorted[0][0]){
+              displayquotes(sorted[1][0]);          
+            }else{
+              displayquotes(sorted[0][0]);          
+            };
           });
         }else{
         chrome.storage.local.set(alldata, function(){ 
@@ -245,10 +254,10 @@ document.addEventListener("DOMContentLoaded", function(){
         chrome.storage.local.remove(url, function(){ // delete entire item from alldata
           console.log("deleted article "+url);
           $(".selected").hide();
-          if(url == allKeys[0]){
-            displayquotes(allKeys[1]);          
+          if(url == sorted[0][0]){
+            displayquotes(sorted[1][0]);          
           }else{
-            displayquotes(allKeys[0]);          
+            displayquotes(sorted[0][0]);          
           };
         });
       }else{

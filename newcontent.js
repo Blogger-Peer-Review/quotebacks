@@ -12,6 +12,7 @@ chrome.runtime.onMessage.addListener(
       closePopup();
       
       var object = {};
+      var highlighter;
 
       rangy.init();
     
@@ -176,8 +177,21 @@ chrome.runtime.onMessage.addListener(
           clearInterval(t); // stop timer
         };
         
-    
-        
+        // rangy highlight selection code
+        // remember to uncomment background.js files too
+        /*
+        highlighter = rangy.createHighlighter();
+
+        highlighter.addClassApplier(
+          rangy.createClassApplier("quotebackhighlight", {
+            ignoreWhiteSpace: true,
+            tagNames: ["span", "a"]
+          })
+        );
+
+        highlighter.highlightSelection("quotebackhighlight");
+
+        */
     
     
         var time = 0;
