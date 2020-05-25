@@ -240,6 +240,7 @@ chrome.runtime.onMessage.addListener(
               if (event.keyCode === 13) {
                 event.preventDefault();
                 return null;
+                authorArea.blur()
               };
             });
 
@@ -247,6 +248,7 @@ chrome.runtime.onMessage.addListener(
               if (event.keyCode === 13) {
                 event.preventDefault();
                 return null;
+                titleArea.blur()
               };
             });
 
