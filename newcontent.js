@@ -230,12 +230,26 @@ chrome.runtime.onMessage.addListener(
         }, 1000);
     
         function txtAreaListenFocus(){
-    
             var popup = document.querySelector("quoteback-popup");
             var quote = popup.querySelector("quoteback-component").shadowRoot;   
             var txtArea = popup.shadowRoot.querySelector('.citation-input'); // changed
             var authorArea = quote.querySelector('.portal-author-519256'); // changed
             var titleArea = quote.querySelector('.title-wrapper-519256'); // changed
+            
+            authorArea.addEventListener('keydown', function(event){
+              if (event.keyCode === 13) {
+                event.preventDefault();
+                return null;
+              };
+            });
+
+            titleArea.addEventListener('keydown', function(event){
+              if (event.keyCode === 13) {
+                event.preventDefault();
+                return null;
+              };
+            });
+
             authorArea.addEventListener('focus', function(event) {
                 textfocus = true;
             }.bind(this));
