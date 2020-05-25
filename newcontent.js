@@ -6,8 +6,14 @@ chrome.runtime.onMessage.addListener(
       sendResponse({alive: "loaded"});
     }
 
-    // run the popup on message from background.js
-    if (request.message == "copyquote"){
+    var selectionChecker = (window.getSelection().toString());
+    // run the popup on message from background.js if there is no selection text
+    
+    if (request.message == "copyquote" && selectionChecker == ""){
+      return null;
+    } else if (request.message == "copyquote" && selectionChecker != ""){
+
+      console.log("my selection type is " + window.getSelection.typeof);
 
       closePopup();
       
@@ -26,7 +32,7 @@ chrome.runtime.onMessage.addListener(
       };
     
     
-    chrome.storage.local.get([page], function(result) {
+      chrome.storage.local.get([page], function(result) {
         var page_object = {};        
         page_object["last_update"] = getDate();
         page_object["url"] = page;
@@ -108,10 +114,10 @@ chrome.runtime.onMessage.addListener(
         </div>
     
         </div>
-    `;
+        `;
     
         class QuotebackPopup extends HTMLElement {
-        constructor(){
+          constructor(){
             super();
             this.attachShadow({mode: 'open'});
             this.shadowRoot.appendChild(template.content.cloneNode(true));
@@ -120,7 +126,7 @@ chrome.runtime.onMessage.addListener(
             this.title = this.getAttribute('title'); 
             this.url = this.getAttribute('url')
             this.favicon = this.getAttribute('favicon');
-        };
+          };
         }
 
         if (customElements.get('quoteback-popup')){
@@ -135,18 +141,19 @@ chrome.runtime.onMessage.addListener(
         // COPY EMBED //
         var p = document.querySelector("quoteback-popup").shadowRoot;
         p.querySelector("#getlink").addEventListener("click", function(event) {
-        var embed = `<blockquote class="quoteback" data-title="${page_object["title"]}" data-author="${page_object["author"]}" cite="${page_object["url"]}">
-    <p>${text}</p>
-    <footer>${page_object["author"]} <cite><a href="${page_object["url"]}">${page_object["url"]}</a></cite></footer>
-    <script note="REPLACE WITH REAL SCRIPT" src="https://cdn.jsdelivr.net/gh/tomcritchlow/Citations-Magic@tom-branch/quoteback.js"></script>
-    </blockquote>`;
-    
-        copyToClipboard(embed);
-        console.log(p.querySelector("#getlink"));
-        p.querySelector("#getlink").innerHTML = "Copied!";
-        setTimeout(function() {
-            p.querySelector("#getlink").innerHTML = "<> Embed";
-        }, 1000);
+          var embed = `<blockquote class="quoteback" data-title="${page_object["title"]}" data-author="${page_object["author"]}" cite="${page_object["url"]}">
+          <p>${text}</p>
+          <footer>${page_object["author"]} <cite><a href="${page_object["url"]}">${page_object["url"]}</a></cite></footer>
+          <script note="REPLACE WITH REAL SCRIPT" src="https://cdn.jsdelivr.net/gh/tomcritchlow/Citations-Magic@tom-branch/quoteback.js"></script>
+          </blockquote>
+          `;
+      
+          copyToClipboard(embed);
+          console.log(p.querySelector("#getlink"));
+          p.querySelector("#getlink").innerHTML = "Copied!";
+          setTimeout(function() {
+              p.querySelector("#getlink").innerHTML = "<> Embed";
+          }, 1000);
         });
     
     
@@ -192,16 +199,14 @@ chrome.runtime.onMessage.addListener(
         highlighter.highlightSelection("quotebackhighlight");
 
         */
-    
-    
+
         var time = 0;
         var textfocus = false;
         var ishover = false;
         var isPaused = false;
         txtAreaListenFocus();
         txtAreaListenBlur();
-    
-    
+
         p.addEventListener("mouseover", function( event ) {   
             ishover = true;
         });
@@ -253,40 +258,36 @@ chrome.runtime.onMessage.addListener(
             });
 
             authorArea.addEventListener('focus', function(event) {
-                textfocus = true;
+              textfocus = true;
             }.bind(this));
             titleArea.addEventListener('focus', function(event) {
-            textfocus = true;
+              textfocus = true;
             }.bind(this));
             txtArea.addEventListener('focus', function(event) {
-            textfocus = true;
-        }.bind(this));                               
+              textfocus = true;
+            }.bind(this));                               
         };
     
         function txtAreaListenBlur(){
-            var popup = document.querySelector("quoteback-popup");
-            var quote = popup.querySelector("quoteback-component").shadowRoot;   
-            var txtArea = popup.shadowRoot.querySelector('.citation-input'); // changed
-            var authorArea = quote.querySelector('.portal-author-519256'); // changed
-            var titleArea = quote.querySelector('.title-wrapper-519256'); // changed
-            txtArea.addEventListener('blur', function(event) {
-            textfocus = false;
-            }.bind(this));
-            authorArea.addEventListener('blur', function(event) {
-            textfocus = false;
-            }.bind(this));
-            titleArea.addEventListener('blur', function(event) {
-            textfocus = false;
-            }.bind(this));
+          var popup = document.querySelector("quoteback-popup");
+          var quote = popup.querySelector("quoteback-component").shadowRoot;   
+          var txtArea = popup.shadowRoot.querySelector('.citation-input'); // changed
+          var authorArea = quote.querySelector('.portal-author-519256'); // changed
+          var titleArea = quote.querySelector('.title-wrapper-519256'); // changed
+          txtArea.addEventListener('blur', function(event) {
+          textfocus = false;
+          }.bind(this));
+          authorArea.addEventListener('blur', function(event) {
+          textfocus = false;
+          }.bind(this));
+          titleArea.addEventListener('blur', function(event) {
+          textfocus = false;
+          }.bind(this));
         };                          
     
-    
-    
-    });
+      });
 
-
-    }    
-
+    }
 
   });
 
@@ -430,16 +431,16 @@ function CleanChildren(elem)
         }
      
     
-    }());
+  }());
     
-function  copyToClipboard(str){   
-      const el = document.createElement('textarea');
-      el.value = str;
-      document.body.appendChild(el);
-      el.select();
-      document.execCommand('copy');
-      document.body.removeChild(el);
-    };
+function copyToClipboard(str){   
+  const el = document.createElement('textarea');
+  el.value = str;
+  document.body.appendChild(el);
+  el.select();
+  document.execCommand('copy');
+  document.body.removeChild(el);
+};
 
 function closePopup(){
   var paras = document.querySelector("quoteback-popup");
@@ -447,4 +448,4 @@ function closePopup(){
       paras.parentNode.removeChild(paras);
   };         
   AutoSave.stop();              
-  }
+}
