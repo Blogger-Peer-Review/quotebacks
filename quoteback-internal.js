@@ -54,7 +54,7 @@ function embedquoteback(){
 			set title(value) {
 			  this._title = value;
 			  if (this.shadowRoot)
-			    this.shadowRoot.querySelector('.title-wrapper').innerHTML = value;
+			    this.shadowRoot.querySelector('.quoteback-title').innerHTML = value;
 			};
 			get title() {
 			  return this._title;

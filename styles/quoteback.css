@@ -113,7 +113,7 @@
   outline: none; }
 .editable:after {
   margin-left: 10px;
-  content: url('${chrome.runtime.getURL("images/editicon.svg")}'); }
+  content: '${editSVG}'; }
 
 .quoteback-content a {
   color: #464A4D;
