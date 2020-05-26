@@ -37,18 +37,25 @@ chrome.runtime.onMessage.addListener(
         page_object["last_update"] = getDate();
         page_object["url"] = page;
     
-        if(getMeta("twitter:title")){
-        page_object["title"] = getMeta("twitter:title");
-        } else if(getMeta("og:title")){
-        page_object["title"] = getMeta("og:title");
-        }else{
-        page_object["title"] = document.title;
-        }
-        
-        if(getMeta("author")){
-        page_object["author"] = getMeta("author");  
-        }else{
-        page_object["author"] = getMeta("twitter:site");
+        if(result[page] == null){
+            if(getMeta("twitter:title")){
+            page_object["title"] = getMeta("twitter:title");
+            } else if(getMeta("og:title")){
+            page_object["title"] = getMeta("og:title");
+            }else{
+            page_object["title"] = document.title;
+            }
+            
+            if(getMeta("author")){
+            page_object["author"] = getMeta("author");  
+            }else{
+            page_object["author"] = getMeta("twitter:site");
+            }
+          }
+        else{
+          page_object["title"] = result[page]["title"];
+          page_object["author"] = result[page]["author"];
+
         }
     
         var quotes = [];
