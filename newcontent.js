@@ -155,6 +155,25 @@ chrome.runtime.onMessage.addListener(
               p.querySelector("#getlink").innerHTML = "<> Embed";
           }, 1000);
         });
+
+        // COPY MARKDOWN //
+        var p = document.querySelector("quoteback-popup").shadowRoot;
+        p.querySelector("#getMarkdown").addEventListener("click", function(event) {
+
+          var htmlembed = `<blockquote>${text}</blockquote>
+          Source: <a href="${page_object["url"]}">${page_object["title"]}</a> by ${page_object["author"]}`;
+      
+          const turndownService = new TurndownService();
+
+          const markdown = turndownService.turndown(htmlembed);
+    
+          copyToClipboard(markdown);
+          
+          p.querySelector("#getMarkdown").innerHTML = "Copied!";
+          setTimeout(function() {
+              p.querySelector("#getMarkdown").innerHTML = "Copy Markdown";
+          }, 1000);
+        });        
     
     
         appendIcon();
@@ -304,10 +323,19 @@ chrome.runtime.onMessage.addListener(
           // regex here: https://stackoverflow.com/questions/44009089/javascript-replace-regex-all-html-tags-except-p-a-and-img
           // NOTE: this removes tags but not contents. e.g. "<script>some script</script>"" will return "some script"
           var selectionhtml =  rangy.getSelection().toHtml();
-          var cleaned = selectionhtml.replace(/(<\/?(?:a|p|img|h1|h2|h3|h4|h5|em|strong|ul|ol|li|blockquote)[^>]*>)|<[^>]+>/ig, '$1');
+          var cleaned = selectionhtml.replace(/(<\/?(?:a|b|p|img|h1|h2|h3|h4|h5|em|strong|ul|ol|li|blockquote)[^>]*>)|<[^>]+>/ig, '$1');
           
           //create a document fragment to make manipulations like absolute links
           var htmlfragment = document.createRange().createContextualFragment(cleaned);
+
+          // remove inline styles from elements
+          var descendents = htmlfragment.querySelectorAll("*");
+          for (var i = 0; i < descendents.length; i++) {
+            e = descendents[i];
+            e.removeAttribute("style");
+          }
+
+          //make all link & image references absolute not relative
           var links = htmlfragment.querySelectorAll("a");
           links.forEach(e => {
             e.href = convertAbsolute(e.href);

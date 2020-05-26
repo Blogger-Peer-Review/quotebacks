@@ -34,6 +34,10 @@ chrome.commands.onCommand.addListener(function(command) {
           file: 'rangy-core.js'
         });
 
+        chrome.tabs.executeScript({
+          file: 'turndown.js'
+        });        
+
         // files for highlighter
         /*
         chrome.tabs.executeScript({
