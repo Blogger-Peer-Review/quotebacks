@@ -107,7 +107,7 @@ document.addEventListener("DOMContentLoaded", function(){
 
       var embed = `<blockquote class="quoteback" data-title="${title}" data-author="${author}" cite="${url}">
 <p>${decodeURIComponent(text)}</p>
-<footer>${author} <cite><a href="${url}">${url}</a></cite></footer>
+<footer>${author}<cite><a href="${url}">${url}</a></cite></footer>
 </blockquote><script note="UPDATE THIS 4REALZ" src="https://cdn.jsdelivr.net/gh/tomcritchlow/Citations-Magic@tom-branch/quoteback.js"></script>`;
 
         copyToClipboard(embed);
@@ -160,12 +160,13 @@ document.addEventListener("DOMContentLoaded", function(){
         }
       }).then((canvas) => {
         canvas.toBlob(function(blob) {
+          saveAs(canvas.toDataURL(), 'quoteback.png');
           var item = new ClipboardItem({ "image/png": blob });
           navigator.clipboard.write([item]).then(
             function() {
               console.log("Copied to clipboard successfully!");
               
-              var element = document. getElementById("copyimage");
+              var element = document.getElementById("copyimage");
               element.parentNode.removeChild(element);
 
               document.getElementById("panel-scrollContainer").style.height = "initial";
@@ -191,6 +192,32 @@ document.addEventListener("DOMContentLoaded", function(){
 
     });
   
+
+// used in html2canvas
+function saveAs(uri, filename) {
+
+      var link = document.createElement('a');
+  
+      if (typeof link.download === 'string') {
+  
+          link.href = uri;
+          link.download = filename;
+  
+          //Firefox requires the link to be in the body
+          document.body.appendChild(link);
+  
+          //simulate click
+          link.click();
+  
+          //remove the link when done
+          document.body.removeChild(link);
+  
+      } else {
+  
+          window.open(uri);
+  
+      }
+  }
 
     // convert quote to markdown using turndown.js
     $('#rightpanel').on('click',"#copymd", function() {
