@@ -76,7 +76,7 @@ document.addEventListener("DOMContentLoaded", function(){
     $('#rightpanel').on('click',"#copy", function() {
       console.log("copying?");
       var quote = $(this).closest(".quote-container").find("#quoteback-component");
-      var text = quote.attr("text");
+      var text = decodeURIComponent(quote.attr("text"));
 
       copyToClipboard(text);
       var el = $(this);

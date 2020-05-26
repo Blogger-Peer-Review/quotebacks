@@ -25,7 +25,10 @@
   "commands": {
     "open-popup": {
       "description": "Capture a quote from the web",
-      "suggested_key": { "default": "Ctrl+Shift+S" }
+      "suggested_key": {
+        "default": "Ctrl+Shift+S",
+        "windows": "Ctrl+Shift+S"
+      }
     }
   }
 }
