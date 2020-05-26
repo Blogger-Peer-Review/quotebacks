@@ -286,13 +286,8 @@ function saveAs(uri, filename) {
       if (r == true) {
         var url = $(".selected").attr("data-id");
         chrome.storage.local.remove(url, function(){ // delete entire item from alldata
-          console.log("deleted article "+url);
-          $(".selected").hide();
-          if(url == sorted[0][0]){
-            displayquotes(sorted[1][0]);          
-          }else{
-            displayquotes(sorted[0][0]);          
-          };
+          location.reload();
+          
         });
       }else{
       }
@@ -389,6 +384,7 @@ document.getElementById('fileid').onchange = function(evt) {
 
           chrome.storage.local.set(importitems, function() {            
             console.log("import done!");
+            location.reload();
     
           });
 
@@ -404,7 +400,8 @@ document.getElementById('fileid').onchange = function(evt) {
 document.getElementById("clearStorage").onclick = function(){
   var r = confirm("Are you sure you want to delete all citations?!");
   if (r == true) {
-    chrome.storage.local.clear()
+    chrome.storage.local.clear();
+    location.reload();
   } else {
   } 
 };
