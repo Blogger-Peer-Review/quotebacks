@@ -74,11 +74,14 @@ document.addEventListener("DOMContentLoaded", function(){
     });
     
     $('#rightpanel').on('click',"#copy", function() {
-      console.log("copying?");
+
       var quote = $(this).closest(".quote-container").find("#quoteback-component");
       var text = decodeURIComponent(quote.attr("text"));
 
-      copyToClipboard(text);
+      var htmlfragment = document.createRange().createContextualFragment(text);
+      var cleaned = htmlfragment.textContent;
+
+      copyToClipboard(cleaned);
       var el = $(this);
       el.html("Copied!");
       setTimeout(function() {
