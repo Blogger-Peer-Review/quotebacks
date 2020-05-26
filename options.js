@@ -6,6 +6,11 @@ var sorted = [];
 document.addEventListener("DOMContentLoaded", function(){
   chrome.storage.local.get(null, function(items) {
     allKeys = Object.keys(items);
+    
+
+    //only run all the code if there are items in the DB
+    if(allKeys.length != 0){
+      
     alldata = items;
 
     console.log(alldata);
@@ -293,60 +298,9 @@ function saveAs(uri, filename) {
       }
     });
 
-    // CLEAR STORAGE
-    document.getElementById("clearStorage").onclick = function(){
-      var r = confirm("Are you sure you want to delete all citations?!");
-      if (r == true) {
-        chrome.storage.local.clear()
-      } else {
-      } 
-    };
 
-    // Export function
-    document.getElementById("exportQuotes").onclick = function(){
-      var dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(alldata, null, 2));
-      var d = new Date();
-      var curr_date = d.getDate();
-      var curr_month = d.getMonth() + 1; //Months are zero based
-      var curr_year = d.getFullYear();
-      var a = document.createElement("a");
-      a.setAttribute("href",     dataStr     );
-      a.setAttribute("download", curr_date + "-" + curr_month + "-" + curr_year +"-quoteback.json");
-      a.click();
-    };
 
-    // Import function
-    document.getElementById("importQuotes").onclick = function(){
-      document.getElementById('fileid').click();
-    };
 
-    document.getElementById('fileid').onchange = function(evt) {
-      try {
-          let files = evt.target.files;
-          if (!files.length) {
-              alert('No file selected!');
-              return;
-          }
-          let file = files[0];
-          let reader = new FileReader();
-          const self = this;
-          var importobject = {};
-          reader.onload = (event) => {
-              var importitems = JSON.parse(event.target.result);
-              //console.log('FILE CONTENT', event.target.result);
-
-              chrome.storage.local.set(importitems, function() {            
-                console.log("import done!");
-        
-              });
-
-              //console.log(importitems);
-          };
-          reader.readAsText(file);
-      } catch (err) {
-          console.error(err);
-      }
-  }
 
 
     // on title/author -> trigger autosave
@@ -406,9 +360,72 @@ function saveAs(uri, filename) {
     $( "#rightpanel" ).on("focusout" , ".comment", function() {
       AutoSave.stop();
     });    
-
+  };
   });
 });
+
+
+document.addEventListener("DOMContentLoaded", function(){
+
+// Import function
+document.getElementById("importQuotes").onclick = function(){
+  document.getElementById('fileid').click();
+};
+
+document.getElementById('fileid').onchange = function(evt) {
+  try {
+      let files = evt.target.files;
+      if (!files.length) {
+          alert('No file selected!');
+          return;
+      }
+      let file = files[0];
+      let reader = new FileReader();
+      const self = this;
+      var importobject = {};
+      reader.onload = (event) => {
+          var importitems = JSON.parse(event.target.result);
+          //console.log('FILE CONTENT', event.target.result);
+
+          chrome.storage.local.set(importitems, function() {            
+            console.log("import done!");
+    
+          });
+
+          //console.log(importitems);
+      };
+      reader.readAsText(file);
+  } catch (err) {
+      console.error(err);
+  }
+}
+
+// CLEAR STORAGE
+document.getElementById("clearStorage").onclick = function(){
+  var r = confirm("Are you sure you want to delete all citations?!");
+  if (r == true) {
+    chrome.storage.local.clear()
+  } else {
+  } 
+};
+
+// Export function
+document.getElementById("exportQuotes").onclick = function(){
+  var dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(alldata, null, 2));
+  var d = new Date();
+  var curr_date = d.getDate();
+  var curr_month = d.getMonth() + 1; //Months are zero based
+  var curr_year = d.getFullYear();
+  var a = document.createElement("a");
+  a.setAttribute("href",     dataStr     );
+  a.setAttribute("download", curr_date + "-" + curr_month + "-" + curr_year +"-quoteback.json");
+  a.click();
+};
+});
+
+
+
+
 
 
 function displayquotes(url){
