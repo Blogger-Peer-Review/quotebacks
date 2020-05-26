@@ -108,8 +108,7 @@ document.addEventListener("DOMContentLoaded", function(){
       var embed = `<blockquote class="quoteback" data-title="${title}" data-author="${author}" cite="${url}">
 <p>${decodeURIComponent(text)}</p>
 <footer>${author} <cite><a href="${url}">${url}</a></cite></footer>
-<script note="UPDATE THIS 4REALZ" src="https://cdn.jsdelivr.net/gh/tomcritchlow/Citations-Magic@tom-branch/quoteback.js"></script>
-</blockquote>`;
+</blockquote><script note="UPDATE THIS 4REALZ" src="https://cdn.jsdelivr.net/gh/tomcritchlow/Citations-Magic@tom-branch/quoteback.js"></script>`;
 
         copyToClipboard(embed);
         let el = $(this);

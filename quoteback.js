@@ -6,7 +6,15 @@ document.addEventListener("DOMContentLoaded", function(){
     for (item in index){
 
         // export its data
-        var text = index[item].childNodes[1].innerHTML;
+        index[item].removeChild(index[item].querySelector("footer"));
+        
+        var text = index[item].innerHTML;
+        
+        
+        
+        
+        // something to remove footer
+
         var url = index[item].cite;
         var author = index[item].getAttribute("data-author");
         var title = index[item].getAttribute("data-title");
