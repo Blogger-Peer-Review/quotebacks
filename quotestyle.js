@@ -113,7 +113,9 @@ var quoteStyle  = `.portal-container-519256 {
   outline: none; }
 .editable:after {
   margin-left: 10px;
-  content: url('${chrome.runtime.getURL("images/editicon.svg")}'); }
+  content: url('${chrome.runtime.getURL("images/editicon.svg") || 'none'}'); }
+  
+  
 
 
 .portal-content-519256 a {
