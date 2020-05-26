@@ -3,16 +3,14 @@ document.addEventListener("DOMContentLoaded", function(){
     // get all our classed blockquote components
     var index = document.getElementsByClassName("quoteback");
 
-    for (item in index){
 
-        // export its data
+    for(var item=0; item < index.length; item++ ){
+      
+        // remove the footer element
         index[item].removeChild(index[item].querySelector("footer"));
         
         var text = index[item].innerHTML;
-        
-        
-        
-        
+
         // something to remove footer
 
         var url = index[item].cite;
@@ -22,7 +20,7 @@ document.addEventListener("DOMContentLoaded", function(){
 
         // create a new component with that data
         var component = `
-        <quoteback-component url="${url}" text="${text}" author="${author}" title="${title}" favicon="${favicon}"> 
+        <quoteback-component url="${url}" text="${encodeURIComponent(text)}" author="${author}" title="${title}" favicon="${favicon}"> 
         	<script src="./quoteback.js"></script>  
         </quoteback-component>    
         `;
