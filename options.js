@@ -136,18 +136,18 @@ document.addEventListener("DOMContentLoaded", function(){
       newDiv.style.position = "absolute";
       newDiv.style.width = "500px";
       newDiv.style.padding = "5px 5px 5px 5px";
-      newDiv.querySelector(".portal-container-519256").style.margin = "0px 0px 0px 0px";
+      newDiv.querySelector(".quoteback-container").style.margin = "0px 0px 0px 0px";
       document.getElementById("panel-scrollContainer").appendChild(newDiv);
 
       //stop the "go to text" element rendering in the image
-      document.getElementById("copyimage").querySelector(".portal-backlink-519256").setAttribute("data-html2canvas-ignore", "true");
+      document.getElementById("copyimage").querySelector(".quoteback-backlink").setAttribute("data-html2canvas-ignore", "true");
 
       // use faviconkit for screenshots for CORS
-      var url = document.getElementById("copyimage").querySelector(".portal-arrow-519256").href;
+      var url = document.getElementById("copyimage").querySelector(".quoteback-arrow").href;
       var hostname = (new URL(url)).hostname;
-      document.getElementById("copyimage").querySelector(".mini-favicon-519256").src = "https://api.faviconkit.com/"+hostname;
+      document.getElementById("copyimage").querySelector(".mini-favicon").src = "https://api.faviconkit.com/"+hostname;
 
-      var title = document.getElementById("copyimage").querySelector(".title-wrapper-519256");
+      var title = document.getElementById("copyimage").querySelector(".quoteback-title");
       if(title.innerHTML.length > 65){ // html2canvas doesn't support text-overflow:ellipses
         title.innerHTML = title.innerHTML.substring(0,60);
         title.innerHTML = title.innerHTML + "...";

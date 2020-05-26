@@ -180,8 +180,8 @@ chrome.runtime.onMessage.addListener(
         function appendIcon(){
           var popup = document.querySelector("quoteback-popup");
           var quote = popup.querySelector("quoteback-component").shadowRoot;
-          quote.querySelector(".title-wrapper-519256").classList.add("editable");
-          quote.querySelector(".portal-author-519256").classList.add("editable");
+          quote.querySelector(".quoteback-title").classList.add("editable");
+          quote.querySelector(".quoteback-author").classList.add("editable");
         };
 
         // SAVE & CLOSE //
@@ -256,8 +256,8 @@ chrome.runtime.onMessage.addListener(
         function txtAreaListenFocus(){
             var popup = document.querySelector("quoteback-popup");
             var quote = popup.querySelector("quoteback-component").shadowRoot;   
-            var txtArea = popup.shadowRoot.querySelector('.citation-input'); // changed
-            var authorArea = quote.querySelector('.portal-author-519256'); // changed
+            var txtArea = popup.shadowRoot.querySelectorquoteback-title-input'); // changed
+            var authorArea = quote.querySelector('.quoteback-author'); // changed
             var titleArea = quote.querySelector('.title-wrapper-519256'); // changed
             
             authorArea.addEventListener('keydown', function(event){
@@ -290,8 +290,8 @@ chrome.runtime.onMessage.addListener(
         function txtAreaListenBlur(){
           var popup = document.querySelector("quoteback-popup");
           var quote = popup.querySelector("quoteback-component").shadowRoot;   
-          var txtArea = popup.shadowRoot.querySelector('.citation-input'); // changed
-          var authorArea = quote.querySelector('.portal-author-519256'); // changed
+          var txtArea = popup.shadowRoot.querySelectorquoteback-title-input'); // changed
+          var authorArea = quote.querySelector('.quoteback-author'); // changed
           var titleArea = quote.querySelector('.title-wrapper-519256'); // changed
           txtArea.addEventListener('blur', function(event) {
           textfocus = false;
@@ -415,8 +415,8 @@ function CleanChildren(elem)
           var popup = document.querySelector("quoteback-popup");                 
           var quote = popup.querySelector("quoteback-component").shadowRoot;
           var commentbox = popup.shadowRoot.querySelector(".citation-input");
-          var title = quote.querySelector('.title-wrapper-519256');
-          var author = quote.querySelector('.portal-author-519256'); 
+          var title = quote.querySelector('.quoteback-title');
+          var author = quote.querySelector('.quoteback-author'); 
       
           var page = document.location.href;
       

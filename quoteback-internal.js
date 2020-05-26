@@ -1,23 +1,25 @@
 function embedquoteback(){
   var template = document.createElement('template');
     template.innerHTML=`
-    <style>${quoteStyle}</style>
-    <div class="portal-container-519256">
-        <div id="portal-parent-519256" class="portal-parent-519256">
-            <div class="portal-content-519256"></div>       
-        </div>
+	    <style>${quoteStyle}</style>
+	    <div class="quoteback-container">
+	        <div id="quoteback-parent" class="quoteback-parent">
+	            <div class="quoteback-content"></div>       
+	        </div>
 
-        <div class="portal-head-519256">       
-          <div class="portal-avatar-519256"><img class="mini-favicon-519256" src=""/></div>     
-          <div class="portal-metadata-519256">
-            <div class="portal-title-519256">
-                <div class="portal-author-519256"></div>
-                <div class="title-wrapper-519256"></div>
-          	</div> 
-        	</div>
-			<div class="portal-backlink-519256"><a target="_blank" href="" class="portal-arrow-519256">Go to text <span class="right-arrow">&#8594;</span></a></div>
-        </div>  
-    </div>`;
+	        <div class="quoteback-head">       
+	            <div class="quoteback-avatar"><img class="mini-favicon" src=""/></div>     
+	            <div class="quoteback-metadata">
+	                <div class="metadata-inner">
+	                    <div class="quoteback-author"></div>
+	                    <div class="quoteback-title"></div>
+	                </div> 
+	            </div>
+
+	        <div class="quoteback-backlink"><a target="_blank" href="" class="quoteback-arrow">Go to text <span class="right-arrow">&#8594;</span></a></div>
+	        </div>  
+	    </div>
+    `;
 
   class QuoteBack extends HTMLElement {
     constructor(){
@@ -36,7 +38,7 @@ function embedquoteback(){
 			set text(value) {
 			  this._text = value;
 			  if (this.shadowRoot)
-			    this.shadowRoot.querySelector('.portal-content-519256').innerHTML = value;
+			    this.shadowRoot.querySelector('.quoteback-content').innerHTML = value;
 			};
 			get text() {
 			  return this._text;
@@ -44,7 +46,7 @@ function embedquoteback(){
 			set author(value) {
 			  this._author = value;
 			  if (this.shadowRoot)
-			    this.shadowRoot.querySelector('.portal-author-519256').innerHTML = value;
+			    this.shadowRoot.querySelector('.quoteback-author').innerHTML = value;
 			};
 			get author() {
 			  return this._author;
@@ -52,7 +54,7 @@ function embedquoteback(){
 			set title(value) {
 			  this._title = value;
 			  if (this.shadowRoot)
-			    this.shadowRoot.querySelector('.title-wrapper-519256').innerHTML = value;
+			    this.shadowRoot.querySelector('.title-wrapper').innerHTML = value;
 			};
 			get title() {
 			  return this._title;
@@ -60,7 +62,7 @@ function embedquoteback(){
 			set url(value) {
 			  this._url = value;
 			  if (this.shadowRoot)
-			    this.shadowRoot.querySelector('.portal-arrow-519256').href = value;
+			    this.shadowRoot.querySelector('.quoteback-arrow').href = value;
 			};
 			get url() {
 			  return this._url;
@@ -68,7 +70,7 @@ function embedquoteback(){
 			set favicon(value) {
 				this._favicon = value;
 				if (this.shadowRoot)
-					this.shadowRoot.querySelector('.mini-favicon-519256').src = value;
+					this.shadowRoot.querySelector('.mini-favicon').src = value;
 			};
 			get favicon() {
 				return this._favicon;
@@ -77,8 +79,8 @@ function embedquoteback(){
 			  this._editable = value;
 			  if (this.shadowRoot)
 					if(value == "true"){
-						this.shadowRoot.querySelector('.portal-author-519256').setAttribute("contenteditable", true);
-						this.shadowRoot.querySelector('.title-wrapper-519256').setAttribute("contenteditable", true);
+						this.shadowRoot.querySelector('.quoteback-author').setAttribute("contenteditable", true);
+						this.shadowRoot.querySelector('.quoteback-title').setAttribute("contenteditable", true);
 					}	
 				
 			};

@@ -1,4 +1,4 @@
-var quoteStyle  = `.portal-container-519256 {
+var quoteStyle  = `.quoteback-container {
   font-family: -apple-system, system-ui, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol";
   text-rendering: optimizeLegibility;
   border: 1px solid #C2DFE3;
@@ -11,27 +11,27 @@ var quoteStyle  = `.portal-container-519256 {
   -ms-transition: all 0.2s ease;
   -o-transition: all 0.2s ease;
   transition: all 0.2s ease; }
-  .portal-container-519256:hover {
+  .quoteback-container:hover {
     transform: translateY(-3px);
     box-shadow: 0px 6px 20px 0px rgba(0, 0, 0, 0.15);
     border: 1px solid #9DB8BF; }
-  .portal-container-519256 .portal-parent-519256 {
+  .quoteback-container .quoteback-parent {
     overflow: hidden;
     position: relative;
     width: 100%;
     box-sizing: border-box; }
-    .portal-container-519256 .portal-parent-519256 .portal-parent-text-519256 {
+    .quoteback-container .quoteback-parent .quoteback-parent-text {
       padding: 15px;
       color: #5C6D73;
       z-index: 40; }
-    .portal-container-519256 .portal-parent-519256 .portal-content-519256 {
+    .quoteback-container .quoteback-parent .quoteback-content {
       font-family: -apple-system, system-ui, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol";
       font-size: 16px;
       font-weight: 400;
       padding: 15px;
       color: #464A4D;
       line-height: 150%; }
-  .portal-container-519256 .portal-head-519256 {
+  .quoteback-container .quoteback-head {
     border-top: 1px solid #C2DFE3;
     display: flex;
     flex-flow: row nowrap;
@@ -43,7 +43,7 @@ var quoteStyle  = `.portal-container-519256 {
     -ms-transition: all 0.2s ease;
     -o-transition: all 0.2s ease;
     transition: all 0.2s ease; }
-    .portal-container-519256 .portal-head-519256 .portal-avatar-519256 {
+    .quoteback-container .quoteback-head .quoteback-avatar {
       border-radius: 100%;
       border: 1px solid #C2DFE3;
       width: 42px;
@@ -51,7 +51,7 @@ var quoteStyle  = `.portal-container-519256 {
       min-width: 42px !important;
       margin: 12px 0px;
       position: relative; }
-      .portal-container-519256 .portal-head-519256 .portal-avatar-519256 .mini-favicon-519256 {
+      .quoteback-container .quoteback-head .quoteback-avatar .mini-favicon {
         width: 22px;
         height: 22px;
         position: absolute;
@@ -60,31 +60,31 @@ var quoteStyle  = `.portal-container-519256 {
         left: 0;
         right: 0;
         bottom: 0; }
-    .portal-container-519256 .portal-head-519256 .portal-metadata-519256 {
+    .quoteback-container .quoteback-head .quoteback-metadata {
       min-width: 0px;
       display: flex;
       flex-shrink: 1;
       align-items: center;
       margin-left: 10px; }
-    .portal-container-519256 .portal-head-519256 .portal-author-519256 {
-      font-size: 14px;
-      line-height: 1.2;
-      color: black;
-      font-weight: 600;
-      margin-bottom: 2px; }
-    .portal-container-519256 .portal-head-519256 .portal-title-519256 {
+    .quoteback-container .quoteback-head .metadata-inner {
       font-size: 14px;
       line-height: 1.2;
       color: #9DB8BF;
       max-width: 100%; }
-      .portal-container-519256 .portal-head-519256 .portal-title-519256 .title-wrapper-519256 {
+      .quoteback-container .quoteback-head .metadata-inner .quoteback-title {
         white-space: nowrap;
         overflow: hidden;
         text-overflow: ellipsis;
         font-weight: 600;
         padding-right: 20px;
         color: #5C6D73; }
-    .portal-container-519256 .portal-head-519256 .portal-backlink-519256 {
+      .quoteback-container .quoteback-head .metadata-inner .quoteback-author {
+        font-size: 14px;
+        line-height: 1.2;
+        color: black;
+        font-weight: 600;
+        margin-bottom: 2px; }
+    .quoteback-container .quoteback-head .quoteback-backlink {
       margin-left: auto;
       display: flex;
       flex-shrink: 1;
@@ -93,7 +93,7 @@ var quoteStyle  = `.portal-container-519256 {
       min-width: 81px !important;
       padding: 0px 15px !important;
       border-left: 1px solid #C2DFE3; }
-      .portal-container-519256 .portal-head-519256 .portal-backlink-519256 .portal-arrow-519256 {
+      .quoteback-container .quoteback-head .quoteback-backlink .quoteback-arrow {
         border: none !important;
         font-family: inherit !important;
         font-size: 14px !important;
@@ -104,9 +104,9 @@ var quoteStyle  = `.portal-container-519256 {
         -ms-transition: opacity 0.1s ease;
         -o-transition: opacity 0.1s ease;
         transition: opacity 0.1s ease; }
-        .portal-container-519256 .portal-head-519256 .portal-backlink-519256 .portal-arrow-519256:hover {
+        .quoteback-container .quoteback-head .quoteback-backlink .quoteback-arrow:hover {
           opacity: .5 !important; }
-        .portal-container-519256 .portal-head-519256 .portal-backlink-519256 .portal-arrow-519256:visited {
+        .quoteback-container .quoteback-head .quoteback-backlink .quoteback-arrow:visited {
           text-decoration: none !important; }
 
 .editable:focus {
@@ -115,35 +115,35 @@ var quoteStyle  = `.portal-container-519256 {
   margin-left: 10px;
   content: url('${chrome.runtime.getURL("images/editicon.svg")}'); }
 
-
-.portal-content-519256 a {
+.quoteback-content a {
   color: #464A4D;
   -webkit-transition: opacity 0.2s ease;
   -moz-transition: opacity 0.2s ease;
   -ms-transition: opacity 0.2s ease;
   -o-transition: opacity 0.2s ease;
   transition: opacity 0.2s ease; }
-  .portal-content-519256 a:hover {
+  .quoteback-content a:hover {
     opacity: .5; }
-.portal-content-519256 p {
+.quoteback-content p {
   margin-block-start: 0px;
   margin-block-end: .5em; }
-  .portal-content-519256 p:last-of-type {
+  .quoteback-content p:last-of-type {
     margin-block-end: 0px; }
-.portal-content-519256 img {
+.quoteback-content img {
   width: 100%;
   height: auto;
   margin: .5em 0em; }
-.portal-content-519256 blockquote {
+.quoteback-content blockquote {
   border-left: 2px solid #C2DFE3;
   padding-left: .75em;
   margin-inline-start: 1em;
   color: #5C6D73; }
-.portal-content-519256 ol, .portal-content-519256 ul {
+.quoteback-content ol, .quoteback-content ul {
   margin-block-start: .5em;
   margin-block-end: .5em; }
-.portal-content-519256 h1, .portal-content-519256 h2, .portal-content-519256 h3 {
+.quoteback-content h1, .quoteback-content h2, .quoteback-content h3 {
   margin-block-start: .5em;
   margin-block-end: .5em; }
+
 
 `
