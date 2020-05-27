@@ -111,7 +111,7 @@ document.addEventListener("DOMContentLoaded", function(){
       var author = quote.attr("author");
 
       var embed = `<blockquote class="quoteback" data-title="${title}" data-author="${author}" cite="${url}">
-<p>${decodeURIComponent(text)}</p>
+${decodeURIComponent(text)}
 <footer>${author}<cite><a href="${url}">${url}</a></cite></footer>
 </blockquote><script note="UPDATE THIS 4REALZ" src="https://cdn.jsdelivr.net/gh/tomcritchlow/Citations-Magic@tom-branch/quoteback.js"></script>`;
 
