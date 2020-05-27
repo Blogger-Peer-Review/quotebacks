@@ -149,11 +149,10 @@ chrome.runtime.onMessage.addListener(
         var p = document.querySelector("quoteback-popup").shadowRoot;
         p.querySelector("#getlink").addEventListener("click", function(event) {
           var embed = `<blockquote class="quoteback" data-title="${page_object["title"]}" data-author="${page_object["author"]}" cite="${page_object["url"]}">
-          <p>${text}</p>
-          <footer>${page_object["author"]} <cite><a href="${page_object["url"]}">${page_object["url"]}</a></cite></footer>
-          </blockquote>
-          <script note="REPLACE WITH REAL SCRIPT" src="https://cdn.jsdelivr.net/gh/tomcritchlow/Citations-Magic@tom-branch/quoteback.js"></script>
-          `;
+${text}
+<footer>${page_object["author"]} <cite><a href="${page_object["url"]}">${page_object["url"]}</a></cite></footer>
+</blockquote>
+<script note="REPLACE WITH REAL SCRIPT" src="https://cdn.jsdelivr.net/gh/tomcritchlow/Citations-Magic@tom-branch/quoteback.js"></script>`;
       
           copyToClipboard(embed);
           console.log(p.querySelector("#getlink"));
