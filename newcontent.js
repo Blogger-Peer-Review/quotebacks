@@ -151,8 +151,8 @@ chrome.runtime.onMessage.addListener(
           var embed = `<blockquote class="quoteback" data-title="${page_object["title"]}" data-author="${page_object["author"]}" cite="${page_object["url"]}">
           <p>${text}</p>
           <footer>${page_object["author"]} <cite><a href="${page_object["url"]}">${page_object["url"]}</a></cite></footer>
-          <script note="REPLACE WITH REAL SCRIPT" src="https://cdn.jsdelivr.net/gh/tomcritchlow/Citations-Magic@tom-branch/quoteback.js"></script>
           </blockquote>
+          <script note="REPLACE WITH REAL SCRIPT" src="https://cdn.jsdelivr.net/gh/tomcritchlow/Citations-Magic@tom-branch/quoteback.js"></script>
           `;
       
           copyToClipboard(embed);
@@ -187,8 +187,8 @@ chrome.runtime.onMessage.addListener(
         function appendIcon(){
           var popup = document.querySelector("quoteback-popup");
           var quote = popup.querySelector("quoteback-component").shadowRoot;
-          quote.querySelector(".title-wrapper-519256").classList.add("editable");
-          quote.querySelector(".portal-author-519256").classList.add("editable");
+          quote.querySelector(".quoteback-title").classList.add("editable");
+          quote.querySelector(".quoteback-author").classList.add("editable");
         };
 
         // SAVE & CLOSE //
@@ -263,9 +263,9 @@ chrome.runtime.onMessage.addListener(
         function txtAreaListenFocus(){
             var popup = document.querySelector("quoteback-popup");
             var quote = popup.querySelector("quoteback-component").shadowRoot;   
-            var txtArea = popup.shadowRoot.querySelector('.citation-input'); // changed
-            var authorArea = quote.querySelector('.portal-author-519256'); // changed
-            var titleArea = quote.querySelector('.title-wrapper-519256'); // changed
+            // var txtArea = popup.shadowRoot.querySelector('.quoteback-title-input'); // changed
+            var authorArea = quote.querySelector('.quoteback-author'); // changed
+            var titleArea = quote.querySelector('.quoteback-title'); // changed
             
             authorArea.addEventListener('keydown', function(event){
               if (event.keyCode === 13) {
@@ -297,9 +297,9 @@ chrome.runtime.onMessage.addListener(
         function txtAreaListenBlur(){
           var popup = document.querySelector("quoteback-popup");
           var quote = popup.querySelector("quoteback-component").shadowRoot;   
-          var txtArea = popup.shadowRoot.querySelector('.citation-input'); // changed
-          var authorArea = quote.querySelector('.portal-author-519256'); // changed
-          var titleArea = quote.querySelector('.title-wrapper-519256'); // changed
+          // var txtArea = popup.shadowRoot.querySelector('.quoteback-title-input'); // changed
+          var authorArea = quote.querySelector('.quoteback-author'); // changed
+          var titleArea = quote.querySelector('.quoteback-title'); // changed
           txtArea.addEventListener('blur', function(event) {
           textfocus = false;
           }.bind(this));
@@ -422,8 +422,8 @@ function CleanChildren(elem)
           var popup = document.querySelector("quoteback-popup");                 
           var quote = popup.querySelector("quoteback-component").shadowRoot;
           var commentbox = popup.shadowRoot.querySelector(".citation-input");
-          var title = quote.querySelector('.title-wrapper-519256');
-          var author = quote.querySelector('.portal-author-519256'); 
+          var title = quote.querySelector('.quoteback-title');
+          var author = quote.querySelector('.quoteback-author'); 
       
           var page = document.location.href;
       
