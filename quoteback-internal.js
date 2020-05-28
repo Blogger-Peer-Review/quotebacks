@@ -25,6 +25,8 @@ function embedquoteback(){
     constructor(){
 			super();
 			
+			// if the page has embeds already then we don't define element
+			// this is because for some reason this file can't do customElements.get('quoteback-component')
 			if(this.shadowRoot){
 
 			}else{
@@ -96,7 +98,8 @@ function embedquoteback(){
 
   }
 
-  // if quoteback-component is already defined
+	// THIS DOESN'T WORK. customElements.get('quoteback-component')
+	// returns undefined even if page has embeds on and has customelement defined
   if (customElements.get('quoteback-component')){
       null;
   }else{
