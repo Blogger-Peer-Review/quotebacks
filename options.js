@@ -1,28 +1,50 @@
 var alldata;
 var allKeys;
 var alljson = [];
+var sorted = [];
 
 document.addEventListener("DOMContentLoaded", function(){
   chrome.storage.local.get(null, function(items) {
     allKeys = Object.keys(items);
+    
+
+    //only run all the code if there are items in the DB
+    if(allKeys.length != 0){
+      
     alldata = items;
 
     console.log(alldata);
+    embedquoteback();
 
-    for( var i in items){
+    //create sorted array by last_updated 
+    for (var item in items) {
+      //for quotes with no last_mod
+      //i.e. beta users
+      if(!items[item].last_update){
+        items[item].last_update = "01/01/2019"
+      }
+      sorted.push([item, items[item].last_update]);
+    }
+    sorted.sort(function(a,b){
+      return a[1] - b[1]
+    })    
+    sorted.reverse();
 
-      alljson.push(items[i]);
+    for( var i in sorted){
+
+      alljson.push(items[sorted[i][0]]);
 
       const article_fragment = document.getElementById('articleItem');
       const article_instance = document.importNode(article_fragment.content, true);
       // Add relevant content to the template
 
-      var domain = extractHostname(items[i].url);
-      article_instance.querySelector('.title').innerHTML = items[i].title;
-      // article_instance.querySelector('.author').innerHTML = items[i].author;
-      article_instance.querySelector('.mini-favicon').src = "https://s2.googleusercontent.com/s2/favicons?domain_url="+domain+"";
+      var domain = extractHostname(items[sorted[i][0]].url);
+      article_instance.querySelector('.title').innerHTML = items[sorted[i][0]].title;
+      article_instance.querySelector('.mini-favicon').src = "https://s2.googleusercontent.com/s2/favicons?domain_url="+domain+"&size=64";
       article_instance.querySelector('.url').innerHTML = domain;
-      article_instance.querySelector('.article').setAttribute("data-id",items[i].url);
+      article_instance.querySelector('.article').setAttribute("data-id",items[sorted[i][0]].url);
+
+      
 
       // Append the instance ot the DOM
       document.getElementById('article-scrollContainer').appendChild(article_instance);
@@ -37,10 +59,10 @@ document.addEventListener("DOMContentLoaded", function(){
       if(allKeys.includes(pagehash)){ // error handling for some mishandled hash value
         displayquotes(pagehash)
     }else{
-      displayquotes(allKeys[0]);
+      displayquotes(sorted[0][0]);
     };
     }else{
-      displayquotes(allKeys[0]);
+      displayquotes(sorted[0][0]);
     }
 
     window.addEventListener('hashchange', function() {
@@ -57,9 +79,14 @@ document.addEventListener("DOMContentLoaded", function(){
     });
     
     $('#rightpanel').on('click',"#copy", function() {
-      console.log("copying?");
-      var quote = $(this).closest('.quoteblock').find('.portal-content-519256').text();
-      copyToClipboard(quote);
+
+      var quote = $(this).closest(".quote-container").find("#quoteback-component");
+      var text = decodeURIComponent(quote.attr("text"));
+
+      var htmlfragment = document.createRange().createContextualFragment(text);
+      var cleaned = htmlfragment.textContent;
+
+      copyToClipboard(cleaned);
       var el = $(this);
       el.html("Copied!");
       setTimeout(function() {
@@ -68,49 +95,87 @@ document.addEventListener("DOMContentLoaded", function(){
     });
 
     $('#rightpanel').on('click',"#embedLink", function() {
-      
+
+      var quote = $(this).closest(".quote-container").find("#quoteback-component");
+
       var title = $(".selected").find(".title").text();
       var url = $(".selected").attr("data-id");
-      var quote = $(this).closest('.quoteblock').find('.portal-content-519256').html();
-      var author = $(this).closest('.quoteblock').find('.portal-author-519256').text();
+      var text = quote.attr("text");
 
-      const embed_fragment = document.getElementById('embed');
-      const embed = document.importNode(embed_fragment.content, true);
-      // Add relevant content to the template
-      embed.querySelector('.portal-author-519256').innerHTML = author;
-      embed.querySelector('.title-wrapper-519256').innerHTML = title;
-      embed.querySelector('.portal-arrow-519256').setAttribute("href", url);
-      embed.querySelector('.portal-content-519256').innerHTML = quote;
-      embed.querySelector('.mini-favicon-519256').src = "https://s2.googleusercontent.com/s2/favicons?domain_url="+url+"";
-    
-      let div=document.createElement("div");
-      div.appendChild(embed);
+      // if we want to use text instead of html inside the blockquote we should use this:
+      // https://ourcodeworld.com/articles/read/376/how-to-strip-html-from-a-string-extract-only-text-content-in-javascript
+      // however we'd then need to move to storing the html string in an attribute in the web component
+      //var stripedHtml = decodeURIComponent(text).replace(/<[^>]+>/g, '');
+      
+      
+      var author = quote.attr("author");
 
-      copyToClipboard(div.innerHTML);
+      var embed = `<blockquote class="quoteback" data-title="${title}" data-author="${author}" cite="${url}">
+${decodeURIComponent(text)}
+<footer>${author}<cite><a href="${url}">${url}</a></cite></footer>
+</blockquote><script note="UPDATE THIS 4REALZ" src="https://cdn.jsdelivr.net/gh/tomcritchlow/Citations-Magic@tom-branch/quoteback.js"></script>`;
 
-      var el = $(this);
-      el.html("Copied!");
-      setTimeout(function() {
-        el.html("<> Embed");
-      }, 1000);
-    });
-
+        copyToClipboard(embed);
+        let el = $(this);
+        el.html("Copied!");
+        setTimeout(function() {
+          el.html("<> Embed");
+        }, 1000);
+      });
 
     // use html2screenshot to generate canvas, copy img to clipboard
     $('#rightpanel').on('click',"#copyimg", function() {
       var el = $(this);
 
-      var element = $(this).closest('.quoteblock').find('.portal-container-519256');
+      quote = el.closest(".quoteblock");
+      quote = quote[0].querySelector("quoteback-component");
+      console.log(quote);
 
-      html2canvas(element[0], {
-        useCORS: true
+      var newDiv = document.createElement("div"); 
+      newDiv.id = "copyimage";
+      newDiv.innerHTML = quote.shadowRoot.innerHTML;
+      
+      //position div offscreen to prevent flicker
+      document.getElementById("panel-scrollContainer").style.height = "3000px";
+      newDiv.style.bottom = "-999px";
+      newDiv.style.position = "absolute";
+      newDiv.style.width = "500px";
+      newDiv.style.padding = "5px 5px 5px 5px";
+      newDiv.querySelector(".quoteback-container").style.margin = "0px 0px 0px 0px";
+      document.getElementById("panel-scrollContainer").appendChild(newDiv);
+
+      //stop the "go to text" element rendering in the image
+      document.getElementById("copyimage").querySelector(".quoteback-backlink").setAttribute("data-html2canvas-ignore", "true");
+
+      // use faviconkit for screenshots for CORS
+      var url = document.getElementById("copyimage").querySelector(".quoteback-arrow").href;
+      var hostname = (new URL(url)).hostname;
+      document.getElementById("copyimage").querySelector(".mini-favicon").src = "https://api.faviconkit.com/"+hostname;
+
+      var title = document.getElementById("copyimage").querySelector(".quoteback-title");
+      if(title.innerHTML.length > 65){ // html2canvas doesn't support text-overflow:ellipses
+        title.innerHTML = title.innerHTML.substring(0,60);
+        title.innerHTML = title.innerHTML + "...";
+      }
+    
+
+      html2canvas(document.getElementById("copyimage"), {
+        useCORS: true,
+        onclone: function(document) {
+        }
       }).then((canvas) => {
         canvas.toBlob(function(blob) {
-          console.log("Writing to clipboard");
-          const item = new ClipboardItem({ "image/png": blob });
+          saveAs(canvas.toDataURL(), 'quoteback.png');
+          var item = new ClipboardItem({ "image/png": blob });
           navigator.clipboard.write([item]).then(
             function() {
               console.log("Copied to clipboard successfully!");
+              
+              var element = document.getElementById("copyimage");
+              element.parentNode.removeChild(element);
+
+              document.getElementById("panel-scrollContainer").style.height = "initial";
+
               el.html("Copied!");
               setTimeout(function() {
                 el.html("Copy Image");
@@ -125,11 +190,64 @@ document.addEventListener("DOMContentLoaded", function(){
       }).catch(function (error) {
           console.log('oops, something went wrong!', error);
       });
+    
+    
+    
+    
 
-  });
+    });
+  
 
+// used in html2canvas
+function saveAs(uri, filename) {
 
-    // DELETE QUOTE
+      var link = document.createElement('a');
+  
+      if (typeof link.download === 'string') {
+  
+          link.href = uri;
+          link.download = filename;
+  
+          //Firefox requires the link to be in the body
+          document.body.appendChild(link);
+  
+          //simulate click
+          link.click();
+  
+          //remove the link when done
+          document.body.removeChild(link);
+  
+      } else {
+  
+          window.open(uri);
+  
+      }
+  }
+
+    // convert quote to markdown using turndown.js
+    $('#rightpanel').on('click',"#copymd", function() {
+      var el = $(this);
+
+      quote = el.closest(".quoteblock");
+      quote = quote[0].querySelector("quoteback-component");
+
+      var html = `<blockquote>${quote.text}</blockquote>
+      Source: <a href="${quote.url}">${quote.title}</a> by ${quote.author}`;
+
+      const turndownService = new TurndownService();
+
+      const markdown = turndownService.turndown(html);
+
+      copyToClipboard(markdown);
+
+      el.html("Copied!");
+      setTimeout(function() {
+        el.html("Copy Markdown");
+      }, 1000);
+
+    });
+
+    // Delete QUOTE
     $('#rightpanel').on('click',"#delete", function() {
       
       var r = confirm("Are you sure you want to delete this quote?");
@@ -145,7 +263,11 @@ document.addEventListener("DOMContentLoaded", function(){
           chrome.storage.local.remove(url, function (){
             console.log("deleted "+url);
             $(".selected").hide();
-            displayquotes(url);
+            if(url == sorted[0][0]){
+              displayquotes(sorted[1][0]);          
+            }else{
+              displayquotes(sorted[0][0]);          
+            };
           });
         }else{
         chrome.storage.local.set(alldata, function(){ 
@@ -164,39 +286,16 @@ document.addEventListener("DOMContentLoaded", function(){
       if (r == true) {
         var url = $(".selected").attr("data-id");
         chrome.storage.local.remove(url, function(){ // delete entire item from alldata
-          console.log("deleted article "+url);
-          $(".selected").hide();
-          if(url == allKeys[0]){
-            displayquotes(allKeys[1]);          
-          }else{
-            displayquotes(allKeys[0]);          
-          };
+          location.reload();
+          
         });
       }else{
       }
     });
 
-    // CLEAR STORAGE
-    document.getElementById("clearStorage").onclick = function(){
-      var r = confirm("Are you sure you want to delete all citations?!");
-      if (r == true) {
-        chrome.storage.local.clear()
-      } else {
-      } 
-    };
 
-    // Export function
-    document.getElementById("exportQuotes").onclick = function(){
-      var dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(alldata, null, 2));
-      var d = new Date();
-      var curr_date = d.getDate();
-      var curr_month = d.getMonth() + 1; //Months are zero based
-      var curr_year = d.getFullYear();
-      var a = document.createElement("a");
-      a.setAttribute("href",     dataStr     );
-      a.setAttribute("download", curr_date + "-" + curr_month + "-" + curr_year +"-quoteback.json");
-      a.click();
-    };
+
+
 
 
     // on title/author -> trigger autosave
@@ -256,12 +355,80 @@ document.addEventListener("DOMContentLoaded", function(){
     $( "#rightpanel" ).on("focusout" , ".comment", function() {
       AutoSave.stop();
     });    
-
+  };
   });
 });
 
 
+document.addEventListener("DOMContentLoaded", function(){
+
+// Import function
+document.getElementById("importQuotes").onclick = function(){
+  document.getElementById('fileid').click();
+};
+
+document.getElementById('fileid').onchange = function(evt) {
+  try {
+      let files = evt.target.files;
+      if (!files.length) {
+          alert('No file selected!');
+          return;
+      }
+      let file = files[0];
+      let reader = new FileReader();
+      const self = this;
+      var importobject = {};
+      reader.onload = (event) => {
+          var importitems = JSON.parse(event.target.result);
+          //console.log('FILE CONTENT', event.target.result);
+
+          chrome.storage.local.set(importitems, function() {            
+            console.log("import done!");
+            location.reload();
+    
+          });
+
+          //console.log(importitems);
+      };
+      reader.readAsText(file);
+  } catch (err) {
+      console.error(err);
+  }
+}
+
+// CLEAR STORAGE
+document.getElementById("clearStorage").onclick = function(){
+  var r = confirm("Are you sure you want to delete all citations?!");
+  if (r == true) {
+    chrome.storage.local.clear();
+    location.reload();
+  } else {
+  } 
+};
+
+// Export function
+document.getElementById("exportQuotes").onclick = function(){
+  var dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(alldata, null, 2));
+  var d = new Date();
+  var curr_date = d.getDate();
+  var curr_month = d.getMonth() + 1; //Months are zero based
+  var curr_year = d.getFullYear();
+  var a = document.createElement("a");
+  a.setAttribute("href",     dataStr     );
+  a.setAttribute("download", curr_date + "-" + curr_month + "-" + curr_year +"-quoteback.json");
+  a.click();
+};
+});
+
+
+
+
+
+
 function displayquotes(url){
+
+  if(alldata[url]){
+
   document.getElementById('panel-scrollContainer').innerHTML = "";
 
   window.location.hash = url;
@@ -269,41 +436,46 @@ function displayquotes(url){
   const fragment = document.getElementById('quote');
 
   var offset = $(".article[data-id='"+url+"']").offset();
-  $("#article-scrollContainer").scrollTop(offset.top);
+  if(offset){
+    $("#article-scrollContainer").scrollTop(offset.top);
+  }
     
   alldata[url].quotes.forEach(item => {
-    // Create an instance of the template content
-    const instance = document.importNode(fragment.content, true);
-
-    // Add relevant content to the template
-    instance.querySelector('.portal-content-519256').innerHTML = item.text;
-    instance.querySelector('.linkback a').href = url;
-    // try making the "view original" link use the text fragment spec. Janky af.
-    //instance.querySelector('.linkback a').href = url + "#:~:text=" + item.text.substring(0,20);
-    instance.querySelector('.portal-arrow-519256').href = url;
-    instance.querySelector('.title-wrapper-519256').innerHTML = alldata[url].title;
-    instance.querySelector('.portal-author-519256').innerHTML = alldata[url].author;
-    instance.querySelector('.mini-favicon-519256').src = "https://s2.googleusercontent.com/s2/favicons?domain_url="+url+"";
 
     var date = new Date(item.date);
-    console.log(date); // date is a timestamp but we only display formatted
     var dd = String(date.getDate()).padStart(2, '0');
     var mm = String(date.getMonth() + 1).padStart(2, '0'); //January is 0!
     var yyyy = date.getFullYear();
     
     date = mm + '/' + dd + '/' + yyyy;
-    instance.querySelector('.date').innerHTML += date;
+    var datefield = date;
 
-    if(item.comment){
-     instance.querySelector('.comment').innerHTML = item.comment;
-     instance.querySelector('.comment').style.color = "#464A4D";
-    }else{
-      instance.querySelector('.comment').innerHTML = "Add comment";
-    };
+    var quotetemplate = `
+    <div class="quoteblock">
+      <div class="meta">
+      <div class="date">Created ${datefield}</div>
+      <div class="linkback"><a target="_blank" href="${url}">View Original</a></div>
+      </div>
+      <div class="quote-container">
+        <quoteback-component id="quoteback-component" url="${url}" text="${encodeURIComponent(item.text)}" author="${alldata[url].author}" title="${alldata[url].title}" favicon="https://s2.googleusercontent.com/s2/favicons?domain_url=${url}&size=64"> 
+        </quoteback-component> 
+        <div class="quote-controls">
+          <button id="embedLink" class="options-control-button"><> Embed</button>        
+          <button id="copyimg" class="options-control-button">Copy Image</button>        
+          <button id="copy" class="options-control-button">Copy Text</button>
+          <button id="copymd" class="options-control-button">Copy Markdown</button>
+          <button id="delete" class="options-control-button">Delete</button>        
+        </div>
+      </div>
+    <div class="comment" contenteditable="true" ${item.comment ? "style='color:#464A4D'" : ""}}>${item.comment ? item.comment : "Add Comment"}</div>
+    </div>
+    `;
+    
+    embedquoteback();
+    // Append the instance ot the DOM
+    document.getElementById('panel-scrollContainer').insertAdjacentHTML("beforeend", quotetemplate);
 
     
-    // Append the instance ot the DOM
-    document.getElementById('panel-scrollContainer').appendChild(instance);
 
     $( ".article" ).each(function() {
       $( this ).removeClass( "selected" );
@@ -317,6 +489,7 @@ function displayquotes(url){
     titlebar.querySelector("#titlebar-title").innerHTML = alldata[url].title;
 
   });
+  }
 };
 
 // COPY TO CLIPBOARD
@@ -393,7 +566,7 @@ var AutoSave = (function(){
       }
       timer = setInterval(function(){
                 save(object, el, index, url)
-            }, 1000);
+            }, 500);
     },
 
     stop: function(){
@@ -419,6 +592,12 @@ var AutoSaveTitle = (function(){
     alldata[url]["author"] = author;
     alldata[url]["title"] = title;
     chrome.storage.local.set(alldata, function(){ 
+      var quoteelems = document.getElementsByTagName("quoteback-component");
+      for(var i = 0; i < quoteelems.length; i++){
+        quoteelems[i].author = author;
+        quoteelems[i].title = title;
+      }
+      
       console.log("autosaved");
     });          
   };
@@ -433,7 +612,7 @@ var AutoSaveTitle = (function(){
       }
       timer = setInterval(function(){
                 save(object, el, url)
-            }, 1000);
+            }, 500);
     },
 
     stop: function(){
@@ -451,6 +630,39 @@ var AutoSaveTitle = (function(){
 document.addEventListener("DOMContentLoaded", function(){
   $(".comment").resizable();
 });
+
+document.addEventListener("DOMContentLoaded", function(){
+    var articleOptions = document.getElementById("titlebar-options");
+    var dropdown = document.getElementById("titlebar-dropdown");
+
+    var addMenu = function addDropDownMenu() {
+      dropdown.classList.add("on");
+    };
+    var removeMenu = function removeDropDownMenu() {
+      dropdown.classList.remove("on");
+    };
+    articleOptions.addEventListener("mouseover", addMenu);
+    articleOptions.addEventListener("mouseout", removeMenu);
+});
+
+document.addEventListener("DOMContentLoaded", function(){
+    var globalOptions = document.getElementById("global-options-button");
+    var dropdown = document.getElementById("global-options");
+
+    var addMenu = function addDropDownMenu() {
+      dropdown.classList.add("on");
+    };
+    var removeMenu = function removeDropDownMenu() {
+      dropdown.classList.remove("on");
+    };
+    // Add mouse over event to show menu
+    globalOptions.addEventListener("mouseover", addMenu);
+    // Add mouse out event to remove menu
+    globalOptions.addEventListener("mouseout", removeMenu);
+});
+
+
+
 
 // $("#leftnav").resizable({
 //     // only use the eastern handle

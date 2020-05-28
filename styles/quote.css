@@ -129,9 +129,9 @@
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  width: 85px;
-  min-width: 85px !important;
-  padding: 0px 15px;
+  width: 81px;
+  min-width: 81px !important;
+  padding: 0px 15px !important;
   border-left: 1px solid #C2DFE3;
 }
 
@@ -151,5 +151,47 @@
 
 .portal-container-519256 .portal-head-519256 .portal-backlink-519256 .portal-arrow-519256:visited {
   text-decoration: none !important;
+}
+
+.portal-content-519256 a {
+  color: #464A4D;
+  -webkit-transition: opacity 0.2s ease;
+  transition: opacity 0.2s ease;
+}
+
+.portal-content-519256 a:hover {
+  opacity: .5;
+}
+
+.portal-content-519256 p {
+  margin: 0px;
+}
+
+.portal-content-519256 img {
+  width: 100%;
+  height: auto;
+  margin: .5em 0em;
+}
+
+.portal-content-519256 blockquote {
+  border-left: 2px solid #C2DFE3;
+  padding-left: .75em;
+  -webkit-margin-start: 1em;
+          margin-inline-start: 1em;
+  color: #5C6D73;
+}
+
+.portal-content-519256 ol, .portal-content-519256 ul {
+  -webkit-margin-before: .5em;
+          margin-block-start: .5em;
+  -webkit-margin-after: .5em;
+          margin-block-end: .5em;
+}
+
+.portal-content-519256 h1, .portal-content-519256 h2, .portal-content-519256 h3 {
+  -webkit-margin-before: .5em;
+          margin-block-start: .5em;
+  -webkit-margin-after: .5em;
+          margin-block-end: .5em;
 }
 /*# sourceMappingURL=quote.css.map */

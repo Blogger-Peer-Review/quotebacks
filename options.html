@@ -4,44 +4,59 @@
     <meta charset="UTF-8">
   <script src="jquery-3.5.0.min.js" type="text/javascript"></script>
   <script src="html2screenshot.js" type="text/javascript"></script>
+  <script src="turndown.js"></script>
   <link rel="stylesheet" href="styles/styles.css" type="text/css">
+  <script src="quotestyle.js"></script>
+  <script src="quoteback-internal.js"></script>
+  <script src="options.js"></script>
+  <title>QuoteBack Library</title>
 
 </head>
 
 <body>
 
 <div id="nav">
+  <div id="pagetitle">QuoteBack Library</div>
   <div id="searchbar">
       <div id="fastSearch">
           <input id="searchInput" tabindex="0" placeholder="Search (&#8984;+K)" autocomplete="off">
           <ul id="searchResults">
           </ul>
-        </div>
+      </div>
   </div>
+   <div id="global-options-button">
+    <svg id="options-svg" fill="#B1B2B4" ;xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"><path d="M24 13.616v-3.232c-1.651-.587-2.694-.752-3.219-2.019v-.001c-.527-1.271.1-2.134.847-3.707l-2.285-2.285c-1.561.742-2.433 1.375-3.707.847h-.001c-1.269-.526-1.435-1.576-2.019-3.219h-3.232c-.582 1.635-.749 2.692-2.019 3.219h-.001c-1.271.528-2.132-.098-3.707-.847l-2.285 2.285c.745 1.568 1.375 2.434.847 3.707-.527 1.271-1.584 1.438-3.219 2.02v3.232c1.632.58 2.692.749 3.219 2.019.53 1.282-.114 2.166-.847 3.707l2.285 2.286c1.562-.743 2.434-1.375 3.707-.847h.001c1.27.526 1.436 1.579 2.019 3.219h3.232c.582-1.636.75-2.69 2.027-3.222h.001c1.262-.524 2.12.101 3.698.851l2.285-2.286c-.744-1.563-1.375-2.433-.848-3.706.527-1.271 1.588-1.44 3.221-2.021zm-12 2.384c-2.209 0-4-1.791-4-4s1.791-4 4-4 4 1.791 4 4-1.791 4-4 4z"/></svg>
+    <div class="dropdown" id="global-options">
+      <button id="clearStorage">Clear Storage</button>
+      <button id="exportQuotes">Export data</button>
+      <button id="importQuotes" type="file">Import data</button>
+      <input id='fileid' type='file' hidden/>
+    </div>
+  </div>  
 </div>
 
 <div id="appcontainer">
   <div id="leftnav">
+    <div id="articleSort">Sorted by Most Recent</div>
     <div id="article-scrollContainer"></div>
     <span id="capture-helper">&#8984;+Shift+S to save a quote on any site</span>
   </div>
   <div id="rightpanel">
     <div id="titlebar">
-      <div>
-        <div id="titlebar-author" contenteditable="true">Author</div>
-        <div id="titlebar-title" contenteditable="true">Title</div>        
+      <div id="titlebar-innercontainer">
+        <div id="titlebar-author" placeholder="No Author Found" contenteditable="true">Author</div>
+        <div id="titlebar-title" placeholder="No Title Found" contenteditable="true">Title</div>        
       </div>
-      <button id="titlebar-delete">Delete Article</button>
-      <div id="titlebar-options"></div>
+      <div id="titlebar-options">
+        <div class="dropdown" id="titlebar-dropdown">
+            <button id="titlebar-delete">Delete Article</button>  
+        </div>        
+      </div>
     </div>
     <div id="panel-scrollContainer"></div>
   </div>  
 </div>
 
-
-
-<button id="clearStorage">Clear Storage</button>
-<button id="exportQuotes">Export quotes</button>
 
 <template id="articleItem">
   <div class="article">
@@ -51,72 +66,10 @@
   </div>
 </template>
 
+
 <template id="quote">
-  <div class="quoteblock">
-
-    <div class="meta">
-      <div class="date">Created </div>
-      <div class="linkback"><a target="_blank" href="">View Original</a></div>
-    </div>
-
-    <div class="quote-container">
-
-      <div class="portal-container-519256">
-
-        <div id="portal-parent-519256" class="portal-parent-519256">
-          <div class="portal-content-519256">
-          </div>       
-        </div>
-
-        <div class="portal-head-519256">       
-          <div class="portal-avatar-519256"><img class="mini-favicon-519256" src=""/></div>     
-          <div class="portal-metadata-519256">
-            <div class="portal-title-519256">
-              <div class="portal-author-519256"></div>
-              <div class="title-wrapper-519256"></div>
-            </div> 
-          </div>
-
-          <div class="portal-backlink-519256" data-html2canvas-ignore="true"><a target="_blank" href="" class="portal-arrow-519256">Go to text <span class="right-arrow">&#8594;</span></a></div>
-        </div>  
-
-      </div>
-
-      <div class="quote-controls">
-          <button id="embedLink" class="control-button"><> Embed</button>        
-          <button id="copyimg" class="control-button">Copy Image</button>        
-          <button id="copy" class="control-button">Copy Text</button>
-          <button id="delete" class="control-button">Delete</button>        
-      </div>
-
-    </div>
-    <div class="comment" contenteditable="true"></div>
-</div>
-</template>
-
-
-<template id="embed">
-<link rel="stylesheet" href="https://files-lovat-six.now.sh/quote.css" type="text/css">
-<div class="portal-container-519256">
-
-<div id="portal-parent-519256" class="portal-parent-519256">
-<div class="portal-content-519256">
-</div>       
-</div>
-
-<div class="portal-head-519256">       
-<div class="portal-avatar-519256"><img class="mini-favicon-519256" src=""/></div>     
-<div class="portal-metadata-519256">
-<div class="portal-title-519256">
-<div class="portal-author-519256"></div>
-<div class="title-wrapper-519256"></div>
-</div> 
-</div>
-
-<div class="portal-backlink-519256"><a target="_blank" href="" class="portal-arrow-519256">Go to text <span class="right-arrow">&#8594;</span></a></div>
-</div>  
-
-</div>
+  <quoteback-component url="" text="" author="" title="" favicon=""> 
+  </quoteback-component>   
 </template>
 
 <template id="searchitem">
@@ -125,8 +78,6 @@
     </div>
 </template>
 
-
-<script src="options.js"></script>
 <script src="fuse.js"></script> <!-- download and copy over fuse.js file from fusejs.io -->
 <script src="fastsearch.js"></script>
 <script src="jquery-resizable.js"></script>

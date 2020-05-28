@@ -7,6 +7,7 @@
     "storage",
     "activeTab",
     "tabs",
+    //"webNavigation",
     "unlimitedStorage"
   ],
   "icons": {
@@ -16,25 +17,18 @@
     "default_title": "Options"
   },
   "options_page": "options.html",
-  "content_scripts": [
-    {
-      "matches": ["<all_urls>"],
-      "js": ["content.js"]
-    }
-  ],
   "background": {
     "scripts": ["background.js"],
     "persistent": false
   },
-  "web_accessible_resources": ["options.html","styles/styles.css","images/allquotes.png"],
+  "web_accessible_resources": ["options.html","styles/styles.css","images/allquotes.png", "images/editicon.svg","quoteback-internal.js"],
   "commands": {
-    "toggle-feature": {
+    "open-popup": {
+      "description": "Capture a quote from the web",
       "suggested_key": {
-        "default": "Ctrl+Shift+Y",
-        "mac": "MacCtrl+Shift+Y"
-       },
-      "description": "Send a 'toggle-feature' event to the extension"
+        "default": "Ctrl+Shift+S",
+        "windows": "Ctrl+Shift+S"
+      }
     }
   }
 }
-

@@ -15,8 +15,9 @@ $bluegray-text-med: #5C6D73;
 
 $bluegray-text-dark: #253237;
 
+$editIcon: 'url(${chrome.runtime.getURL("images/editicon.svg")})';
 
-.portal-container-519256{
+.quoteback-container{
   font-family: -apple-system, system-ui, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol";
   text-rendering: optimizeLegibility;
   border: 1px solid #C2DFE3;
@@ -32,18 +33,18 @@ $bluegray-text-dark: #253237;
     border: 1px solid $bluegray-text-light;
   }
   
-  .portal-parent-519256{
+  .quoteback-parent{
     overflow:hidden;
     position: relative;
     width:100%;
     box-sizing: border-box;
       
-    .portal-parent-text-519256{
+    .quoteback-parent-text{
       padding: 15px;
       color: $bluegray-text-med;          
       z-index: 40;
     }
-    .portal-content-519256{
+    .quoteback-content{
       font-family: -apple-system, system-ui, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol";
       font-size:16px;
       font-weight:400;
@@ -53,7 +54,7 @@ $bluegray-text-dark: #253237;
     }
   }
 
-  .portal-head-519256{
+  .quoteback-head{
     border-top: 1px solid $bluegray-bg-med;
     display:flex;
     flex-flow:row nowrap;
@@ -62,7 +63,7 @@ $bluegray-text-dark: #253237;
     padding-left:15px;
     @include transition(all .20s ease); 
 
-    .portal-avatar-519256{
+    .quoteback-avatar{
       border-radius:100%;
       border: 1px solid #C2DFE3;
       width:42px;
@@ -70,7 +71,7 @@ $bluegray-text-dark: #253237;
       min-width:42px !important;
       margin: 12px 0px;
       position:relative;
-      .mini-favicon-519256{
+      .mini-favicon{
         width:22px;
         height:22px;
         position: absolute;
@@ -82,37 +83,36 @@ $bluegray-text-dark: #253237;
       }
     }
 
-    .portal-metadata-519256{
+    .quoteback-metadata{
       min-width:0px;
       display:flex;
       flex-shrink:1;
       align-items:center;         
       margin-left:10px;
-    }
-
-    .portal-author-519256{
-      font-size:14px;
-      line-height:1.2;
-      color: black;
-      font-weight:600;
-      margin-bottom:2px;
     }       
-    .portal-title-519256{
+    .metadata-inner{
       font-size: 14px;
       line-height:1.2;
       color: $bluegray-text-light;
       max-width: 100%;
 
-      .title-wrapper-519256{
+      .quoteback-title{
         white-space: nowrap; 
         overflow: hidden; 
         text-overflow: ellipsis;
         font-weight:600;
         padding-right:20px;
         color: $bluegray-text-med;                  
-      }                   
+      }
+      .quoteback-author{
+        font-size:14px;
+        line-height:1.2;
+        color: black;
+        font-weight:600;
+        margin-bottom:2px;
+      }                         
     }
-    .portal-backlink-519256{
+    .quoteback-backlink{
       margin-left: auto;
       display:flex;
       flex-shrink:1;
@@ -121,7 +121,7 @@ $bluegray-text-dark: #253237;
       min-width:81px !important;
       padding: 0px 15px !important;
       border-left: 1px solid $bluegray-bg-med;
-      .portal-arrow-519256{
+      .quoteback-arrow{
         border: none !important;
         font-family:inherit !important;
         font-size: 14px !important;
@@ -139,8 +139,17 @@ $bluegray-text-dark: #253237;
   }   
 }
 
+.editable{
+  &:focus{
+    outline:none;
+  }
+  &:after{
+    margin-left:10px;
+    content: $editIcon; 
+  }
+}
 
-.portal-content-519256{
+.quoteback-content{
   a{
     color:#464A4D;
     @include transition(opacity .2s ease);
@@ -149,7 +158,11 @@ $bluegray-text-dark: #253237;
     }
   }
   p{
-    margin:0px;
+    margin-block-start:0px;
+    margin-block-end:.5em;
+    &:last-of-type{
+      margin-block-end:0px;
+    }
   }
   img {
     width:100%;

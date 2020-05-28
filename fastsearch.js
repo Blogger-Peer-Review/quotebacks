@@ -19,6 +19,7 @@ document.getElementById("searchInput").onclick = function(){
     document.getElementById("fastSearch").style.visibility = "visible"; // show search box
     document.getElementById("searchResults").style.visibility = "visible";
     document.getElementById("searchInput").focus(); // put focus in input box so you can just start typing
+    document.getElementById("searchInput").addClass(" unround")
     searchVisible = true; // search visible
   }
   else {
@@ -157,6 +158,10 @@ function loadSearch() {
   
 };
 
+function strip(html){
+  var doc = new DOMParser().parseFromString(html, 'text/html');
+  return doc.body.textContent || "";
+}
 
 // ==========================================
 // using the index we loaded on CMD-/, run 
@@ -176,13 +181,16 @@ function executeSearch(term) {
     for (var i in results.slice(0,5)){
 
       for(var j in results[i].item.quotes){
-        var searchresult = `<li><a href='/options.html#${results[i].item.url}'>${results[i].item.title}
-        <div>
-        <img src='https://s2.googleusercontent.com/s2/favicons?domain_url=${extractHostname(results[i].item.url)}'/>
-        ${extractHostname(results[i].item.url)}
-        </div>
-        <span>${results[i].item.quotes[j].text.substring(0,100)}</span>
-        </a></li>`;
+        var htmlstripped = strip(results[i].item.quotes[j].text);
+        var searchresult = `
+        <li>
+          <a href='/options.html#${results[i].item.url}'><img src='https://s2.googleusercontent.com/s2/favicons?domain_url=${extractHostname(results[i].item.url)}'/>${results[i].item.title}
+            <div>
+              <div class="search-url">${extractHostname(results[i].item.url)}</div>
+            </div>
+            <span class="search-content">${htmlstripped.substring(0,120)}...</span>
+          </a>
+        </li>`;
 
         searchitems = searchitems + searchresult;
         
