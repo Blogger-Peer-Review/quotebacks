@@ -203,11 +203,11 @@ ${text}
         });      
     
         // Close popup on tab focus out
-        // window.onblur = onBlur;
-        // function onBlur() {
-        //   closePopup()           
-        //   clearInterval(t); // stop timer
-        // };
+        window.onblur = onBlur;
+        function onBlur() {
+         closePopup()           
+         clearInterval(t); // stop timer
+        };
         
         // rangy highlight selection code
         // remember to uncomment background.js files too
@@ -246,7 +246,7 @@ ${text}
             // timeout to remove popups
             if(!ishover && !textfocus) {
             time++;
-            if(time > 100){
+            if(time > 5){
                 if (popup){
                 popup.parentNode.removeChild(popup);
                 };
@@ -262,7 +262,6 @@ ${text}
         function txtAreaListenFocus(){
             var popup = document.querySelector("quoteback-popup");
             var quote = popup.querySelector("quoteback-component").shadowRoot;   
-            // var txtArea = popup.shadowRoot.querySelector('.quoteback-title-input'); // changed
             var authorArea = quote.querySelector('.quoteback-author'); // changed
             var titleArea = quote.querySelector('.quoteback-title'); // changed
             
@@ -287,21 +286,14 @@ ${text}
             }.bind(this));
             titleArea.addEventListener('focus', function(event) {
               textfocus = true;
-            }.bind(this));
-            txtArea.addEventListener('focus', function(event) {
-              textfocus = true;
             }.bind(this));                               
         };
     
         function txtAreaListenBlur(){
           var popup = document.querySelector("quoteback-popup");
           var quote = popup.querySelector("quoteback-component").shadowRoot;   
-          // var txtArea = popup.shadowRoot.querySelector('.quoteback-title-input'); // changed
           var authorArea = quote.querySelector('.quoteback-author'); // changed
           var titleArea = quote.querySelector('.quoteback-title'); // changed
-          txtArea.addEventListener('blur', function(event) {
-          textfocus = false;
-          }.bind(this));
           authorArea.addEventListener('blur', function(event) {
           textfocus = false;
           }.bind(this));

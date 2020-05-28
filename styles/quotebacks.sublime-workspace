@@ -312,7 +312,7 @@
 	"buffers":
 	[
 		{
-			"file": "fastsearch.js",
+			"file": "/Users/tobyshorin/Documents/Work/2020/quotebacks/fastsearch.js",
 			"settings":
 			{
 				"buffer_size": 7212,
@@ -321,7 +321,7 @@
 			}
 		},
 		{
-			"file": "styles/_options.scss",
+			"file": "_options.scss",
 			"settings":
 			{
 				"buffer_size": 8493,
@@ -330,7 +330,7 @@
 			}
 		},
 		{
-			"file": "options.html",
+			"file": "/Users/tobyshorin/Documents/Work/2020/quotebacks/options.html",
 			"settings":
 			{
 				"buffer_size": 3347,
@@ -339,7 +339,7 @@
 			}
 		},
 		{
-			"file": "styles/quoteback.css",
+			"file": "quoteback.css",
 			"settings":
 			{
 				"buffer_size": 4984,
@@ -347,7 +347,7 @@
 			}
 		},
 		{
-			"file": "quotestyle.js",
+			"file": "/Users/tobyshorin/Documents/Work/2020/quotebacks/quotestyle.js",
 			"settings":
 			{
 				"buffer_size": 4961,
@@ -879,7 +879,7 @@
 			[
 				{
 					"buffer": 0,
-					"file": "fastsearch.js",
+					"file": "/Users/tobyshorin/Documents/Work/2020/quotebacks/fastsearch.js",
 					"semi_transient": false,
 					"settings":
 					{
@@ -912,7 +912,7 @@
 				},
 				{
 					"buffer": 1,
-					"file": "styles/_options.scss",
+					"file": "_options.scss",
 					"semi_transient": false,
 					"settings":
 					{
@@ -946,7 +946,7 @@
 				},
 				{
 					"buffer": 2,
-					"file": "options.html",
+					"file": "/Users/tobyshorin/Documents/Work/2020/quotebacks/options.html",
 					"semi_transient": false,
 					"settings":
 					{
@@ -979,7 +979,7 @@
 				},
 				{
 					"buffer": 3,
-					"file": "styles/quoteback.css",
+					"file": "quoteback.css",
 					"semi_transient": false,
 					"settings":
 					{
@@ -1013,7 +1013,7 @@
 				},
 				{
 					"buffer": 4,
-					"file": "quotestyle.js",
+					"file": "/Users/tobyshorin/Documents/Work/2020/quotebacks/quotestyle.js",
 					"semi_transient": false,
 					"settings":
 					{
@@ -1091,7 +1091,7 @@
 		"height": 146.0
 	},
 	"pinned_build_system": "",
-	"project": "citations.sublime-project",
+	"project": "quotebacks.sublime-project",
 	"replace":
 	{
 		"height": 44.0

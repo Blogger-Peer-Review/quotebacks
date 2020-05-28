@@ -21,7 +21,7 @@ document.addEventListener("DOMContentLoaded", function(){
       //for quotes with no last_mod
       //i.e. beta users
       if(!items[item].last_update){
-        items[item].last_update = "01/01/2019"
+        items[item].last_update = "1546347661"
       }
       sorted.push([item, items[item].last_update]);
     }
@@ -110,7 +110,8 @@ document.addEventListener("DOMContentLoaded", function(){
       
       var author = quote.attr("author");
 
-      var embed = `<blockquote class="quoteback" data-title="${title}" data-author="${author}" cite="${url}">
+      var embed = `
+<blockquote class="quoteback" data-title="${title}" data-author="${author}" cite="${url}">
 ${decodeURIComponent(text)}
 <footer>${author}<cite><a href="${url}">${url}</a></cite></footer>
 </blockquote><script note="UPDATE THIS 4REALZ" src="https://cdn.jsdelivr.net/gh/tomcritchlow/Citations-Magic@tom-branch/quoteback.js"></script>`;
