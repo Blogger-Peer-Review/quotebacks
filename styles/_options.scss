@@ -359,7 +359,7 @@ body{
 
 .article{
   @include transition(all .1s ease);
-  border-bottom: .5px solid $graydiv;
+  border-bottom: .5px solid #ECEEEF;
   padding:15px 11px 10px 15px;
   background-color: $lightbg;
   cursor:pointer;
@@ -395,7 +395,6 @@ body{
 }
 
 .selected{
-  border-right:1px solid $selection;
   border-left:4px solid $selection;
   background-color: white;
   .title{
@@ -428,12 +427,11 @@ body{
     #searchInput{
       box-shadow:0 1px 1px 0 rgba(65,69,73,0.3), 0 1px 3px 1px rgba(65,69,73,0.15);
       background:white;
-      border-radius: 4px 4px 0px 0px;
-      border:none;  
+      border:none;
+      border-radius: 4px 4px 0px 0px;  
     }
   }
 }      
-
 #fastSearch input { 
   @include transition(all .20s ease);
   padding-left: 10px;
@@ -458,7 +456,7 @@ body{
   position:absolute;
   margin:0px;
   padding:0px;
-  width:527px;
+  width:528px;
   background:white;
   border-radius:0px 0px 4px 4px;
   box-shadow:0 1px 1px 0 rgba(65,69,73,0.3), 0 1px 3px 1px rgba(65,69,73,0.15);

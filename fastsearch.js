@@ -19,6 +19,7 @@ document.getElementById("searchInput").onclick = function(){
     document.getElementById("fastSearch").style.visibility = "visible"; // show search box
     document.getElementById("searchResults").style.visibility = "visible";
     document.getElementById("searchInput").focus(); // put focus in input box so you can just start typing
+    document.getElementById("searchInput").addClass(" unround")
     searchVisible = true; // search visible
   }
   else {
