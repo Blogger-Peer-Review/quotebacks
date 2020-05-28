@@ -21,7 +21,7 @@ document.addEventListener("DOMContentLoaded", function(){
       //for quotes with no last_mod
       //i.e. beta users
       if(!items[item].last_update){
-        items[item].last_update = "01/01/2019"
+        items[item].last_update = "1546347661"
       }
       sorted.push([item, items[item].last_update]);
     }
