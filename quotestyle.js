@@ -114,7 +114,7 @@ var quoteStyle  = `.quoteback-container {
   outline: none; }
 .editable:after {
   margin-left: 10px;
-  content: '${editSVG}'; }
+  content: url("data:image/svg+xml; utf8, ${encodeURIComponent(editSVG)}"); }
 
 .quoteback-content a {
   color: #464A4D;

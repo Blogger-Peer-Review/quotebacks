@@ -145,7 +145,7 @@ $editSVG: 'var editSVG = `<svg width="12" height="12" viewBox="0 0 12 12" fill="
   }
   &:after{
     margin-left:10px;
-    content: '${editSVG}'; 
+    content: url("data:image/svg+xml; utf8, ${encodeURIComponent(editSVG)}"); }
   }
 }
 
