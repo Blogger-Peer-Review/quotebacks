@@ -23,16 +23,22 @@ function embedquoteback(){
 
   class QuoteBack extends HTMLElement {
     constructor(){
-      super();
-      this.attachShadow({mode: 'open'});
-      this.shadowRoot.appendChild(template.content.cloneNode(true));
-		  
-		this.text = decodeURIComponent(this.getAttribute('text'));
-		this.author = this.getAttribute('author');
-		this.title = this.getAttribute('title'); 
-		this.url = this.getAttribute('url')
-		this.favicon = this.getAttribute('favicon');
-		this.editable = this.getAttribute('editable');
+			super();
+			
+			if(this.shadowRoot){
+
+			}else{
+
+				this.attachShadow({mode: 'open'});
+				this.shadowRoot.appendChild(template.content.cloneNode(true));
+				
+			this.text = decodeURIComponent(this.getAttribute('text'));
+			this.author = this.getAttribute('author');
+			this.title = this.getAttribute('title'); 
+			this.url = this.getAttribute('url')
+			this.favicon = this.getAttribute('favicon');
+			this.editable = this.getAttribute('editable');
+			}
 		};
 
 			set text(value) {

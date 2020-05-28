@@ -250,9 +250,21 @@ document.addEventListener("DOMContentLoaded", function(){
 						if (this.shadowRoot)
 							this.shadowRoot.querySelector('.mini-favicon').src = value;
 					};
-                    get favicon() {
-                        return this._favicon;
-                    }                    
+          get favicon() {
+              return this._favicon;
+          } 
+          set editable(value) {
+            this._editable = value;
+            if (this.shadowRoot)
+              if(value == "true"){
+                this.shadowRoot.querySelector('.quoteback-author').setAttribute("contenteditable", true);
+                this.shadowRoot.querySelector('.quoteback-title').setAttribute("contenteditable", true);
+              }	
+            
+          };
+          get editable() {
+            return this._editable;
+          };                                       
 
         }
 
