@@ -203,11 +203,11 @@ ${text}
         });      
     
         // Close popup on tab focus out
-        // window.onblur = onBlur;
-        // function onBlur() {
-        //   closePopup()           
-        //   clearInterval(t); // stop timer
-        // };
+        window.onblur = onBlur;
+        function onBlur() {
+         closePopup()           
+         clearInterval(t); // stop timer
+        };
         
         // rangy highlight selection code
         // remember to uncomment background.js files too
@@ -246,7 +246,7 @@ ${text}
             // timeout to remove popups
             if(!ishover && !textfocus) {
             time++;
-            if(time > 100){
+            if(time > 5){
                 if (popup){
                 popup.parentNode.removeChild(popup);
                 };
