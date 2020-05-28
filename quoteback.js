@@ -114,7 +114,7 @@ var quoteStyle  = `.quoteback-container {
   outline: none; }
 .editable:after {
   margin-left: 10px;
-  content: '${editSVG}'; }
+  content: url(data:image/svg+xml,${encodeURIComponent(editSVG)}) ;}  
 
 .quoteback-content a {
   color: #464A4D;
@@ -210,7 +210,8 @@ document.addEventListener("DOMContentLoaded", function(){
 					  this.author = this.getAttribute('author');
 					  this.title = this.getAttribute('title'); 
 					  this.url = this.getAttribute('url')
-					  this.favicon = this.getAttribute('favicon');
+            this.favicon = this.getAttribute('favicon');
+            this.editable = this.getAttribute('editable');
           };
 
 					set text(value) {
