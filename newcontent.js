@@ -152,7 +152,7 @@ chrome.runtime.onMessage.addListener(
 ${text}
 <footer>${page_object["author"]} <cite><a href="${page_object["url"]}">${page_object["url"]}</a></cite></footer>
 </blockquote>
-<script note="REPLACE WITH REAL SCRIPT" src="https://cdn.jsdelivr.net/gh/Blogger-Peer-Review/quotebacks@tom-branch/quoteback.js"></script>`;
+<script note="REPLACE WITH REAL SCRIPT" src="https://cdn.jsdelivr.net/gh/Blogger-Peer-Review/quotebacks@latest/quoteback.js"></script>`;
       
           copyToClipboard(embed);
           console.log(p.querySelector("#getlink"));
@@ -475,3 +475,5 @@ function closePopup(){
   };         
   AutoSave.stop();              
 }
+
+// some final nonsense
