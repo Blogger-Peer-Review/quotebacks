@@ -1,4 +1,7 @@
 # Quotebacks
+Quote the web — [install Chrome extension](https://chrome.google.com/webstore/detail/quotebacks-quote-the-web/makakhdegdcmmbbhepafcghpdkbemach)
+
+---
 
 Grab quotes from any page using cmd+shift+s (on Windows: ctrl+shift+S). Then grab the embed link to produce a live HTML citation like this:
 
