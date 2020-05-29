@@ -7,7 +7,6 @@
     "storage",
     "activeTab",
     "tabs",
-    //"webNavigation",
     "unlimitedStorage"
   ],
   "icons": {
