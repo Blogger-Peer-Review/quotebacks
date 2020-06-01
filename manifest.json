@@ -10,7 +10,8 @@
     "unlimitedStorage"
   ],
   "icons": {
-    "32": "/images/favicon-32x32.png"
+    "32": "/images/favicon-32x32.png",
+    "128": "/images/favicon-128x128.png"
   },
   "browser_action": {
     "default_title": "Options"
