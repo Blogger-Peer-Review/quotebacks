@@ -1,7 +1,7 @@
 {
   "name": "Quotebacks - quote the web",
   "description": "Quote the web and manage your snippets.",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "manifest_version": 2,
   "permissions": [
     "storage",
