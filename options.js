@@ -166,7 +166,7 @@ ${decodeURIComponent(text)}
         }
       }).then((canvas) => {
         canvas.toBlob(function(blob) {
-          saveAs(canvas.toDataURL(), 'quoteback.png');
+          saveAs(canvas.toDataURL(), url+'.png');
           var item = new ClipboardItem({ "image/png": blob });
           navigator.clipboard.write([item]).then(
             function() {
