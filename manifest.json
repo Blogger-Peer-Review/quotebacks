@@ -12,7 +12,7 @@
   ],
   "icons": {
     "32": "/images/favicon-32x32.png",
-    "128": "/images/quotebacks.png"
+    "128": "/images/quotebacks.png" 
   },
   "browser_action": {
     "default_title": "Options"
@@ -30,6 +30,13 @@
         "default": "Ctrl+Shift+S",
         "windows": "Ctrl+Shift+S"
       }
+    },
+    "alt-open":{
+      "description": "This is for firefox",
+      "suggested_key": {
+        "mac": "Alt+S",
+        "windows": "Alt+S"
+      }      
     }
   }
 }

@@ -333,7 +333,7 @@
 			"file": "/Users/tobyshorin/Documents/Work/2020/quotebacks/manifest.json",
 			"settings":
 			{
-				"buffer_size": 832,
+				"buffer_size": 870,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
@@ -576,6 +576,7 @@
 	],
 	"file_history":
 	[
+		"/Users/tobyshorin/Documents/Work/2020/quotebacks/manifest.json",
 		"/Users/tobyshorin/Documents/Work/2020/quotebacks/options.js",
 		"/Users/tobyshorin/Documents/Work/2020/quotebacks/styles/_options.scss",
 		"/Users/tobyshorin/Documents/Work/2020/quotebacks/background.js",
@@ -585,7 +586,6 @@
 		"/Users/tobyshorin/Documents/Work/2020/quotebacks/beta.html",
 		"/Users/tobyshorin/Documents/Work/2020/quotebacks/welcome.html",
 		"/Users/tobyshorin/Documents/Work/2020/quotebacks/fastsearch.js",
-		"/Users/tobyshorin/Documents/Work/2020/quotebacks/manifest.json",
 		"/Users/tobyshorin/Documents/Work/2020/quotebacks/newcontent.js",
 		"/Users/tobyshorin/Documents/Work/2020/quotebacks/quoteback.js",
 		"/Users/tobyshorin/Documents/Work/2020/quotebacks/quoteback-internal.js",
@@ -707,7 +707,7 @@
 	],
 	"find":
 	{
-		"height": 24.0
+		"height": 38.0
 	},
 	"find_in_files":
 	{
@@ -866,7 +866,7 @@
 	"groups":
 	[
 		{
-			"selected": 0,
+			"selected": 2,
 			"sheets":
 			[
 				{
@@ -899,7 +899,7 @@
 						"translation.y": 2722.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 0,
+					"stack_index": 2,
 					"type": "text"
 				},
 				{
@@ -931,7 +931,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 3,
+					"stack_index": 1,
 					"type": "text"
 				},
 				{
@@ -940,15 +940,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 832,
+						"buffer_size": 870,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								121,
-								121
+								351,
+								351
 							]
 						],
 						"settings":
@@ -964,7 +964,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 1,
+					"stack_index": 0,
 					"type": "text"
 				},
 				{
@@ -995,7 +995,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 2,
+					"stack_index": 3,
 					"type": "text"
 				}
 			]
@@ -1058,12 +1058,16 @@
 		"selected_items":
 		[
 			[
-				"beta",
-				"beta.html"
+				"man",
+				"manifest.json"
 			],
 			[
 				"mani",
 				"manifest.json"
+			],
+			[
+				"beta",
+				"beta.html"
 			],
 			[
 				"test",
@@ -1304,10 +1308,6 @@
 			[
 				"htm",
 				"welcome.html"
-			],
-			[
-				"man",
-				"manifest.json"
 			],
 			[
 				"wel",
