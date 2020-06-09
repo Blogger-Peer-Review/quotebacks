@@ -13,7 +13,7 @@ chrome.runtime.onMessage.addListener(
       return null;
     } else if (request.message == "copyquote" && selectionChecker != ""){
 
-      console.log("my selection type is " + window.getSelection.typeof);
+      // console.log("my selection type is " + window.getSelection.typeof);
 
       closePopup();
       
