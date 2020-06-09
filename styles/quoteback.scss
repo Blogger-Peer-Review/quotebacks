@@ -94,7 +94,11 @@ $editIcon: 'url(${chrome.runtime.getURL("images/editicon.svg")})';
       font-size: 14px;
       line-height:1.2;
       color: $bluegray-text-light;
-      max-width: 100%;
+      width: 100%;
+      max-width:525px;
+      @media(max-width:414px){
+        max-width: 200px;
+      }
 
       .quoteback-title{
         white-space: nowrap; 

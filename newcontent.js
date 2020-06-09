@@ -13,7 +13,7 @@ chrome.runtime.onMessage.addListener(
       return null;
     } else if (request.message == "copyquote" && selectionChecker != ""){
 
-      console.log("my selection type is " + window.getSelection.typeof);
+      // console.log("my selection type is " + window.getSelection.typeof);
 
       closePopup();
       
@@ -192,14 +192,14 @@ ${text}
 
         // SAVE & CLOSE //
         p.querySelector("#close-button").addEventListener("click", function(event) {
-        closePopup()           
-        clearInterval(t); // stop timer
+          closePopup()           
+          clearInterval(t); // stop timer
         });
     
         // Close popup on "all quotes" button
         p.querySelector("#quoteslink").addEventListener("click", function(event) {
-        closePopup()           
-        clearInterval(t); // stop timer
+          closePopup()           
+          clearInterval(t); // stop timer
         });      
     
         // Close popup on tab focus out
@@ -307,63 +307,56 @@ ${text}
     }
 
   });
-
-
-
-    
       
     
     function getSelectionText() {
-        var text = "";
-        if (window.getSelection) {
+      var text = "";
+      if (window.getSelection) {
+        //get rangehtml using rangy, strip un-allowed tags (e.g. script tags, button tags)
+        // regex here: https://stackoverflow.com/questions/44009089/javascript-replace-regex-all-html-tags-except-p-a-and-img
+        // NOTE: this removes tags but not contents. e.g. "<script>some script</script>"" will return "some script"
+        var selectionhtml =  rangy.getSelection().toHtml();
+        var cleaned = selectionhtml.replace(/(<\/?(?:a|b|p|img|h1|h2|h3|h4|h5|em|strong|ul|ol|li|blockquote)[^>]*>)|<[^>]+>/ig, '$1');
         
-          //get rangehtml using rangy, strip un-allowed tags (e.g. script tags, button tags)
-          // regex here: https://stackoverflow.com/questions/44009089/javascript-replace-regex-all-html-tags-except-p-a-and-img
-          // NOTE: this removes tags but not contents. e.g. "<script>some script</script>"" will return "some script"
-          var selectionhtml =  rangy.getSelection().toHtml();
-          var cleaned = selectionhtml.replace(/(<\/?(?:a|b|p|img|h1|h2|h3|h4|h5|em|strong|ul|ol|li|blockquote)[^>]*>)|<[^>]+>/ig, '$1');
-          
-          //create a document fragment to make manipulations like absolute links
-          var htmlfragment = document.createRange().createContextualFragment(cleaned);
+        //create a document fragment to make manipulations like absolute links
+        var htmlfragment = document.createRange().createContextualFragment(cleaned);
 
-          // remove inline styles from elements
-          var descendents = htmlfragment.querySelectorAll("*");
-          for (var i = 0; i < descendents.length; i++) {
-            e = descendents[i];
-            e.removeAttribute("style");
-          }
+        // remove inline styles from elements
+        var descendents = htmlfragment.querySelectorAll("*");
+        for (var i = 0; i < descendents.length; i++) {
+          e = descendents[i];
+          e.removeAttribute("style");
+        }
 
-          //make all link & image references absolute not relative
-          var links = htmlfragment.querySelectorAll("a");
-          links.forEach(e => {
-            e.href = convertAbsolute(e.href);
-            e.setAttribute("target","_blank"); //ensure links open inside quoteback in new window
-          });
-    
-          var images = htmlfragment.querySelectorAll("img");
-          images.forEach(e => {e.src = convertAbsolute(e.src)});
-    
-          var div = document.createElement('div');
-          div.appendChild( htmlfragment.cloneNode(true) );
-          CleanChildren(div); // remove empty html elements - rangy is adding them
-          var html = div.innerHTML;
-          
-          return(html);
-    
-        } else if (document.selection && document.selection.type != "Control") { // think this is for IE?
+        //make all link & image references absolute not relative
+        var links = htmlfragment.querySelectorAll("a");
+        links.forEach(e => {
+          e.href = convertAbsolute(e.href);
+          e.setAttribute("target","_blank"); //ensure links open inside quoteback in new window
+        });
+  
+        var images = htmlfragment.querySelectorAll("img");
+        images.forEach(e => {e.src = convertAbsolute(e.src)});
+  
+        var div = document.createElement('div');
+        div.appendChild( htmlfragment.cloneNode(true) );
+        CleanChildren(div); // remove empty html elements - rangy is adding them
+        var html = div.innerHTML;
+        return(html);
+  
+      } else if (document.selection && document.selection.type != "Control") { // think this is for IE?
         text = document.selection.createRange().text;
-        }
-        };
+      }
+    };
 
-//from here: https://stackoverflow.com/questions/43481799/javascript-remove-empty-paragraphs-from-html-string
-function CleanChildren(elem)
-        {
-          var parent = elem
+    //from here: https://stackoverflow.com/questions/43481799/javascript-remove-empty-paragraphs-from-html-string
+    function CleanChildren(elem){
+      var parent = elem
 
-          parent.childNodes.forEach(child => child.nodeType === document.ELEMENT_NODE 
-            && !child.innerText.trim() 
-            && parent.removeChild(child));
-        }
+      parent.childNodes.forEach(child => child.nodeType === document.ELEMENT_NODE 
+        && !child.innerText.trim() 
+        && parent.removeChild(child));
+    }
         
     function convertAbsolute(url){
       let absolute = new URL(url, document.baseURI).href;
@@ -371,31 +364,31 @@ function CleanChildren(elem)
     }    
     
     function getMeta(metaName) {
-        const metas = document.getElementsByTagName('meta');
-    
-        for (let i = 0; i < metas.length; i++) {
-          if (metas[i].getAttribute('name') === metaName) {
-            return metas[i].getAttribute('content');
-          } else if(metas[i].getAttribute('property') === metaName){ //for facebook meta property tags
-            return metas[i].getAttribute('content');
-          }
+      const metas = document.getElementsByTagName('meta');
+  
+      for (let i = 0; i < metas.length; i++) {
+        if (metas[i].getAttribute('name') === metaName) {
+          return metas[i].getAttribute('content');
+        } else if(metas[i].getAttribute('property') === metaName){ //for facebook meta property tags
+          return metas[i].getAttribute('content');
         }
+      }
     
-        return '';
-      };
+      return '';
+    };
     
     function getCanonical() {
       var canonical = "";
       var links = document.getElementsByTagName("link");
       for (var i = 0; i < links.length; i ++) {
-          if (links[i].getAttribute("rel") === "canonical") {
-            if(links[i].getAttribute("href").includes("http")){  // ignore relative canonical links
-              canonical = links[i].getAttribute("href")
-            }
+        if (links[i].getAttribute("rel") === "canonical") {
+          if(links[i].getAttribute("href").includes("http")){  // ignore relative canonical links
+            canonical = links[i].getAttribute("href")
           }
+        }
       }
-      return canonical;
-      };  
+    return canonical;
+    };  
     
     function getDate(){
       var today = Number(new Date());
@@ -405,11 +398,8 @@ function CleanChildren(elem)
     
     
     var AutoSave = (function(){
-    
       var timer = null;
-    
         function save(object){
-
           var popup = document.querySelector("quoteback-popup");                 
           var quote = popup.querySelector("quoteback-component").shadowRoot;
           var commentbox = popup.shadowRoot.querySelector(".citation-input");
@@ -427,38 +417,32 @@ function CleanChildren(elem)
               if(popup.shadowRoot.querySelector(".save-indicator").innerText == "Saving..."){
                 popup.shadowRoot.querySelector(".save-indicator").innerHTML = "Saved"; // changed
             };
-          });
-                
+          });          
       };
-    
-        return { 
-    
-            start: function(object){
-          var popup = document.querySelector("quoteback-popup").shadowRoot;                 
-          popup.addEventListener("keydown", function( event ) {
-              popup.querySelector(".save-indicator").innerText = "Saving..."; // changed
-          });            
-    
-                if (timer != null){
-                    clearInterval(timer);
-                    timer = null;
-                }
-                timer = setInterval(function(){
-            save(object)
-          }, 500);
-          },
-    
-            stop: function(){
-                if (timer){ 
-                    clearInterval(timer);
-                    timer = null;
-                }
-            }
+      return {
+        start: function(object){
+        var popup = document.querySelector("quoteback-popup").shadowRoot;                 
+        popup.addEventListener("keydown", function( event ) {
+          popup.querySelector(".save-indicator").innerText = "Saving..."; // changed
+        });            
+
+        if (timer != null){
+          clearInterval(timer);
+          timer = null;
         }
-     
-    
-  }());
-    
+        timer = setInterval(function(){
+          save(object)
+        }, 500);
+        },
+        stop: function(){
+          if (timer){ 
+              clearInterval(timer);
+              timer = null;
+          }
+        }
+      }
+    }());
+
 function copyToClipboard(str){   
   const el = document.createElement('textarea');
   el.value = str;
@@ -470,10 +454,9 @@ function copyToClipboard(str){
 
 function closePopup(){
   var paras = document.querySelector("quoteback-popup");
+  console.log(document.querySelector("quoteback-popup"));
   if (paras){
       paras.parentNode.removeChild(paras);
   };         
   AutoSave.stop();              
 }
-
-// some final nonsense

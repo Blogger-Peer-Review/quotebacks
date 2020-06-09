@@ -312,45 +312,37 @@
 	"buffers":
 	[
 		{
-			"file": "/Users/tobyshorin/Documents/Work/2020/quotebacks/fastsearch.js",
+			"file": "/Users/tobyshorin/Documents/Work/2020/quotebacks/newcontent.js",
 			"settings":
 			{
-				"buffer_size": 7212,
+				"buffer_size": 16704,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "_options.scss",
+			"file": "/Users/tobyshorin/Documents/Work/2020/quotebacks/test-webc.html",
 			"settings":
 			{
-				"buffer_size": 8493,
+				"buffer_size": 3468,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "/Users/tobyshorin/Documents/Work/2020/quotebacks/options.html",
+			"file": "/Users/tobyshorin/Documents/Work/2020/quotebacks/manifest.json",
 			"settings":
 			{
-				"buffer_size": 3347,
+				"buffer_size": 870,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "quoteback.css",
+			"file": "/Users/tobyshorin/Documents/Work/2020/quotebacks/beta.html",
 			"settings":
 			{
-				"buffer_size": 4984,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "/Users/tobyshorin/Documents/Work/2020/quotebacks/quotestyle.js",
-			"settings":
-			{
-				"buffer_size": 4961,
+				"buffer_size": 3289,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
@@ -584,6 +576,19 @@
 	],
 	"file_history":
 	[
+		"/Users/tobyshorin/Documents/Work/2020/quotebacks/manifest.json",
+		"/Users/tobyshorin/Documents/Work/2020/quotebacks/options.js",
+		"/Users/tobyshorin/Documents/Work/2020/quotebacks/styles/_options.scss",
+		"/Users/tobyshorin/Documents/Work/2020/quotebacks/background.js",
+		"/Users/tobyshorin/Documents/Work/2020/quotebacks/quotestyle.js",
+		"/Users/tobyshorin/Documents/Work/2020/quotebacks/styles/quoteback.css",
+		"/Users/tobyshorin/Documents/Work/2020/quotebacks/options.html",
+		"/Users/tobyshorin/Documents/Work/2020/quotebacks/beta.html",
+		"/Users/tobyshorin/Documents/Work/2020/quotebacks/welcome.html",
+		"/Users/tobyshorin/Documents/Work/2020/quotebacks/fastsearch.js",
+		"/Users/tobyshorin/Documents/Work/2020/quotebacks/newcontent.js",
+		"/Users/tobyshorin/Documents/Work/2020/quotebacks/quoteback.js",
+		"/Users/tobyshorin/Documents/Work/2020/quotebacks/quoteback-internal.js",
 		"/Users/tobyshorin/Documents/Work/2020/Citations-Magic/styles/quoteback.scss",
 		"/Users/tobyshorin/Documents/Work/2020/Citations-Magic/styles/quote.scss",
 		"/Users/tobyshorin/Documents/Work/2020/Citations-Magic/styles/quote.css",
@@ -698,24 +703,11 @@
 		"/Users/tobyshorin/Documents/Work/Subpixel Space/subpixel-space/_layouts/post.html",
 		"/Users/tobyshorin/Documents/Work/Subpixel Space/subpixel-space/_includes/custom-posts/architecture-at-scale.html",
 		"/Users/tobyshorin/Documents/Work/Subpixel Space/subpixel-space/_includes/channel-head.html",
-		"/Users/tobyshorin/Desktop/Export-19c9d7cd-5ea0-404e-bdc1-ad7e18e0ca5d/Define Concepts From the Behavior Up.md",
-		"/Users/tobyshorin/Documents/Work/Subpixel Space/subpixel-space/_layouts/consulting-promo.html",
-		"/Users/tobyshorin/Documents/Work/Subpixel Space/subpixel-space/_sass/_channel.scss",
-		"/Users/tobyshorin/Documents/Work/Subpixel Space/subpixel-space/_includes/layout-selector.html",
-		"/Users/tobyshorin/Documents/Work/Subpixel Space/subpixel-space/_layouts/entries.html",
-		"/Users/tobyshorin/Documents/Work/Subpixel Space/subpixel-space/_layouts/about.html",
-		"/Users/tobyshorin/Documents/Work/Subpixel Space/subpixel-space/_sass/_about.scss",
-		"/Users/tobyshorin/Documents/Work/Subpixel Space/subpixel-space/index.markdown",
-		"/Users/tobyshorin/Documents/Work/Subpixel Space/subpixel-space/_includes/default-post.html",
-		"/Users/tobyshorin/Documents/Work/Subpixel Space/subpixel-space/.ruby-version",
-		"/Users/tobyshorin/Desktop/jtbd.md",
-		"/Users/tobyshorin/Documents/Work/Subpixel Space/subpixel-space/_entries/our-jobs-to-be-done.markdown",
-		"/Users/tobyshorin/Documents/Work/Subpixel Space/subpixel-space/_entries/the-desire-for-full-automation.markdown",
-		"/Users/tobyshorin/Documents/Work/Subpixel Space/subpixel-space/_includes/frame-speaking-info.html"
+		"/Users/tobyshorin/Desktop/Export-19c9d7cd-5ea0-404e-bdc1-ad7e18e0ca5d/Define Concepts From the Behavior Up.md"
 	],
 	"find":
 	{
-		"height": 24.0
+		"height": 38.0
 	},
 	"find_in_files":
 	{
@@ -729,6 +721,8 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"jsdeliv",
+			"script",
 			"article",
 			"nav",
 			"article",
@@ -854,9 +848,7 @@
 			"getlink",
 			"click",
 			"event",
-			"getl",
-			"getlink",
-			"title"
+			"getl"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -874,24 +866,24 @@
 	"groups":
 	[
 		{
-			"selected": 1,
+			"selected": 2,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "/Users/tobyshorin/Documents/Work/2020/quotebacks/fastsearch.js",
+					"file": "/Users/tobyshorin/Documents/Work/2020/quotebacks/newcontent.js",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 7212,
+						"buffer_size": 16704,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								0,
-								0
+								7753,
+								7753
 							]
 						],
 						"settings":
@@ -904,53 +896,19 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 2722.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 4,
+					"stack_index": 2,
 					"type": "text"
 				},
 				{
 					"buffer": 1,
-					"file": "_options.scss",
+					"file": "/Users/tobyshorin/Documents/Work/2020/quotebacks/test-webc.html",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 8493,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								0
-							]
-						],
-						"settings":
-						{
-							"color_scheme": "Packages/User/Color Highlighter/themes/Afterglow-twilight.tmTheme",
-							"incomplete_sync": null,
-							"remote_loading": false,
-							"synced": false,
-							"syntax": "Packages/SCSS/SCSS.tmLanguage",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 0,
-					"type": "text"
-				},
-				{
-					"buffer": 2,
-					"file": "/Users/tobyshorin/Documents/Work/2020/quotebacks/options.html",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 3347,
+						"buffer_size": 3468,
 						"regions":
 						{
 						},
@@ -967,8 +925,7 @@
 							"remote_loading": false,
 							"synced": false,
 							"syntax": "Packages/HTML/HTML.sublime-syntax",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
+							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
@@ -978,29 +935,28 @@
 					"type": "text"
 				},
 				{
-					"buffer": 3,
-					"file": "quoteback.css",
+					"buffer": 2,
+					"file": "/Users/tobyshorin/Documents/Work/2020/quotebacks/manifest.json",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 4984,
+						"buffer_size": 870,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								0,
-								0
+								351,
+								351
 							]
 						],
 						"settings":
 						{
-							"color_scheme": "Packages/User/Color Highlighter/themes/Afterglow-twilight.tmTheme",
 							"incomplete_sync": null,
 							"remote_loading": false,
 							"synced": false,
-							"syntax": "Packages/CSS/CSS.sublime-syntax",
+							"syntax": "Packages/JavaScript/JSON.sublime-syntax",
 							"tab_size": 2,
 							"translate_tabs_to_spaces": true
 						},
@@ -1008,24 +964,24 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 2,
+					"stack_index": 0,
 					"type": "text"
 				},
 				{
-					"buffer": 4,
-					"file": "/Users/tobyshorin/Documents/Work/2020/quotebacks/quotestyle.js",
+					"buffer": 3,
+					"file": "/Users/tobyshorin/Documents/Work/2020/quotebacks/beta.html",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 4961,
+						"buffer_size": 3289,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								0,
-								0
+								1075,
+								1106
 							]
 						],
 						"settings":
@@ -1033,9 +989,7 @@
 							"incomplete_sync": null,
 							"remote_loading": false,
 							"synced": false,
-							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
+							"syntax": "Packages/HTML/HTML.sublime-syntax"
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
@@ -1104,8 +1058,68 @@
 		"selected_items":
 		[
 			[
+				"man",
+				"manifest.json"
+			],
+			[
+				"mani",
+				"manifest.json"
+			],
+			[
+				"beta",
+				"beta.html"
+			],
+			[
+				"test",
+				"test-webc.html"
+			],
+			[
 				"options",
+				"options.js"
+			],
+			[
+				"option",
 				"styles/_options.scss"
+			],
+			[
+				"con",
+				"newcontent.js"
+			],
+			[
+				"back",
+				"background.js"
+			],
+			[
+				"conte",
+				"newcontent.js"
+			],
+			[
+				"opt",
+				"options.js"
+			],
+			[
+				"quoteba",
+				"quoteback.js"
+			],
+			[
+				"quoteback-in",
+				"quoteback-internal.js"
+			],
+			[
+				"quoteback",
+				"quoteback.js"
+			],
+			[
+				"cont",
+				"newcontent.js"
+			],
+			[
+				"welcom",
+				"welcome.html"
+			],
+			[
+				"backg",
+				"background.js"
 			],
 			[
 				"quotest",
@@ -1118,14 +1132,6 @@
 			[
 				"quote",
 				"styles/quote.scss"
-			],
-			[
-				"quoteback",
-				"styles/quoteback.scss"
-			],
-			[
-				"option",
-				"styles/_options.scss"
 			],
 			[
 				"",
@@ -1144,10 +1150,6 @@
 				"newcontent.js"
 			],
 			[
-				"conte",
-				"content.js"
-			],
-			[
 				"optio",
 				"options.js"
 			],
@@ -1164,10 +1166,6 @@
 				"newcontent.js"
 			],
 			[
-				"cont",
-				"content.js"
-			],
-			[
 				"quote.sc",
 				"styles/quote.scss"
 			],
@@ -1178,10 +1176,6 @@
 			[
 				"test-",
 				"test-webc.html"
-			],
-			[
-				"con",
-				"content.js"
 			],
 			[
 				"popup",
@@ -1210,10 +1204,6 @@
 			[
 				"ooi",
 				"options.js"
-			],
-			[
-				"backg",
-				"background.js"
 			],
 			[
 				"manif",
@@ -1248,10 +1238,6 @@
 				"quotestyle.js"
 			],
 			[
-				"mani",
-				"manifest.json"
-			],
-			[
 				"embe",
 				"embed.html"
 			],
@@ -1260,20 +1246,12 @@
 				"quoteback-internal.js"
 			],
 			[
-				"test",
-				"test-webc.html"
-			],
-			[
 				"styletes",
 				"styletest.js"
 			],
 			[
 				"options.j",
 				"options.js"
-			],
-			[
-				"opt",
-				"styles/_options.scss"
 			],
 			[
 				"manife",
@@ -1329,14 +1307,6 @@
 			],
 			[
 				"htm",
-				"welcome.html"
-			],
-			[
-				"man",
-				"manifest.json"
-			],
-			[
-				"welcom",
 				"welcome.html"
 			],
 			[
@@ -1598,22 +1568,6 @@
 			[
 				"post",
 				"_sass/_post.scss"
-			],
-			[
-				"high",
-				"_sass/_highlight.scss"
-			],
-			[
-				"portal.scss",
-				"_sass/_portal.scss"
-			],
-			[
-				"confi",
-				"_config.yml"
-			],
-			[
-				"compon",
-				"_layouts/components.html"
 			]
 		],
 		"width": 0.0

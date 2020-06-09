@@ -31,8 +31,8 @@ function embedquoteback(){
 
 			}else{
 
-				this.attachShadow({mode: 'open'});
-				this.shadowRoot.appendChild(template.content.cloneNode(true));
+			this.attachShadow({mode: 'open'});
+			this.shadowRoot.appendChild(template.content.cloneNode(true));
 				
 			this.text = decodeURIComponent(this.getAttribute('text'));
 			this.author = this.getAttribute('author');

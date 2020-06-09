@@ -29,6 +29,15 @@
         "default": "Ctrl+Shift+S",
         "windows": "Ctrl+Shift+S"
       }
+    },
+    "alt-open":{
+      "description": "Alternative quote capture for Firefox",
+      "suggested_key": {
+        "mac": "Alt+S",
+        "windows": "Alt+S"
+      }      
     }
   }
 }
+
+
