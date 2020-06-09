@@ -166,7 +166,7 @@ ${decodeURIComponent(text)}
         }
       }).then((canvas) => {
         canvas.toBlob(function(blob) {
-          saveAs(canvas.toDataURL(), 'quoteback.png');
+          saveAs(canvas.toDataURL(), url+'.png');
           var item = new ClipboardItem({ "image/png": blob });
           navigator.clipboard.write([item]).then(
             function() {
@@ -263,12 +263,7 @@ function saveAs(uri, filename) {
         if(quotes.length == 0){ //if no quotes left then delete whole item from alldata
           chrome.storage.local.remove(url, function (){
             console.log("deleted "+url);
-            $(".selected").hide();
-            if(url == sorted[0][0]){
-              displayquotes(sorted[1][0]);          
-            }else{
-              displayquotes(sorted[0][0]);          
-            };
+            location.reload();
           });
         }else{
         chrome.storage.local.set(alldata, function(){ 
