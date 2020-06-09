@@ -32,7 +32,7 @@
       }
     },
     "alt-open":{
-      "description": "This is for firefox",
+      "description": "Alternative quote capture for Firefox",
       "suggested_key": {
         "mac": "Alt+S",
         "windows": "Alt+S"
