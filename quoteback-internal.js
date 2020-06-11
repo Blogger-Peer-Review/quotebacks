@@ -16,7 +16,7 @@ function embedquoteback(){
 	                </div> 
 	            </div>
 
-	        <div class="quoteback-backlink"><a target="_blank" href="" class="quoteback-arrow">Go to text <span class="right-arrow">&#8594;</span></a></div>
+	        <div class="quoteback-backlink"><a target="_blank" rel="noopener" href="" class="quoteback-arrow">Go to text <span class="right-arrow">&#8594;</span></a></div>
 	        </div>  
 	    </div>
     `;
