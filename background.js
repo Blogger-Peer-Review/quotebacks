@@ -18,9 +18,7 @@ chrome.commands.onCommand.addListener(function(command) {
       }
       else{
 
-        chrome.tabs.executeScript({
-          file: 'quoteback-internal.js'
-        });
+
 
 
         chrome.tabs.executeScript({
@@ -61,6 +59,11 @@ chrome.commands.onCommand.addListener(function(command) {
           file: 'newcontent.js',
         },
         function(){
+
+          chrome.tabs.executeScript({
+            file: 'quoteback-internal.js'
+          });
+
           // Send copyquote command
           chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
             chrome.tabs.sendMessage(tabs[0].id, {message: "copyquote"}, function(response) {

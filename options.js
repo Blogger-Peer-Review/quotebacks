@@ -463,7 +463,7 @@ function displayquotes(url){
           <button id="delete" class="options-control-button">Delete</button>        
         </div>
       </div>
-    <div class="comment" contenteditable="true" ${item.comment ? "style='color:#464A4D'" : ""}}>${item.comment ? item.comment : "Add Comment"}</div>
+    <div class="comment" contenteditable="true" ${item.comment ? "style='color:#464A4D'" : ""}>${item.comment ? item.comment : "Add Comment"}</div>
     </div>
     `;
     
