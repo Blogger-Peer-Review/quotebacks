@@ -79,12 +79,12 @@ chrome.runtime.onMessage.addListener(
         object[page] = page_object; 
     
     
-        chrome.storage.local.set(object, function() {            
-        console.log(object[page]["quotes"][0]);
+        //chrome.storage.local.set(object, function() {            
+        //console.log(object[page]["quotes"][0]);
+        //});
     
-        });
-    
-    
+        
+
         // Web Component Stuff Start Here //
         var component = `
         <quoteback-popup text="${encodeURIComponent(text)}" author="${page_object["author"]}" title="${page_object["title"]}">
@@ -125,6 +125,7 @@ chrome.runtime.onMessage.addListener(
     
         class QuotebackPopup extends HTMLElement {
           constructor(){
+           
             super();
             this.attachShadow({mode: 'open'});
             this.shadowRoot.appendChild(template.content.cloneNode(true));
@@ -141,8 +142,12 @@ chrome.runtime.onMessage.addListener(
         }else{
         window.customElements.define('quoteback-popup', QuotebackPopup)  
         }
-        embedquoteback();
-    
+        window.customElements.whenDefined('quoteback-popup').then(() => {
+          console.log("about to run embedquoteback");
+          embedquoteback();
+        })
+        
+
         //
         //
         // COPY EMBED //
@@ -155,7 +160,6 @@ ${text}
 <script note="" src="https://cdn.jsdelivr.net/gh/Blogger-Peer-Review/quotebacks@1/quoteback.js"></script>`;
       
           copyToClipboard(embed);
-          console.log(p.querySelector("#getlink"));
           p.querySelector("#getlink").innerHTML = "Copied!";
           setTimeout(function() {
               p.querySelector("#getlink").innerHTML = "<> Embed";
@@ -205,7 +209,7 @@ ${text}
         // Close popup on tab focus out
         window.onblur = onBlur;
         function onBlur() {
-         closePopup()           
+         //closePopup()           
          clearInterval(t); // stop timer
         };
         
@@ -246,7 +250,7 @@ ${text}
             // timeout to remove popups
             if(!ishover && !textfocus) {
             time++;
-            if(time > 5){
+            if(time > 500){
                 if (popup){
                 popup.parentNode.removeChild(popup);
                 };
@@ -454,9 +458,108 @@ function copyToClipboard(str){
 
 function closePopup(){
   var paras = document.querySelector("quoteback-popup");
-  console.log(document.querySelector("quoteback-popup"));
   if (paras){
       paras.parentNode.removeChild(paras);
   };         
   AutoSave.stop();              
 }
+
+var qbtemplate = document.createElement('template');
+qbtemplate.innerHTML=`
+    <style>${quoteStyle}</style>
+    <div class="quoteback-container">
+        <div id="quoteback-parent" class="quoteback-parent">
+            <div class="quoteback-content"></div>       
+        </div>
+
+        <div class="quoteback-head">       
+            <div class="quoteback-avatar"><img class="mini-favicon" src=""/></div>     
+            <div class="quoteback-metadata">
+                <div class="metadata-inner">
+                    <div class="quoteback-author"></div>
+                    <div class="quoteback-title"></div>
+                </div> 
+            </div>
+
+        <div class="quoteback-backlink"><a target="_blank" href="" class="quoteback-arrow">Go to text <span class="right-arrow">&#8594;</span></a></div>
+        </div>  
+    </div>
+  `;
+
+class QuoteBack extends HTMLElement {
+  constructor(){
+    console.log("before super");
+    super();
+    console.log("after super");
+    // if the page has embeds already then we don't define element
+    // this is because for some reason this file can't do customElements.get('quoteback-component')
+    if(this.shadowRoot){
+    
+    }else{
+
+    this.attachShadow({mode: 'open'});
+    this.shadowRoot.appendChild(qbtemplate.content.cloneNode(true));
+      
+    this.text = decodeURIComponent(this.getAttribute('text'));
+    this.author = this.getAttribute('author');
+    this.title = this.getAttribute('title'); 
+    this.url = this.getAttribute('url')
+    this.favicon = this.getAttribute('favicon');
+    this.editable = this.getAttribute('editable');
+    }
+  };
+
+    set text(value) {
+      this._text = value;
+      if (this.shadowRoot)
+        this.shadowRoot.querySelector('.quoteback-content').innerHTML = value;
+    };
+    get text() {
+      return this._text;
+    };
+    set author(value) {
+      this._author = value;
+      if (this.shadowRoot)
+        this.shadowRoot.querySelector('.quoteback-author').innerHTML = value;
+    };
+    get author() {
+      return this._author;
+    };	
+    set title(value) {
+      this._title = value;
+      if (this.shadowRoot)
+        this.shadowRoot.querySelector('.quoteback-title').innerHTML = value;
+    };
+    get title() {
+      return this._title;
+    };
+    set url(value) {
+      this._url = value;
+      if (this.shadowRoot)
+        this.shadowRoot.querySelector('.quoteback-arrow').href = value;
+    };
+    get url() {
+      return this._url;
+    };
+    set favicon(value) {
+      this._favicon = value;
+      if (this.shadowRoot)
+        this.shadowRoot.querySelector('.mini-favicon').src = value;
+    };
+    get favicon() {
+      return this._favicon;
+    };
+    set editable(value) {
+      this._editable = value;
+      if (this.shadowRoot)
+        if(value == "true"){
+          this.shadowRoot.querySelector('.quoteback-author').setAttribute("contenteditable", true);
+          this.shadowRoot.querySelector('.quoteback-title').setAttribute("contenteditable", true);
+        }	
+      
+    };
+    get editable() {
+      return this._editable;
+    };
+
+};
