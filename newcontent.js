@@ -508,15 +508,15 @@ class QuoteBack extends HTMLElement {
     this.editable = this.getAttribute('editable');
     }
   };
-  get text() {
-    return this._text;
-  };
+
     set text(value) {
       this._text = value;
       if (this.shadowRoot)
         this.shadowRoot.querySelector('.quoteback-content').innerHTML = value;
     };
-
+    get text() {
+      return this._text;
+    };
     set author(value) {
       this._author = value;
       if (this.shadowRoot)
