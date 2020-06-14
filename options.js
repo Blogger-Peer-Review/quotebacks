@@ -111,10 +111,10 @@ document.addEventListener("DOMContentLoaded", function(){
       var author = quote.attr("author");
 
       var embed = `
-<blockquote class="quoteback" data-title="${title}" data-author="${author}" cite="${url}">
+<blockquote class="quoteback" darkmode="" data-title="${title}" data-author="${author}" cite="${url}">
 ${decodeURIComponent(text)}
 <footer>${author}<cite><a href="${url}">${url}</a></cite></footer>
-</blockquote><script note="" src="https://cdn.jsdelivr.net/gh/Blogger-Peer-Review/quotebacks@1/quoteback.js"></script>`;
+</blockquote><script note="" src="/quoteback.js"></script>`;
 
         copyToClipboard(embed);
         let el = $(this);

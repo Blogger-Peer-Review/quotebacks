@@ -24,7 +24,7 @@ $editIcon: 'url(${chrome.runtime.getURL("images/editicon.svg")})';
   --content-color:#464A4D;
   --internal-blockquote-color:#5C6D73;
   
-  @media (prefers-color-scheme: dark) {
+  &.dark-theme{
     --background-color: #161717;
     --border-color-normal: #253237;
     --border-color-hover: #5C6D73;

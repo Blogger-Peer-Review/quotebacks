@@ -30,80 +30,32 @@ console.log("quoteback-internal loaded");
 				// if the page has embeds already then we don't define element
 				// this is because for some reason this file can't do customElements.get('quoteback-component')
 				if(this.shadowRoot){
-				
+
 				}else{
 		
-				this.attachShadow({mode: 'open'});
-				this.shadowRoot.appendChild(qbtemplate.content.cloneNode(true));
-					
-				this.text = decodeURIComponent(this.getAttribute('text'));
-				this.author = this.getAttribute('author');
-				this.title = this.getAttribute('title'); 
-				this.url = this.getAttribute('url');
-				this.favicon = this.getAttribute('favicon');
-				this.editable = this.getAttribute('editable');
+					this.attachShadow({mode: 'open'});
+					this.shadowRoot.appendChild(qbtemplate.content.cloneNode(true));
+						
+					this.text = decodeURIComponent(this.getAttribute('text'));
+					this.author = this.getAttribute('author');
+					this.title = this.getAttribute('title'); 
+					this.url = this.getAttribute('url');
+					this.favicon = this.getAttribute('favicon');
+					this.editable = this.getAttribute('editable');
+					this.darkmode = this.getAttribute('darkmode')
 
-				
+					if(this.editable == "true"){
+						this.shadowRoot.querySelector('.quoteback-author').setAttribute("contenteditable", true);
+						this.shadowRoot.querySelector('.quoteback-title').setAttribute("contenteditable", true);
+					}
+
+					if(this.darkmode == "true"){
+						this.shadowRoot.querySelector('.quoteback-container').classList += " dark-theme";
+					}						
+
 				}
 			};
 	
-				/*set text(value) {
-					
-					if (this.shadowRoot)
-						this.shadowRoot.querySelector('.quoteback-content').innerHTML = value;
-				};
-				get text() {
-					return this.getAttribute('text');
-					//return this._text;
-					
-				};*/	
-				/*set author(value) {
-					this._author = value;
-					if (this.shadowRoot)
-						this.shadowRoot.querySelector('.quoteback-author').innerHTML = value;
-				};
-				get author() {
-					return this._author;
-				};*/	
-				/*set title(value) {
-					this._title = value;
-					if (this.shadowRoot)
-						this.shadowRoot.querySelector('.quoteback-title').innerHTML = value;
-				};
-				get title() {
-					return this._title;
-				};*/
-				/*set url(value) {
-					this._url = value;
-					if (this.shadowRoot)
-						this.shadowRoot.querySelector('.quoteback-arrow').href = value;
-				};
-				get url() {
-					return this._url;
-				};*/
-				/*set favicon(value) {
-					this._favicon = value;
-					if (this.shadowRoot)
-						this.shadowRoot.querySelector('.mini-favicon').src = value;
-				};
-				get favicon() {
-					return this._favicon;
-				};*/
-				set editable(value) {
-					
-					this._editable = value;
-					if (this.shadowRoot)
-						if(value == "true"){
-							this.shadowRoot.querySelector('.quoteback-author').setAttribute("contenteditable", true);
-							this.shadowRoot.querySelector('.quoteback-title').setAttribute("contenteditable", true);
-						}	
-					
-				};
-				get editable() {
-					
-					return this._editable;
-				};
-				
 				connectedCallback() {
 					console.info( 'connected' );
 					this.shadowRoot.querySelector('.quoteback-content').innerHTML = decodeURIComponent(this.getAttribute('text'));
