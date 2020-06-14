@@ -248,28 +248,10 @@
 	"buffers":
 	[
 		{
-			"file": "manifest.json",
-			"settings":
-			{
-				"buffer_size": 1049,
-				"encoding": "UTF-8",
-				"line_ending": "Unix"
-			}
-		},
-		{
 			"file": "newcontent.js",
 			"settings":
 			{
-				"buffer_size": 16441,
-				"encoding": "UTF-8",
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "quoteback-internal.js",
-			"settings":
-			{
-				"buffer_size": 3253,
+				"buffer_size": 16322,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
@@ -278,7 +260,15 @@
 			"file": "quoteback.js",
 			"settings":
 			{
-				"buffer_size": 11059,
+				"buffer_size": 10153,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "quoteback-internal.js",
+			"settings":
+			{
+				"buffer_size": 4272,
 				"line_ending": "Unix"
 			}
 		}
@@ -496,10 +486,18 @@
 	],
 	"file_history":
 	[
-		"/Users/tobyshorin/Documents/Work/2020/quotebacks/webcomponents-sd-ce.js",
-		"/Users/tobyshorin/Documents/Work/2020/quotebacks/newcontent.js",
 		"/Users/tobyshorin/Documents/Work/2020/quotebacks/background.js",
+		"/Users/tobyshorin/Documents/Work/2020/quotebacks/quoteback-internal.js",
+		"/Users/tobyshorin/Documents/Work/2020/quotebacks/turndown.js",
+		"/Users/tobyshorin/Documents/Work/2020/quotebacks/manifest.json",
+		"/Users/tobyshorin/Documents/Work/2020/quotebacks/webcomponents-sd-ce.js",
+		"/Users/tobyshorin/Documents/Work/2020/quotebacks/options.html",
 		"/Users/tobyshorin/Documents/Work/2020/quotebacks/quoteback.js",
+		"/Users/tobyshorin/Documents/Work/2020/quotebacks/styles/quoteback.scss",
+		"/Users/tobyshorin/Documents/Work/2020/quotebacks/styles/quoteback.css",
+		"/Users/tobyshorin/Documents/Work/2020/quotebacks/quotestyle.js",
+		"/Users/tobyshorin/Documents/Work/2020/quotebacks/test-webc.html",
+		"/Users/tobyshorin/Documents/Work/2020/quotebacks/newcontent.js",
 		"/Users/tobyshorin/Documents/Work/2020/quotebacks.net/site.webmanifest",
 		"/Users/tobyshorin/Documents/Work/Subpixel Space/subpixel-space/_sass/_colors.scss",
 		"/Users/tobyshorin/Documents/Work/Subpixel Space/subpixel-space/_includes/head.html",
@@ -615,15 +613,7 @@
 		"/Users/tobyshorin/Documents/Work/Subpixel Space/subpixel-space/_site/arena-channeler.js",
 		"/Users/tobyshorin/Documents/Work/Subpixel Space/subpixel-space/_includes/custom-posts/after-authenticity.html",
 		"/Users/tobyshorin/Documents/Work/Subpixel Space/subpixel-space/_site/entries/after-authenticity.html",
-		"/Users/tobyshorin/Desktop/Screen Shot 2018-04-03 at 12.15.05 PM.png",
-		"/Users/tobyshorin/Documents/Work/Subpixel Space/subpixel-space/_entries/notes-on-multiplicity.markdown",
-		"/Users/tobyshorin/Documents/Work/Subpixel Space/subpixel-space/_entries/bad-interface-politics-in-facebooks-fake-news-filter.markdown",
-		"/Users/tobyshorin/Documents/Work/Subpixel Space/subpixel-space/_entries/preliminary-rules-for-discussing-meaning.markdown",
-		"/Users/tobyshorin/Documents/Work/Subpixel Space/subpixel-space/_sass/_meaning-mechanics.scss",
-		"/Users/tobyshorin/Documents/Work/Subpixel Space/subpixel-space/_includes/custom-posts/meaning-mechanics.html",
-		"/Users/tobyshorin/Documents/Work/Subpixel Space/subpixel-space/_entries/seeking-new-arrangement-homeownership.markdown",
-		"/Users/tobyshorin/Documents/Work/Subpixel Space/subpixel-space/_includes/custom-posts/brand-index.html",
-		"/Users/tobyshorin/Documents/Work/Subpixel Space/subpixel-space/_sass/_brand-index.scss"
+		"/Users/tobyshorin/Desktop/Screen Shot 2018-04-03 at 12.15.05 PM.png"
 	],
 	"find":
 	{
@@ -641,6 +631,21 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"appendicon()",
+			"qb",
+			"popup",
+			"template",
+			"index",
+			"options.html",
+			"all",
+			"runtime",
+			"template",
+			"if",
+			"svg",
+			"editsvg",
+			"content:'url",
+			"svg",
+			"414px",
 			"embedquoteback",
 			"quoteback-popup ",
 			"quoteback-popup",
@@ -665,57 +670,24 @@
 	"groups":
 	[
 		{
-			"selected": 2,
+			"selected": 1,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "manifest.json",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 1049,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1049,
-								1049
-							]
-						],
-						"settings":
-						{
-							"incomplete_sync": null,
-							"remote_loading": false,
-							"synced": false,
-							"syntax": "Packages/JavaScript/JSON.sublime-syntax",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 3,
-					"type": "text"
-				},
-				{
-					"buffer": 1,
 					"file": "newcontent.js",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 16441,
+						"buffer_size": 16322,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								10916,
-								10916
+								6590,
+								6590
 							]
 						],
 						"settings":
@@ -727,11 +699,44 @@
 							"tab_size": 2,
 							"translate_tabs_to_spaces": true
 						},
-						"translation.x": 0.0,
-						"translation.y": 6144.0,
+						"translation.x": 3.0,
+						"translation.y": 5639.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "quoteback.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 10153,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								5779,
+								5779
+							]
+						],
+						"settings":
+						{
+							"incomplete_sync": null,
+							"remote_loading": false,
+							"synced": false,
+							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 90.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
 					"type": "text"
 				},
 				{
@@ -740,39 +745,7 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 3253,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1173,
-								1273
-							]
-						],
-						"settings":
-						{
-							"incomplete_sync": null,
-							"remote_loading": false,
-							"synced": false,
-							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 285.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 0,
-					"type": "text"
-				},
-				{
-					"buffer": 3,
-					"file": "quoteback.js",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 11059,
+						"buffer_size": 4272,
 						"regions":
 						{
 						},
@@ -789,8 +762,7 @@
 							"remote_loading": false,
 							"synced": false,
 							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
+							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
@@ -859,8 +831,88 @@
 		"selected_items":
 		[
 			[
+				"back",
+				"background.js"
+			],
+			[
+				"quoteback-in",
+				"quoteback-internal.js"
+			],
+			[
 				"quoteback",
 				"quoteback.js"
+			],
+			[
+				"newco",
+				"newcontent.js"
+			],
+			[
+				"quoteback-internal",
+				"quoteback-internal.js"
+			],
+			[
+				"turn",
+				"turndown.js"
+			],
+			[
+				"man",
+				"manifest.json"
+			],
+			[
+				"mani",
+				"manifest.json"
+			],
+			[
+				"webco",
+				"webcomponents-sd-ce.js"
+			],
+			[
+				"webc",
+				"webcomponents-sd-ce.js"
+			],
+			[
+				"backg",
+				"background.js"
+			],
+			[
+				"backrou",
+				"background.js"
+			],
+			[
+				"newcon",
+				"newcontent.js"
+			],
+			[
+				"quotebac",
+				"quoteback.js"
+			],
+			[
+				"quotesty",
+				"quotestyle.js"
+			],
+			[
+				"quotest",
+				"quotestyle.js"
+			],
+			[
+				"quoteback.css",
+				"styles/quoteback.css"
+			],
+			[
+				"quotestyl",
+				"quotestyle.js"
+			],
+			[
+				"quoteback.scs",
+				"styles/quoteback.scss"
+			],
+			[
+				"ne",
+				"newcontent.js"
+			],
+			[
+				"test-",
+				"test-webc.html"
 			],
 			[
 				"quoteback-",
@@ -873,18 +925,6 @@
 			[
 				"new",
 				"newcontent.js"
-			],
-			[
-				"newcon",
-				"newcontent.js"
-			],
-			[
-				"backg",
-				"background.js"
-			],
-			[
-				"mani",
-				"site.webmanifest"
 			],
 			[
 				"inde",
@@ -1301,74 +1341,6 @@
 			[
 				"desi",
 				"_entries/the-desire-for-full-automation.markdown"
-			],
-			[
-				"our jobs",
-				"_entries/our-jobs-to-be-done.markdown"
-			],
-			[
-				"fon",
-				"_sass/_fonts.scss"
-			],
-			[
-				"topn",
-				"_sass/_topnav.scss"
-			],
-			[
-				"global",
-				"_sass/_global.scss"
-			],
-			[
-				"js",
-				"main.js"
-			],
-			[
-				"gri",
-				"_sass/_grid.scss"
-			],
-			[
-				"mix",
-				"_sass/_mixins.scss"
-			],
-			[
-				"main.scss",
-				"css/main.scss"
-			],
-			[
-				"topna",
-				"_includes/topnav.html"
-			],
-			[
-				"speaking-in",
-				"_includes/frame-speaking-info.html"
-			],
-			[
-				"desire",
-				"_entries/the-desire-for-full-automation.markdown"
-			],
-			[
-				"defau",
-				"_includes/default-post.html"
-			],
-			[
-				"new e",
-				"_entries/the-new-era-of-trust.markdown"
-			],
-			[
-				"univr",
-				"_sass/_universal-menu.scss"
-			],
-			[
-				"default",
-				"_includes/default-post.html"
-			],
-			[
-				"channel.scss",
-				"_sass/_channel.scss"
-			],
-			[
-				"mini",
-				"_layouts/ministorage.html"
 			]
 		],
 		"width": 0.0
