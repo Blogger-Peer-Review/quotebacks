@@ -8,28 +8,7 @@
   transition: $args;
 }
 
-@font-face {
-  font-family: "San Francisco";
-  font-weight: 400;
-  src: url("https://sf.abarba.me/SF-UI-Text-Regular.otf");
-}
-@font-face {
-  font-family: "San Francisco";
-  font-weight: 400;
-  font-style: italic;
-  src: url("https://sf.abarba.me/SF-UI-Text-RegularItalic.otf");
-}
-@font-face {
-  font-family: "San Francisco";
-  font-weight: 600;
-  src: url("https://sf.abarba.me/SF-UI-Text-Semibold.otf");
-}
-@font-face {
-  font-family: "San Francisco";
-  font-weight: 600;
-  font-style: italic;
-  src: url("https://sf.abarba.me/SF-UI-Text-SemiboldItalic.otf");
-}
+@import url('https://rsms.me/inter/inter.css');
 
 $editIcon: 'url(${chrome.runtime.getURL("images/editicon.svg")})';
 
