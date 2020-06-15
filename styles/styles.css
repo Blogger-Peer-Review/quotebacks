@@ -605,6 +605,7 @@ input, button {
   color: #464A4D;
   box-sizing: border-box;
   border-radius: 4px;
+  font-size: 14px;
   word-wrap: break-word;
   word-break: break-all;
   -webkit-transition: all 0.1s ease;
