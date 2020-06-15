@@ -47,62 +47,6 @@ console.log("quoteback-internal loaded");
 				}
 			};
 	
-				/*set text(value) {
-					
-					if (this.shadowRoot)
-						this.shadowRoot.querySelector('.quoteback-content').innerHTML = value;
-				};
-				get text() {
-					return this.getAttribute('text');
-					//return this._text;
-					
-				};*/	
-				/*set author(value) {
-					this._author = value;
-					if (this.shadowRoot)
-						this.shadowRoot.querySelector('.quoteback-author').innerHTML = value;
-				};
-				get author() {
-					return this._author;
-				};*/	
-				/*set title(value) {
-					this._title = value;
-					if (this.shadowRoot)
-						this.shadowRoot.querySelector('.quoteback-title').innerHTML = value;
-				};
-				get title() {
-					return this._title;
-				};*/
-				/*set url(value) {
-					this._url = value;
-					if (this.shadowRoot)
-						this.shadowRoot.querySelector('.quoteback-arrow').href = value;
-				};
-				get url() {
-					return this._url;
-				};*/
-				/*set favicon(value) {
-					this._favicon = value;
-					if (this.shadowRoot)
-						this.shadowRoot.querySelector('.mini-favicon').src = value;
-				};
-				get favicon() {
-					return this._favicon;
-				};*/
-				set editable(value) {
-					
-					this._editable = value;
-					if (this.shadowRoot)
-						if(value == "true"){
-							this.shadowRoot.querySelector('.quoteback-author').setAttribute("contenteditable", true);
-							this.shadowRoot.querySelector('.quoteback-title').setAttribute("contenteditable", true);
-						}	
-					
-				};
-				get editable() {
-					
-					return this._editable;
-				};
 				
 				connectedCallback() {
 					console.info( 'connected' );
