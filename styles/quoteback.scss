@@ -1,4 +1,5 @@
-// @charset "UTF-8";
+@charset "UTF-8";
+
 @mixin transition($args...) {
   -webkit-transition: $args;
   -moz-transition: $args;
@@ -7,30 +8,50 @@
   transition: $args;
 }
 
-$bluegray-bg-med: #C2DFE3;
-
-$bluegray-text-light: #9DB8BF;
-
-$bluegray-text-med: #5C6D73;
-
-$bluegray-text-dark: #253237;
-
 $editIcon: 'url(${chrome.runtime.getURL("images/editicon.svg")})';
+
+// Edit to change color scheme
+
+.quoteback-container{
+  --background-color: white;
+  --border-color-normal: #C2DFE3;
+  --border-color-hover: #9DB8BF;
+
+  --author-color: black;
+  --title-color: #5C6D73;
+  --gototext-color:#9DB8BF;
+
+  --content-color:#464A4D;
+  --internal-blockquote-color:#5C6D73;
+  
+  &.dark-theme{
+    --background-color: #161717;
+    --border-color-normal: #253237;
+    --border-color-hover: #5C6D73;
+
+    --author-color: #E0FBFC;
+    --title-color: #9DB8BF;
+    --gototext-color:#5C6D73;
+
+    --content-color:#9DB8BF;
+    --internal-blockquote-color:#5C6D73;
+  }
+}
 
 .quoteback-container{
   font-family: -apple-system, system-ui, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol";
   text-rendering: optimizeLegibility;
-  border: 1px solid #C2DFE3;
+  border: 1px solid var(--border-color-normal);
   border-radius: 8px;
   margin-bottom: 25px;
   max-width:800px;
-  background-color:white;
+  background-color:var(--background-color);
 
   @include transition(all .20s ease);
   &:hover{
     transform: translateY(-3px);
     box-shadow: 0px 6px 20px 0px rgba(0,0,0,.15);
-    border: 1px solid $bluegray-text-light;
+    border: 1px solid var(--border-color-hover);
   }
   
   .quoteback-parent{
@@ -38,24 +59,18 @@ $editIcon: 'url(${chrome.runtime.getURL("images/editicon.svg")})';
     position: relative;
     width:100%;
     box-sizing: border-box;
-      
-    .quoteback-parent-text{
-      padding: 15px;
-      color: $bluegray-text-med;          
-      z-index: 40;
-    }
     .quoteback-content{
       font-family: -apple-system, system-ui, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol";
       font-size:16px;
       font-weight:400;
       padding: 15px; 
-      color: #464A4D;
+      color: var(--content-color);
       line-height:150%; 
     }
   }
 
   .quoteback-head{
-    border-top: 1px solid $bluegray-bg-med;
+    border-top: 1px solid var(--border-color-normal);
     display:flex;
     flex-flow:row nowrap;
     justify-content: start;
@@ -65,7 +80,7 @@ $editIcon: 'url(${chrome.runtime.getURL("images/editicon.svg")})';
 
     .quoteback-avatar{
       border-radius:100%;
-      border: 1px solid #C2DFE3;
+      border: 1px solid var(--border-color-normal);
       width:42px;
       height:42px;
       min-width:42px !important;
@@ -93,7 +108,6 @@ $editIcon: 'url(${chrome.runtime.getURL("images/editicon.svg")})';
     .metadata-inner{
       font-size: 14px;
       line-height:1.2;
-      color: $bluegray-text-light;
       width: 100%;
       max-width:525px;
       @media(max-width:414px){
@@ -106,12 +120,12 @@ $editIcon: 'url(${chrome.runtime.getURL("images/editicon.svg")})';
         text-overflow: ellipsis;
         font-weight:600;
         padding-right:20px;
-        color: $bluegray-text-med;                  
+        color: var(--title-color);                  
       }
       .quoteback-author{
         font-size:14px;
         line-height:1.2;
-        color: black;
+        color: var(--author-color);
         font-weight:600;
         margin-bottom:2px;
       }                         
@@ -124,12 +138,12 @@ $editIcon: 'url(${chrome.runtime.getURL("images/editicon.svg")})';
       width:81px;
       min-width:81px !important;
       padding: 0px 15px !important;
-      border-left: 1px solid $bluegray-bg-med;
+      border-left: 1px solid var(--border-color-normal);
       .quoteback-arrow{
         border: none !important;
         font-family:inherit !important;
         font-size: 14px !important;
-        color: $bluegray-text-light !important;
+        color: var(--gototext-color) !important;
         text-decoration:none !important;
         @include transition(opacity .10s ease);
         &:hover{
@@ -155,7 +169,7 @@ $editIcon: 'url(${chrome.runtime.getURL("images/editicon.svg")})';
 
 .quoteback-content{
   a{
-    color:#464A4D;
+    color: var(--content-color);
     @include transition(opacity .2s ease);
     &:hover{
       opacity:.5;
@@ -174,10 +188,10 @@ $editIcon: 'url(${chrome.runtime.getURL("images/editicon.svg")})';
     margin: .5em 0em;
   }
   blockquote{
-    border-left: 2px solid $bluegray-bg-med;
+    border-left: 2px solid var(--border-color-normal);
     padding-left: .75em;
     margin-inline-start: 1em;
-    color: $bluegray-text-med;
+    color: var(--internal-blockquote-color);
   }
   ol, ul{
     margin-block-start: .5em;

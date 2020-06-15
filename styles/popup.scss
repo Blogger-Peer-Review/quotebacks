@@ -59,6 +59,7 @@ input,button{
   color:#464A4D;
   box-sizing: border-box;
   border-radius: 4px;
+  font-size:14px;
   word-wrap: break-word;
   word-break: break-all;   
   @include transition(all .10s ease);
