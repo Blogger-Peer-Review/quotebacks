@@ -141,9 +141,15 @@ ${decodeURIComponent(text)}
       newDiv.style.bottom = "-999px";
       newDiv.style.position = "absolute";
       newDiv.style.width = "500px";
-      newDiv.style.padding = "5px 5px 5px 5px";
-      newDiv.querySelector(".quoteback-container").style.margin = "0px 0px 0px 0px";
+      newDiv.style.padding = "7px 7px 7px 7px";
+      
+      content = newDiv.querySelector(".quoteback-content");
+      newDiv.querySelector(".quoteback-container").setAttribute("style", "margin: 0px 0px 0px 0px; font-family: 'San Francisco';");
+      newDiv.querySelector(".quoteback-content").setAttribute("style", "font-family:'San Francisco' !important; font-weight:400;");
+      content.querySelector("em").setAttribute("style", "font-family:'San Francisco' !important; font-style: italic;");
+
       document.getElementById("panel-scrollContainer").appendChild(newDiv);
+
 
       //stop the "go to text" element rendering in the image
       document.getElementById("copyimage").querySelector(".quoteback-backlink").setAttribute("data-html2canvas-ignore", "true");
