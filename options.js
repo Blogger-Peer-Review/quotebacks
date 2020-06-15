@@ -113,7 +113,7 @@ document.addEventListener("DOMContentLoaded", function(){
       var embed = `
 <blockquote class="quoteback" darkmode="" data-title="${title}" data-author="${author}" cite="${url}">
 ${decodeURIComponent(text)}
-<footer>${author}<cite><a href="${url}">${url}</a></cite></footer>
+<footer>${author}<cite> <a href="${url}">${url}</a></cite></footer>
 </blockquote><script note="" src="https://cdn.jsdelivr.net/gh/Blogger-Peer-Review/quotebacks@1/quoteback.js"></script>`;
 
         copyToClipboard(embed);
@@ -143,10 +143,15 @@ ${decodeURIComponent(text)}
       newDiv.style.width = "500px";
       newDiv.style.padding = "7px 7px 7px 7px";
       
-      content = newDiv.querySelector(".quoteback-content");
-      newDiv.querySelector(".quoteback-container").setAttribute("style", "margin: 0px 0px 0px 0px; font-family: 'San Francisco';");
-      newDiv.querySelector(".quoteback-content").setAttribute("style", "font-family:'San Francisco' !important; font-weight:400;");
-      content.querySelector("em").setAttribute("style", "font-family:'San Francisco' !important; font-style: italic;");
+      var content = newDiv.querySelector(".quoteback-content");
+      newDiv.querySelector(".quoteback-container").setAttribute("style", "margin: 0px 0px 0px 0px; font-family: 'Inter';");
+      newDiv.querySelector(".quoteback-content").setAttribute("style", "font-family:'Inter' !important; font-weight:400;");
+      var ems = content.querySelectorAll("div.quoteback-content > em");
+      content.querySelector("em").setAttribute("style", "font-family:'Inter' !important; font-style: italic;");
+
+      ems.forEach(function(emItem) {
+        emItem.setAttribute("style", "font-family:'Inter' !important; font-style: italic;");
+      });      
 
       document.getElementById("panel-scrollContainer").appendChild(newDiv);
 
