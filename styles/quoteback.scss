@@ -166,8 +166,8 @@ $editIcon: 'url(${chrome.runtime.getURL("images/editicon.svg")})';
   &:focus{
     outline:none;
   }
-  &:after{
-    margin-left:10px;
+  &:before{
+    margin-right:8px;
     content: $editIcon; 
   }
 }
