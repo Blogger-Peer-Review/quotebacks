@@ -150,11 +150,11 @@ chrome.runtime.onMessage.addListener(
         // COPY EMBED //
         var p = document.querySelector("quoteback-popup").shadowRoot;
         p.querySelector("#getlink").addEventListener("click", function(event) {
-          var embed = `<blockquote class="quoteback" data-title="${page_object["title"]}" data-author="${page_object["author"]}" cite="${page_object["url"]}">
-${text}
-<footer>${page_object["author"]} <cite><a href="${page_object["url"]}">${page_object["url"]}</a></cite></footer>
-</blockquote>
-<script note="" src="https://cdn.jsdelivr.net/gh/Blogger-Peer-Review/quotebacks@1/quoteback.js"></script>`;
+          var embed = `<blockquote class="quoteback" darkmode="" data-title="${page_object["title"]}" data-author="${page_object["author"]}" cite="${page_object["url"]}">
+                      ${text}
+                      <footer>${page_object["author"]} <cite><a href="${page_object["url"]}">${page_object["url"]}</a></cite></footer>
+                      </blockquote>
+                      <script note="" src="https://cdn.jsdelivr.net/gh/Blogger-Peer-Review/quotebacks@1/quoteback.js"></script>`;
       
           copyToClipboard(embed);
           p.querySelector("#getlink").innerHTML = "Copied!";
