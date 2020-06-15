@@ -8,6 +8,29 @@
   transition: $args;
 }
 
+@font-face {
+  font-family: "San Francisco";
+  font-weight: 400;
+  src: url("https://sf.abarba.me/SF-UI-Text-Regular.otf");
+}
+@font-face {
+  font-family: "San Francisco";
+  font-weight: 400;
+  font-style: italic;
+  src: url("https://sf.abarba.me/SF-UI-Text-RegularItalic.otf");
+}
+@font-face {
+  font-family: "San Francisco";
+  font-weight: 600;
+  src: url("https://sf.abarba.me/SF-UI-Text-Semibold.otf");
+}
+@font-face {
+  font-family: "San Francisco";
+  font-weight: 600;
+  font-style: italic;
+  src: url("https://sf.abarba.me/SF-UI-Text-SemiboldItalic.otf");
+}
+
 $editIcon: 'url(${chrome.runtime.getURL("images/editicon.svg")})';
 
 // Edit to change color scheme
@@ -39,7 +62,7 @@ $editIcon: 'url(${chrome.runtime.getURL("images/editicon.svg")})';
 }
 
 .quoteback-container{
-  font-family: -apple-system, system-ui, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol";
+  font-family: "SF Pro Text", -apple-system, system-ui, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol";
   text-rendering: optimizeLegibility;
   border: 1px solid var(--border-color-normal);
   border-radius: 8px;
@@ -65,7 +88,10 @@ $editIcon: 'url(${chrome.runtime.getURL("images/editicon.svg")})';
       font-weight:400;
       padding: 15px; 
       color: var(--content-color);
-      line-height:150%; 
+      line-height:150%;
+      em{
+        font-family:inherit;
+      }
     }
   }
 
@@ -145,7 +171,7 @@ $editIcon: 'url(${chrome.runtime.getURL("images/editicon.svg")})';
         font-size: 14px !important;
         color: var(--gototext-color) !important;
         text-decoration:none !important;
-        @include transition(opacity .10s ease);
+        @include transition(opacity .15s ease);
         &:hover{
           opacity:.5 !important;
         }
