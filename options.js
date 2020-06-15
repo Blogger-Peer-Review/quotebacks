@@ -113,7 +113,7 @@ document.addEventListener("DOMContentLoaded", function(){
       var embed = `
 <blockquote class="quoteback" darkmode="" data-title="${title}" data-author="${author}" cite="${url}">
 ${decodeURIComponent(text)}
-<footer>${author}<cite><a href="${url}">${url}</a></cite></footer>
+<footer>${author}<cite> <a href="${url}">${url}</a></cite></footer>
 </blockquote><script note="" src="https://cdn.jsdelivr.net/gh/Blogger-Peer-Review/quotebacks@1/quoteback.js"></script>`;
 
         copyToClipboard(embed);
