@@ -2,8 +2,8 @@ var fuse; // holds our search engine
 var searchVisible = false; 
 var firstRun = true; // allow us to delay loading json data unless search activated
 var list = document.getElementById('searchResults'); // targets the <ul>
-var first = list.firstChild; // first child of search list
-var last = list.lastChild; // last child of search list
+var first = list.firstElementChild; // first child of search list
+var last = list.lastElementChild; // last child of search list
 var maininput = document.getElementById('searchInput'); // input box for search
 var resultsAvailable = false; // Did we get any search results?
 
@@ -98,9 +98,12 @@ document.addEventListener('keydown', function(event) {
       event.preventDefault(); // stop window from scrolling
       if ( document.activeElement == maininput) { first.focus(); } // if the currently focused element is the main input --> focus the first <li>
       else if ( document.activeElement == last ) { last.focus(); } // if we're at the bottom, stay there
-      else { document.activeElement.parentElement.nextSibling.firstElementChild.focus(); } // otherwise select the next search result
+      else { 
+        console.log(document.activeElement.parentElement);
+        document.activeElement.parentElement.nextElementSibling.firstElementChild.focus(); } // otherwise select the next search result
+      }
     }
-  }
+
 
   // UP (38) arrow
   if (event.keyCode == 38) {
@@ -108,7 +111,7 @@ document.addEventListener('keydown', function(event) {
       event.preventDefault(); // stop window from scrolling
       if ( document.activeElement == maininput) { maininput.focus(); } // If we're in the input box, do nothing
       else if ( document.activeElement == first) { maininput.focus(); } // If we're at the first item, go to input box
-      else { document.activeElement.parentElement.previousSibling.firstElementChild.focus(); } // Otherwise, select the search result above the current active one
+      else { document.activeElement.parentElement.previousElementSibling.firstElementChild.focus(); } // Otherwise, select the search result above the current active one
     }
   }
 });
@@ -204,8 +207,8 @@ function executeSearch(term) {
   document.getElementById("searchResults").innerHTML = searchitems;
   if (results.length > 0) {
     document.getElementById("searchResults").style.display = "inline-block";
-    first = list.firstChild.firstElementChild; // first result container — used for checking against keyboard up/down location
-    last = list.lastChild.firstElementChild; // last result container — used for checking against keyboard up/down location
+    first = list.firstElementChild.firstElementChild; // first result container — used for checking against keyboard up/down location
+    last = list.lastElementChild.firstElementChild; // last result container — used for checking against keyboard up/down location
   }
 
 }
