@@ -1,8 +1,7 @@
+var debug = false; // enable logging, prevent blur, make countdown 500
+
 chrome.runtime.onMessage.addListener(
   function(request, sender, sendResponse) {
-
-
-    var debug = false; // enable logging, prevent blur, make countdown 500
 
     // tell background.js that we're loaded and alive
     if (request.message == "ping"){
@@ -248,8 +247,8 @@ chrome.runtime.onMessage.addListener(
             if(!ishover && !textfocus) {
             time++;
             var timer = 5;
-            if(debug){timer = 500};
-            if(time > 5){
+            if(debug){var timer = 500};
+            if(time > timer){
                 if (popup){
                 popup.parentNode.removeChild(popup);
                 };
@@ -313,6 +312,7 @@ chrome.runtime.onMessage.addListener(
       
     
     function getSelectionText() {
+
       var text = "";
       if (window.getSelection) {
         //get rangehtml using rangy, strip un-allowed tags (e.g. script tags, button tags)
@@ -320,9 +320,11 @@ chrome.runtime.onMessage.addListener(
         // NOTE: this removes tags but not contents. e.g. "<script>some script</script>"" will return "some script"
         var selectionhtml =  rangy.getSelection().toHtml();
         var cleaned = selectionhtml.replace(/(<\/?(?:a|b|p|img|h1|h2|h3|h4|h5|em|strong|ul|ol|li|blockquote)[^>]*>)|<[^>]+>/ig, '$1');
-        
+        if(debug){console.log("cleaned selection: "+cleaned)};
+
         //create a document fragment to make manipulations like absolute links
         var htmlfragment = document.createRange().createContextualFragment(cleaned);
+        if(debug){console.log("htmlfragment = "+htmlfragment.innerHTML)};
 
         // remove inline styles from elements
         var descendents = htmlfragment.querySelectorAll("*");
@@ -339,12 +341,15 @@ chrome.runtime.onMessage.addListener(
         });
   
         var images = htmlfragment.querySelectorAll("img");
+        if(debug){console.log(images)};
         images.forEach(e => {e.src = convertAbsolute(e.src)});
   
         var div = document.createElement('div');
         div.appendChild( htmlfragment.cloneNode(true) );
-        CleanChildren(div); // remove empty html elements - rangy is adding them
+        if(debug){console.log("getselectiontext div: "+div.innerHTML)};
+        removeEmpty(div); // remove empty html elements - rangy is adding them
         var html = div.innerHTML;
+        if(debug){console.log("getselectiontext html: "+html)};
         return(html);
   
       } else if (document.selection && document.selection.type != "Control") { // think this is for IE?
@@ -352,17 +357,24 @@ chrome.runtime.onMessage.addListener(
       }
     };
 
-    //from here: https://stackoverflow.com/questions/43481799/javascript-remove-empty-paragraphs-from-html-string
-    function CleanChildren(elem){
-      var parent = elem
+    function removeEmpty(elem){
+      var children = elem.children;
+    
+      // Remove the emptys elements
+      for (var i = 0; i < children.length; i++) {
+          if( children[i].textContent.trim() === '' && children[i].innerHTML.trim().length === 0)
+              children[i].parentNode.removeChild(children[i]);
+      }
 
-      parent.childNodes.forEach(child => child.nodeType === document.ELEMENT_NODE 
-        && !child.innerText.trim() 
-        && parent.removeChild(child));
+      return elem;
     }
+
+   
         
     function convertAbsolute(url){
+      if(debug){console.log("About to convert: "+url+" to absolute")};
       let absolute = new URL(url, document.baseURI).href;
+      if(debug){console.log("Absolute: "+absolute)};
       return absolute;
     }    
     
