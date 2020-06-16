@@ -2,82 +2,10 @@ chrome.storage.local.get(null, function(items) {
   allKeys = Object.keys(items);
 });
 
+
+
 chrome.commands.onCommand.addListener(function(command) {
-  
-  //send ping. If no response then load scripts.
-  chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
-    chrome.tabs.sendMessage(tabs[0].id, {message: "ping"}, function(response) {
-      if(response){
-        // Send copyquote command
-        chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
-          chrome.tabs.sendMessage(tabs[0].id, {message: "copyquote"}, function(response) {
-            
-          });
-        });
-        
-      }
-      else{
-
-
-
-
-        chrome.tabs.executeScript({
-          file: 'webcomponents-sd-ce.js'
-        });
-        
-      
-        chrome.tabs.executeScript({
-          file: 'quotestyle.js'
-        });  
-
-
-        
-        chrome.tabs.executeScript({
-          file: 'rangy-core.js'
-        });
-
-        chrome.tabs.executeScript({
-          file: 'turndown.js'
-        });        
-
-        // files for highlighter
-        /*
-        chrome.tabs.executeScript({
-          file: 'rangy-classapplier.js'
-        });
-
-        chrome.tabs.executeScript({
-          file: 'rangy-highlighter.js'
-        });        
-
-        chrome.tabs.insertCSS({
-          file: 'styles/quoteback-highlighter.css'
-        });
-        */
-      
-        chrome.tabs.executeScript({
-          file: 'newcontent.js',
-        },
-        function(){
-
-          chrome.tabs.executeScript({
-            file: 'quoteback-internal.js'
-          });
-
-          // Send copyquote command
-          chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
-            chrome.tabs.sendMessage(tabs[0].id, {message: "copyquote"}, function(response) {
-              
-            });
-          }); 
-        }
-        );
-
-      }
-      
-    });
-  }); 
-
+ copyquote();
 });
 
 
@@ -110,3 +38,91 @@ chrome.runtime.onInstalled.addListener(function(details){
       console.log("Updated from " + details.previousVersion + " to " + thisVersion + "!");
   }
 });
+
+chrome.runtime.onInstalled.addListener(function() {
+  // Create a parent item and two children.
+  chrome.contextMenus.create({"title": "Quoteback: Copy Quote", "id": "quoteback","contexts":["selection"]});
+
+  chrome.contextMenus.onClicked.addListener(onClickHandler);
+});
+
+
+function onClickHandler(info, tab) {
+  if (info.menuItemId == "quoteback") {
+   copyquote();
+  }
+};
+
+function copyquote(){
+  console.log("invoke the quotebacks!")
+  //send ping. If no response then load scripts.
+chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
+  chrome.tabs.sendMessage(tabs[0].id, {message: "ping"}, function(response) {
+    if(response){
+      // Send copyquote command
+      chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
+        chrome.tabs.sendMessage(tabs[0].id, {message: "copyquote"}, function(response) {
+          
+        });
+      });
+      
+    }
+    else{
+
+      chrome.tabs.executeScript({
+        file: 'webcomponents-sd-ce.js'
+      });
+      
+    
+      chrome.tabs.executeScript({
+        file: 'quotestyle.js'
+      });  
+
+
+      
+      chrome.tabs.executeScript({
+        file: 'rangy-core.js'
+      });
+
+      chrome.tabs.executeScript({
+        file: 'turndown.js'
+      });        
+
+      // files for highlighter
+      /*
+      chrome.tabs.executeScript({
+        file: 'rangy-classapplier.js'
+      });
+
+      chrome.tabs.executeScript({
+        file: 'rangy-highlighter.js'
+      });        
+
+      chrome.tabs.insertCSS({
+        file: 'styles/quoteback-highlighter.css'
+      });
+      */
+    
+      chrome.tabs.executeScript({
+        file: 'newcontent.js',
+      },
+      function(){
+
+        chrome.tabs.executeScript({
+          file: 'quoteback-internal.js'
+        });
+
+        // Send copyquote command
+        chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
+          chrome.tabs.sendMessage(tabs[0].id, {message: "copyquote"}, function(response) {
+            
+          });
+        }); 
+      }
+      );
+
+    }
+    
+  });
+});
+}
