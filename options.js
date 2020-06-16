@@ -147,7 +147,10 @@ ${decodeURIComponent(text)}
       newDiv.querySelector(".quoteback-container").setAttribute("style", "margin: 0px 0px 0px 0px; font-family: 'Inter';");
       newDiv.querySelector(".quoteback-content").setAttribute("style", "font-family:'Inter' !important; font-weight:400;");
       var ems = content.querySelectorAll("div.quoteback-content > em");
-      content.querySelector("em").setAttribute("style", "font-family:'Inter' !important; font-style: italic;");
+      if(content.querySelector("em")){
+        content.querySelector("em").setAttribute("style", "font-family:'Inter' !important; font-style: italic;");
+      }
+      
 
       ems.forEach(function(emItem) {
         emItem.setAttribute("style", "font-family:'Inter' !important; font-style: italic;");
