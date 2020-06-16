@@ -4,11 +4,11 @@ var quoteStyle  = `.quoteback-container{--background-color: white;--border-color
 document.addEventListener("DOMContentLoaded", function(){
     
     // get all our classed blockquote components
-    var index = document.getElementsByClassName("quoteback");
-
+    var index = document.querySelectorAll(".quoteback")
 
     for(var item=0; item < index.length; item++ ){   
       // remove the footer element
+      console.log(index[item]);
       index[item].removeChild(index[item].querySelector("footer"));
       
       var text = index[item].innerHTML;
@@ -22,16 +22,16 @@ document.addEventListener("DOMContentLoaded", function(){
       // create a new component with that data
       var component = `
       <quoteback-component darkmode="${darkmode}" url="${url}" text="${encodeURIComponent(text)}" author="${author}" title="${title}" favicon="${favicon}"> 
-      	<script src="./quoteback.js"></script>  
       </quoteback-component>    
       `;
       var newEl = document.createElement('div');
       newEl.innerHTML = component;
+      
 
       // replace the original blockquote with our quoteback seed component
       index[item].parentNode.replaceChild(newEl, index[item]);
 
-      const template = document.createElement('template');
+      var template = document.createElement('template');
       template.innerHTML=`
       <style>${quoteStyle}</style>
       <div class="quoteback-container">
@@ -66,6 +66,10 @@ document.addEventListener("DOMContentLoaded", function(){
           this.editable = this.getAttribute('editable');
           this.darkmode = this.getAttribute('darkmode')
 
+        };
+
+				connectedCallback() {
+          console.info( 'connected' );
           if(this.editable == "true"){
             this.shadowRoot.querySelector('.quoteback-author').setAttribute("contenteditable", true);
             this.shadowRoot.querySelector('.quoteback-title').setAttribute("contenteditable", true);
@@ -74,60 +78,17 @@ document.addEventListener("DOMContentLoaded", function(){
           if(this.darkmode == "true"){
             this.shadowRoot.querySelector('.quoteback-container').classList += " dark-theme";
           }            
-        };
-
-  			set text(value) {
-  			  this._text = value;
-  			  if (this.shadowRoot)
-  			    this.shadowRoot.querySelector('.quoteback-content').innerHTML = value;
-  			};
-  			get text() {
-  			  return this._text;
-  			};
-  			set author(value) {
-  			  this._author = value;
-  			  if (this.shadowRoot)
-  			    this.shadowRoot.querySelector('.quoteback-author').innerHTML = value;
-  			};
-  			get author() {
-  			  return this._author;
-  			};	
-  			set title(value) {
-  			  this._title = value;
-  			  if (this.shadowRoot)
-  			    this.shadowRoot.querySelector('.quoteback-title').innerHTML = value;
-  			};
-  			get title() {
-  			  return this._title;
-  			};
-  			set url(value) {
-  			  this._url = value;
-  			  if (this.shadowRoot)
-  			    this.shadowRoot.querySelector('.quoteback-arrow').href = value;
-  			};
-  			get url() {
-  			  return this._url;
-  			};
-  			set favicon(value) {
-  				this._favicon = value;
-  				if (this.shadowRoot)
-  					this.shadowRoot.querySelector('.mini-favicon').src = value;
-  			};
-        get favicon() {
-            return this._favicon;
-        } 
-        set editable(value) {
-          this._editable = value;
-          if (this.shadowRoot)
-            if(value == "true"){
-              this.shadowRoot.querySelector('.quoteback-author').setAttribute("contenteditable", true);
-              this.shadowRoot.querySelector('.quoteback-title').setAttribute("contenteditable", true);
-            }	
-          
-        };
-        get editable() {
-          return this._editable;
-        };                                       
+        
+					this.shadowRoot.querySelector('.quoteback-content').innerHTML = decodeURIComponent(this.getAttribute('text'));
+					this.shadowRoot.querySelector('.quoteback-author').innerHTML = this.getAttribute('author');
+					this.shadowRoot.querySelector('.mini-favicon').src = this.getAttribute('favicon');
+					this.shadowRoot.querySelector('.quoteback-title').innerHTML = this.getAttribute('title');
+					this.shadowRoot.querySelector('.quoteback-arrow').href = this.getAttribute('url');
+					if(this.getAttribute('editable') == "true"){
+						this.shadowRoot.querySelector('.quoteback-author').setAttribute("contenteditable", true);
+						this.shadowRoot.querySelector('.quoteback-title').setAttribute("contenteditable", true);
+					};	
+				};                                      
 
       }
 
