@@ -111,9 +111,9 @@ document.addEventListener("DOMContentLoaded", function(){
       var author = quote.attr("author");
 
       var embed = `
-<blockquote class="quoteback" data-title="${title}" data-author="${author}" cite="${url}">
+<blockquote class="quoteback" darkmode="" data-title="${title}" data-author="${author}" cite="${url}">
 ${decodeURIComponent(text)}
-<footer>${author}<cite><a href="${url}">${url}</a></cite></footer>
+<footer>${author}<cite> <a href="${url}">${url}</a></cite></footer>
 </blockquote><script note="" src="https://cdn.jsdelivr.net/gh/Blogger-Peer-Review/quotebacks@1/quoteback.js"></script>`;
 
         copyToClipboard(embed);
@@ -141,9 +141,23 @@ ${decodeURIComponent(text)}
       newDiv.style.bottom = "-999px";
       newDiv.style.position = "absolute";
       newDiv.style.width = "500px";
-      newDiv.style.padding = "5px 5px 5px 5px";
-      newDiv.querySelector(".quoteback-container").style.margin = "0px 0px 0px 0px";
+      newDiv.style.padding = "7px 7px 7px 7px";
+      
+      var content = newDiv.querySelector(".quoteback-content");
+      newDiv.querySelector(".quoteback-container").setAttribute("style", "margin: 0px 0px 0px 0px; font-family: 'Inter';");
+      newDiv.querySelector(".quoteback-content").setAttribute("style", "font-family:'Inter' !important; font-weight:400;");
+      var ems = content.querySelectorAll("div.quoteback-content > em");
+      if(content.querySelector("em")){
+        content.querySelector("em").setAttribute("style", "font-family:'Inter' !important; font-style: italic;");
+      }
+      
+
+      ems.forEach(function(emItem) {
+        emItem.setAttribute("style", "font-family:'Inter' !important; font-style: italic;");
+      });      
+
       document.getElementById("panel-scrollContainer").appendChild(newDiv);
+
 
       //stop the "go to text" element rendering in the image
       document.getElementById("copyimage").querySelector(".quoteback-backlink").setAttribute("data-html2canvas-ignore", "true");
@@ -463,7 +477,7 @@ function displayquotes(url){
           <button id="delete" class="options-control-button">Delete</button>        
         </div>
       </div>
-    <div class="comment" contenteditable="true" ${item.comment ? "style='color:#464A4D'" : ""}}>${item.comment ? item.comment : "Add Comment"}</div>
+    <div class="comment" contenteditable="true" ${item.comment ? "style='color:#464A4D'" : ""}>${item.comment ? item.comment : "Add Comment"}</div>
     </div>
     `;
     

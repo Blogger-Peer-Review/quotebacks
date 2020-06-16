@@ -1,6 +1,9 @@
 chrome.runtime.onMessage.addListener(
   function(request, sender, sendResponse) {
 
+
+    var debug = false; // enable logging, prevent blur, make countdown 500
+
     // tell background.js that we're loaded and alive
     if (request.message == "ping"){
       sendResponse({alive: "loaded"});
@@ -12,9 +15,7 @@ chrome.runtime.onMessage.addListener(
     if (request.message == "copyquote" && selectionChecker == ""){
       return null;
     } else if (request.message == "copyquote" && selectionChecker != ""){
-
-      // console.log("my selection type is " + window.getSelection.typeof);
-
+      
       closePopup();
       
       var object = {};
@@ -80,11 +81,10 @@ chrome.runtime.onMessage.addListener(
     
     
         chrome.storage.local.set(object, function() {            
-        console.log(object[page]["quotes"][0]);
-    
+          console.log(object[page]["quotes"][0]);
         });
     
-    
+        
         // Web Component Stuff Start Here //
         var component = `
         <quoteback-popup text="${encodeURIComponent(text)}" author="${page_object["author"]}" title="${page_object["title"]}">
@@ -92,8 +92,8 @@ chrome.runtime.onMessage.addListener(
         </quoteback-component> 
         </quoteback-popup>    
         `;   
-    
-        // ABOVE - not sure the best way to get quoteback-internal.js here
+
+  
     
         var popup = document.createElement('div');
         document.documentElement.appendChild(popup);
@@ -125,6 +125,7 @@ chrome.runtime.onMessage.addListener(
     
         class QuotebackPopup extends HTMLElement {
           constructor(){
+           
             super();
             this.attachShadow({mode: 'open'});
             this.shadowRoot.appendChild(template.content.cloneNode(true));
@@ -141,21 +142,21 @@ chrome.runtime.onMessage.addListener(
         }else{
         window.customElements.define('quoteback-popup', QuotebackPopup)  
         }
+
         embedquoteback();
-    
+
         //
         //
         // COPY EMBED //
         var p = document.querySelector("quoteback-popup").shadowRoot;
         p.querySelector("#getlink").addEventListener("click", function(event) {
-          var embed = `<blockquote class="quoteback" data-title="${page_object["title"]}" data-author="${page_object["author"]}" cite="${page_object["url"]}">
-${text}
-<footer>${page_object["author"]} <cite><a href="${page_object["url"]}">${page_object["url"]}</a></cite></footer>
-</blockquote>
-<script note="" src="https://cdn.jsdelivr.net/gh/Blogger-Peer-Review/quotebacks@1/quoteback.js"></script>`;
+          var embed = `<blockquote class="quoteback" darkmode="" data-title="${page_object["title"]}" data-author="${page_object["author"]}" cite="${page_object["url"]}">
+                      ${text}
+                      <footer>${page_object["author"]} <cite><a href="${page_object["url"]}">${page_object["url"]}</a></cite></footer>
+                      </blockquote>
+                      <script note="" src="https://cdn.jsdelivr.net/gh/Blogger-Peer-Review/quotebacks@1/quoteback.js"></script>`;
       
           copyToClipboard(embed);
-          console.log(p.querySelector("#getlink"));
           p.querySelector("#getlink").innerHTML = "Copied!";
           setTimeout(function() {
               p.querySelector("#getlink").innerHTML = "<> Embed";
@@ -203,7 +204,7 @@ ${text}
         });      
     
         // Close popup on tab focus out
-        window.onblur = onBlur;
+        if(!debug){window.onblur = onBlur};
         function onBlur() {
          closePopup()           
          clearInterval(t); // stop timer
@@ -246,6 +247,8 @@ ${text}
             // timeout to remove popups
             if(!ishover && !textfocus) {
             time++;
+            var timer = 5;
+            if(debug){timer = 500};
             if(time > 5){
                 if (popup){
                 popup.parentNode.removeChild(popup);
@@ -254,7 +257,7 @@ ${text}
                 AutoSave.stop();              
                 clearInterval(t); // stop timer
             };
-            // console.log(time + "is hover: "+ishover + "is textfocus:"+textfocus);
+            if(debug){console.log(time + "is hover: "+ishover + "is textfocus:"+textfocus);};
             }
     
         }, 1000);
@@ -414,7 +417,7 @@ ${text}
           object[page]["author"] = author.textContent;
       
           chrome.storage.local.set(object, function() { 
-              console.log("autosaved");
+              if(debug){console.log("autosaved")};
               if(popup.shadowRoot.querySelector(".save-indicator").innerText == "Saving..."){
                 popup.shadowRoot.querySelector(".save-indicator").innerHTML = "Saved"; // changed
             };
@@ -455,9 +458,11 @@ function copyToClipboard(str){
 
 function closePopup(){
   var paras = document.querySelector("quoteback-popup");
-  console.log(document.querySelector("quoteback-popup"));
   if (paras){
       paras.parentNode.removeChild(paras);
   };         
   AutoSave.stop();              
 }
+
+
+

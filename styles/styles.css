@@ -316,9 +316,11 @@ body {
   display: none;
   background-color: #fff;
   padding: 10px; }
-  #titlebar-dropdown #titlebar-delete:hover {
-    cursor: pointer;
-    color: red; }
+  #titlebar-dropdown #titlebar-delete {
+    font-size: 14px; }
+    #titlebar-dropdown #titlebar-delete:hover {
+      cursor: pointer;
+      color: red; }
 
 #titlebar-dropdown.on {
   position: absolute;
@@ -605,6 +607,7 @@ input, button {
   color: #464A4D;
   box-sizing: border-box;
   border-radius: 4px;
+  font-size: 14px;
   word-wrap: break-word;
   word-break: break-all;
   -webkit-transition: all 0.1s ease;
