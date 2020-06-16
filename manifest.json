@@ -28,14 +28,16 @@
       "description": "Capture a quote from the web",
       "suggested_key": {
         "default": "Ctrl+Shift+S",
-        "windows": "Ctrl+Shift+S"
+        "windows": "Ctrl+Shift+S",
+        "chromeos": "Ctrl+Shift+S"
       }
     },
     "alt-open":{
       "description": "Alternative quote capture for Firefox",
       "suggested_key": {
         "mac": "Alt+S",
-        "windows": "Alt+S"
+        "windows": "Alt+S",
+        "chromeos": "Alt+S"
       }      
     }
   }

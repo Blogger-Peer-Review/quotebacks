@@ -1,6 +1,9 @@
 chrome.runtime.onMessage.addListener(
   function(request, sender, sendResponse) {
 
+
+    var debug = false; // enable logging, prevent blur, make countdown 500
+
     // tell background.js that we're loaded and alive
     if (request.message == "ping"){
       sendResponse({alive: "loaded"});
@@ -12,8 +15,6 @@ chrome.runtime.onMessage.addListener(
     if (request.message == "copyquote" && selectionChecker == ""){
       return null;
     } else if (request.message == "copyquote" && selectionChecker != ""){
-
-      // console.log("my selection type is " + window.getSelection.typeof);
       
       closePopup();
       
@@ -84,7 +85,6 @@ chrome.runtime.onMessage.addListener(
         });
     
         
-        console.log("page object = "+JSON.stringify(page_object));
         // Web Component Stuff Start Here //
         var component = `
         <quoteback-popup text="${encodeURIComponent(text)}" author="${page_object["author"]}" title="${page_object["title"]}">
@@ -204,9 +204,9 @@ chrome.runtime.onMessage.addListener(
         });      
     
         // Close popup on tab focus out
-        window.onblur = onBlur;
+        if(!debug){window.onblur = onBlur};
         function onBlur() {
-         //closePopup()           
+         closePopup()           
          clearInterval(t); // stop timer
         };
         
@@ -247,7 +247,9 @@ chrome.runtime.onMessage.addListener(
             // timeout to remove popups
             if(!ishover && !textfocus) {
             time++;
-            if(time > 500){
+            var timer = 5;
+            if(debug){timer = 500};
+            if(time > 5){
                 if (popup){
                 popup.parentNode.removeChild(popup);
                 };
@@ -255,7 +257,7 @@ chrome.runtime.onMessage.addListener(
                 AutoSave.stop();              
                 clearInterval(t); // stop timer
             };
-            // console.log(time + "is hover: "+ishover + "is textfocus:"+textfocus);
+            if(debug){console.log(time + "is hover: "+ishover + "is textfocus:"+textfocus);};
             }
     
         }, 1000);
@@ -414,7 +416,7 @@ chrome.runtime.onMessage.addListener(
           object[page]["author"] = author.textContent;
       
           chrome.storage.local.set(object, function() { 
-              console.log("autosaved");
+              if(debug){console.log("autosaved")};
               if(popup.shadowRoot.querySelector(".save-indicator").innerText == "Saving..."){
                 popup.shadowRoot.querySelector(".save-indicator").innerHTML = "Saved"; // changed
             };
