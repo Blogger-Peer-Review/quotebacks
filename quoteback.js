@@ -4,7 +4,8 @@ var quoteStyle  = `.quoteback-container{--background-color: white;--border-color
 document.addEventListener("DOMContentLoaded", function(){
     
     // get all our classed blockquote components
-    var index = document.querySelectorAll(".quoteback")
+    var index = document.querySelectorAll(".quoteback");
+
 
     for(var item=0; item < index.length; item++ ){   
       // remove the footer element
