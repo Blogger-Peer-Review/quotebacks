@@ -35,22 +35,26 @@ document.addEventListener("DOMContentLoaded", function(){
       var template = document.createElement('template');
       template.innerHTML=`
       <style>${quoteStyle}</style>
-      <div class="quoteback-container">
-          <div id="quoteback-parent" class="quoteback-parent">
-              <div class="quoteback-content"></div>       
+      <div class="quoteback-container" itemscope itemtype="http://www.w3.org/ns/oa#Annotation">
+        <span itemprop="target" itemscope itemtype="http://www.w3.org/ns/oa#hasTarget">
+          <div id="quoteback-parent" class="quoteback-parent" itemprop="selector" itemscope itemtype="http://www.w3.org/ns/oa#TextQuoteSelector">
+            <div class="quoteback-content" itemprop="exact"></div>
           </div>
 
-          <div class="quoteback-head">       
-              <div class="quoteback-avatar"><img class="mini-favicon" src=""/></div>     
-              <div class="quoteback-metadata">
-                  <div class="metadata-inner">
-                      <div class="quoteback-author"></div>
-                      <div class="quoteback-title"></div>
-                  </div>  
+          <div class="quoteback-head">
+            <div class="quoteback-avatar"><img class="mini-favicon" src=""/></div>
+            <div class="quoteback-metadata">
+              <div class="metadata-inner">
+                <div class="quoteback-author"></div>
+                <div class="quoteback-title"></div>
               </div>
+            </div>
 
-          <div class="quoteback-backlink"><a target="_blank" href="" class="quoteback-arrow">Go to text <span class="right-arrow">&#8594;</span></a></div>
-          </div>  
+            <div class="quoteback-backlink">
+              <a target="_blank" href="" class="quoteback-arrow" itemprop="source" content="">Go to text <span class="right-arrow">&#8594;</span></a>
+            </div>
+          </div>
+        </span>
       </div>`;
 
       class QuoteBack extends HTMLElement {
@@ -84,6 +88,10 @@ document.addEventListener("DOMContentLoaded", function(){
 					this.shadowRoot.querySelector('.quoteback-author').innerHTML = this.getAttribute('author');
 					this.shadowRoot.querySelector('.mini-favicon').src = this.getAttribute('favicon');
 					this.shadowRoot.querySelector('.quoteback-title').innerHTML = this.getAttribute('title');
+					const arrow = this.shadowRoot.querySelector('.quoteback-arrow')
+					arrow.href = this.getAttribute('url');
+					arrow.setAttribute("content", this.getAttribute("url"));
+
 					this.shadowRoot.querySelector('.quoteback-arrow').href = this.getAttribute('url');
 					if(this.getAttribute('editable') == "true"){
 						this.shadowRoot.querySelector('.quoteback-author').setAttribute("contenteditable", true);
