@@ -464,7 +464,7 @@ function displayquotes(url){
     <div class="quoteblock">
       <div class="meta">
       <div class="date">Created ${datefield}</div>
-      <div class="linkback"><a target="_blank" href="${url}#:~:text=${encodeURIComponent(item.text)}">View Original</a></div>
+      <div class="linkback"><a target="_blank" rel="noopener" href="${url}#:~:text=${encodeURIComponent(item.text)}">View Original</a></div>
       </div>
       <div class="quote-container">
         <quoteback-component id="quoteback-component" url="${url}" text="${encodeURIComponent(item.text)}" author="${alldata[url].author}" title="${alldata[url].title}" favicon="https://s2.googleusercontent.com/s2/favicons?domain_url=${url}&size=64"> 
