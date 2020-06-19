@@ -63,7 +63,7 @@ chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
       
     }
     else{
-      // console.log("we didn't hear a response and now we're waiting to load some scripts...");
+      console.log("we didn't hear a response and now we're waiting to load some scripts...");
       chrome.tabs.executeScript({
         file: 'webcomponents-sd-ce.js'
       },function(){
