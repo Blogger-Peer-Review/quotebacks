@@ -1,4 +1,4 @@
-var debug = true; // enable logging, prevent blur, make countdown 500
+var debug = false; // enable logging, prevent blur, make countdown 500
 
 chrome.runtime.onMessage.addListener(
   function(request, sender, sendResponse) {
