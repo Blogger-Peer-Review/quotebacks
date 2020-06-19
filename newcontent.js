@@ -115,7 +115,7 @@ chrome.runtime.onMessage.addListener(
         <div class="tools-buttons">
           <button id="getlink" class="control-button"><> Embed</button>
           <button id="getMarkdown" class="control-button">Copy Markdown</button>
-          <a target="_blank" id="quoteslink" class="control-button" href="${chrome.runtime.getURL("options.html")}#${page}">All Quotes<img src="${chrome.runtime.getURL("images/allquotes.png")}"></a>
+          <a target="_blank" rel="noopener" id="quoteslink" class="control-button" href="${chrome.runtime.getURL("options.html")}#${page}">All Quotes<img src="${chrome.runtime.getURL("images/allquotes.png")}"></a>
           <button id="close-button" class="control-button">Close</button>
         </div>
         </div>
@@ -339,6 +339,7 @@ chrome.runtime.onMessage.addListener(
         links.forEach(e => {
           e.href = convertAbsolute(e.href);
           e.setAttribute("target","_blank"); //ensure links open inside quoteback in new window
+          e.setAttribute("rel","noopener");
         });
   
         var images = htmlfragment.querySelectorAll("img");
