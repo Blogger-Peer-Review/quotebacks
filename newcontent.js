@@ -2,10 +2,10 @@ var debug = true; // enable logging, prevent blur, make countdown 500
 
 chrome.runtime.onMessage.addListener(
   function(request, sender, sendResponse) {
-
+    
     // tell background.js that we're loaded and alive
     if (request.message == "ping"){
-      sendResponse({alive: "loaded"});
+      return Promise.resolve({alive: "loaded"});
     }
 
     var selectionChecker = (window.getSelection().toString());
