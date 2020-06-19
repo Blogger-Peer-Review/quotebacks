@@ -8,28 +8,15 @@
 // });
 
 
-chrome.storage.local.get(null, function(items) {
-  allKeys = Object.keys(items);
-});
+//chrome.storage.local.get(null, function(items) {
+//  allKeys = Object.keys(items);
+//});
 
-chrome.commands.onCommand.addListener(function(command) {
- copyquote();
+chrome.commands.onCommand.addListener(function(command) { 
+  copyquote();
 });
 
 chrome.browserAction.setPopup({popup:''});  //disable browserAction's popup
-
-
-// proof of concept that can watch for pages in DB then:
-// retrieve serializedhighlights
-// send message to page to deserialize highlights
-//requires webNavigation permission in manifest.json
-/*
-chrome.webNavigation.onCompleted.addListener(function(e) {
-  if (allKeys.includes(e.url)){
-    console.log("page in DB");
-    }
-  });
-*/
 
 chrome.browserAction.onClicked.addListener(()=>{
   chrome.tabs.create({url:'options.html'});
@@ -61,6 +48,8 @@ function onClickHandler(info, tab) {
 function copyquote(){
   // console.log("invoke the quotebacks!")
   //send ping. If no response then load scripts.
+
+
 chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
   chrome.tabs.sendMessage(tabs[0].id, {message: "ping"}, function(response) {
     if(response){
@@ -77,57 +66,38 @@ chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
       // console.log("we didn't hear a response and now we're waiting to load some scripts...");
       chrome.tabs.executeScript({
         file: 'webcomponents-sd-ce.js'
-      });
-      
-    
-      chrome.tabs.executeScript({
-        file: 'quotestyle.js'
-      });  
-
-      
-      chrome.tabs.executeScript({
-        file: 'rangy-core.js'
-      });
-
-      chrome.tabs.executeScript({
-        file: 'turndown.js'
-      });        
-
-      // files for highlighter
-      /*
-      chrome.tabs.executeScript({
-        file: 'rangy-classapplier.js'
-      });
-
-      chrome.tabs.executeScript({
-        file: 'rangy-highlighter.js'
-      });        
-
-      chrome.tabs.insertCSS({
-        file: 'styles/quoteback-highlighter.css'
-      });
-      */
-    
-      chrome.tabs.executeScript({
-        file: 'newcontent.js',
-      },
-      function(){
-
-      chrome.tabs.executeScript({
-        file: 'quoteback-internal.js'
-      });
-      // console.log("...and now that those scripts are loaded we are sending a message to newcontent.js");
-        // Send copyquote command
-        chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
-          chrome.tabs.sendMessage(tabs[0].id, {message: "copyquote"}, function(response) {
-            
+      },function(){
+        chrome.tabs.executeScript({
+          file: 'quotestyle.js'
+        },function(){
+          chrome.tabs.executeScript({
+            file: 'rangy-core.js'
+          },function(){
+            chrome.tabs.executeScript({
+              file: 'turndown.js'
+            },function(){
+              chrome.tabs.executeScript({
+                file: 'newcontent.js',
+              },function(){
+                chrome.tabs.executeScript({
+                  file: 'quoteback-internal.js'
+                },function(){
+                    // console.log("...and now that those scripts are loaded we are sending a message to newcontent.js");
+                    // Send copyquote command
+                    chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
+                      chrome.tabs.sendMessage(tabs[0].id, {message: "copyquote"}, function(response) {
+                      });
+                    }); 
+                });
+              });
+            });
           });
-        }); 
-      }
-      );
-
-    }
+        });
+      });
+    };
+    
     
   });
 });
 }
+
