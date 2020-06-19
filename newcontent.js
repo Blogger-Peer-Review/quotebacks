@@ -1,4 +1,4 @@
-var debug = false; // enable logging, prevent blur, make countdown 500
+var debug = true; // enable logging, prevent blur, make countdown 500
 
 chrome.runtime.onMessage.addListener(
   function(request, sender, sendResponse) {
@@ -86,8 +86,8 @@ chrome.runtime.onMessage.addListener(
         
         // Web Component Stuff Start Here //
         var component = `
-        <quoteback-popup text="${encodeURIComponent(text)}" author="${page_object["author"]}" title="${page_object["title"]}">
-        <quoteback-component slot="quoteback-component" url="${page_object["url"]}" text="${encodeURIComponent(text)}" author="${page_object["author"]}" title="${page_object["title"]}" favicon="${page_object["favicon"]}" editable="true">
+        <quoteback-popup text="${encodeURIComponent(text)}" author="${page_object["author"]}" title="${encodeURIComponent(page_object["title"])}">
+        <quoteback-component slot="quoteback-component" url="${page_object["url"]}" text="${encodeURIComponent(text)}" author="${page_object["author"]}" title="${encodeURIComponent(page_object["title"])}" favicon="${page_object["favicon"]}" editable="true">
         </quoteback-component> 
         </quoteback-popup>    
         `;   

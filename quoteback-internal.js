@@ -38,7 +38,7 @@ console.log("quoteback-internal loaded");
 						
 					this.text = decodeURIComponent(this.getAttribute('text'));
 					this.author = this.getAttribute('author');
-					this.title = this.getAttribute('title'); 
+					this.title = decodeURIComponent(this.getAttribute('title')); 
 					this.url = this.getAttribute('url');
 					this.favicon = this.getAttribute('favicon');
 					this.editable = this.getAttribute('editable');
@@ -61,7 +61,7 @@ console.log("quoteback-internal loaded");
 					this.shadowRoot.querySelector('.quoteback-content').innerHTML = decodeURIComponent(this.getAttribute('text'));
 					this.shadowRoot.querySelector('.quoteback-author').innerHTML = this.getAttribute('author');
 					this.shadowRoot.querySelector('.mini-favicon').src = this.getAttribute('favicon');
-					this.shadowRoot.querySelector('.quoteback-title').innerHTML = this.getAttribute('title');
+					this.shadowRoot.querySelector('.quoteback-title').innerHTML = decodeURIComponent(this.getAttribute('title'));
 					this.shadowRoot.querySelector('.quoteback-arrow').href = this.getAttribute('url');
 					if(this.getAttribute('editable') == "true"){
 						this.shadowRoot.querySelector('.quoteback-author').setAttribute("contenteditable", true);

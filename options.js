@@ -111,7 +111,7 @@ document.addEventListener("DOMContentLoaded", function(){
       var author = quote.attr("author");
 
       var embed = `
-<blockquote class="quoteback" darkmode="" data-title="${title}" data-author="${author}" cite="${url}">
+<blockquote class="quoteback" darkmode="" data-title="${encodeURIComponent(title)}" data-author="${author}" cite="${url}">
 ${decodeURIComponent(text)}
 <footer>${author}<cite> <a href="${url}">${url}</a></cite></footer>
 </blockquote><script note="" src="https://cdn.jsdelivr.net/gh/Blogger-Peer-Review/quotebacks@1/quoteback.js"></script>`;
@@ -467,7 +467,7 @@ function displayquotes(url){
       <div class="linkback"><a target="_blank" rel="noopener" href="${url}#:~:text=${encodeURIComponent(item.text)}">View Original</a></div>
       </div>
       <div class="quote-container">
-        <quoteback-component id="quoteback-component" url="${url}" text="${encodeURIComponent(item.text)}" author="${alldata[url].author}" title="${alldata[url].title}" favicon="https://s2.googleusercontent.com/s2/favicons?domain_url=${url}&size=64"> 
+        <quoteback-component id="quoteback-component" url="${url}" text="${encodeURIComponent(item.text)}" author="${alldata[url].author}" title="${encodeURIComponent(alldata[url].title)}" favicon="https://s2.googleusercontent.com/s2/favicons?domain_url=${url}&size=64"> 
         </quoteback-component> 
         <div class="quote-controls">
           <button id="embedLink" class="options-control-button"><> Embed</button>        
