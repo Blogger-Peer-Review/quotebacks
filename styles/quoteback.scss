@@ -48,6 +48,7 @@ $editIcon: 'url(${chrome.runtime.getURL("images/editicon.svg")})';
   margin-bottom: 25px;
   max-width:800px;
   background-color:var(--background-color);
+  text-align:left;
 
   @include transition(all .20s ease);
   &:hover{
