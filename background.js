@@ -1,13 +1,20 @@
+// let gettingAllCommands = browser.commands.getAll();
+// gettingAllCommands.then((commands) => {
+//   for (let command of commands) {
+//     // Note that this logs to the Add-on Debugger's console: https://developer.mozilla.org/en-US/Add-ons/WebExtensions/Debugging
+//     // not the regular Web console.
+//     console.log(command);
+//   }
+// });
+
+
 chrome.storage.local.get(null, function(items) {
   allKeys = Object.keys(items);
 });
 
-
-
 chrome.commands.onCommand.addListener(function(command) {
  copyquote();
 });
-
 
 chrome.browserAction.setPopup({popup:''});  //disable browserAction's popup
 
@@ -23,7 +30,6 @@ chrome.webNavigation.onCompleted.addListener(function(e) {
     }
   });
 */
-
 
 chrome.browserAction.onClicked.addListener(()=>{
   chrome.tabs.create({url:'options.html'});
@@ -42,7 +48,6 @@ chrome.runtime.onInstalled.addListener(function(details){
 chrome.runtime.onInstalled.addListener(function() {
   // Create a parent item and two children.
   chrome.contextMenus.create({"title": "Quoteback: Copy Quote", "id": "quoteback","contexts":["selection"]});
-
   chrome.contextMenus.onClicked.addListener(onClickHandler);
 });
 
@@ -54,12 +59,13 @@ function onClickHandler(info, tab) {
 };
 
 function copyquote(){
-  console.log("invoke the quotebacks!")
+  // console.log("invoke the quotebacks!")
   //send ping. If no response then load scripts.
 chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
   chrome.tabs.sendMessage(tabs[0].id, {message: "ping"}, function(response) {
     if(response){
       // Send copyquote command
+      console.log("we heard a response and we are sending a message to newcontent.js");
       chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
         chrome.tabs.sendMessage(tabs[0].id, {message: "copyquote"}, function(response) {
           
@@ -68,7 +74,7 @@ chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
       
     }
     else{
-
+      // console.log("we didn't hear a response and now we're waiting to load some scripts...");
       chrome.tabs.executeScript({
         file: 'webcomponents-sd-ce.js'
       });
@@ -77,7 +83,6 @@ chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
       chrome.tabs.executeScript({
         file: 'quotestyle.js'
       });  
-
 
       
       chrome.tabs.executeScript({
@@ -108,10 +113,10 @@ chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
       },
       function(){
 
-        chrome.tabs.executeScript({
-          file: 'quoteback-internal.js'
-        });
-
+      chrome.tabs.executeScript({
+        file: 'quoteback-internal.js'
+      });
+      // console.log("...and now that those scripts are loaded we are sending a message to newcontent.js");
         // Send copyquote command
         chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
           chrome.tabs.sendMessage(tabs[0].id, {message: "copyquote"}, function(response) {
