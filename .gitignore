@@ -2,3 +2,5 @@
 .sublime-workspace
 .vscode/
 .txt
+.styles/.sass-cache/
+.styles/*.css.map
