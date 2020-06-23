@@ -1,9 +1,0 @@
-{
-    "version": 3,
-    "mappings": "AAAA,AAAA,mBAAmB,CAAA;EACf,gBAAgB,EAAE,OAAO;CAC5B",
-    "sources": [
-        "quoteback-highlighter.scss"
-    ],
-    "names": [],
-    "file": "quoteback-highlighter.css"
-}
