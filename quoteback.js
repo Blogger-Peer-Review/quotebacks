@@ -83,7 +83,7 @@ document.addEventListener("DOMContentLoaded", function(){
 					this.shadowRoot.querySelector('.mini-favicon').src = this.getAttribute('favicon');
 
           this.shadowRoot.querySelector('.quoteback-author').innerHTML = this.getAttribute('author');
-          this.shadowRoot.querySelector('.quoteback-author').setAttribute("aria-label", "quot by " + this.getAttribute('author'));
+          this.shadowRoot.querySelector('.quoteback-author').setAttribute("aria-label", "quote by " + this.getAttribute('author'));
 
 					this.shadowRoot.querySelector('.quoteback-title').innerHTML = decodeURIComponent(this.getAttribute('title'));
           this.shadowRoot.querySelector('.quoteback-title').setAttribute("aria-label", "title: " + decodeURIComponent(this.getAttribute('title')));
