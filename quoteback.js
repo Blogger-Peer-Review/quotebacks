@@ -35,7 +35,7 @@ document.addEventListener("DOMContentLoaded", function(){
       var template = document.createElement('template');
       template.innerHTML=`
       <style>${quoteStyle}</style>
-      <div class="quoteback-container">
+      <div class="quoteback-container" role="quotation" aria-labelledby="quoteback-author" tabindex="0">
           <div id="quoteback-parent" class="quoteback-parent">
               <div class="quoteback-content"></div>       
           </div>
@@ -44,17 +44,17 @@ document.addEventListener("DOMContentLoaded", function(){
               <div class="quoteback-avatar"><img class="mini-favicon" src=""/></div>     
               <div class="quoteback-metadata">
                   <div class="metadata-inner">
-                      <div class="quoteback-author"></div>
-                      <div class="quoteback-title"></div>
+                      <div aria-label="" id="quoteback-author" class="quoteback-author"></div>
+                      <div aria-label="" class="quoteback-title"></div>
                   </div>  
               </div>
 
-          <div class="quoteback-backlink"><a target="_blank" href="" class="quoteback-arrow">Go to text <span class="right-arrow">&#8594;</span></a></div>
+          <div class="quoteback-backlink"><a target="_blank" aria-label="go to the full text of this quotation" rel="noopener" href="" class="quoteback-arrow">Go to text <span class="right-arrow">&#8594;</span></a></div>
           </div>  
       </div>`;
 
       class QuoteBack extends HTMLElement {
-        constructor(){
+        constructor(){  
           super();
           this.attachShadow({mode: 'open'});
           this.shadowRoot.appendChild(template.content.cloneNode(true));
@@ -79,12 +79,17 @@ document.addEventListener("DOMContentLoaded", function(){
           if(this.darkmode == "true"){
             this.shadowRoot.querySelector('.quoteback-container').classList += " dark-theme";
           }            
-        
 					this.shadowRoot.querySelector('.quoteback-content').innerHTML = decodeURIComponent(this.getAttribute('text'));
-					this.shadowRoot.querySelector('.quoteback-author').innerHTML = this.getAttribute('author');
 					this.shadowRoot.querySelector('.mini-favicon').src = this.getAttribute('favicon');
+
+          this.shadowRoot.querySelector('.quoteback-author').innerHTML = this.getAttribute('author');
+          this.shadowRoot.querySelector('.quoteback-author').setAttribute("aria-label", "quote by " + this.getAttribute('author'));
+
 					this.shadowRoot.querySelector('.quoteback-title').innerHTML = decodeURIComponent(this.getAttribute('title'));
-					this.shadowRoot.querySelector('.quoteback-arrow').href = this.getAttribute('url');
+          this.shadowRoot.querySelector('.quoteback-title').setAttribute("aria-label", "title: " + decodeURIComponent(this.getAttribute('title')));
+
+          this.shadowRoot.querySelector('.quoteback-arrow').href = this.getAttribute('url');
+
 					if(this.getAttribute('editable') == "true"){
 						this.shadowRoot.querySelector('.quoteback-author').setAttribute("contenteditable", true);
 						this.shadowRoot.querySelector('.quoteback-title').setAttribute("contenteditable", true);
