@@ -3,7 +3,7 @@ console.log("quoteback-internal loaded");
   var qbtemplate = document.createElement('template');
 	qbtemplate.innerHTML=`
       <style>${quoteStyle}</style>
-      <div class="quoteback-container" role="quotation" aria-labelledby="quoteback-author" tabindex="0">
+      <div class="quoteback-container" role="quotation" aria-labelledby="quoteback-author" >
           <div id="quoteback-parent" class="quoteback-parent">
               <div class="quoteback-content"></div>       
           </div>
@@ -11,9 +11,9 @@ console.log("quoteback-internal loaded");
           <div class="quoteback-head">       
               <div class="quoteback-avatar"><img class="mini-favicon" src=""/></div>     
               <div class="quoteback-metadata">
-                  <div class="metadata-inner">
-                      <div aria-label="" id="quoteback-author" class="quoteback-author"></div>
-                      <div aria-label="" class="quoteback-title"></div>
+									<div class="metadata-inner">
+										<div aria-label="" id="quoteback-author" class="quoteback-author"></div>
+										<div aria-label="" class="quoteback-title"></div>
                   </div>  
               </div>
 
@@ -44,11 +44,6 @@ console.log("quoteback-internal loaded");
 					this.editable = this.getAttribute('editable');
 					this.darkmode = this.getAttribute('darkmode')
 
-					if(this.editable == "true"){
-						this.shadowRoot.querySelector('.quoteback-author').setAttribute("contenteditable", true);
-						this.shadowRoot.querySelector('.quoteback-title').setAttribute("contenteditable", true);
-					}
-
 					if(this.darkmode == "true"){
 						this.shadowRoot.querySelector('.quoteback-container').classList += " dark-theme";
 					}						
@@ -58,14 +53,36 @@ console.log("quoteback-internal loaded");
 	
 				connectedCallback() {
           console.info( 'connected' );
-          if(this.editable == "true"){
-            this.shadowRoot.querySelector('.quoteback-author').setAttribute("contenteditable", true);
-            this.shadowRoot.querySelector('.quoteback-title').setAttribute("contenteditable", true);
-          }
 
           if(this.darkmode == "true"){
             this.shadowRoot.querySelector('.quoteback-container').classList += " dark-theme";
-          }            
+					}
+
+					if(this.editable == "true"){
+						//this.shadowRoot.querySelector('.quoteback-author').setAttribute("contenteditable", true);
+						//this.shadowRoot.querySelector('.quoteback-title').setAttribute("contenteditable", true);
+
+						let titlediv = this.shadowRoot.querySelector('.quoteback-title');
+						let authordiv = this.shadowRoot.querySelector('.quoteback-author');
+
+						titlediv.addEventListener("click", evt => {
+							evt.target.contentEditable = true;
+							evt.target.focus();
+						});
+						titlediv.addEventListener("blur", evt => {
+							evt.target.contentEditable = false;
+						});
+
+						authordiv.addEventListener("click", evt => {
+							evt.target.contentEditable = true;
+							evt.target.focus();
+						});
+						authordiv.addEventListener("blur", evt => {
+							evt.target.contentEditable = false;
+						});
+
+					}
+					
 					this.shadowRoot.querySelector('.quoteback-content').innerHTML = decodeURIComponent(this.getAttribute('text'));
 					this.shadowRoot.querySelector('.mini-favicon').src = this.getAttribute('favicon');
 
@@ -77,10 +94,9 @@ console.log("quoteback-internal loaded");
 
           this.shadowRoot.querySelector('.quoteback-arrow').href = this.getAttribute('url');
 
-					if(this.getAttribute('editable') == "true"){
-						this.shadowRoot.querySelector('.quoteback-author').setAttribute("contenteditable", true);
-						this.shadowRoot.querySelector('.quoteback-title').setAttribute("contenteditable", true);
-					};		
+
+
+
 				};
 
 		};

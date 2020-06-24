@@ -1,4 +1,4 @@
-var debug = false; // enable logging, prevent blur, make countdown 500
+var debug = true; // enable logging, prevent blur, make countdown 500
 
 chrome.runtime.onMessage.addListener(
   function(request, sender, sendResponse) {
@@ -293,16 +293,21 @@ chrome.runtime.onMessage.addListener(
         };
     
         function txtAreaListenBlur(){
+          if(debug){console.log("txtarealistenblur starting")};
           var popup = document.querySelector("quoteback-popup");
           var quote = popup.querySelector("quoteback-component").shadowRoot;   
           var authorArea = quote.querySelector('.quoteback-author'); // changed
           var titleArea = quote.querySelector('.quoteback-title'); // changed
+          
           authorArea.addEventListener('blur', function(event) {
-          textfocus = false;
+            if(debug){console.log("author area blurred: setting textfocus = false")};
+            textfocus = false;
           }.bind(this));
           titleArea.addEventListener('blur', function(event) {
+            if(debug){console.log("title area blurred: setting textfocus = false")};
           textfocus = false;
           }.bind(this));
+          
         };                          
     
       });
