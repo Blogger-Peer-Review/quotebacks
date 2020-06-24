@@ -1,0 +1,1233 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"content",
+				"contentDocument"
+			],
+			[
+				"end",
+				"endhighlight"
+			],
+			[
+				"link",
+				"linkFunction"
+			],
+			[
+				"itxt",
+				"itxt-body"
+			],
+			[
+				"getElem",
+				"getElementById"
+			],
+			[
+				"flex",
+				"flexdir\tFlexbox - flex-direction: row;"
+			],
+			[
+				"contribut",
+				"contributor-avatar"
+			],
+			[
+				"contrib",
+				"contributor-avatar"
+			],
+			[
+				"blue",
+				"bluegray-text-med"
+			],
+			[
+				"slidesh",
+				"slideshowStopper"
+			],
+			[
+				"slid",
+				"slideshow"
+			],
+			[
+				"channel",
+				"channelButton"
+			],
+			[
+				"title",
+				"titleString"
+			],
+			[
+				"slides",
+				"slideshowButton"
+			],
+			[
+				"get",
+				"getElementById"
+			],
+			[
+				"slideshow",
+				"slideshow"
+			],
+			[
+				"chan",
+				"channelTitle"
+			],
+			[
+				"display",
+				"displayTitle"
+			],
+			[
+				"arena",
+				"arenaChannel"
+			],
+			[
+				"backgroun",
+				"background-color"
+			],
+			[
+				"background",
+				"background-position"
+			],
+			[
+				"text-",
+				"text-align"
+			],
+			[
+				"font-",
+				"font-style"
+			],
+			[
+				"margin-",
+				"margin-right"
+			],
+			[
+				"bluegra",
+				"bluegray-text-dark"
+			],
+			[
+				"list-",
+				"list-style-type"
+			],
+			[
+				"bluegr",
+				"bluegray-text-light"
+			],
+			[
+				"blueg",
+				"bluegray-bg-med"
+			],
+			[
+				"chane",
+				"changelog-container"
+			],
+			[
+				"changelog",
+				"changelog-list"
+			],
+			[
+				"bluegray-",
+				"bluegray-text-dark"
+			],
+			[
+				"iline",
+				"inline-block"
+			],
+			[
+				"base",
+				"base-line-height"
+			],
+			[
+				"ba",
+				"base-line-height"
+			],
+			[
+				"menu-",
+				"menu-container-bot"
+			],
+			[
+				"elemen",
+				"element_height"
+			],
+			[
+				"offset-",
+				"offset-by-one"
+			],
+			[
+				"font",
+				"font-size"
+			],
+			[
+				"min-",
+				"min-width"
+			],
+			[
+				"backgrou",
+				"background-origin"
+			],
+			[
+				"Moskau",
+				"MoskauGrotesk-ExtraBold"
+			],
+			[
+				"rb",
+				"rgba(r,g,b,a)"
+			],
+			[
+				"fon",
+				"font-family"
+			],
+			[
+				"padd",
+				"padding-top"
+			],
+			[
+				"backg",
+				"backgroundColor"
+			],
+			[
+				"post",
+				"postdate"
+			],
+			[
+				"cone",
+				"content-container"
+			],
+			[
+				"head",
+				"head-container"
+			],
+			[
+				"current",
+				"currentMinutes"
+			],
+			[
+				"inline",
+				"inline-block"
+			],
+			[
+				"block",
+				"inline-block"
+			],
+			[
+				"carouse",
+				"carousel-inner"
+			],
+			[
+				"margin",
+				"margin-right"
+			],
+			[
+				"supported-",
+				"supported-list-2"
+			],
+			[
+				"supporte",
+				"supported-services"
+			],
+			[
+				"backgr",
+				"background-color"
+			],
+			[
+				"amber",
+				"ambergraphic"
+			],
+			[
+				"padding",
+				"padding-left"
+			],
+			[
+				"carousel",
+				"carousel-inner"
+			],
+			[
+				"back",
+				"background-color"
+			]
+		]
+	},
+	"buffers":
+	[
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+		[
+			[
+				[
+					"Packages/SASS Build/SASS - Compressed.sublime-build",
+					""
+				],
+				[
+					"Packages/SASS Build/SASS.sublime-build",
+					""
+				]
+			],
+			[
+				"Packages/SASS Build/SASS - Compressed.sublime-build",
+				""
+			]
+		]
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 400.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"package control ",
+				"Package Control: List Packages"
+			],
+			[
+				"packagecontrol",
+				"Package Control: Remove Package"
+			],
+			[
+				"package control",
+				"Package Control: List Packages"
+			],
+			[
+				"package setting",
+				"Preferences: Package Control Settings – User"
+			],
+			[
+				"sass",
+				"Build With: SASS - Compressed"
+			],
+			[
+				"sublimerge",
+				"Sublimerge: Compare to Clipboard"
+			],
+			[
+				"install package",
+				"Package Control: Install Package"
+			],
+			[
+				"install p",
+				"Package Control: Install Package"
+			],
+			[
+				"package ",
+				"Package Control: Install Package"
+			],
+			[
+				"packageresour",
+				"PackageResourceViewer: Open Resource"
+			],
+			[
+				"package",
+				"Package Control: Install Package"
+			],
+			[
+				"install",
+				"Package Control: Install Package"
+			],
+			[
+				"package insta",
+				"Package Control: Install Package"
+			],
+			[
+				"package inst",
+				"Package Control: Install Package"
+			],
+			[
+				"remove packa",
+				"Package Control: Remove Package"
+			],
+			[
+				"package control rem",
+				"Package Control: Remove Package"
+			],
+			[
+				"package control remove",
+				"Package Control: Remove Package"
+			],
+			[
+				"package contro",
+				"Package Control: Remove Package"
+			],
+			[
+				"packate inst",
+				"Package Control: Advanced Install Package"
+			],
+			[
+				"package: install",
+				"Package Control: Install Package"
+			],
+			[
+				"package co",
+				"Package Control: Install Package"
+			],
+			[
+				"package: instal",
+				"Package Control: Install Package"
+			],
+			[
+				"packagecontrol remov",
+				"Package Control: Remove Package"
+			],
+			[
+				"package control: install",
+				"Package Control: Install Package"
+			],
+			[
+				"monito",
+				"SFTP: Monitor File (Upload on External Save)"
+			],
+			[
+				"monit",
+				"SFTP: Monitor File (Upload on External Save)"
+			],
+			[
+				"moni",
+				"SFTP: Monitor File (Upload on External Save)"
+			],
+			[
+				"monitor",
+				"SFTP: Monitor File (Upload on External Save)"
+			],
+			[
+				"upload",
+				"SFTP: Monitor File (Upload on External Save)"
+			],
+			[
+				"uplod",
+				"SFTP: Monitor File (Upload on External Save)"
+			],
+			[
+				"mont",
+				"SFTP: Monitor File (Upload on External Save)"
+			],
+			[
+				"monio",
+				"SFTP: Monitor File (Upload on External Save)"
+			],
+			[
+				"mon",
+				"SFTP: Monitor File (Upload on External Save)"
+			],
+			[
+				"sftp: monitor",
+				"SFTP: Monitor File (Upload on External Save)"
+			],
+			[
+				"sftp: moni",
+				"SFTP: Monitor File (Upload on External Save)"
+			],
+			[
+				"SFTP: monio",
+				"SFTP: Monitor File (Upload on External Save)"
+			],
+			[
+				"package contro: install package",
+				"Package Control: Install Package"
+			],
+			[
+				"insta",
+				"Package Control: Install Package"
+			],
+			[
+				"Package COntrol: Install",
+				"Package Control: Install Package"
+			],
+			[
+				"Package ",
+				"Package Control: Install Package"
+			]
+		],
+		"width": 583.0
+	},
+	"console":
+	{
+		"height": 202.0,
+		"history":
+		[
+			"import urllib.request,os,hashlib; h = '2915d1851351e5ee549c20394736b442' + '8bc59f460fa1548d1514676163dafc88'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://packagecontrol.io/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by)"
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/Users/tobyshorin/Documents/Work/2020/quotebacks"
+	],
+	"file_history":
+	[
+		"/Users/tobyshorin/Documents/Work/2020/quotebacks/quoteback.js",
+		"/Users/tobyshorin/Documents/Work/2020/quotebacks/test-webc.html",
+		"/Users/tobyshorin/Documents/Work/2020/quotebacks.net/index.html",
+		"/Users/tobyshorin/Documents/Work/2020/quotebacks/quoteback-internal.js",
+		"/Users/tobyshorin/Documents/Work/2020/quotebacks.net/welcome.html",
+		"/Users/tobyshorin/Documents/Work/2020/quotebacks.net/quotebacks-site",
+		"/Users/tobyshorin/Documents/Work/2020/quotebacks/newcontent.js",
+		"/Users/tobyshorin/Documents/Work/2020/quotebacks.net/site.webmanifest",
+		"/Users/tobyshorin/Documents/Work/Subpixel Space/subpixel-space/_sass/_colors.scss",
+		"/Users/tobyshorin/Documents/Work/Subpixel Space/subpixel-space/_includes/head.html",
+		"/Users/tobyshorin/Documents/Work/Subpixel Space/subpixel-space/_entries/blogchain-test-2.md",
+		"/Users/tobyshorin/Documents/Work/Subpixel Space/subpixel-space/_sass/_fonts.scss",
+		"/Users/tobyshorin/Documents/Work/Subpixel Space/subpixel-space/_layouts/blogchain.html",
+		"/Users/tobyshorin/Documents/Work/Subpixel Space/subpixel-space/_sass/_post.scss",
+		"/Users/tobyshorin/Documents/Work/Subpixel Space/subpixel-space/_includes/blogchain-nav.html",
+		"/Users/tobyshorin/Documents/Work/Subpixel Space/subpixel-space/_layouts/post.html",
+		"/Users/tobyshorin/Documents/Work/Subpixel Space/subpixel-space/_sass/_global.scss",
+		"/Users/tobyshorin/Documents/Work/Subpixel Space/subpixel-space/_includes/post-titleblock.html",
+		"/Users/tobyshorin/Documents/Work/Subpixel Space/subpixel-space/_entries/blogchain-test-1.md",
+		"/Users/tobyshorin/Documents/Work/Subpixel Space/subpixel-space/_layouts/after-authenticity.html",
+		"/Users/tobyshorin/Documents/Work/Subpixel Space/subpixel-space/_entries/distributed-ecommerce.markdown",
+		"/Users/tobyshorin/Documents/Work/Subpixel Space/subpixel-space/_entries/the-disbelievers-guide-to-authenticity.markdown",
+		"/Users/tobyshorin/Documents/Work/Subpixel Space/subpixel-space/_entries/after-authenticity.markdown",
+		"/Users/tobyshorin/Documents/Work/Subpixel Space/subpixel-space/_includes/portal.html",
+		"/Users/tobyshorin/Documents/Work/Subpixel Space/subpixel-space/about.markdown",
+		"/Users/tobyshorin/Documents/Work/Subpixel Space/subpixel-space/_sass/_entries.scss",
+		"/Users/tobyshorin/Documents/Work/Subpixel Space/subpixel-space/gemfile",
+		"/Users/tobyshorin/Documents/Work/Subpixel Space/subpixel-space/_config.yml",
+		"/Users/tobyshorin/Documents/Work/Subpixel Space/subpixel-space/_layouts/entries.html",
+		"/Users/tobyshorin/Documents/Work/Subpixel Space/subpixel-space/_includes/topnav.html",
+		"/Users/tobyshorin/Documents/Work/Subpixel Space/subpixel-space/_includes/right-menu.html",
+		"/Users/tobyshorin/Documents/Work/Subpixel Space/subpixel-space/_layouts/about.html",
+		"/Users/tobyshorin/Documents/Work/Subpixel Space/subpixel-space/entries.markdown",
+		"/Users/tobyshorin/Documents/Notes/obsidian.css",
+		"/Users/tobyshorin/Documents/Work/Subpixel Space/subpixel-space/main.js",
+		"/Users/tobyshorin/Documents/Work/Subpixel Space/subpixel-space/.gitignore",
+		"/Users/tobyshorin/Documents/Work/Subpixel Space/subpixel-space/css/main.scss",
+		"/Users/tobyshorin/Downloads/subpixel-space-master 2/_sass/_entries.scss",
+		"/Users/tobyshorin/Downloads/subpixel-space-master 2/_layouts/entries.html",
+		"/Users/tobyshorin/Documents/Work/Subpixel Space/subpixel-space/_sass/_portal.scss",
+		"/Users/tobyshorin/Documents/Work/Subpixel Space/subpixel-space/portal.js",
+		"/Users/tobyshorin/Documents/Work/Subpixel Space/subpixel-space/_layouts/components.html",
+		"/Users/tobyshorin/Documents/Work/Subpixel Space/subpixel-space/_entries/open-transclude.markdown",
+		"/Users/tobyshorin/Documents/Work/Subpixel Space/subpixel-space/_sass/_mixins.scss",
+		"/Users/tobyshorin/Documents/Work/Subpixel Space/subpixel-space/_sass/_highlight.scss",
+		"/Users/tobyshorin/Documents/Work/Subpixel Space/subpixel-space/_entries/building-for-the-culture.markdown",
+		"/Users/tobyshorin/Documents/Work/Subpixel Space/subpixel-space/_entries/notes-on-comparative-psychology.markdown",
+		"/Users/tobyshorin/Desktop/Open Transclude.md",
+		"/Users/tobyshorin/Documents/Work/Subpixel Space/subpixel-space/_site/css/main.css",
+		"/Users/tobyshorin/Documents/Work/Subpixel Space/subpixel-space/_entries/define-concepts-from-the-behavior-up.markdown",
+		"/Users/tobyshorin/Documents/Work/Subpixel Space/subpixel-space/_entries/jobs-to-be-done.markdown",
+		"/Users/tobyshorin/Documents/Work/Subpixel Space/subpixel-space/_entries/diminishing-marginal-aesthetic-value.markdown",
+		"/Users/tobyshorin/Documents/Work/Subpixel Space/subpixel-space/components.markdown",
+		"/Users/tobyshorin/Documents/Work/Subpixel Space/subpixel-space/_entries/haute-baroque-capitalism.markdown",
+		"/Users/tobyshorin/Documents/Work/Subpixel Space/subpixel-space/_sass/_intertext.scss",
+		"/Users/tobyshorin/Documents/Work/Subpixel Space/subpixel-space/_layouts/channel.html",
+		"/Users/tobyshorin/Documents/Work/Subpixel Space/subpixel-space/universal-menu.js",
+		"/Users/tobyshorin/Documents/Work/Subpixel Space/subpixel-space/clock.js",
+		"/Users/tobyshorin/Documents/Work/Subpixel Space/subpixel-space/_includes/channel-menu.html",
+		"/Users/tobyshorin/Documents/Work/Subpixel Space/subpixel-space/timechecker.js",
+		"/Users/tobyshorin/Documents/Work/Subpixel Space/subpixel-space/itxt.js",
+		"/Users/tobyshorin/Documents/Work/Subpixel Space/subpixel-space/_includes/bftc-player.html",
+		"/Users/tobyshorin/Documents/Work/Subpixel Space/subpixel-space/_sass/_building-for-the-culture.scss",
+		"/Users/tobyshorin/Documents/Work/Subpixel Space/subpixel-space/_site/itxt.js",
+		"/Users/tobyshorin/Documents/Work/Subpixel Space/subpixel-space/_includes/universal-menu.html",
+		"/Users/tobyshorin/Documents/Work/Subpixel Space/subpixel-space/_includes/intertext.html",
+		"/Users/tobyshorin/Documents/Work/Subpixel Space/subpixel-space/_includes/custom-posts/architecture-at-scale.html",
+		"/Users/tobyshorin/Documents/Work/Subpixel Space/subpixel-space/_includes/channel-head.html",
+		"/Users/tobyshorin/Desktop/Export-19c9d7cd-5ea0-404e-bdc1-ad7e18e0ca5d/Define Concepts From the Behavior Up.md",
+		"/Users/tobyshorin/Documents/Work/Subpixel Space/subpixel-space/_layouts/consulting-promo.html",
+		"/Users/tobyshorin/Documents/Work/Subpixel Space/subpixel-space/_sass/_channel.scss",
+		"/Users/tobyshorin/Documents/Work/Subpixel Space/subpixel-space/_includes/layout-selector.html",
+		"/Users/tobyshorin/Documents/Work/Subpixel Space/subpixel-space/_sass/_about.scss",
+		"/Users/tobyshorin/Documents/Work/Subpixel Space/subpixel-space/index.markdown",
+		"/Users/tobyshorin/Documents/Work/Subpixel Space/subpixel-space/_includes/default-post.html",
+		"/Users/tobyshorin/Documents/Work/Subpixel Space/subpixel-space/_entries/mapping-the-self-in-the-desert-of-the-real.markdown",
+		"/Users/tobyshorin/Documents/Work/Subpixel Space/subpixel-space/.ruby-version",
+		"/Users/tobyshorin/Desktop/jtbd.md",
+		"/Users/tobyshorin/Documents/Work/Subpixel Space/subpixel-space/_entries/our-jobs-to-be-done.markdown",
+		"/Users/tobyshorin/Documents/Work/Subpixel Space/subpixel-space/_entries/the-desire-for-full-automation.markdown",
+		"/Users/tobyshorin/Documents/Work/Subpixel Space/subpixel-space/_includes/frame-speaking-info.html",
+		"/Users/tobyshorin/Documents/Work/Subpixel Space/subpixel-space/_sass/_topnav.scss",
+		"/Users/tobyshorin/Documents/Work/Subpixel Space/subpixel-space/_sass/_grid.scss",
+		"/Users/tobyshorin/Documents/Work/Subpixel Space/subpixel-space/_workshops/lifestyle-brand.markdown",
+		"/Users/tobyshorin/Documents/Work/Subpixel Space/subpixel-space/_sass/_universal-menu.scss",
+		"/Users/tobyshorin/Documents/Work/Subpixel Space/subpixel-space/_sass/_newera.scss",
+		"/Users/tobyshorin/Documents/Work/Subpixel Space/subpixel-space/_layouts/full-automation.html",
+		"/Users/tobyshorin/Documents/Work/Subpixel Space/subpixel-space/_sass/_issue-cover.scss",
+		"/Users/tobyshorin/Documents/Work/Subpixel Space/subpixel-space/_entries/the-new-era-of-trust.markdown",
+		"/Users/tobyshorin/Documents/Work/Subpixel Space/subpixel-space/_entries/the-desire-for-full-autonomy.markdown",
+		"/Users/tobyshorin/Documents/Work/Subpixel Space/subpixel-space/_layouts/workshop-material.html",
+		"/Users/tobyshorin/Documents/Work/Subpixel Space/subpixel-space/_layouts/newera.html",
+		"/Users/tobyshorin/Documents/Work/Subpixel Space/subpixel-space/_layouts/frame-speaking-info.html",
+		"/Users/tobyshorin/Documents/Work/Subpixel Space/subpixel-space/_includes/custom-posts/mapping-the-self.html",
+		"/Users/tobyshorin/Documents/Work/Subpixel Space/subpixel-space/_sass/_ministorage.scss",
+		"/Users/tobyshorin/Documents/Work/Subpixel Space/subpixel-space/_layouts/ministorage.html",
+		"/Users/tobyshorin/Documents/Work/Subpixel Space/subpixel-space/_entries/nyc-mini-storage.markdown",
+		"/Users/tobyshorin/Documents/Work/Subpixel Space/subpixel-space/_includes/issue-cover-2.html",
+		"/Users/tobyshorin/Documents/Work/Subpixel Space/subpixel-space/_site/entries/nyc-mini-storage.html",
+		"/Users/tobyshorin/Documents/Work/Subpixel Space/subpixel-space/_layouts/trust.html",
+		"/Users/tobyshorin/Documents/Work/Subpixel Space/subpixel-space/_includes/contribution.html",
+		"/Users/tobyshorin/Documents/Work/Subpixel Space/subpixel-space/_layouts/latest-post.html",
+		"/Users/tobyshorin/Documents/Work/Subpixel Space/subpixel-space/_js/trust-res.js",
+		"/Users/tobyshorin/Documents/Work/Subpixel Space/subpixel-space/_site/universal-menu.js",
+		"/Users/tobyshorin/Downloads/gyre.png",
+		"/Users/tobyshorin/Downloads/gyre.jpg",
+		"/Users/tobyshorin/Library/Application Support/Sublime Text 3/Packages/User/Package Control.sublime-settings",
+		"/Users/tobyshorin/Documents/Work/Subpixel Space/subpixel-space/_site/entries/the-disbelievers-guide-to-authenticity.html",
+		"/Users/tobyshorin/Documents/Work/Subpixel Space/subpixel-space/_sass/_mapping-the-self.scss",
+		"/Users/tobyshorin/Downloads/Takeout/Search Contributions/Thumbs.json",
+		"/Users/tobyshorin/Documents/Work/Subpixel Space/subpixel-space/_site/main.js",
+		"/Users/tobyshorin/Documents/Work/Subpixel Space/subpixel-space/_site/index.html",
+		"/Users/tobyshorin/Documents/Work/Subpixel Space/subpixel-space/arena-channeler.js",
+		"/Users/tobyshorin/Documents/Work/Subpixel Space/subpixel-space/_sass/_seeking-new-arrangements.scss",
+		"/Users/tobyshorin/Documents/Work/Subpixel Space/subpixel-space/_sass/_after-authenticity.scss",
+		"/Users/tobyshorin/Documents/Work/Subpixel Space/subpixel-space/_sass/_events.scss",
+		"/Users/tobyshorin/Documents/Work/Subpixel Space/subpixel-space/_sass/_contribution.scss",
+		"/Users/tobyshorin/Documents/Work/Subpixel Space/subpixel-space/_sass/_right-menu.scss",
+		"/Users/tobyshorin/Documents/Resources/Code/Bootstrap/bootstrap-3.2.0/node_modules/grunt-contrib-cssmin/node_modules/clean-css/lib/selectors/optimizer.js",
+		"/Users/tobyshorin/Documents/Work/Subpixel Space/subpixel-space/_site/arena-channeler.js",
+		"/Users/tobyshorin/Documents/Work/Subpixel Space/subpixel-space/_includes/custom-posts/after-authenticity.html",
+		"/Users/tobyshorin/Documents/Work/Subpixel Space/subpixel-space/_site/entries/after-authenticity.html",
+		"/Users/tobyshorin/Desktop/Screen Shot 2018-04-03 at 12.15.05 PM.png",
+		"/Users/tobyshorin/Documents/Work/Subpixel Space/subpixel-space/_entries/notes-on-multiplicity.markdown",
+		"/Users/tobyshorin/Documents/Work/Subpixel Space/subpixel-space/_entries/bad-interface-politics-in-facebooks-fake-news-filter.markdown",
+		"/Users/tobyshorin/Documents/Work/Subpixel Space/subpixel-space/_entries/preliminary-rules-for-discussing-meaning.markdown",
+		"/Users/tobyshorin/Documents/Work/Subpixel Space/subpixel-space/_sass/_meaning-mechanics.scss",
+		"/Users/tobyshorin/Documents/Work/Subpixel Space/subpixel-space/_includes/custom-posts/meaning-mechanics.html"
+	],
+	"find":
+	{
+		"height": 38.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"sheets":
+			[
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 24.0
+	},
+	"input":
+	{
+		"height": 34.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.exec":
+	{
+		"height": 170.0
+	},
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"output.sftp":
+	{
+		"height": 146.0
+	},
+	"pinned_build_system": "",
+	"project": "quotebacks.sublime-project",
+	"replace":
+	{
+		"height": 44.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"test",
+				"~/Documents/Work/2020/quotebacks/test-webc.html"
+			],
+			[
+				"quot",
+				"~/Documents/Work/2020/quotebacks/quoteback.js"
+			],
+			[
+				"inde",
+				"index.html"
+			],
+			[
+				"newcon",
+				"newcontent.js"
+			],
+			[
+				"backg",
+				"background.js"
+			],
+			[
+				"mani",
+				"site.webmanifest"
+			],
+			[
+				"hea",
+				"_includes/head.html"
+			],
+			[
+				"col",
+				"_sass/_colors.scss"
+			],
+			[
+				"colo",
+				"_sass/_colors.scss"
+			],
+			[
+				"blogchain",
+				"_entries/blogchain-test-2.md"
+			],
+			[
+				"glob",
+				"_sass/_global.scss"
+			],
+			[
+				"font",
+				"_sass/_fonts.scss"
+			],
+			[
+				"head",
+				"_includes/head.html"
+			],
+			[
+				"logchaint",
+				"_entries/blogchain-test-2.md"
+			],
+			[
+				"blogch",
+				"_entries/blogchain-test-1.md"
+			],
+			[
+				"po",
+				"_includes/post-titleblock.html"
+			],
+			[
+				"after-",
+				"_layouts/after-authenticity.html"
+			],
+			[
+				"af",
+				"_entries/after-authenticity.markdown"
+			],
+			[
+				"after",
+				"_entries/after-authenticity.markdown"
+			],
+			[
+				"gm",
+				"_entries/the-disbelievers-guide-to-authenticity.markdown"
+			],
+			[
+				"por",
+				"_includes/portal.html"
+			],
+			[
+				"blog",
+				"_layouts/blogchain.html"
+			],
+			[
+				"post",
+				"_sass/_post.scss"
+			],
+			[
+				"porta",
+				"_includes/portal.html"
+			],
+			[
+				"right-menu",
+				"_includes/right-menu.html"
+			],
+			[
+				"abou",
+				"_layouts/about.html"
+			],
+			[
+				"top",
+				"_includes/topnav.html"
+			],
+			[
+				"entr",
+				"entries.markdown"
+			],
+			[
+				"blo",
+				"_entries/blogchain-test-2.md"
+			],
+			[
+				"confi",
+				"_config.yml"
+			],
+			[
+				"en",
+				"_layouts/entries.html"
+			],
+			[
+				"gemfile",
+				"gemfile"
+			],
+			[
+				"",
+				"_sass/_entries.scss"
+			],
+			[
+				"ent",
+				"_layouts/entries.html"
+			],
+			[
+				"entri",
+				"_sass/_entries.scss"
+			],
+			[
+				"giti",
+				".gitignore"
+			],
+			[
+				"conf",
+				"_config.yml"
+			],
+			[
+				"main",
+				"main.js"
+			],
+			[
+				"gem",
+				"gemfile"
+			],
+			[
+				"entries",
+				"_layouts/entries.html"
+			],
+			[
+				"open ",
+				"_entries/open-transclude.markdown"
+			],
+			[
+				"compon",
+				"_layouts/components.html"
+			],
+			[
+				"highligh",
+				"_sass/_highlight.scss"
+			],
+			[
+				"building",
+				"_entries/building-for-the-culture.markdown"
+			],
+			[
+				"high",
+				"_sass/_highlight.scss"
+			],
+			[
+				"scss",
+				"css/main.scss"
+			],
+			[
+				"gemf",
+				"gemfile"
+			],
+			[
+				"psychol",
+				"_entries/notes-on-comparative-psychology.markdown"
+			],
+			[
+				"mixin",
+				"_sass/_mixins.scss"
+			],
+			[
+				"css",
+				"_site/css/main.css"
+			],
+			[
+				"config",
+				"_config.yml"
+			],
+			[
+				"portal",
+				"_includes/portal.html"
+			],
+			[
+				"define",
+				"_entries/define-concepts-from-the-behavior-up.markdown"
+			],
+			[
+				"compone",
+				"_layouts/components.html"
+			],
+			[
+				"psych",
+				"_entries/notes-on-comparative-psychology.markdown"
+			],
+			[
+				"jobs",
+				"_entries/jobs-to-be-done.markdown"
+			],
+			[
+				"building for",
+				"_entries/building-for-the-culture.markdown"
+			],
+			[
+				"interte",
+				"_sass/_intertext.scss"
+			],
+			[
+				"baroque",
+				"_entries/haute-baroque-capitalism.markdown"
+			],
+			[
+				"dimini",
+				"_entries/diminishing-marginal-aesthetic-value.markdown"
+			],
+			[
+				"INTERTE",
+				"_sass/_intertext.scss"
+			],
+			[
+				"componen",
+				"components.markdown"
+			],
+			[
+				"channel.",
+				"_layouts/channel.html"
+			],
+			[
+				"channel-menu",
+				"_includes/channel-menu.html"
+			],
+			[
+				"universa",
+				"universal-menu.js"
+			],
+			[
+				"channel-m",
+				"_includes/channel-menu.html"
+			],
+			[
+				"univer",
+				"universal-menu.js"
+			],
+			[
+				"intert",
+				"_sass/_intertext.scss"
+			],
+			[
+				"buildin",
+				"_entries/building-for-the-culture.markdown"
+			],
+			[
+				"it",
+				"itxt.js"
+			],
+			[
+				"components.",
+				"_layouts/components.html"
+			],
+			[
+				"compo",
+				"_layouts/components.html"
+			],
+			[
+				"components",
+				"components.markdown"
+			],
+			[
+				"itx",
+				"itxt.js"
+			],
+			[
+				"bui",
+				"_entries/building-for-the-culture.markdown"
+			],
+			[
+				"build",
+				"_entries/building-for-the-culture.markdown"
+			],
+			[
+				"inteer",
+				"_includes/intertext.html"
+			],
+			[
+				"itxt",
+				"_site/itxt.js"
+			],
+			[
+				"haute",
+				"_entries/haute-baroque-capitalism.markdown"
+			],
+			[
+				"chan",
+				"_includes/channel-menu.html"
+			],
+			[
+				"channel",
+				"_includes/channel-menu.html"
+			],
+			[
+				"univ",
+				"_includes/universal-menu.html"
+			],
+			[
+				"buil",
+				"_entries/building-for-the-culture.markdown"
+			],
+			[
+				"diminish",
+				"_entries/diminishing-marginal-aesthetic-value.markdown"
+			],
+			[
+				"jobs-",
+				"_entries/jobs-to-be-done.markdown"
+			],
+			[
+				"component",
+				"components.markdown"
+			],
+			[
+				"inter",
+				"_sass/_intertext.scss"
+			],
+			[
+				"intertext",
+				"_includes/intertext.html"
+			],
+			[
+				"after auth",
+				"_entries/after-authenticity.markdown"
+			],
+			[
+				"define ",
+				"_entries/define-concepts-from-the-behavior-up.markdown"
+			],
+			[
+				"head.HTML",
+				"_includes/head.html"
+			],
+			[
+				"channel-he",
+				"_includes/channel-head.html"
+			],
+			[
+				"intertex",
+				"_includes/intertext.html"
+			],
+			[
+				"about",
+				"about.markdown"
+			],
+			[
+				"about.sc",
+				"_sass/_about.scss"
+			],
+			[
+				"abo",
+				"_sass/_about.scss"
+			],
+			[
+				"chann",
+				"_layouts/channel.html"
+			],
+			[
+				"index",
+				"index.markdown"
+			],
+			[
+				"de",
+				"_includes/default-post.html"
+			],
+			[
+				"consu",
+				"_layouts/consulting-promo.html"
+			],
+			[
+				"ruby",
+				".ruby-version"
+			],
+			[
+				"la",
+				"_includes/layout-selector.html"
+			],
+			[
+				"pos",
+				"_layouts/post.html"
+			],
+			[
+				"con",
+				"_config.yml"
+			],
+			[
+				"uni",
+				"_includes/universal-menu.html"
+			],
+			[
+				"defa",
+				"_includes/default-post.html"
+			],
+			[
+				"lay",
+				"_includes/layout-selector.html"
+			],
+			[
+				"speaki",
+				"_includes/frame-speaking-info.html"
+			],
+			[
+				"desi",
+				"_entries/the-desire-for-full-automation.markdown"
+			],
+			[
+				"our jobs",
+				"_entries/our-jobs-to-be-done.markdown"
+			],
+			[
+				"fon",
+				"_sass/_fonts.scss"
+			],
+			[
+				"topn",
+				"_sass/_topnav.scss"
+			],
+			[
+				"global",
+				"_sass/_global.scss"
+			],
+			[
+				"js",
+				"main.js"
+			],
+			[
+				"gri",
+				"_sass/_grid.scss"
+			],
+			[
+				"mix",
+				"_sass/_mixins.scss"
+			],
+			[
+				"main.scss",
+				"css/main.scss"
+			],
+			[
+				"topna",
+				"_includes/topnav.html"
+			],
+			[
+				"speaking-in",
+				"_includes/frame-speaking-info.html"
+			],
+			[
+				"desire",
+				"_entries/the-desire-for-full-automation.markdown"
+			],
+			[
+				"defau",
+				"_includes/default-post.html"
+			],
+			[
+				"new e",
+				"_entries/the-new-era-of-trust.markdown"
+			],
+			[
+				"univr",
+				"_sass/_universal-menu.scss"
+			],
+			[
+				"default",
+				"_includes/default-post.html"
+			],
+			[
+				"channel.scss",
+				"_sass/_channel.scss"
+			],
+			[
+				"mini",
+				"_layouts/ministorage.html"
+			],
+			[
+				"nycmin",
+				"_entries/nyc-mini-storage.markdown"
+			],
+			[
+				"mapping",
+				"_includes/custom-posts/mapping-the-self.html"
+			]
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": true,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 267.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}
