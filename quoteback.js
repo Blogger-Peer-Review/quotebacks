@@ -68,33 +68,46 @@ document.addEventListener("DOMContentLoaded", function(){
           this.darkmode = this.getAttribute('darkmode')
 
         };
-
-				connectedCallback() {
+        
+        connectedCallback() {
           console.info( 'connected' );
-          if(this.editable == "true"){
-            this.shadowRoot.querySelector('.quoteback-author').setAttribute("contenteditable", true);
-            this.shadowRoot.querySelector('.quoteback-title').setAttribute("contenteditable", true);
-          }
 
           if(this.darkmode == "true"){
             this.shadowRoot.querySelector('.quoteback-container').classList += " dark-theme";
-          }            
-					this.shadowRoot.querySelector('.quoteback-content').innerHTML = decodeURIComponent(this.getAttribute('text'));
-					this.shadowRoot.querySelector('.mini-favicon').src = this.getAttribute('favicon');
-
+          }
+          this.shadowRoot.querySelector('.quoteback-content').innerHTML = decodeURIComponent(this.getAttribute('text'));
+          this.shadowRoot.querySelector('.mini-favicon').src = this.getAttribute('favicon');
           this.shadowRoot.querySelector('.quoteback-author').innerHTML = this.getAttribute('author');
           this.shadowRoot.querySelector('.quoteback-author').setAttribute("aria-label", "quote by " + this.getAttribute('author'));
-
-					this.shadowRoot.querySelector('.quoteback-title').innerHTML = decodeURIComponent(this.getAttribute('title'));
+          this.shadowRoot.querySelector('.quoteback-title').innerHTML = decodeURIComponent(this.getAttribute('title'));
           this.shadowRoot.querySelector('.quoteback-title').setAttribute("aria-label", "title: " + decodeURIComponent(this.getAttribute('title')));
+          this.shadowRoot.querySelector('.quoteback-arrow').href = this.getAttribute('url');          
 
-          this.shadowRoot.querySelector('.quoteback-arrow').href = this.getAttribute('url');
+          // Manually focus and blur clicked targets
+          // This solves firefox bug where clicking between contenteditable fields doesn't work         
+          if(this.editable == "true"){
+            let titlediv = this.shadowRoot.querySelector('.quoteback-title');
+            let authordiv = this.shadowRoot.querySelector('.quoteback-author');
+            
+            titlediv.addEventListener("click", evt => {
+              evt.target.contentEditable = true;
+              evt.target.focus();
+            });
+            titlediv.addEventListener("blur", evt => {
+              evt.target.contentEditable = false;
+            });
 
-					if(this.getAttribute('editable') == "true"){
-						this.shadowRoot.querySelector('.quoteback-author').setAttribute("contenteditable", true);
-						this.shadowRoot.querySelector('.quoteback-title').setAttribute("contenteditable", true);
-					};	
-				};                                      
+            authordiv.addEventListener("click", evt => {
+              evt.target.contentEditable = true;
+              evt.target.focus();
+            });
+            authordiv.addEventListener("blur", evt => {
+              evt.target.contentEditable = false;
+            });
+          }
+          // end this fix
+
+        };                                  
 
       }
 
