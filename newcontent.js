@@ -150,7 +150,7 @@ chrome.runtime.onMessage.addListener(
         // COPY EMBED //
         var p = document.querySelector("quoteback-popup").shadowRoot;
         p.querySelector("#getlink").addEventListener("click", function(event) {
-          var embed = `<blockquote class="quoteback" darkmode="" data-title="${page_object["title"]}" data-author="${page_object["author"]}" cite="${page_object["url"]}">
+          var embed = `<blockquote class="quoteback" darkmode="" data-title="${encodeURIComponent(page_object["title"])}" data-author="${page_object["author"]}" cite="${page_object["url"]}">
                       ${text}
                       <footer>${page_object["author"]} <cite><a href="${page_object["url"]}">${page_object["url"]}</a></cite></footer>
                       </blockquote>
