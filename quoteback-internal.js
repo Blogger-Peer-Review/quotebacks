@@ -5,7 +5,9 @@ console.log("quoteback-internal loaded");
       <style>${quoteStyle}</style>
       <div class="quoteback-container" role="quotation" aria-labelledby="quoteback-author" >
           <div id="quoteback-parent" class="quoteback-parent">
-              <div class="quoteback-content"></div>       
+              <div class="quoteback-content"></div> 
+              <div class="content-fader-top"></div>
+        			<div class="content-fader-bottom"></div>      
           </div>
 
           <div class="quoteback-head">       
@@ -21,7 +23,7 @@ console.log("quoteback-internal loaded");
           </div>  
       </div>
 		`;
-	
+
 		class QuoteBack extends HTMLElement {
 			constructor(){
 				
