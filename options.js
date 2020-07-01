@@ -144,8 +144,12 @@ ${decodeURIComponent(text)}
       newDiv.style.padding = "7px 7px 7px 7px";
       
       var content = newDiv.querySelector(".quoteback-content");
-      newDiv.querySelector(".quoteback-container").setAttribute("style", "margin: 0px 0px 0px 0px; font-family: 'Inter';");
-      newDiv.querySelector(".quoteback-content").setAttribute("style", "font-family:'Inter' !important; font-weight:400;");
+      newDiv.querySelector(".quoteback-container").setAttribute("style", "margin: 0px 0px 0px 0px");
+      if(navigator.userAgent.indexOf("Firefox") != -1 ){ 
+        console.log("firefox only");
+        newDiv.querySelector(".quoteback-container").setAttribute("style", "margin: 0px 0px 0px 0px; font-family: 'Inter';");
+        newDiv.querySelector(".quoteback-content").setAttribute("style", "font-family:'Inter' !important; font-weight:400;");
+      };
       var ems = content.querySelectorAll("div.quoteback-content > em");
       if(content.querySelector("em")){
         content.querySelector("em").setAttribute("style", "font-family:'Inter' !important; font-style: italic;");
