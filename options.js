@@ -1,3 +1,6 @@
+var debug = localStorage.getItem("quotebackdebug");
+if(debug){console.log("Debug set to true")};
+
 var alldata;
 var allKeys;
 var alljson = [];
@@ -13,7 +16,7 @@ document.addEventListener("DOMContentLoaded", function(){
       
     alldata = items;
 
-    console.log(alldata);
+    if(debug){console.log(alldata)};
     embedquoteback();
 
     //create sorted array by last_updated 
@@ -130,7 +133,7 @@ ${decodeURIComponent(text)}
 
       quote = el.closest(".quoteblock");
       quote = quote[0].querySelector("quoteback-component");
-      console.log(quote);
+      if(debug){console.log(quote)};
 
       var newDiv = document.createElement("div"); 
       newDiv.id = "copyimage";
@@ -356,7 +359,6 @@ function saveAs(uri, filename) {
       
       var url = $(".selected").attr("data-id");
       var object = alldata[url];
-      console.log($(this).text());
       if($(this).text() == "Add comment"){
         $(this).text("");
       };
@@ -466,7 +468,7 @@ function displayquotes(url){
 
     var quotetext = document.createElement("div");
     quotetext.innerHTML = item.text;
-    console.log(quotetext.textContent);
+    if(debug){console.log(quotetext.textContent)};
 
     var quotetemplate = `
     <div class="quoteblock">
