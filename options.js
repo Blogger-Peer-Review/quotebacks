@@ -194,7 +194,9 @@ ${decodeURIComponent(text)}
               console.log("Copied to clipboard successfully!");
               
               var element = document.getElementById("copyimage");
-              element.parentNode.removeChild(element);
+              if(debug){}else{
+                element.parentNode.removeChild(element);
+              }
 
               document.getElementById("panel-scrollContainer").style.height = "initial";
 
