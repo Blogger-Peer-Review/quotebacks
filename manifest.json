@@ -31,7 +31,8 @@
       "suggested_key": {
         "default": "Ctrl+Shift+S",
         "windows": "Ctrl+Shift+S",
-        "chromeos": "Ctrl+Shift+S"
+        "chromeos": "Ctrl+Shift+S",
+        "default": "Ctrl+Shift+S"
       }
     },
     "alt-open":{
@@ -39,7 +40,8 @@
       "suggested_key": {
         "mac": "Alt+S",
         "windows": "Alt+S",
-        "chromeos": "Alt+S"
+        "chromeos": "Alt+S",
+        "default": "Ctrl+Shift+S"
       }      
     }
   }
