@@ -41,7 +41,7 @@
         "mac": "Alt+S",
         "windows": "Alt+S",
         "chromeos": "Alt+S",
-        "default": "Ctrl+Shift+S"
+        "default": "Alt+S"
       }      
     }
   }
