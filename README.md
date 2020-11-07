@@ -3,7 +3,7 @@ Quote the web — [install Chrome extension](https://chrome.google.com/webstore
 
 ---
 
-Grab quotes from any page using Ctrl+Shift+S (on Max: cmf+Shift+S). Then grab the embed link to produce a live HTML citation like this:
+Grab quotes from any page using Ctrl+Shift+S (on Macs: cmf+Shift+S). Then grab the embed link to produce a live HTML citation like this:
 
 ![quoteback-preview](https://github.com/Blogger-Peer-Review/quotebacks/blob/master/quoteback-preview.png?raw=true)
 
