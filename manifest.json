@@ -1,7 +1,7 @@
 {
   "name": "Quotebacks - quote the web",
   "description": "Quote the web and manage your snippets.",
-  "version": "1.0.7",
+  "version": "1.1.2",
   "manifest_version": 2,
   "permissions": [
     "storage",
@@ -11,8 +11,10 @@
     "contextMenus"
   ],
   "icons": {
-    "32": "/images/favicon-32x32.png",
-    "128": "/images/favicon-128x128.png"
+    "16": "images/icon-16x16.png",
+    "32": "images/icon-32x32.png",
+    "48": "images/icon-48x48.png",
+    "128": "images/icon-128x128.png"
   },
   "browser_action": {
     "default_title": "Options"

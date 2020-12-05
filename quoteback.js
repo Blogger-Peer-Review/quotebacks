@@ -61,7 +61,7 @@ document.addEventListener("DOMContentLoaded", function(){
   			  
   			  this.text = decodeURIComponent(this.getAttribute('text'));
   			  this.author = this.getAttribute('author');
-  			  this.title = decodeURIComponent(this.getAttribute('title')); 
+  			  this.title = this.getAttribute('title'); 
   			  this.url = this.getAttribute('url')
           this.favicon = this.getAttribute('favicon');
           this.editable = this.getAttribute('editable');

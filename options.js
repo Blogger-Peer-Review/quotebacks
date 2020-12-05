@@ -1,3 +1,6 @@
+var debug = localStorage.getItem("quotebackdebug");
+if(debug){console.log("Debug set to true")};
+
 var alldata;
 var allKeys;
 var alljson = [];
@@ -13,7 +16,7 @@ document.addEventListener("DOMContentLoaded", function(){
       
     alldata = items;
 
-    console.log(alldata);
+    if(debug){console.log(alldata)};
     embedquoteback();
 
     //create sorted array by last_updated 
@@ -130,7 +133,7 @@ ${decodeURIComponent(text)}
 
       quote = el.closest(".quoteblock");
       quote = quote[0].querySelector("quoteback-component");
-      console.log(quote);
+      if(debug){console.log(quote)};
 
       var newDiv = document.createElement("div"); 
       newDiv.id = "copyimage";
@@ -144,8 +147,12 @@ ${decodeURIComponent(text)}
       newDiv.style.padding = "7px 7px 7px 7px";
       
       var content = newDiv.querySelector(".quoteback-content");
-      newDiv.querySelector(".quoteback-container").setAttribute("style", "margin: 0px 0px 0px 0px; font-family: 'Inter';");
-      newDiv.querySelector(".quoteback-content").setAttribute("style", "font-family:'Inter' !important; font-weight:400;");
+      newDiv.querySelector(".quoteback-container").setAttribute("style", "margin: 0px 0px 0px 0px");
+      if(navigator.userAgent.indexOf("Firefox") != -1 ){ 
+        console.log("firefox only");
+        newDiv.querySelector(".quoteback-container").setAttribute("style", "margin: 0px 0px 0px 0px; font-family: 'Inter';");
+        newDiv.querySelector(".quoteback-content").setAttribute("style", "font-family:'Inter' !important; font-weight:400;");
+      };
       var ems = content.querySelectorAll("div.quoteback-content > em");
       if(content.querySelector("em")){
         content.querySelector("em").setAttribute("style", "font-family:'Inter' !important; font-style: italic;");
@@ -187,7 +194,9 @@ ${decodeURIComponent(text)}
               console.log("Copied to clipboard successfully!");
               
               var element = document.getElementById("copyimage");
-              element.parentNode.removeChild(element);
+              if(debug){}else{
+                element.parentNode.removeChild(element);
+              }
 
               document.getElementById("panel-scrollContainer").style.height = "initial";
 
@@ -352,7 +361,6 @@ function saveAs(uri, filename) {
       
       var url = $(".selected").attr("data-id");
       var object = alldata[url];
-      console.log($(this).text());
       if($(this).text() == "Add comment"){
         $(this).text("");
       };
@@ -462,7 +470,7 @@ function displayquotes(url){
 
     var quotetext = document.createElement("div");
     quotetext.innerHTML = item.text;
-    console.log(quotetext.textContent);
+    if(debug){console.log(quotetext.textContent)};
 
     var quotetemplate = `
     <div class="quoteblock">
