@@ -24,7 +24,7 @@
     "scripts": ["background.js"],
     "persistent": false
   },
-  "web_accessible_resources": ["options.html","styles/styles.css","images/allquotes.png", "images/editicon.svg","quoteback-internal.js"],
+  "web_accessible_resources": ["options.html","styles/styles.css","images/allquotes.png", "images/editicon.svg","quoteback-internal.js","readability.js"],
   "commands": {
     "open-popup": {
       "description": "Capture a quote from the web",

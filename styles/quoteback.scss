@@ -26,7 +26,7 @@ $editIcon: 'url(${chrome.runtime.getURL("images/editicon.svg")})';
   --content-color:#464A4D;
   --internal-blockquote-color:#5C6D73;
   
-  &.dark-theme{
+  @media (prefers-color-scheme: dark) {
     --background-color: #161717;
     --border-color-normal: #253237;
     --border-color-hover: #5C6D73;
@@ -37,7 +37,7 @@ $editIcon: 'url(${chrome.runtime.getURL("images/editicon.svg")})';
 
     --content-color:#9DB8BF;
     --internal-blockquote-color:#5C6D73;
-  }
+  }  
 }
 
 .quoteback-container{

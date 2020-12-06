@@ -1,7 +1,16 @@
-$graybg: #EBEEF0;
-$lightbg: #F7F9FA;
-$graydiv: #d5d5d5;
-$selection: #2162AF;
+body{
+  --background:#EBEEF0;
+  --light-background:#F7F9FA;
+  --graydiv:#d5d5d5;
+  --selection:#2162AF;
+
+  @media(prefers-color-scheme: dark){
+    --background:#EBEEF0;
+    --light-background:#F7F9FA;
+    --graydiv:#d5d5d5;
+    --selection:#2162AF;   
+  }
+}
 
 body{
   font-size:14px;
@@ -19,14 +28,14 @@ body{
 }
 
 #nav{
-  border: 1px solid $graydiv;
+  border: 1px solid var(--graydiv);
   box-sizing: border-box;
   width:100%;
   height:36px;
   position:absolute;
-  top:0px;
+  top:0px;  
   left:0px;
-  background-color:$graybg;
+  background-color:var(--background);
   #searchbar{
     position:relative;  
     width: 516px;
@@ -84,8 +93,8 @@ body{
 
   #leftnav{
     position:relative;
-    border-right: 1px solid $graydiv;
-    background-color: $graybg;
+    border-right: 1px solid var(--graydiv);
+    background-color: var(--background);
     height:100vh;
     flex-grow:1;
     min-width:350px;
@@ -110,10 +119,10 @@ body{
   display:flex;
   z-index:105;
   width:100%;
-  background-color: $graybg;
+  background-color: var(--background);
   height:25px;
   font-size:14px;
-  border-bottom:1px solid $graydiv;
+  border-bottom:1px solid var(--graydiv);
   color: #333;
   font-weight:600;
   padding:5px 0px 0px 12px;
@@ -148,7 +157,7 @@ body{
   z-index: 10;
   background-color:white;
   font-size:14px;
-  border-bottom:1px solid $graydiv;
+  border-bottom:1px solid var(--graydiv);
   #titlebar-innercontainer{
     display:flex;
     flex-flow: row nowrap;
@@ -165,7 +174,7 @@ body{
   #titlebar-title{
     display:block;
     float:left;
-    color: $selection;
+    color: var(--selection);
     font-weight:600;
     padding:5px;
     white-space: nowrap; 
@@ -178,7 +187,7 @@ body{
     align-items:center;    
     width:40px;
     height:100%;
-    border-left: 1px solid $graydiv;
+    border-left: 1px solid var(--graydiv);
     &:hover{
       background-color: #fafafa;
     };
@@ -194,14 +203,14 @@ body{
 #titlebar-author, #titlebar-title{
  &:hover{
   opacity:.65;
-  background-color: $graybg;
+  background-color: var(--background);
  }
 }
 
 #titlebar-author, #titlebar-title{
   &:focus{
    opacity:.65;
-   background-color: $graybg;
+   background-color: var(--background);
    outline:none;
   }
  }
@@ -362,7 +371,7 @@ body{
   @include transition(all .1s ease);
   border-bottom: .5px solid #ECEEEF;
   padding:15px 11px 10px 15px;
-  background-color: $lightbg;
+  background-color: var(--light-background);
   cursor:pointer;
   display:flex;
   flex-flow:row nowrap;
@@ -396,13 +405,13 @@ body{
 }
 
 .selected{
-  border-left:4px solid $selection;
+  border-left:4px solid var(--selection);
   background-color: white;
   .title{
-    color: $selection;
+    color: var(--selection);
   }
   .url{
-    color: $selection;
+    color: var(--selection);
     opacity: 1;
   }  
 }
@@ -444,7 +453,7 @@ body{
   text-align: left;
   display: inline-block;
   background: linear-gradient(180deg, #FFFFFF 0%, #FCFCFC 14.58%, #FCFCFC 82.29%, #F6F6F6 100%);
-  border: 0.5px solid $graydiv;
+  border: 0.5px solid var(--graydiv);
   border-radius: 4px;
   &::placeholder{
     color: #767778;
@@ -468,7 +477,7 @@ body{
   width:100%;
   margin-left: 0em;
   background:white; 
-  border-bottom: 1px solid $graydiv;
+  border-bottom: 1px solid var(--graydiv);
   position:relative;
 }
 #searchResults li .title { font-size: 1.1em; margin-bottom: 10px; display: inline-block;}

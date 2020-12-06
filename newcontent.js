@@ -33,8 +33,11 @@ chrome.runtime.onMessage.addListener(
       }else{
           var page = document.location.href;      
       };
-    
-    
+
+      // NEW! Readability function parses the text and pushes to the quote ln line 71.
+      var articleText = new Readability(document).parse();
+      console.log(articleText.textContent);
+
       chrome.storage.local.get([page], function(result) {
         var page_object = {};        
         page_object["last_update"] = getDate();
@@ -48,7 +51,6 @@ chrome.runtime.onMessage.addListener(
             }else{
             page_object["title"] = document.title;
             }
-            
             if(getMeta("author")){
             page_object["author"] = getMeta("author");  
             }else{
@@ -66,6 +68,7 @@ chrome.runtime.onMessage.addListener(
     
         quote["text"] = text;
         quote["date"] = getDate();
+        quote["articleText"] = articleText;
     
         quotes.push(quote);
     
@@ -86,7 +89,7 @@ chrome.runtime.onMessage.addListener(
           console.log(object[page]["quotes"][0]);
         });
     
-        
+
         // Web Component Stuff Start Here //
         var component = `
         <quoteback-popup text="${encodeURIComponent(text)}" author="${page_object["author"]}" title="${encodeURIComponent(page_object["title"])}">
@@ -96,7 +99,6 @@ chrome.runtime.onMessage.addListener(
         `;   
 
   
-    
         var popup = document.createElement('div');
         document.documentElement.appendChild(popup);
         popup.innerHTML = component;

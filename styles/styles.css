@@ -137,6 +137,18 @@
   margin-block-end: .5em; }
 
 body {
+  --background:#EBEEF0;
+  --light-background:#F7F9FA;
+  --graydiv:#d5d5d5;
+  --selection:#2162AF; }
+  @media (prefers-color-scheme: dark) {
+    body {
+      --background:#EBEEF0;
+      --light-background:#F7F9FA;
+      --graydiv:#d5d5d5;
+      --selection:#2162AF; } }
+
+body {
   font-size: 14px;
   font-family: -apple-system, system-ui, "Open Sans", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol";
   margin: 0px;
@@ -150,14 +162,14 @@ body {
   margin-left: 12px; }
 
 #nav {
-  border: 1px solid #d5d5d5;
+  border: 1px solid var(--graydiv);
   box-sizing: border-box;
   width: 100%;
   height: 36px;
   position: absolute;
   top: 0px;
   left: 0px;
-  background-color: #EBEEF0; }
+  background-color: var(--background); }
   #nav #searchbar {
     position: relative;
     width: 516px;
@@ -204,8 +216,8 @@ body {
   width: 100%; }
   #appcontainer #leftnav {
     position: relative;
-    border-right: 1px solid #d5d5d5;
-    background-color: #EBEEF0;
+    border-right: 1px solid var(--graydiv);
+    background-color: var(--background);
     height: 100vh;
     flex-grow: 1;
     min-width: 350px;
@@ -225,10 +237,10 @@ body {
   display: flex;
   z-index: 105;
   width: 100%;
-  background-color: #EBEEF0;
+  background-color: var(--background);
   height: 25px;
   font-size: 14px;
-  border-bottom: 1px solid #d5d5d5;
+  border-bottom: 1px solid var(--graydiv);
   color: #333;
   font-weight: 600;
   padding: 5px 0px 0px 12px;
@@ -255,7 +267,7 @@ body {
   z-index: 10;
   background-color: white;
   font-size: 14px;
-  border-bottom: 1px solid #d5d5d5; }
+  border-bottom: 1px solid var(--graydiv); }
   #titlebar #titlebar-innercontainer {
     display: flex;
     flex-flow: row nowrap;
@@ -270,7 +282,7 @@ body {
   #titlebar #titlebar-title {
     display: block;
     float: left;
-    color: #2162AF;
+    color: var(--selection);
     font-weight: 600;
     padding: 5px;
     white-space: nowrap;
@@ -282,7 +294,7 @@ body {
     align-items: center;
     width: 40px;
     height: 100%;
-    border-left: 1px solid #d5d5d5; }
+    border-left: 1px solid var(--graydiv); }
     #titlebar #titlebar-options:hover {
       background-color: #fafafa; }
     #titlebar #titlebar-options::after {
@@ -293,11 +305,11 @@ body {
 
 #titlebar-author:hover, #titlebar-title:hover {
   opacity: .65;
-  background-color: #EBEEF0; }
+  background-color: var(--background); }
 
 #titlebar-author:focus, #titlebar-title:focus {
   opacity: .65;
-  background-color: #EBEEF0;
+  background-color: var(--background);
   outline: none; }
 
 [contenteditable=true]:empty:before {
@@ -438,7 +450,7 @@ body {
   transition: all 0.1s ease;
   border-bottom: .5px solid #ECEEEF;
   padding: 15px 11px 10px 15px;
-  background-color: #F7F9FA;
+  background-color: var(--light-background);
   cursor: pointer;
   display: flex;
   flex-flow: row nowrap;
@@ -465,12 +477,12 @@ body {
       vertical-align: bottom; }
 
 .selected {
-  border-left: 4px solid #2162AF;
+  border-left: 4px solid var(--selection);
   background-color: white; }
   .selected .title {
-    color: #2162AF; }
+    color: var(--selection); }
   .selected .url {
-    color: #2162AF;
+    color: var(--selection);
     opacity: 1; }
 
 .mini-favicon {
@@ -506,7 +518,7 @@ body {
   text-align: left;
   display: inline-block;
   background: linear-gradient(180deg, #FFFFFF 0%, #FCFCFC 14.58%, #FCFCFC 82.29%, #F6F6F6 100%);
-  border: 0.5px solid #d5d5d5;
+  border: 0.5px solid var(--graydiv);
   border-radius: 4px; }
   #fastSearch input::placeholder {
     color: #767778;
@@ -527,7 +539,7 @@ body {
   width: 100%;
   margin-left: 0em;
   background: white;
-  border-bottom: 1px solid #d5d5d5;
+  border-bottom: 1px solid var(--graydiv);
   position: relative; }
 
 #searchResults li .title {
@@ -697,5 +709,13 @@ body.welcome {
   width: 500px; }
   body.welcome ol li {
     margin-bottom: .5rem; }
+
+.article-container {
+  max-width: 700px; }
+  .article-container figure {
+    margin: 0px; }
+  .article-container img {
+    width: 100%;
+    height: auto; }
 
 /*# sourceMappingURL=styles.css.map */
