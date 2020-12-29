@@ -140,13 +140,15 @@ body {
   --background:#EBEEF0;
   --light-background:#F7F9FA;
   --graydiv:#d5d5d5;
-  --selection:#2162AF; }
+  --selection:#2162AF;
+  --rightpanel: white; }
   @media (prefers-color-scheme: dark) {
     body {
-      --background:#EBEEF0;
-      --light-background:#F7F9FA;
-      --graydiv:#d5d5d5;
-      --selection:#2162AF; } }
+      --background:#323333;
+      --light-background:#4B4D4D;
+      --graydiv:#656565;
+      --selection:#2162AF;
+      --rightpanel: #4B4D4D; } }
 
 body {
   font-size: 14px;
@@ -228,7 +230,7 @@ body {
     position: relative;
     min-width: 800px;
     flex-grow: 2;
-    background: white;
+    background: var(--rightpanel);
     height: 100vh;
     overflow: scroll; }
 
@@ -265,7 +267,7 @@ body {
   justify-content: space-between;
   height: 40px;
   z-index: 10;
-  background-color: white;
+  background-color: var(--light-background);
   font-size: 14px;
   border-bottom: 1px solid var(--graydiv); }
   #titlebar #titlebar-innercontainer {
@@ -450,7 +452,7 @@ body {
   transition: all 0.1s ease;
   border-bottom: .5px solid #ECEEEF;
   padding: 15px 11px 10px 15px;
-  background-color: var(--light-background);
+  background-color: var(--background);
   cursor: pointer;
   display: flex;
   flex-flow: row nowrap;
@@ -499,7 +501,7 @@ body {
   z-index: 5; }
   #fastSearch:focus-within #searchInput {
     box-shadow: 0 1px 1px 0 rgba(65, 69, 73, 0.3), 0 1px 3px 1px rgba(65, 69, 73, 0.15);
-    background: white;
+    background: var(--light-background);
     border: none;
     border-radius: 4px 4px 0px 0px; }
 
@@ -513,11 +515,11 @@ body {
   width: 100%;
   height: 26px;
   font-size: 14px;
-  background: #ECEEEF;
+  background: var(--light-background);
   outline: none;
   text-align: left;
   display: inline-block;
-  background: linear-gradient(180deg, #FFFFFF 0%, #FCFCFC 14.58%, #FCFCFC 82.29%, #F6F6F6 100%);
+  background: var(--light-background);
   border: 0.5px solid var(--graydiv);
   border-radius: 4px; }
   #fastSearch input::placeholder {
