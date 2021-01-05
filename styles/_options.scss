@@ -4,13 +4,15 @@ body{
   --graydiv:#d5d5d5;
   --selection:#2162AF;
   --rightpanel: white;
+  --article-title: #253237;
 
   @media(prefers-color-scheme: dark){
     --background:#323333;
     --light-background:#4B4D4D;
     --graydiv:#656565;
-    --selection:#2162AF;   
+    --selection: white;   
     --rightpanel: #4B4D4D;
+    --article-title: rgba(255,255,255,.65);
   }
 }
 
@@ -371,19 +373,19 @@ body{
 
 .article{
   @include transition(all .1s ease);
-  border-bottom: .5px solid #ECEEEF;
-  padding:15px 11px 10px 15px;
+  border-bottom: .5px solid var(--graydiv);
+  padding: 15px 11px 10px 15px;
   background-color: var(--background);
-  cursor:pointer;
-  display:flex;
-  flex-flow:row nowrap;
+  cursor: pointer;
+  display: flex;
+  flex-flow: row nowrap;
   justify-content: start;
   align-items: stretch;
   &:hover{
-    background-color:white;
+    background-color: var(--rightpanel);
   }
   .title{
-    color: #253237;
+    color: var(--article-title);
     font-weight:600;
     margin-bottom:8px;
     white-space: nowrap; 
@@ -392,10 +394,10 @@ body{
     padding-right:5px;    
   } 
   .url{
-    font-weight:300;
+    font-weight: 300;
     margin-left: auto;
     white-space: nowrap;
-    color: #253237;
+    color: var(--article-title);
     opacity: .5;
 
     img{
@@ -407,8 +409,8 @@ body{
 }
 
 .selected{
-  border-left:4px solid var(--selection);
-  background-color: white;
+  border-left: 4px solid var(--selection);
+  background-color: var(--rightpanel);
   .title{
     color: var(--selection);
   }
