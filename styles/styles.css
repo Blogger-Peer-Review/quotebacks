@@ -156,7 +156,8 @@ body {
   font-size: 14px;
   font-family: -apple-system, system-ui, "Open Sans", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol";
   margin: 0px;
-  padding: 0px; }
+  padding: 0px;
+  background-color: var(--background); }
 
 #pagetitle {
   float: left;
