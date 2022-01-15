@@ -82,12 +82,17 @@ chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
                 chrome.tabs.executeScript({
                   file: 'quoteback-internal.js'
                 },function(){
+                  chrome.tabs.executeScript({
+                    file: 'readability.js'
+                  },function(){
+
                     // console.log("...and now that those scripts are loaded we are sending a message to newcontent.js");
                     // Send copyquote command
                     chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
                       chrome.tabs.sendMessage(tabs[0].id, {message: "copyquote"}, function(response) {
-                      });
-                    }); 
+                      });                
+                    });
+                  });
                 });
               });
             });

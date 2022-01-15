@@ -1,4 +1,6 @@
-var debug = false; // enable logging, prevent blur, make countdown 500
+var debug = localStorage.getItem("quotebackdebug");
+if(debug){console.log("Debug set to true")};
+//var debug = false; // enable logging, prevent blur, make countdown 500
 
 chrome.runtime.onMessage.addListener(
   function(request, sender, sendResponse) {
@@ -31,8 +33,16 @@ chrome.runtime.onMessage.addListener(
       }else{
           var page = document.location.href;      
       };
-    
-    
+
+      // NEW! Readability function parses the text and pushes to the quote on line 87.
+      //var documentClone = document.cloneNode(true); - this doesn't work
+      var documentClone = document.implementation.createHTMLDocument('');
+      var pagehtml = document.body.innerHTML;
+      documentClone.body.innerHTML = pagehtml;
+      var articleText = new Readability(documentClone).parse();
+      //console.log(articleText.textContent);
+      
+
       chrome.storage.local.get([page], function(result) {
         var page_object = {};        
         page_object["last_update"] = getDate();
@@ -46,7 +56,6 @@ chrome.runtime.onMessage.addListener(
             }else{
             page_object["title"] = document.title;
             }
-            
             if(getMeta("author")){
             page_object["author"] = getMeta("author");  
             }else{
@@ -64,6 +73,7 @@ chrome.runtime.onMessage.addListener(
     
         quote["text"] = text;
         quote["date"] = getDate();
+        quote["articleText"] = articleText;
     
         quotes.push(quote);
     
@@ -84,7 +94,7 @@ chrome.runtime.onMessage.addListener(
           console.log(object[page]["quotes"][0]);
         });
     
-        
+
         // Web Component Stuff Start Here //
         var component = `
         <quoteback-popup text="${encodeURIComponent(text)}" author="${page_object["author"]}" title="${encodeURIComponent(page_object["title"])}">
@@ -94,7 +104,6 @@ chrome.runtime.onMessage.addListener(
         `;   
 
   
-    
         var popup = document.createElement('div');
         document.documentElement.appendChild(popup);
         popup.innerHTML = component;

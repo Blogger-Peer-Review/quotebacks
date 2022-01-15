@@ -1,2 +1,199 @@
-@import url("https://rsms.me/inter/inter.css");.quoteback-container{--background-color: white;--border-color-normal: #C2DFE3;--border-color-hover: #9DB8BF;--author-color: black;--title-color: #5C6D73;--gototext-color:#9DB8BF;--content-color:#464A4D;--internal-blockquote-color:#5C6D73}.quoteback-container.dark-theme{--background-color: #161717;--border-color-normal: #253237;--border-color-hover: #5C6D73;--author-color: #E0FBFC;--title-color: #9DB8BF;--gototext-color:#5C6D73;--content-color:#9DB8BF;--internal-blockquote-color:#5C6D73}.quoteback-container{font-family:"SF Pro Text", -apple-system, system-ui, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol";text-rendering:optimizeLegibility;border:1px solid var(--border-color-normal);border-radius:8px;margin-bottom:25px;max-width:800px;background-color:var(--background-color);text-align:left;-webkit-transition:all 0.2s ease;-moz-transition:all 0.2s ease;-ms-transition:all 0.2s ease;-o-transition:all 0.2s ease;transition:all 0.2s ease}.quoteback-container:hover{transform:translateY(-3px);box-shadow:0px 6px 20px 0px rgba(0,0,0,0.15);border:1px solid var(--border-color-hover)}.quoteback-container .quoteback-parent{overflow:hidden;position:relative;width:100%;box-sizing:border-box}.quoteback-container .quoteback-parent .quoteback-content{font-family:-apple-system, system-ui, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol";font-size:16px;font-weight:400;padding:15px;color:var(--content-color);line-height:150%}.quoteback-container .quoteback-parent .quoteback-content em{font-family:inherit}.quoteback-container .quoteback-head{border-top:1px solid var(--border-color-normal);display:flex;flex-flow:row nowrap;justify-content:start;align-items:stretch;padding-left:15px;-webkit-transition:all 0.2s ease;-moz-transition:all 0.2s ease;-ms-transition:all 0.2s ease;-o-transition:all 0.2s ease;transition:all 0.2s ease}.quoteback-container .quoteback-head .quoteback-avatar{border-radius:100%;border:1px solid var(--border-color-normal);width:42px;height:42px;min-width:42px !important;margin:12px 0px;position:relative}.quoteback-container .quoteback-head .quoteback-avatar .mini-favicon{width:22px;height:22px;position:absolute;margin:auto;top:0;left:0;right:0;bottom:0}.quoteback-container .quoteback-head .quoteback-metadata{min-width:0px;display:flex;flex-shrink:1;align-items:center;margin-left:10px}.quoteback-container .quoteback-head .metadata-inner{font-size:14px;line-height:1.2;width:100%;max-width:525px}@media (max-width: 414px){.quoteback-container .quoteback-head .metadata-inner{max-width:200px}}.quoteback-container .quoteback-head .metadata-inner .quoteback-title{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;font-weight:600;padding-right:20px;color:var(--title-color)}.quoteback-container .quoteback-head .metadata-inner .quoteback-author{font-size:14px;line-height:1.2;color:var(--author-color);font-weight:600;margin-bottom:2px}.quoteback-container .quoteback-head .quoteback-backlink{margin-left:auto;display:flex;flex-shrink:1;align-items:center;width:81px;min-width:81px !important;padding:0px 15px !important;border-left:1px solid var(--border-color-normal)}.quoteback-container .quoteback-head .quoteback-backlink .quoteback-arrow{border:none !important;font-family:inherit !important;font-size:14px !important;color:var(--gototext-color) !important;text-decoration:none !important;-webkit-transition:opacity 0.15s ease;-moz-transition:opacity 0.15s ease;-ms-transition:opacity 0.15s ease;-o-transition:opacity 0.15s ease;transition:opacity 0.15s ease}.quoteback-container .quoteback-head .quoteback-backlink .quoteback-arrow:hover{opacity:.5 !important}.quoteback-container .quoteback-head .quoteback-backlink .quoteback-arrow:visited{text-decoration:none !important}.editable:focus{outline:none}.editable:before{margin-right:8px;content:'url(${chrome.runtime.getURL("images/editicon.svg")})'}.quoteback-content a{color:var(--content-color);-webkit-transition:opacity 0.2s ease;-moz-transition:opacity 0.2s ease;-ms-transition:opacity 0.2s ease;-o-transition:opacity 0.2s ease;transition:opacity 0.2s ease}.quoteback-content a:hover{opacity:.5}.quoteback-content p{margin-block-start:0px;margin-block-end:.5em}.quoteback-content p:last-of-type{margin-block-end:0px}.quoteback-content img{width:100%;height:auto;margin:.5em 0em}.quoteback-content blockquote{border-left:2px solid var(--border-color-normal);padding-left:.75em;margin-inline-start:1em;color:var(--internal-blockquote-color)}.quoteback-content ol,.quoteback-content ul{margin-block-start:.5em;margin-block-end:.5em}.quoteback-content h1,.quoteback-content h2,.quoteback-content h3{margin-block-start:.5em;margin-block-end:.5em}
+@import url("https://rsms.me/inter/inter.css");
+    .quoteback-container {
+    --background-color: white;
+    --border-color-normal: #C2DFE3;
+    --border-color-hover: #9DB8BF;
+    --author-color: black;
+    --title-color: #5C6D73;
+    --gototext-color: #9DB8BF;
+    --content-color: #464A4D;
+    --internal-blockquote-color: #5C6D73;
+}
+@media (prefers-color-scheme: dark) {
+    .quoteback-container {
+    --background-color: #161717;
+    --border-color-normal: #253237;
+    --border-color-hover: #5C6D73;
+    --author-color: #E0FBFC;
+    --title-color: #9DB8BF;
+    --gototext-color: #5C6D73;
+    --content-color: #9DB8BF;
+    --internal-blockquote-color: #5C6D73;
+}
+}
+.quoteback-container {
+    font-family: "SF Pro Text", -apple-system, system-ui, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol";
+    text-rendering: optimizeLegibility;
+    border: 1px solid var(--border-color-normal);
+    border-radius: 8px;
+    margin-bottom: 25px;
+    max-width: 800px;
+    background-color: var(--background-color);
+    text-align: left;
+    -webkit-transition: all 0.2s ease;
+    -moz-transition: all 0.2s ease;
+    -ms-transition: all 0.2s ease;
+    -o-transition: all 0.2s ease;
+    transition: all 0.2s ease;
+}
+.quoteback-container:hover {
+    transform: translateY(-3px);
+    box-shadow: 0px 6px 20px 0px rgba(0, 0, 0, 0.15);
+    border: 1px solid var(--border-color-hover);
+}
+.quoteback-container .quoteback-parent {
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+    box-sizing: border-box;
+}
+.quoteback-container .quoteback-parent .quoteback-content {
+    font-family: -apple-system, system-ui, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol";
+    font-size: 16px;
+    font-weight: 400;
+    padding: 15px;
+    color: var(--content-color);
+    line-height: 150%}
+.quoteback-container .quoteback-parent .quoteback-content em {
+    font-family: inherit;
+}
+.quoteback-container .quoteback-head {
+    border-top: 1px solid var(--border-color-normal);
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: start;
+    align-items: stretch;
+    padding-left: 15px;
+    -webkit-transition: all 0.2s ease;
+    -moz-transition: all 0.2s ease;
+    -ms-transition: all 0.2s ease;
+    -o-transition: all 0.2s ease;
+    transition: all 0.2s ease;
+}
+.quoteback-container .quoteback-head .quoteback-avatar {
+    border-radius: 100%;
+    border: 1px solid var(--border-color-normal);
+    width: 42px;
+    height: 42px;
+    min-width: 42px !important;
+    margin: 12px 0px;
+    position: relative;
+}
+.quoteback-container .quoteback-head .quoteback-avatar .mini-favicon {
+    width: 22px;
+    height: 22px;
+    position: absolute;
+    margin: auto;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+.quoteback-container .quoteback-head .quoteback-metadata {
+    min-width: 0px;
+    display: flex;
+    flex-shrink: 1;
+    align-items: center;
+    margin-left: 10px;
+}
+.quoteback-container .quoteback-head .metadata-inner {
+    font-size: 14px;
+    line-height: 1.2;
+    width: 100%;
+    max-width: 525px;
+}
+@media (max-width: 414px) {
+    .quoteback-container .quoteback-head .metadata-inner {
+    max-width: 200px;
+}
+}
+.quoteback-container .quoteback-head .metadata-inner .quoteback-title {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-weight: 600;
+    padding-right: 20px;
+    color: var(--title-color);
+}
+.quoteback-container .quoteback-head .metadata-inner .quoteback-author {
+    font-size: 14px;
+    line-height: 1.2;
+    color: var(--author-color);
+    font-weight: 600;
+    margin-bottom: 2px;
+}
+.quoteback-container .quoteback-head .quoteback-backlink {
+    margin-left: auto;
+    display: flex;
+    flex-shrink: 1;
+    align-items: center;
+    width: 81px;
+    min-width: 81px !important;
+    padding: 0px 15px !important;
+    border-left: 1px solid var(--border-color-normal);
+}
+.quoteback-container .quoteback-head .quoteback-backlink .quoteback-arrow {
+    border: none !important;
+    font-family: inherit !important;
+    font-size: 14px !important;
+    color: var(--gototext-color) !important;
+    text-decoration: none !important;
+    -webkit-transition: opacity 0.15s ease;
+    -moz-transition: opacity 0.15s ease;
+    -ms-transition: opacity 0.15s ease;
+    -o-transition: opacity 0.15s ease;
+    transition: opacity 0.15s ease;
+}
+.quoteback-container .quoteback-head .quoteback-backlink .quoteback-arrow:hover {
+    opacity: .5 !important;
+}
+.quoteback-container .quoteback-head .quoteback-backlink .quoteback-arrow:visited {
+    text-decoration: none !important;
+}
+.editable:focus {
+    outline: none;
+}
+.editable:before {
+    margin-right: 8px;
+    content: 'url($ {
+    chrome.runtime.getURL("images/editicon.svg");
+}
+)'}
+.quoteback-content a {
+    color: var(--content-color);
+    -webkit-transition: opacity 0.2s ease;
+    -moz-transition: opacity 0.2s ease;
+    -ms-transition: opacity 0.2s ease;
+    -o-transition: opacity 0.2s ease;
+    transition: opacity 0.2s ease;
+}
+.quoteback-content a:hover {
+    opacity: .5;
+}
+.quoteback-content p {
+    margin-block-start: 0px;
+    margin-block-end: .5em;
+}
+.quoteback-content p:last-of-type {
+    margin-block-end: 0px;
+}
+.quoteback-content img {
+    width: 100%;
+    height: auto;
+    margin: .5em 0em;
+}
+.quoteback-content blockquote {
+    border-left: 2px solid var(--border-color-normal);
+    padding-left: .75em;
+    margin-inline-start: 1em;
+    color: var(--internal-blockquote-color);
+}
+.quoteback-content ol, .quoteback-content ul {
+    margin-block-start: .5em;
+    margin-block-end: .5em;
+}
+.quoteback-content h1, .quoteback-content h2, .quoteback-content h3 {
+    margin-block-start: .5em;
+    margin-block-end: .5em;
+}
 /*# sourceMappingURL=quoteback.css.map */

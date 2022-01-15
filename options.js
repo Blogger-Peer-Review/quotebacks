@@ -1,3 +1,6 @@
+var debug = localStorage.getItem("quotebackdebug");
+if(debug){console.log("Debug set to true")};
+
 var alldata;
 var allKeys;
 var alljson = [];
@@ -13,7 +16,7 @@ document.addEventListener("DOMContentLoaded", function(){
       
     alldata = items;
 
-    console.log(alldata);
+    if(debug){console.log(alldata)};
     embedquoteback();
 
     //create sorted array by last_updated 
@@ -94,6 +97,12 @@ document.addEventListener("DOMContentLoaded", function(){
       }, 1000);
     });
 
+
+    $('#rightpanel').on('click',"#article-view", function(){
+      var url = $(".selected").attr("data-id");
+      displayArticle(url);
+    });
+
     $('#rightpanel').on('click',"#embedLink", function() {
 
       var quote = $(this).closest(".quote-container").find("#quoteback-component");
@@ -130,7 +139,7 @@ ${decodeURIComponent(text)}
 
       quote = el.closest(".quoteblock");
       quote = quote[0].querySelector("quoteback-component");
-      console.log(quote);
+      if(debug){console.log(quote)};
 
       var newDiv = document.createElement("div"); 
       newDiv.id = "copyimage";
@@ -144,8 +153,12 @@ ${decodeURIComponent(text)}
       newDiv.style.padding = "7px 7px 7px 7px";
       
       var content = newDiv.querySelector(".quoteback-content");
-      newDiv.querySelector(".quoteback-container").setAttribute("style", "margin: 0px 0px 0px 0px; font-family: 'Inter';");
-      newDiv.querySelector(".quoteback-content").setAttribute("style", "font-family:'Inter' !important; font-weight:400;");
+      newDiv.querySelector(".quoteback-container").setAttribute("style", "margin: 0px 0px 0px 0px");
+      if(navigator.userAgent.indexOf("Firefox") != -1 ){ 
+        console.log("firefox only");
+        newDiv.querySelector(".quoteback-container").setAttribute("style", "margin: 0px 0px 0px 0px; font-family: 'Inter';");
+        newDiv.querySelector(".quoteback-content").setAttribute("style", "font-family:'Inter' !important; font-weight:400;");
+      };
       var ems = content.querySelectorAll("div.quoteback-content > em");
       if(content.querySelector("em")){
         content.querySelector("em").setAttribute("style", "font-family:'Inter' !important; font-style: italic;");
@@ -187,7 +200,9 @@ ${decodeURIComponent(text)}
               console.log("Copied to clipboard successfully!");
               
               var element = document.getElementById("copyimage");
-              element.parentNode.removeChild(element);
+              if(debug){}else{
+                element.parentNode.removeChild(element);
+              }
 
               document.getElementById("panel-scrollContainer").style.height = "initial";
 
@@ -206,8 +221,7 @@ ${decodeURIComponent(text)}
           console.log('oops, something went wrong!', error);
       });
     
-    
-    
+      
     
 
     });
@@ -352,7 +366,6 @@ function saveAs(uri, filename) {
       
       var url = $(".selected").attr("data-id");
       var object = alldata[url];
-      console.log($(this).text());
       if($(this).text() == "Add comment"){
         $(this).text("");
       };
@@ -405,7 +418,7 @@ document.getElementById('fileid').onchange = function(evt) {
       console.error(err);
   }
 }
-
+      
 // CLEAR STORAGE
 document.getElementById("clearStorage").onclick = function(){
   var r = confirm("Are you sure you want to delete all citations?!");
@@ -432,6 +445,21 @@ document.getElementById("exportQuotes").onclick = function(){
 
 
 
+function displayArticle(url){
+  if(alldata[url]){
+    document.getElementById('panel-scrollContainer').innerHTML = "";
+
+    var content = alldata[url].quotes[0].articleText.content;
+    console.log(content);
+
+    var articleTemplate = `
+    <div class="article-container">
+      ${content}
+    </div>
+    `
+    document.getElementById('panel-scrollContainer').insertAdjacentHTML("beforeend", articleTemplate);
+  }
+}
 
 
 
@@ -439,70 +467,70 @@ function displayquotes(url){
 
   if(alldata[url]){
 
-  document.getElementById('panel-scrollContainer').innerHTML = "";
+    document.getElementById('panel-scrollContainer').innerHTML = "";
 
-  window.location.hash = url;
+    window.location.hash = url;
 
-  const fragment = document.getElementById('quote');
+    const fragment = document.getElementById('quote');
 
-  var offset = $(".article[data-id='"+url+"']").offset();
-  if(offset){
-    $("#article-scrollContainer").scrollTop(offset.top);
-  }
-    
-  alldata[url].quotes.forEach(item => {
+    var offset = $(".article[data-id='"+url+"']").offset();
+    if(offset){
+      $("#article-scrollContainer").scrollTop(offset.top);
+    }
+      
+    alldata[url].quotes.forEach(item => {
 
-    var date = new Date(item.date);
-    var dd = String(date.getDate()).padStart(2, '0');
-    var mm = String(date.getMonth() + 1).padStart(2, '0'); //January is 0!
-    var yyyy = date.getFullYear();
-    
-    date = mm + '/' + dd + '/' + yyyy;
-    var datefield = date;
+      var date = new Date(item.date);
+      var dd = String(date.getDate()).padStart(2, '0');
+      var mm = String(date.getMonth() + 1).padStart(2, '0'); //January is 0!
+      var yyyy = date.getFullYear();
+      
+      date = mm + '/' + dd + '/' + yyyy;
+      var datefield = date;
 
-    var quotetext = document.createElement("div");
-    quotetext.innerHTML = item.text;
-    console.log(quotetext.textContent);
+      var quotetext = document.createElement("div");
+      quotetext.innerHTML = item.text;
+      if(debug){console.log(quotetext.textContent)};
 
-    var quotetemplate = `
-    <div class="quoteblock">
-      <div class="meta">
-      <div class="date">Created ${datefield}</div>
-      <div class="linkback"><a target="_blank" rel="noopener" href="${url}#:~:text=${encodeURIComponent(quotetext.textContent)}">View Original</a></div>
-      </div>
-      <div class="quote-container">
-        <quoteback-component id="quoteback-component" url="${url}" text="${encodeURIComponent(item.text)}" author="${alldata[url].author}" title="${encodeURIComponent(alldata[url].title)}" favicon="https://s2.googleusercontent.com/s2/favicons?domain_url=${url}&size=64"> 
-        </quoteback-component> 
-        <div class="quote-controls">
-          <button id="embedLink" class="options-control-button"><> Embed</button>        
-          <button id="copyimg" class="options-control-button">Copy Image</button>        
-          <button id="copy" class="options-control-button">Copy Text</button>
-          <button id="copymd" class="options-control-button">Copy Markdown</button>
-          <button id="delete" class="options-control-button">Delete</button>        
+      var quotetemplate = `
+      <div class="quoteblock">
+        <div class="meta">
+        <div class="date">Created ${datefield}</div>
+        <div class="linkback"><a target="_blank" rel="noopener" href="${url}#:~:text=${encodeURIComponent(quotetext.textContent)}">View Original</a></div>
         </div>
+        <div class="quote-container">
+          <quoteback-component id="quoteback-component" url="${url}" text="${encodeURIComponent(item.text)}" author="${alldata[url].author}" title="${encodeURIComponent(alldata[url].title)}" favicon="https://s2.googleusercontent.com/s2/favicons?domain_url=${url}&size=64"> 
+          </quoteback-component> 
+          <div class="quote-controls">
+            <button id="embedLink" class="options-control-button"><> Embed</button>        
+            <button id="copyimg" class="options-control-button">Copy Image</button>        
+            <button id="copy" class="options-control-button">Copy Text</button>
+            <button id="copymd" class="options-control-button">Copy Markdown</button>
+            <button id="delete" class="options-control-button">Delete</button>        
+          </div>
+        </div>
+      <div class="comment" contenteditable="true" ${item.comment ? "style='color:#464A4D'" : ""}>${item.comment ? item.comment : "Add Comment"}</div>
       </div>
-    <div class="comment" contenteditable="true" ${item.comment ? "style='color:#464A4D'" : ""}>${item.comment ? item.comment : "Add Comment"}</div>
-    </div>
-    `;
-    
-    embedquoteback();
-    // Append the instance ot the DOM
-    document.getElementById('panel-scrollContainer').insertAdjacentHTML("beforeend", quotetemplate);
+      `;
+      
+      embedquoteback();
+      // Append the instance ot the DOM
+      document.getElementById('panel-scrollContainer').insertAdjacentHTML("beforeend", quotetemplate);
 
-    
+      
 
-    $( ".article" ).each(function() {
-      $( this ).removeClass( "selected" );
+      $( ".article" ).each(function() {
+        $( this ).removeClass( "selected" );
+      });
+
+      $(".article[data-id='"+url+"']").addClass( "selected" );
+
+      // Update the Title Bar
+      var titlebar = document.getElementById('titlebar');
+      titlebar.querySelector("#titlebar-author").innerHTML = alldata[url].author;
+      titlebar.querySelector("#titlebar-title").innerHTML = alldata[url].title;
+
     });
-
-    $(".article[data-id='"+url+"']").addClass( "selected" );
-
-    // Update the Title Bar
-    var titlebar = document.getElementById('titlebar');
-    titlebar.querySelector("#titlebar-author").innerHTML = alldata[url].author;
-    titlebar.querySelector("#titlebar-title").innerHTML = alldata[url].title;
-
-  });
   }
 };
 
