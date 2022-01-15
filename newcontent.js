@@ -34,12 +34,11 @@ chrome.runtime.onMessage.addListener(
           var page = document.location.href;      
       };
 
-      // NEW! Readability function parses the text and pushes to the quote ln line 71.
-      //var documentClone = document.cloneNode(true); 
+      // NEW! Readability function parses the text and pushes to the quote on line 87.
+      //var documentClone = document.cloneNode(true); - this doesn't work
       var documentClone = document.implementation.createHTMLDocument('');
       var pagehtml = document.body.innerHTML;
       documentClone.body.innerHTML = pagehtml;
-
       var articleText = new Readability(documentClone).parse();
       //console.log(articleText.textContent);
       
