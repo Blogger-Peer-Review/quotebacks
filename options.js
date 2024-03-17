@@ -703,6 +703,10 @@ document.addEventListener("DOMContentLoaded", function(){
     globalOptions.addEventListener("mouseout", removeMenu);
 });
 
+document.addEventListener("DOMContentLoaded", function(){
+  var isChrome = navigator.appVersion.indexOf("Chrome/") >= 0;
+  $("#capture-shortcut").text(isChrome ? "&#8984;+Shift+S" : "Shift+S");
+});
 
 
 
