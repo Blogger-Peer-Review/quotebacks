@@ -45,13 +45,37 @@ function onClickHandler(info, tab) {
   }
 };
 
+function pingActiveTab(callback) {
+  // Hack alert!
+  // Safari does not call the response callback of sendMessage when no content scripts are loaded
+  // so we are using an alternative method to check if the content script is loaded via a timeout
+
+  var pingTimedOut = false;
+  var timeout = setTimeout(function () {
+    pingTimedOut = true;
+    callback(undefined);
+  }, 100);
+
+  chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
+    chrome.tabs.sendMessage(
+      tabs[0].id,
+      { message: "ping" },
+      function (response) {
+        clearTimeout(timeout);
+        if (!pingTimedOut) {
+          callback(response);
+        }
+      }
+    );
+  });
+}
+
 function copyquote(){
   // console.log("invoke the quotebacks!")
   //send ping. If no response then load scripts.
 
-
 chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
-  chrome.tabs.sendMessage(tabs[0].id, {message: "ping"}, function(response) {
+  pingActiveTab( function(response) {
     if(response){
       // Send copyquote command
       console.log("we heard a response and we are sending a message to newcontent.js");
